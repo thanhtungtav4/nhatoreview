@@ -1,0 +1,48 @@
+- generic [ref=f20e1]:
+  - banner [ref=f20e2]:
+    - link "Chuyển đến nội dung chính" [ref=f20e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - generic [ref=f20e4]:
+      - link "NHATO Collection — Trang chủ" [ref=f20e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f20e7]: COLLECTION
+      - navigation "Điều hướng chính" [ref=f20e20]:
+        - list [ref=f20e21]:
+          - listitem [ref=f20e22]:
+            - link "Network" [active] [ref=f20e23] [cursor=pointer]:
+              - /url: /pages/network.html
+          - listitem [ref=f20e24]:
+            - link "Home" [ref=f20e25] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f20e26]:
+            - link "Art" [ref=f20e27] [cursor=pointer]:
+              - /url: /pages/art.html
+          - listitem [ref=f20e28]:
+            - link "Taste" [ref=f20e29] [cursor=pointer]:
+              - /url: /pages/taste.html
+          - listitem [ref=f20e30]:
+            - link "Original" [ref=f20e31] [cursor=pointer]:
+              - /url: /pages/original.html
+        - generic [ref=f20e32]:
+          - paragraph [ref=f20e33]: Curation for a considered life.
+          - generic "Mạng xã hội" [ref=f20e34]:
+            - link "Facebook" [ref=f20e35] [cursor=pointer]:
+              - /url: https://www.facebook.com/
+            - link "TikTok" [ref=f20e38] [cursor=pointer]:
+              - /url: https://www.tiktok.com/
+            - link "YouTube" [ref=f20e41] [cursor=pointer]:
+              - /url: https://www.youtube.com/
+          - link "0968 677 337" [ref=f20e45] [cursor=pointer]:
+            - /url: tel:+84968677337
+            - text: 0968 677 337
+            - generic [aria-hidden] [ref=f20e46]: ↗
+      - generic [aria-hidden] [ref=f20e47] [cursor=pointer]
+      - generic [ref=f20e8]:
+        - link "0968 677 337" [ref=f20e9] [cursor=pointer]:
+          - /url: tel:+84968677337
+        - button "Đóng menu" [expanded] [ref=f20e48] [cursor=pointer]
+  - main [ref=f20e13]:
+    - region [ref=f20e14]:
+      - generic [ref=f20e17]:
+        - heading "KIẾN TẠO GIÁ TRỊ SỐNG" [level=1] [ref=f20e18]: KIẾN TẠOGIÁ TRỊ SỐNG
+        - paragraph [ref=f20e19]: NHATO kiến tạo và đồng hành để mỗi không gian đều phản ánh giá trị, phong cách và trải nghiệm độc bản của bản thân

@@ -1,0 +1,318 @@
+- generic [active] [ref=f6e1]:
+  - banner [ref=f6e2]:
+    - link "Chuyển đến nội dung chính" [ref=f6e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - generic [ref=f6e4]:
+      - link "NHATO Collection — Trang chủ" [ref=f6e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f6e6]: NHATO
+        - generic [ref=f6e7]: COLLECTION
+      - navigation "Điều hướng chính" [ref=f6e8]:
+        - list [ref=f6e9]:
+          - listitem [ref=f6e10]:
+            - link "Network" [ref=f6e11] [cursor=pointer]:
+              - /url: /pages/network.html
+          - listitem [ref=f6e12]:
+            - link "Home" [ref=f6e13] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f6e14]:
+            - link "Art" [ref=f6e15] [cursor=pointer]:
+              - /url: /pages/art.html
+          - listitem [ref=f6e16]:
+            - link "Taste" [ref=f6e17] [cursor=pointer]:
+              - /url: /pages/taste.html
+          - listitem [ref=f6e18]:
+            - link "Original" [ref=f6e19] [cursor=pointer]:
+              - /url: /pages/original.html
+      - generic [ref=f6e20]:
+        - generic "Mạng xã hội" [ref=f6e21]:
+          - link "Facebook" [ref=f6e22] [cursor=pointer]:
+            - /url: https://www.facebook.com/
+          - link "TikTok" [ref=f6e25] [cursor=pointer]:
+            - /url: https://www.tiktok.com/
+          - link "YouTube" [ref=f6e28] [cursor=pointer]:
+            - /url: https://www.youtube.com/
+        - 'link "Call us: 0968 677 337" [ref=f6e32] [cursor=pointer]':
+          - /url: tel:+84968677337
+  - main [ref=f6e33]:
+    - region [ref=f6e34]:
+      - generic [ref=f6e37]:
+        - paragraph [ref=f6e38]: NHATO COLLECTION
+        - heading "KIẾN TẠO GIÁ TRỊ SỐNG" [level=1] [ref=f6e39]: KIẾN TẠOGIÁ TRỊ SỐNG
+        - paragraph [ref=f6e40]: NHATO kiến tạo và đồng hành để mỗi không gian đều phản ánh giá trị, phong cách và trải nghiệm độc bản của bản thân
+      - link "Cuộn đến nội dung tiếp theo" [ref=f6e41] [cursor=pointer]:
+        - /url: "#home-intro"
+        - generic [ref=f6e42]: Scroll to explore
+    - region [ref=f6e45]:
+      - generic [ref=f6e46]:
+        - paragraph [ref=f6e47]: A CONSIDERED LIFE
+        - generic [ref=f6e48]:
+          - heading "Mỗi không gian là một cách kể chuyện." [level=2] [ref=f6e49]
+          - generic [ref=f6e50]:
+            - paragraph [ref=f6e51]: NHATO là nơi những giá trị sống được nhìn thấy qua không gian, vật liệu, nghệ thuật và những trải nghiệm được tuyển chọn.
+            - link "Khám phá không gian" [ref=f6e52] [cursor=pointer]:
+              - /url: ./pages/space.html
+              - text: Khám phá không gian
+              - generic [aria-hidden] [ref=f6e53]: ↗
+    - region [ref=f6e54]:
+      - generic [ref=f6e55]:
+        - generic [ref=f6e56]:
+          - generic [ref=f6e57]:
+            - paragraph [ref=f6e58]: THE NHATO INDEX
+            - heading "Không gian theo cách bạn sống" [level=2] [ref=f6e59]
+          - paragraph [ref=f6e60]: Từ nơi ở riêng tư đến những điểm chạm cộng đồng, mỗi không gian đều bắt đầu từ một góc nhìn.
+        - list [ref=f6e61]:
+          - listitem [ref=f6e62]:
+            - link "01 NHÀ Ở" [ref=f6e63] [cursor=pointer]:
+              - /url: ./pages/space.html
+              - generic [ref=f6e64]: "01"
+              - generic [ref=f6e65]: NHÀ Ở
+              - generic [aria-hidden] [ref=f6e66]: ↗
+          - listitem [ref=f6e67]:
+            - link "02 CĂN HỘ" [ref=f6e68] [cursor=pointer]:
+              - /url: ./pages/space.html
+              - generic [ref=f6e69]: "02"
+              - generic [ref=f6e70]: CĂN HỘ
+              - generic [aria-hidden] [ref=f6e71]: ↗
+          - listitem [ref=f6e72]:
+            - link "03 BIỆT THỰ" [ref=f6e73] [cursor=pointer]:
+              - /url: ./pages/space.html
+              - generic [ref=f6e74]: "03"
+              - generic [ref=f6e75]: BIỆT THỰ
+              - generic [aria-hidden] [ref=f6e76]: ↗
+          - listitem [ref=f6e77]:
+            - link "04 VĂN PHÒNG" [ref=f6e78] [cursor=pointer]:
+              - /url: ./pages/space.html
+              - generic [ref=f6e79]: "04"
+              - generic [ref=f6e80]: VĂN PHÒNG
+              - generic [aria-hidden] [ref=f6e81]: ↗
+          - listitem [ref=f6e82]:
+            - link "05 THƯƠNG MẠI" [ref=f6e83] [cursor=pointer]:
+              - /url: ./pages/space.html
+              - generic [ref=f6e84]: "05"
+              - generic [ref=f6e85]: THƯƠNG MẠI
+              - generic [aria-hidden] [ref=f6e86]: ↗
+    - region [ref=f6e87]:
+      - generic [ref=f6e88]:
+        - generic [ref=f6e89]:
+          - generic [ref=f6e90]:
+            - paragraph [ref=f6e91]: SELECTED SPACES
+            - heading "Không gian tiêu biểu" [level=2] [ref=f6e92]
+          - link "Xem tất cả" [ref=f6e93] [cursor=pointer]:
+            - /url: ./pages/space.html
+            - text: Xem tất cả
+            - generic [aria-hidden] [ref=f6e94]: →
+        - generic [ref=f6e95]:
+          - link "01 / RESIDENTIAL THE MANSION" [ref=f6e96] [cursor=pointer]:
+            - /url: ./pages/space.html
+            - figure [ref=f6e97]:
+              - img "Không gian phòng khách phong cách cổ điển của The Mansion" [ref=f6e98]
+            - generic [ref=f6e99]: 01 / RESIDENTIAL
+            - heading "THE MANSION" [level=3] [ref=f6e100]
+          - link "02 / WORKSPACE NHATO OFFICE" [ref=f6e101] [cursor=pointer]:
+            - /url: ./pages/space.html
+            - figure [ref=f6e102]:
+              - img "Không gian nội thất hiện đại dành cho văn phòng" [ref=f6e103]
+            - generic [ref=f6e104]: 02 / WORKSPACE
+            - heading "NHATO OFFICE" [level=3] [ref=f6e105]
+          - link "03 / APARTMENT LIGHT HOME" [ref=f6e106] [cursor=pointer]:
+            - /url: ./pages/space.html
+            - figure [ref=f6e107]:
+              - img "Không gian sống tối giản với ánh sáng tự nhiên" [ref=f6e108]
+            - generic [ref=f6e109]: 03 / APARTMENT
+            - heading "LIGHT HOME" [level=3] [ref=f6e110]
+          - link "04 / VILLA BSS VILLA" [ref=f6e111] [cursor=pointer]:
+            - /url: ./pages/space.html
+            - figure [ref=f6e112]:
+              - img "Không gian nhà gỗ với phòng khách mở" [ref=f6e113]
+            - generic [ref=f6e114]: 04 / VILLA
+            - heading "BSS VILLA" [level=3] [ref=f6e115]
+    - region [ref=f6e116]:
+      - generic [ref=f6e117]:
+        - generic [ref=f6e118]:
+          - generic [ref=f6e119]:
+            - paragraph [ref=f6e120]: NHATO JOURNAL
+            - heading "Những câu chuyện nghệ thuật" [level=2] [ref=f6e121]
+          - link "Xem tất cả" [ref=f6e122] [cursor=pointer]:
+            - /url: ./pages/art.html
+            - text: Xem tất cả
+            - generic [aria-hidden] [ref=f6e123]: →
+        - generic [ref=f6e124]:
+          - article [ref=f6e125]:
+            - link [ref=f6e126] [cursor=pointer]:
+              - /url: ./pages/art.html
+              - figure [ref=f6e127]:
+                - img "Tác phẩm nghệ thuật trong không gian trưng bày" [ref=f6e128]
+              - generic [ref=f6e129]:
+                - paragraph [ref=f6e130]: ART / 15.06.2024
+                - heading "Khi nghệ thuật bước vào đời sống thường ngày" [level=3] [ref=f6e131]
+                - generic [ref=f6e132]:
+                  - text: Đọc câu chuyện
+                  - generic [aria-hidden] [ref=f6e133]: ↗
+          - article [ref=f6e134]:
+            - 'link "02 SPACE / 08.06.2024 Vật liệu kể chuyện: từ bề mặt đến cảm xúc Đọc câu chuyện" [ref=f6e135] [cursor=pointer]':
+              - /url: ./pages/art.html
+              - generic [ref=f6e136]: "02"
+              - generic [ref=f6e137]:
+                - paragraph [ref=f6e138]: SPACE / 08.06.2024
+                - 'heading "Vật liệu kể chuyện: từ bề mặt đến cảm xúc" [level=3] [ref=f6e139]'
+                - generic [ref=f6e140]:
+                  - text: Đọc câu chuyện
+                  - generic [aria-hidden] [ref=f6e141]: ↗
+          - article [ref=f6e142]:
+            - link "03 TASTE / 29.05.2024 Một nhịp sống chậm giữa thành phố Đọc câu chuyện" [ref=f6e143] [cursor=pointer]:
+              - /url: ./pages/art.html
+              - generic [ref=f6e144]: "03"
+              - generic [ref=f6e145]:
+                - paragraph [ref=f6e146]: TASTE / 29.05.2024
+                - heading "Một nhịp sống chậm giữa thành phố" [level=3] [ref=f6e147]
+                - generic [ref=f6e148]:
+                  - text: Đọc câu chuyện
+                  - generic [aria-hidden] [ref=f6e149]: ↗
+    - region "Đối tác và sự kiện" [ref=f6e150]:
+      - generic [ref=f6e151]:
+        - region [ref=f6e152]:
+          - generic [ref=f6e153]:
+            - generic [ref=f6e154]:
+              - paragraph [ref=f6e155]: THE NHATO CIRCLE
+              - heading "Đối tác" [level=2] [ref=f6e156]
+            - link "Xem tất cả" [ref=f6e157] [cursor=pointer]:
+              - /url: ./pages/network.html
+              - text: Xem tất cả
+              - generic [aria-hidden] [ref=f6e158]: →
+          - generic "Danh sách đối tác" [ref=f6e159]:
+            - link "KIENTRUC O" [ref=f6e160] [cursor=pointer]:
+              - /url: ./pages/network.html
+            - link "MIA DESIGN" [ref=f6e162] [cursor=pointer]:
+              - /url: ./pages/network.html
+              - generic [ref=f6e163]: MIADESIGN
+            - link "LUXCASA" [ref=f6e164] [cursor=pointer]:
+              - /url: ./pages/network.html
+            - link "ELLE DECOR" [ref=f6e166] [cursor=pointer]:
+              - /url: ./pages/network.html
+              - generic [ref=f6e167]: ELLEDECOR
+            - link "HBA" [ref=f6e168] [cursor=pointer]:
+              - /url: ./pages/network.html
+            - link "LUA VIET" [ref=f6e170] [cursor=pointer]:
+              - /url: ./pages/network.html
+        - region [ref=f6e172]:
+          - generic [ref=f6e173]:
+            - generic [ref=f6e174]:
+              - paragraph [ref=f6e175]: GATHER TOGETHER
+              - heading "Sự kiện sắp tới" [level=2] [ref=f6e176]
+            - link "Xem tất cả" [ref=f6e177] [cursor=pointer]:
+              - /url: ./pages/network.html
+              - text: Xem tất cả
+              - generic [aria-hidden] [ref=f6e178]: →
+          - generic [ref=f6e179]:
+            - article [ref=f6e180]:
+              - generic [ref=f6e181]:
+                - strong [ref=f6e182]: "15"
+                - generic [ref=f6e183]: Jun
+              - generic [ref=f6e184]:
+                - paragraph [ref=f6e185]: PRIVATE DINNER
+                - heading "NHATO Private Dinner" [level=3] [ref=f6e186]
+                - link "Đăng ký" [ref=f6e187] [cursor=pointer]:
+                  - /url: ./pages/network.html
+                  - text: Đăng ký
+                  - generic [aria-hidden] [ref=f6e188]: →
+            - article [ref=f6e189]:
+              - generic [ref=f6e190]:
+                - strong [ref=f6e191]: "22"
+                - generic [ref=f6e192]: Jun
+              - generic [ref=f6e193]:
+                - paragraph [ref=f6e194]: TALK / SPACE
+                - heading "Living with intention" [level=3] [ref=f6e195]
+                - link "Đăng ký" [ref=f6e196] [cursor=pointer]:
+                  - /url: ./pages/network.html
+                  - text: Đăng ký
+                  - generic [aria-hidden] [ref=f6e197]: →
+            - article [ref=f6e198]:
+              - generic [ref=f6e199]:
+                - strong [ref=f6e200]: "06"
+                - generic [ref=f6e201]: Jul
+              - generic [ref=f6e202]:
+                - paragraph [ref=f6e203]: ART WALK
+                - heading "Art in residence" [level=3] [ref=f6e204]
+                - link "Đăng ký" [ref=f6e205] [cursor=pointer]:
+                  - /url: ./pages/network.html
+                  - text: Đăng ký
+                  - generic [aria-hidden] [ref=f6e206]: →
+  - contentinfo [ref=f6e208]:
+    - generic [ref=f6e209]:
+      - generic [ref=f6e210]:
+        - link "NHATO Collection — Trang chủ" [ref=f6e211] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f6e212]: NHATO
+          - generic [ref=f6e213]: COLLECTION
+        - paragraph [ref=f6e214]: NHATO Collection là không gian kết nối giữa kiến trúc, nội thất, nghệ thuật và phong cách sống, hướng đến việc tạo nên những giá trị bền vững và truyền cảm hứng cho những trải nghiệm sống.
+        - generic [ref=f6e215]:
+          - paragraph [ref=f6e216]: Follow us on
+          - generic "Mạng xã hội" [ref=f6e217]:
+            - link "Facebook" [ref=f6e218] [cursor=pointer]:
+              - /url: https://www.facebook.com/
+            - link "X" [ref=f6e221] [cursor=pointer]:
+              - /url: https://x.com/
+            - link "TikTok" [ref=f6e224] [cursor=pointer]:
+              - /url: https://www.tiktok.com/
+            - link "YouTube" [ref=f6e227] [cursor=pointer]:
+              - /url: https://www.youtube.com/
+      - generic [ref=f6e231]:
+        - heading "Khám phá" [level=2] [ref=f6e232]
+        - list [ref=f6e233]:
+          - listitem [ref=f6e234]:
+            - link "Về NHATO" [ref=f6e235] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f6e236]:
+            - link "Kết nối" [ref=f6e237] [cursor=pointer]:
+              - /url: /pages/network.html
+          - listitem [ref=f6e238]:
+            - link "Không gian sống" [ref=f6e239] [cursor=pointer]:
+              - /url: /pages/space.html
+          - listitem [ref=f6e240]:
+            - link "Nghệ thuật" [ref=f6e241] [cursor=pointer]:
+              - /url: /pages/art.html
+          - listitem [ref=f6e242]:
+            - link "Phong vị" [ref=f6e243] [cursor=pointer]:
+              - /url: /pages/taste.html
+          - listitem [ref=f6e244]:
+            - link "Bản sắc" [ref=f6e245] [cursor=pointer]:
+              - /url: /pages/original.html
+      - generic [ref=f6e246]:
+        - heading "Hỗ trợ" [level=2] [ref=f6e247]
+        - list [ref=f6e248]:
+          - listitem [ref=f6e249]:
+            - link "Câu hỏi thường gặp" [ref=f6e250] [cursor=pointer]:
+              - /url: "#faq"
+          - listitem [ref=f6e251]:
+            - link "Chính sách bảo mật" [ref=f6e252] [cursor=pointer]:
+              - /url: "#privacy"
+          - listitem [ref=f6e253]:
+            - link "Điều khoản sử dụng" [ref=f6e254] [cursor=pointer]:
+              - /url: "#terms"
+          - listitem [ref=f6e255]:
+            - link "Chính sách hoàn tiền" [ref=f6e256] [cursor=pointer]:
+              - /url: "#refund"
+          - listitem [ref=f6e257]:
+            - link "Tham quan Showroom" [ref=f6e258] [cursor=pointer]:
+              - /url: "#showroom"
+      - generic [ref=f6e259]:
+        - heading "Contact us" [level=2] [ref=f6e260]
+        - paragraph [ref=f6e261]: R4 Royal City, Nguyễn Trãi,Thanh Xuân, Hà Nội
+        - paragraph [ref=f6e262]:
+          - link "info@nhatoreview.com" [ref=f6e263] [cursor=pointer]:
+            - /url: mailto:info@nhatoreview.com
+        - paragraph [ref=f6e264]:
+          - link "0968 677 337" [ref=f6e265] [cursor=pointer]:
+            - /url: tel:+84968677337
+        - paragraph [ref=f6e266]: "Monday – Friday: 09:00 – 18:00"
+      - generic [ref=f6e267]:
+        - heading "Giữ nguồn cảm hứng cùng NHATO" [level=2] [ref=f6e268]
+        - paragraph [ref=f6e269]: Đăng ký để nhận những cập nhật mới nhất về không gian, nghệ thuật và các trải nghiệm.
+        - generic [ref=f6e270]:
+          - generic [ref=f6e271]: Địa chỉ email
+          - textbox "Địa chỉ email" [ref=f6e272]:
+            - /placeholder: Your email address
+          - button "Đăng ký nhận tin" [ref=f6e273] [cursor=pointer]
+        - status [ref=f6e276]
+        - paragraph [ref=f6e277]: Designed by NHATO Design

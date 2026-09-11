@@ -1,0 +1,329 @@
+- generic [active] [ref=f39e1]:
+  - banner [ref=f39e2]:
+    - link "Chuyển đến nội dung chính" [ref=f39e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - generic [ref=f39e4]:
+      - link "NHATO Collection — Trang chủ" [ref=f39e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f39e7]: COLLECTION
+      - navigation "Điều hướng chính" [ref=f39e8]:
+        - list [ref=f39e9]:
+          - listitem [ref=f39e10]:
+            - link "Network" [ref=f39e11] [cursor=pointer]:
+              - /url: /pages/network.html
+          - listitem [ref=f39e12]:
+            - link "Home" [ref=f39e13] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f39e14]:
+            - link "Art" [ref=f39e15] [cursor=pointer]:
+              - /url: /pages/art.html
+          - listitem [ref=f39e16]:
+            - link "Taste" [ref=f39e17] [cursor=pointer]:
+              - /url: /pages/taste.html
+          - listitem [ref=f39e18]:
+            - link "Original" [ref=f39e19] [cursor=pointer]:
+              - /url: /pages/original.html
+      - generic [ref=f39e20]:
+        - generic "Mạng xã hội" [ref=f39e21]:
+          - link "Facebook" [ref=f39e22] [cursor=pointer]:
+            - /url: https://www.facebook.com/
+          - link "TikTok" [ref=f39e25] [cursor=pointer]:
+            - /url: https://www.tiktok.com/
+          - link "YouTube" [ref=f39e28] [cursor=pointer]:
+            - /url: https://www.youtube.com/
+        - 'link "Call us: 0968 677 337" [ref=f39e32] [cursor=pointer]':
+          - /url: tel:+84968677337
+  - main [ref=f39e33]:
+    - region [ref=f39e34]:
+      - generic [ref=f39e37]:
+        - heading "KIẾN TẠO GIÁ TRỊ SỐNG" [level=1] [ref=f39e38]: KIẾN TẠOGIÁ TRỊ SỐNG
+        - paragraph [ref=f39e39]: NHATO kiến tạo và đồng hành để mỗi không gian đều phản ánh giá trị, phong cách và trải nghiệm độc bản của bản thân
+    - region [ref=f39e40]:
+      - heading "Không gian theo nhu cầu" [level=2] [ref=f39e41]
+      - generic [ref=f39e42]:
+        - link [ref=f39e43] [cursor=pointer]:
+          - /url: /pages/space.html
+          - heading "NHÀ Ở" [level=3] [ref=f39e46]
+          - paragraph [ref=f39e47]: Mang đến dấu ấn riêng
+        - link [ref=f39e48] [cursor=pointer]:
+          - /url: /pages/space.html
+          - heading "CĂN HỘ" [level=3] [ref=f39e51]
+          - paragraph [ref=f39e52]: Hiện đại & tinh tế
+        - link [ref=f39e53] [cursor=pointer]:
+          - /url: /pages/space.html
+          - heading "BIỆT THỰ" [level=3] [ref=f39e56]
+          - paragraph [ref=f39e57]: Đẳng cấp & sang trọng
+        - link [ref=f39e58] [cursor=pointer]:
+          - /url: /pages/space.html
+          - heading "VĂN PHÒNG" [level=3] [ref=f39e61]
+          - paragraph [ref=f39e62]: Hiệu quả & cảm hứng
+        - link [ref=f39e63] [cursor=pointer]:
+          - /url: /pages/space.html
+          - heading "THƯƠNG MẠI" [level=3] [ref=f39e66]
+          - paragraph [ref=f39e67]: Ấn tượng & khác biệt
+    - region [ref=f39e68]:
+      - generic [ref=f39e69]:
+        - generic [ref=f39e70]:
+          - generic [ref=f39e71]:
+            - paragraph [ref=f39e72]: Dự án
+            - heading "Không gian tiêu biểu" [level=2] [ref=f39e73]
+          - link "Xem tất cả" [ref=f39e74] [cursor=pointer]:
+            - /url: /pages/space.html
+            - text: Xem tất cả
+            - generic [aria-hidden] [ref=f39e75]: ↗
+        - generic [ref=f39e76]:
+          - link "Không gian phòng khách dự án The Mansion THE MANSION Biệt thự - Thủ Đức" [ref=f39e77] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian phòng khách dự án The Mansion" [ref=f39e78]
+            - generic [ref=f39e80]:
+              - strong [ref=f39e81]: THE MANSION
+              - generic [ref=f39e82]: Biệt thự - Thủ Đức
+          - link "Không gian phòng khách dự án NHATO Office NHATO OFFICE Văn phòng - Hà Nội" [ref=f39e83] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian phòng khách dự án NHATO Office" [ref=f39e84]
+            - generic [ref=f39e86]:
+              - strong [ref=f39e87]: NHATO OFFICE
+              - generic [ref=f39e88]: Văn phòng - Hà Nội
+          - link "Không gian sáng và tối giản của Light Home LIGHT HOME Biệt thự - Thủ Đức" [ref=f39e89] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian sáng và tối giản của Light Home" [ref=f39e90]
+            - generic [ref=f39e92]:
+              - strong [ref=f39e93]: LIGHT HOME
+              - generic [ref=f39e94]: Biệt thự - Thủ Đức
+          - link "Không gian gỗ ấm áp của SBS Villa SBS VILLA Biệt thự - Quận 7" [ref=f39e95] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian gỗ ấm áp của SBS Villa" [ref=f39e96]
+            - generic [ref=f39e98]:
+              - strong [ref=f39e99]: SBS VILLA
+              - generic [ref=f39e100]: Biệt thự - Quận 7
+          - link "Xem thêm dự án The Mansion" [ref=f39e101] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian dự án The Mansion" [ref=f39e102]
+            - generic [ref=f39e104]:
+              - strong [ref=f39e105]: THE MANSION
+              - generic [ref=f39e106]: Biệt thự - Thủ Đức
+          - link "Xem thêm dự án NHATO Office" [ref=f39e107] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian dự án NHATO Office" [ref=f39e108]
+            - generic [ref=f39e110]:
+              - strong [ref=f39e111]: NHATO OFFICE
+              - generic [ref=f39e112]: Văn phòng - Hà Nội
+          - link "Xem thêm dự án Light Home" [ref=f39e113] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian dự án Light Home" [ref=f39e114]
+            - generic [ref=f39e116]:
+              - strong [ref=f39e117]: LIGHT HOME
+              - generic [ref=f39e118]: Biệt thự - Thủ Đức
+          - link "Xem thêm dự án SBS Villa" [ref=f39e119] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian dự án SBS Villa" [ref=f39e120]
+            - generic [ref=f39e122]:
+              - strong [ref=f39e123]: SBS VILLA
+              - generic [ref=f39e124]: Biệt thự - Quận 7
+          - link "Xem thêm dự án The Mansion" [ref=f39e125] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian dự án The Mansion" [ref=f39e126]
+            - generic [ref=f39e128]:
+              - strong [ref=f39e129]: THE MANSION
+              - generic [ref=f39e130]: Biệt thự - Thủ Đức
+          - link "Xem thêm dự án NHATO Office" [ref=f39e131] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian dự án NHATO Office" [ref=f39e132]
+            - generic [ref=f39e134]:
+              - strong [ref=f39e135]: NHATO OFFICE
+              - generic [ref=f39e136]: Văn phòng - Hà Nội
+          - link "Xem thêm dự án Light Home" [ref=f39e137] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian dự án Light Home" [ref=f39e138]
+            - generic [ref=f39e140]:
+              - strong [ref=f39e141]: LIGHT HOME
+              - generic [ref=f39e142]: Biệt thự - Thủ Đức
+          - link "Xem thêm dự án SBS Villa" [ref=f39e143] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian dự án SBS Villa" [ref=f39e144]
+            - generic [ref=f39e146]:
+              - strong [ref=f39e147]: SBS VILLA
+              - generic [ref=f39e148]: Biệt thự - Quận 7
+          - link "Xem thêm dự án The Mansion" [ref=f39e149] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian dự án The Mansion" [ref=f39e150]
+            - generic [ref=f39e152]:
+              - strong [ref=f39e153]: THE MANSION
+              - generic [ref=f39e154]: Biệt thự - Thủ Đức
+          - link "Xem thêm dự án NHATO Office" [ref=f39e155] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian dự án NHATO Office" [ref=f39e156]
+            - generic [ref=f39e158]:
+              - strong [ref=f39e159]: NHATO OFFICE
+              - generic [ref=f39e160]: Văn phòng - Hà Nội
+          - link "Xem thêm dự án Light Home" [ref=f39e161] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian dự án Light Home" [ref=f39e162]
+            - generic [ref=f39e164]:
+              - strong [ref=f39e165]: LIGHT HOME
+              - generic [ref=f39e166]: Biệt thự - Thủ Đức
+          - link "Xem thêm dự án SBS Villa" [ref=f39e167] [cursor=pointer]:
+            - /url: /pages/space.html
+            - img "Không gian dự án SBS Villa" [ref=f39e168]
+            - generic [ref=f39e170]:
+              - strong [ref=f39e171]: SBS VILLA
+              - generic [ref=f39e172]: Biệt thự - Quận 7
+        - navigation "Phân trang dự án" [ref=f39e173]:
+          - link "Trang trước" [ref=f39e174] [cursor=pointer]:
+            - /url: /pages/space.html
+            - text: «
+          - link "1" [ref=f39e175] [cursor=pointer]:
+            - /url: /pages/space.html
+          - link "2" [ref=f39e176] [cursor=pointer]:
+            - /url: /pages/space.html?page=2
+          - link "3" [ref=f39e177] [cursor=pointer]:
+            - /url: /pages/space.html?page=3
+          - generic [aria-hidden] [ref=f39e178]: ...
+          - link "Trang tiếp theo" [ref=f39e179] [cursor=pointer]:
+            - /url: /pages/space.html?page=2
+            - text: »
+    - region [ref=f39e180]:
+      - generic [ref=f39e183]:
+        - generic [ref=f39e184]:
+          - paragraph [ref=f39e185]: Giá trị NHATO theo đuổi
+          - heading "Tư duy thiết kế sáng tạo" [level=2] [ref=f39e186]: Tư duy thiết kếsáng tạo
+          - paragraph [ref=f39e187]: Mỗi không gian được tạo nên từ sự thấu hiểu nhu cầu, sự sáng tạo trong giải pháp và sự tận tâm trong từng chi tiết
+        - list [ref=f39e188]:
+          - listitem [ref=f39e189]:
+            - generic [ref=f39e190]: "01"
+            - generic [ref=f39e193]:
+              - strong [ref=f39e194]: Lắng nghe
+              - generic [ref=f39e195]: Lắng nghe nhu cầu và phong cách sống
+          - listitem [ref=f39e196]:
+            - generic [ref=f39e197]: "02"
+            - generic [ref=f39e200]:
+              - strong [ref=f39e201]: Định hướng
+              - generic [ref=f39e202]: Đề xuất ý tưởng và giải pháp tối ưu
+          - listitem [ref=f39e203]:
+            - generic [ref=f39e204]: "03"
+            - generic [ref=f39e207]:
+              - strong [ref=f39e208]: Triển khai
+              - generic [ref=f39e209]: Thiết kế chi tiết và lựa chọn vật liệu
+          - listitem [ref=f39e210]:
+            - generic [ref=f39e211]: "04"
+            - generic [ref=f39e215]:
+              - strong [ref=f39e216]: Thi công
+              - generic [ref=f39e217]: Đảm bảo chất lượng & tiến độ
+          - listitem [ref=f39e218]:
+            - generic [ref=f39e219]: "05"
+            - generic [ref=f39e222]:
+              - strong [ref=f39e223]: Hoàn thiện
+              - generic [ref=f39e224]: Bàn giao và đồng hành lâu dài
+    - region [ref=f39e225]:
+      - generic [ref=f39e226]:
+        - generic [ref=f39e227]:
+          - heading "Bài viết khác" [level=2] [ref=f39e228]
+          - link "Tất cả bài viết" [ref=f39e230] [cursor=pointer]:
+            - /url: /pages/network.html
+            - text: Tất cả bài viết
+            - generic [aria-hidden] [ref=f39e231]: ↗
+        - generic [ref=f39e232]:
+          - article [ref=f39e233]:
+            - link [ref=f39e234] [cursor=pointer]:
+              - /url: /pages/network.html
+              - img "Không gian nội thất mang phong cách rustic" [ref=f39e235]
+            - generic [ref=f39e236]: 29320 Lượt xem 07 Aug 2026
+            - heading [level=3] [ref=f39e245]:
+              - 'link "Phong cách rustic: sự mộc mạc trong thiết kế nội thất" [ref=f39e246] [cursor=pointer]':
+                - /url: /pages/network.html
+            - paragraph [ref=f39e247]: Khi nghệ thuật trở thành một phần của phong cách sống đương đại
+          - article [ref=f39e248]:
+            - link [ref=f39e249] [cursor=pointer]:
+              - /url: /pages/network.html
+              - img "Không gian nội thất theo phong cách Modern Luxury" [ref=f39e250]
+            - generic [ref=f39e251]: 29320 Lượt xem 07 Aug 2026
+            - heading [level=3] [ref=f39e260]:
+              - link "Phong cách Modern Luxury – Đẳng cấp giới thượng lưu" [ref=f39e261] [cursor=pointer]:
+                - /url: /pages/network.html
+            - paragraph [ref=f39e262]: Khi nghệ thuật trở thành một phần của phong cách sống đương đại
+          - article [ref=f39e263]:
+            - link [ref=f39e264] [cursor=pointer]:
+              - /url: /pages/network.html
+              - img "Nghệ thuật trong không gian sống" [ref=f39e265]
+            - generic [ref=f39e266]: 29320 Lượt xem 07 Aug 2026
+            - heading [level=3] [ref=f39e275]:
+              - link "Nghệ thuật trong không gian sống" [ref=f39e276] [cursor=pointer]:
+                - /url: /pages/network.html
+            - paragraph [ref=f39e277]: Khi nghệ thuật trở thành một phần của phong cách sống đương đại
+  - contentinfo [ref=f39e279]:
+    - generic [ref=f39e280]:
+      - generic [ref=f39e281]:
+        - link "NHATO Collection — Trang chủ" [ref=f39e282] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f39e284]: COLLECTION
+        - paragraph [ref=f39e285]: NHATO Collection là không gian kết nối giữa kiến trúc, nội thất, nghệ thuật và phong cách sống, hướng đến việc tạo nên những giá trị bền vững và truyền cảm hứng cho những trải nghiệm sống.
+        - generic [ref=f39e286]:
+          - paragraph [ref=f39e287]: Follow us on
+          - generic "Mạng xã hội" [ref=f39e288]:
+            - link "Facebook" [ref=f39e289] [cursor=pointer]:
+              - /url: https://www.facebook.com/
+            - link "X" [ref=f39e292] [cursor=pointer]:
+              - /url: https://x.com/
+            - link "TikTok" [ref=f39e295] [cursor=pointer]:
+              - /url: https://www.tiktok.com/
+            - link "YouTube" [ref=f39e298] [cursor=pointer]:
+              - /url: https://www.youtube.com/
+      - generic [ref=f39e302]:
+        - heading "Khám phá" [level=2] [ref=f39e303]
+        - list [ref=f39e304]:
+          - listitem [ref=f39e305]:
+            - link "Về NHATO" [ref=f39e306] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f39e307]:
+            - link "Kết nối" [ref=f39e308] [cursor=pointer]:
+              - /url: /pages/network.html
+          - listitem [ref=f39e309]:
+            - link "Không gian sống" [ref=f39e310] [cursor=pointer]:
+              - /url: /pages/space.html
+          - listitem [ref=f39e311]:
+            - link "Nghệ thuật" [ref=f39e312] [cursor=pointer]:
+              - /url: /pages/art.html
+          - listitem [ref=f39e313]:
+            - link "Phong vị" [ref=f39e314] [cursor=pointer]:
+              - /url: /pages/taste.html
+          - listitem [ref=f39e315]:
+            - link "Bản sắc" [ref=f39e316] [cursor=pointer]:
+              - /url: /pages/original.html
+      - generic [ref=f39e317]:
+        - heading "Hỗ trợ" [level=2] [ref=f39e318]
+        - list [ref=f39e319]:
+          - listitem [ref=f39e320]:
+            - link "Câu hỏi thường gặp" [ref=f39e321] [cursor=pointer]:
+              - /url: "#faq"
+          - listitem [ref=f39e322]:
+            - link "Chính sách bảo mật" [ref=f39e323] [cursor=pointer]:
+              - /url: "#privacy"
+          - listitem [ref=f39e324]:
+            - link "Điều khoản sử dụng" [ref=f39e325] [cursor=pointer]:
+              - /url: "#terms"
+          - listitem [ref=f39e326]:
+            - link "Chính sách hoàn tiền" [ref=f39e327] [cursor=pointer]:
+              - /url: "#refund"
+          - listitem [ref=f39e328]:
+            - link "Tham quan Showroom" [ref=f39e329] [cursor=pointer]:
+              - /url: "#showroom"
+      - generic [ref=f39e330]:
+        - heading "Contact us" [level=2] [ref=f39e331]
+        - paragraph [ref=f39e332]: R4 Royal City, Nguyễn Trãi,Thanh Xuân, Hà Nội
+        - paragraph [ref=f39e333]:
+          - link "info@nhatoreview.com" [ref=f39e334] [cursor=pointer]:
+            - /url: mailto:info@nhatoreview.com
+        - paragraph [ref=f39e335]:
+          - link "0968 677 337" [ref=f39e336] [cursor=pointer]:
+            - /url: tel:+84968677337
+        - paragraph [ref=f39e337]: "Monday – Friday: 09:00 – 18:00"
+      - generic [ref=f39e338]:
+        - heading "Giữ nguồn cảm hứng cùng NHATO" [level=2] [ref=f39e339]
+        - paragraph [ref=f39e340]: Đăng ký để nhận những cập nhật mới nhất về không gian, nghệ thuật và các trải nghiệm.
+        - generic [ref=f39e341]:
+          - generic [ref=f39e342]: Địa chỉ email
+          - textbox "Địa chỉ email" [ref=f39e343]:
+            - /placeholder: Your email address
+          - button "Đăng ký nhận tin" [ref=f39e344] [cursor=pointer]
+        - status [ref=f39e347]
+        - paragraph [ref=f39e348]: Designed by NHATO Design

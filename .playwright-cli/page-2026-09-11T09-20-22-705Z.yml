@@ -1,0 +1,17 @@
+- generic [active] [ref=f20e1]:
+  - banner [ref=f20e2]:
+    - link "Chuyển đến nội dung chính" [ref=f20e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - generic [ref=f20e4]:
+      - link "NHATO Collection — Trang chủ" [ref=f20e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f20e7]: COLLECTION
+      - generic [ref=f20e8]:
+        - link "0968 677 337" [ref=f20e9] [cursor=pointer]:
+          - /url: tel:+84968677337
+        - button "Mở menu" [ref=f20e10] [cursor=pointer]
+  - main [ref=f20e13]:
+    - region [ref=f20e14]:
+      - generic [ref=f20e17]:
+        - heading "KIẾN TẠO GIÁ TRỊ SỐNG" [level=1] [ref=f20e18]: KIẾN TẠOGIÁ TRỊ SỐNG
+        - paragraph [ref=f20e19]: NHATO kiến tạo và đồng hành để mỗi không gian đều phản ánh giá trị, phong cách và trải nghiệm độc bản của bản thân
