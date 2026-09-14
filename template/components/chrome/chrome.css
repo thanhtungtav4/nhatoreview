@@ -1,0 +1,99 @@
+/* NHATO Collection — chrome: site header, footer, brand lockup, social row.
+   Transcribed from thanhtungtav4/nhatoreview template/assets/css/common/*.css
+   and NHATO 2.fig Frame 5 (header, 1440×94, 16px/72px padding, 64px nav gap). */
+
+/* ── Brand ───────────────────────────────────────────────────── */
+.nh-brand{display:inline-flex;flex:0 0 auto;flex-direction:column;line-height:1;width:max-content}
+.nh-brand__mark{display:block;line-height:0}
+.nh-brand__mark img{width:11.25rem;height:auto}
+.nh-brand__sub{color:currentColor;font-size:.36rem;font-weight:var(--weight-bold);letter-spacing:.36em;margin-top:.35rem;padding-left:.16em}
+
+/* ── Social ──────────────────────────────────────────────────── */
+.nh-social{align-items:center;display:flex;gap:var(--space-3)}
+/* Figma pins the header row to 92×30 (3 glyphs of 24 + 2 gaps of 10), so the link box must
+   be the glyph itself. The 44px tap target comes from an overlay instead of box size. */
+.nh-social__link{align-items:center;color:var(--nh-white);display:inline-flex;justify-content:center;min-height:2rem;min-width:2rem;position:relative}
+.nh-social__link::after{content:"";left:50%;min-height:44px;min-width:44px;position:absolute;top:50%;transform:translate(-50%,-50%);height:100%;width:100%}
+.nh-social--header .nh-social__link{min-height:0;min-width:0}
+.nh-social__link:hover{color:var(--nh-gold-light);transform:translateY(-2px)}
+.nh-social--tight{gap:.3rem}
+.nh-social--ink .nh-social__link{color:var(--nh-ink)}
+.nh-icon{width:1.5rem;height:1.5rem;flex:0 0 auto}
+
+/* ── Header ──────────────────────────────────────────────────── */
+/* Figma node 3:5: the header frame is exactly 94 tall with the ink→60% gradient and a
+   hard 0 4px 4px rgba(0,0,0,.25) drop, both present at rest (not only on scroll). */
+.nh-header{box-shadow:var(--shadow-header);color:var(--nh-white);left:0;position:absolute;right:0;top:0;z-index:20}
+.nh-header::before{background:var(--scrim-header);content:"";inset:0 0 auto;height:var(--header-height);pointer-events:none;position:absolute;z-index:-1}
+.nh-header.is-scrolled{background:rgba(30,30,30,.96);box-shadow:var(--shadow-header-scrolled)}
+.nh-header.is-scrolled::before{display:none}
+.nh-header__inner{align-items:center;box-sizing:border-box;display:grid;gap:var(--space-5);grid-template-columns:auto minmax(0,1fr) auto;min-height:var(--header-height);padding-block:16px;position:relative;z-index:2}
+.nh-header__nav{justify-self:center;position:relative}
+.nh-header__list{align-items:center;display:flex;gap:clamp(1.4rem,2.6vw,56px)}
+/* Menu glyph — Figma: ci:menu-alt-05, an 18.667×13.333 white mark inside a 32×32 box.
+   The export outlines its 1.333px stroke, so the rendered box carries that overflow. */
+.nh-header__menu svg{width:21.333px !important;height:16px}
+.nh-header__menu{align-items:center;background:none;border:0;color:var(--nh-white);display:inline-flex;flex:0 0 auto;height:32px;justify-content:center;width:32px}
+.nh-header__menu:hover{color:var(--nh-gold-light)}
+.nh-header__link{color:var(--nh-white);display:inline-block;font-size:var(--fs-16);font-weight:var(--weight-medium);line-height:var(--lh-tight);padding:.6rem 0;position:relative;text-transform:capitalize}
+.nh-header__link::after{background:var(--nh-gold);bottom:.2rem;content:"";height:1px;left:0;position:absolute;transform:scaleX(0);transform-origin:right;transition:transform var(--dur-mid) var(--ease-standard);width:100%}
+.nh-header__link:hover,.nh-header__link[aria-current="page"]{color:var(--nh-gold-light)}
+.nh-header__link:hover::after,.nh-header__link[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+.nh-header__utilities{align-items:center;display:flex;gap:var(--space-6);justify-self:end}
+.nh-header__call{align-self:stretch;border:var(--border-thin) solid var(--nh-ink);color:var(--nh-white);display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-body);font-size:var(--fs-15);font-weight:var(--weight-regular);line-height:var(--lh-tight);min-height:44px;min-width:195px;padding:12px 24px;text-align:center;white-space:nowrap}
+.nh-header__call:hover{background:var(--nh-gold);color:var(--nh-ink)}
+.nh-header__toggle{align-items:center;background:transparent;border:0;color:currentColor;display:none;flex-direction:column;gap:.35rem;justify-content:center;min-height:2.75rem;min-width:2.75rem;padding:.5rem}
+/* Gold search plate — Figma: 44×44, #DDA642, 20px ink glyph. */
+.nh-header__search{align-items:center;background:var(--nh-gold);border:0;color:var(--nh-ink);display:inline-flex;height:44px;justify-content:center;width:44px;flex:0 0 auto}
+.nh-header__search svg{height:22px;width:22px}
+.nh-header__search:hover{background:var(--nh-gold-light)}
+.nh-header__toggle span{background:currentColor;display:block;height:1px;width:1.35rem;transition:transform var(--dur-fast) var(--ease-standard)}
+.nh-header__toggle[aria-expanded="true"] span:first-child{transform:translateY(.23rem) rotate(45deg)}
+.nh-header__toggle[aria-expanded="true"] span:last-child{transform:translateY(-.23rem) rotate(-45deg)}
+
+@media (max-width:1180px){
+  /* The shipped build drops the bar to 76 once the nav collapses into the drawer. */
+  .nh-header{--header-height:76px}
+  .nh-header__inner{display:flex;justify-content:space-between;padding-block:0;position:static}
+  .nh-header__toggle{display:inline-flex}
+  /* Collapsed mobile nav: a display reveal, so the panel always resolves to
+     its real height (an animated max-height collapse did not). */
+  .nh-header__nav{background:rgba(30,30,30,.98);border-top:1px solid rgba(255,255,255,.18);display:none;inset-inline:0;justify-self:stretch;max-height:calc(100vh - var(--header-height));overflow-y:auto;position:absolute;top:var(--header-height)}
+  .nh-header__nav.is-open{display:block;animation:nh-nav-drop 200ms var(--ease-standard,ease) both}
+  @keyframes nh-nav-drop{from{opacity:0;transform:translateY(-.5rem)}to{opacity:1;transform:none}}
+  .nh-header__list{align-items:stretch;flex-direction:column;gap:0;padding:clamp(1rem,4vh,2.5rem) var(--gutter) 1.5rem}
+  .nh-header__item{border-bottom:1px solid rgba(255,255,255,.18)}
+  .nh-header__link{display:block;font-family:var(--font-display);font-size:clamp(1.6rem,4.4vw,2.75rem);font-weight:var(--weight-regular);line-height:1;padding:.8rem 0 .95rem}
+  .nh-header__call{font-size:var(--fs-13);min-height:44px;padding:0 12px}
+  .nh-header__search{height:44px;width:44px}
+  .nh-header__menu{display:none}
+  .nh-social--header{display:none}
+  .nh-brand__mark img{width:clamp(6.5rem,24vw,8.5rem)}
+}
+
+/* ── Footer — Figma: 1440×316.532, ink, padding 64/72/56, space-between ──
+   Column widths 270 / 100 / 134 / 183 / 302. Headings Manrope Bold 16/20,
+   links and copy Manrope Regular 13/20, all pure white. No divider rule. */
+.nh-footer{background:var(--surface-footer);color:var(--nh-white)}
+.nh-footer__main{display:grid;gap:3.5rem clamp(1.5rem,3vw,3rem);grid-template-columns:minmax(0,270fr) minmax(0,100fr) minmax(0,134fr) minmax(0,183fr) minmax(0,302fr);padding:64px 0 56px}
+.nh-footer__description{color:var(--nh-white);font-size:var(--fs-13);line-height:20px;margin-top:var(--space-5)}
+.nh-footer__follow{align-items:center;display:flex;gap:var(--space-5);margin-top:var(--space-5)}
+.nh-footer__label{color:var(--nh-white);font-size:var(--fs-13);line-height:1;white-space:nowrap}
+.nh-footer__heading{color:var(--nh-white);font-size:var(--fs-16);font-weight:var(--weight-bold);line-height:20px;margin-bottom:13px;text-transform:uppercase}
+.nh-footer__links{display:grid;gap:var(--space-2)}
+.nh-footer__links a,.nh-footer__contact p,.nh-footer__contact a{color:var(--nh-white);font-size:var(--fs-13);line-height:20px}
+.nh-footer__links a:hover,.nh-footer__contact a:hover{color:var(--nh-gold-light)}
+.nh-footer__contact{font-style:normal}
+.nh-footer__contact p + p{margin-top:var(--space-2)}
+.nh-footer__newsletter-title{color:var(--nh-white);font-size:var(--fs-16);font-weight:var(--weight-bold);line-height:20px;text-transform:uppercase}
+.nh-footer__newsletter-copy{color:var(--nh-white);font-size:var(--fs-13);line-height:20px;margin-top:13px}
+.nh-footer__credit{color:var(--nh-white);font-size:var(--fs-13);font-weight:var(--weight-bold);line-height:20px;margin-top:22px}
+/* Footer mark — Figma uses a distinct 160×44.532 logo box (logo-1), 8/15 padding. */
+.nh-footer__brand-box{box-sizing:border-box;display:block;padding:8px 15px;width:160px}
+.nh-footer__brand-box img{display:block;width:100%;height:auto}
+@media (max-width:1180px){
+  .nh-footer__main{column-gap:clamp(1.5rem,4vw,3rem);grid-template-columns:minmax(14rem,1.4fr) repeat(2,minmax(8rem,1fr)) minmax(12rem,1.1fr)}
+  .nh-footer__newsletter{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.18);margin-top:.5rem;padding-top:1.75rem}
+}
+@media (max-width:900px){.nh-footer__main{grid-template-columns:repeat(2,minmax(0,1fr))}.nh-footer__intro,.nh-footer__newsletter{grid-column:1/-1}}
+@media (max-width:420px){.nh-footer__main{grid-template-columns:1fr}}

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="NHATO Homepage" description="Full NHATO homepage: hero, category strip, style picker, booking band, portfolio mosaic, services, two art features, taste row, contact band, partners &amp; events" -->
+<helmet><script src="./ds-base.js"></script><script src="../../assets/icons/nhato-icons.js"></script><script src="../../assets/js/nhato.js" defer></script><link rel="icon" href="../../assets/logo/favicon.svg" type="image/svg+xml"><title>NHATO Collection — Kiến tạo giá trị sống</title></helmet>
+<div style="background:var(--nh-paper)">
+
+<header class="nh-header" data-nh-header>
+  <div class="nh-header__inner nh-container">
+    <a class="nh-brand" href="#" aria-label="NHATO Collection"><span class="nh-brand__mark"><img src="../../assets/logo/nhato-collection-lockup.png" alt="NHATO Collection"></span></a>
+    <nav class="nh-header__nav" id="nh-nav" data-nh-nav aria-label="Điều hướng chính"><ul class="nh-header__list">
+      <li class="nh-header__item"><button class="nh-header__menu" type="button" aria-label="Mở danh mục"><svg><use href="#nh-menu"></use></svg></button></li>
+      <li class="nh-header__item"><a class="nh-header__link" href="#">Network</a></li>
+      <li class="nh-header__item"><a class="nh-header__link" href="#" aria-current="page">Home</a></li>
+      <li class="nh-header__item"><a class="nh-header__link" href="#">Art</a></li>
+      <li class="nh-header__item"><a class="nh-header__link" href="#">Taste</a></li>
+      <li class="nh-header__item"><a class="nh-header__link" href="#">Original</a></li>
+    </ul></nav>
+    <div class="nh-header__utilities">
+      <div class="nh-social nh-social--header" aria-label="Mạng xã hội">
+        <a class="nh-social__link" href="#" aria-label="Facebook"><svg class="nh-icon"><use href="#nh-facebook"></use></svg></a>
+        <a class="nh-social__link" href="#" aria-label="TikTok"><svg class="nh-icon"><use href="#nh-tiktok"></use></svg></a>
+        <a class="nh-social__link" href="#" aria-label="YouTube"><svg class="nh-icon"><use href="#nh-youtube"></use></svg></a>
+      </div>
+      <a class="nh-header__call" href="tel:+84968677337">Call us: 0968 677 337</a><button class="nh-header__search" type="button" aria-label="Tìm kiếm"><svg><use href="#nh-search"></use></svg></button><button class="nh-header__toggle" type="button" data-nh-menu-toggle aria-controls="nh-nav" aria-expanded="false" aria-label="Mở menu"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="nh-hero">
+  <div class="nh-hero__media"><img src="../../assets/images/home-hero.jpg" alt=""></div>
+  <div class="nh-hero__overlay"></div>
+  <div class="nh-hero__inner nh-container">
+    <h1 class="nh-hero__title">KHÁM PHÁ<br>PHONG CÁCH SỐNG</h1>
+    <p class="nh-hero__lead">Khám phá một thế giới của phong cách sống, nghệ thuật và những trải nghiệm được NHATO tuyển chọn.</p>
+    <div class="nh-hero__actions" style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px">
+      <a class="nh-cta" href="#">KHÁM PHÁ NHATO<span class="nh-cta__arrow"><svg width="16" height="16"><use href="#nh-arrow-right"></use></svg></span></a>
+      <div class="nh-slide-index"><span class="is-current">01</span><span>02</span><span>03</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="home-categories">
+  <h2 class="sr-only">Khám phá NHATO</h2>
+  <div class="nh-tile-strip">
+    <a class="nh-tile" href="#" style="background-image:url(../../assets/images/network-feature.png)"><span class="nh-tile__body"><span class="nh-tile__title">kết nối</span><span class="nh-tile__text">Kết nối những ý tưởng và những giá trị tạo nên trải nghiệm sống.</span><span class="nh-round-arrow"><svg><use href="#nh-arrow-right"></use></svg></span></span></a>
+    <a class="nh-tile" href="#" style="background-image:url(../../assets/images/category-space.png)"><span class="nh-tile__body"><span class="nh-tile__title">không gian sống</span><span class="nh-tile__text">không gian sống được tuyển chọn để truyền cảm hứng cho phong cách sống của bạn.</span><span class="nh-round-arrow"><svg><use href="#nh-arrow-right"></use></svg></span></span></a>
+    <a class="nh-tile" href="#" style="background-image:url(../../assets/images/category-art.png)"><span class="nh-tile__body"><span class="nh-tile__title">nghệ thuật</span><span class="nh-tile__text">Nơi khơi nguồn cảm hứng và mang cảm xúc vào không gian sống.</span><span class="nh-round-arrow"><svg><use href="#nh-arrow-right"></use></svg></span></span></a>
+    <a class="nh-tile" href="#" style="background-image:url(../../assets/images/category-taste.png)"><span class="nh-tile__body"><span class="nh-tile__title">phong vị</span><span class="nh-tile__text">Phong vị sống tối giản, khước từ sự rườm rà để tìm về sự, an yên trong tâm hồn.</span><span class="nh-round-arrow"><svg><use href="#nh-arrow-right"></use></svg></span></span></a>
+    <a class="nh-tile" href="#" style="background-image:url(../../assets/images/category-original.png)"><span class="nh-tile__body"><span class="nh-tile__title">bản sắc</span><span class="nh-tile__text">Tôn vinh những giá trị chân thực và bản sắc riêng.</span><span class="nh-round-arrow"><svg><use href="#nh-arrow-right"></use></svg></span></span></a>
+  </div>
+</section>
+
+<div class="home-stack">
+
+  <section class="nh-container">
+    <div class="nh-style-picker">
+      <div class="nh-style-picker__copy">
+        <div class="nh-style-picker__head">
+          <p class="nh-eyebrow">Chọn phong cách của bạn</p>
+          <h2 class="nh-section-title" style="margin-top:0">Chọn phong cách bạn yêu thích</h2>
+        </div>
+        <a class="nh-cta nh-cta--ink" href="#">XEM TẤT CẢ<span class="nh-cta__arrow"><svg width="16" height="16"><use href="#nh-arrow-right"></use></svg></span></a>
+      </div>
+      <div class="nh-style-picker__rows">
+        <div class="nh-style-row">
+          <a class="nh-style-tile" href="#" style="background-image:url(../../assets/images/style-minimalist.jpg)"><span>Minimalist</span></a>
+          <a class="nh-style-tile" href="#" style="background-image:url(../../assets/images/style-modern.jpg)"><span>Modern</span></a>
+          <a class="nh-style-tile" href="#" style="background-image:url(../../assets/images/style-classic.jpg)"><span>Classic</span></a>
+          <a class="nh-style-tile" href="#" style="background-image:url(../../assets/images/style-indochine.jpg)"><span>Indochine</span></a>
+        </div>
+        <div class="nh-style-row">
+          <a class="nh-style-tile" href="#" style="background-image:url(../../assets/images/style-rustic.jpg)"><span>Rustic</span></a>
+          <a class="nh-style-tile" href="#" style="background-image:url(../../assets/images/style-retro.jpg)"><span>Retro</span></a>
+          <a class="nh-style-tile" href="#" style="background-image:url(../../assets/images/style-eco.jpg)"><span>Eco</span></a>
+          <a class="nh-style-tile" href="#" style="background-image:url(../../assets/images/style-art-deco.jpg)"><span>Art Deco</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nh-booking" style="--nh-booking-image:url(../../assets/images/booking-band-1440.jpg)">
+    <div class="nh-booking__inner">
+      <div class="nh-booking__copy">
+        <p class="nh-eyebrow">Tìm kiếm không gian hoàn hảo của bạn</p>
+        <h2 class="nh-booking__title">Không gian đầy cảm hứng đang chờ bạn khám phá</h2>
+      </div>
+      <a class="nh-cta" href="#">ĐẶT LỊCH TRẢI NGHIỆM NGAY<span class="nh-cta__arrow"><svg width="16" height="16"><use href="#nh-arrow-right"></use></svg></span></a>
+    </div>
+  </section>
+
+  <section class="nh-container" style="display:flex;flex-direction:column;gap:40px;align-items:center">
+    <p style="color:var(--nh-ink);font-size:var(--fs-16);line-height:23px;text-align:center;margin:0;max-width:802px">Khám phá những tác phẩm nghệ thuật được tuyển chọn, nơi mỗi đường nét, chất liệu và câu chuyện góp phần tạo nên dấu ấn riêng cho không gian sống.</p>
+      <div class="nh-tabs" role="tablist" aria-label="Bộ sưu tập portfolio">
+        <button class="nh-tab" type="button" role="tab" aria-selected="true">Tất cả</button>
+        <button class="nh-tab" type="button" role="tab" aria-selected="false">Portfolio 1</button>
+        <button class="nh-tab" type="button" role="tab" aria-selected="false">Portfolio 2</button>
+        <button class="nh-tab" type="button" role="tab" aria-selected="false">Portfolio 3</button>
+        <button class="nh-tab" type="button" role="tab" aria-selected="false">Portfolio 4</button>
+    </div>
+    <div class="nh-mosaic">
+      <img class="nh-mosaic__main" src="../../assets/images/portfolio-main.jpg" alt="Bộ tranh nghệ thuật trong không gian phòng khách" loading="lazy">
+      <div class="nh-mosaic__side">
+        <img src="../../assets/images/portfolio-side-1.jpg" alt="" loading="lazy">
+        <img src="../../assets/images/portfolio-side-2.jpg" alt="" loading="lazy">
+        <img src="../../assets/images/portfolio-side-3.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="home-services">
+    <div class="home-services__head">
+      <div>
+        <p class="nh-eyebrow">Home</p>
+        <h2 class="nh-section-title" style="color:var(--nh-white);text-transform:uppercase">Không gian sống</h2>
+      </div>
+      <a class="nh-cta" href="#">XEM TẤT CẢ<span class="nh-cta__arrow"><svg width="16" height="16"><use href="#nh-arrow-right"></use></svg></span></a>
+    </div>
+    <div class="home-services__grid">
+      <article class="nh-service-card"><span class="nh-service-card__image"><img src="../../assets/images/service-design.jpg" alt="" loading="lazy"></span><span class="nh-service-card__body"><span class="nh-service-card__title">thiết kế</span><span class="nh-service-card__text">Kiến tạo ý tưởng và ngôn ngữ thiết kế cho không gian</span></span></article>
+      <article class="nh-service-card"><span class="nh-service-card__image"><img src="../../assets/images/service-build.jpg" alt="" loading="lazy"></span><span class="nh-service-card__body"><span class="nh-service-card__title">Thi công</span><span class="nh-service-card__text">Thi công chuẩn mực với quy trình chuyên nghiệp</span></span></article>
+      <article class="nh-service-card"><span class="nh-service-card__image"><img src="../../assets/images/service-materials.jpg" alt="" loading="lazy"></span><span class="nh-service-card__body"><span class="nh-service-card__title">Nội thất &amp; vật liệu</span><span class="nh-service-card__text">Tuyển chọn nội thất và vật liệu cao cấp</span></span></article>
+    </div>
+  </section>
+
+  <section class="nh-art-feature">
+    <div class="nh-art-feature__copy">
+      <div style="display:flex;flex-direction:column;gap:13px">
+        <p class="nh-eyebrow">art</p>
+        <h2 class="nh-stack-title"><span class="nh-stack-title__ghost">NGHỆ THUẬT</span><span class="nh-stack-title__lead">ĐƯƠNG ĐẠI</span></h2>
+      </div>
+      <p class="nh-art-feature__text">Khám phá những tác phẩm mang tinh thần sáng tạo, tự do và không ngừng đổi mới. Mỗi tác phẩm là một góc nhìn riêng về con người, cuộc sống và những giá trị đang chuyển động, được thể hiện qua đa dạng chất liệu, hình thức và ngôn ngữ nghệ thuật.</p>
+      <a class="nh-cta nh-cta--ink" href="#">Đọc thêm<span class="nh-cta__arrow"><svg width="16" height="16"><use href="#nh-arrow-right"></use></svg></span></a>
+    </div>
+    <div class="nh-art-feature__media"><img src="../../assets/images/art-contemporary.png" alt="Nghệ thuật đương đại" loading="lazy"></div>
+  </section>
+
+  <section class="nh-art-feature nh-art-feature--reverse">
+    <div class="nh-art-feature__media"><img src="../../assets/images/art-indochine.png" alt="Nghệ thuật đông dương" loading="lazy"></div>
+    <div class="nh-art-feature__copy">
+      <div style="display:flex;flex-direction:column;gap:13px">
+        <p class="nh-eyebrow">art</p>
+        <h2 class="nh-stack-title"><span class="nh-stack-title__ghost">NGHỆ THUẬT</span><span class="nh-stack-title__lead">ĐÔNG DƯƠNG</span></h2>
+      </div>
+      <p class="nh-art-feature__text">Nét văn hóa giao thoa giữa hai nền nghệ thuật, Đông Dương được tái hiện qua từng chi tiết tinh tế, kết hợp vẻ đẹp truyền thống với tinh thần thẩm mỹ hiện đại.</p>
+      <a class="nh-cta nh-cta--ink" href="#">ĐỌC THÊM<span class="nh-cta__arrow"><svg width="16" height="16"><use href="#nh-arrow-right"></use></svg></span></a>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:40px">
+    <div class="nh-container" style="display:flex;flex-direction:column;gap:24px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:13px;align-items:center">
+        <p class="nh-eyebrow">Taste</p>
+        <h2 class="nh-section-title" style="margin-top:0;text-align:center">Phong vị</h2>
+      </div>
+      <p style="color:var(--nh-ink);font-size:var(--fs-16);line-height:26px;text-align:center;max-width:868px;margin:0">Cách một người thưởng thức và cảm nhận cuộc sống đều có tính nghi thức, trải nghiệm, văn hóa và gu cá nhân. NHATO tuyển chọn những phong vị đặc sắc, nơi trà, cigar và rượu trở thành một phần của nghệ thuật sống — tinh tế, sâu sắc và mang dấu ấn riêng.</p>
+    </div>
+    <div class="nh-taste-row">
+      <img src="../../assets/images/taste-row-1.jpg" alt="" loading="lazy">
+      <div class="nh-taste-tile">
+        <img src="../../assets/images/taste-row-tea.jpg" alt="" loading="lazy">
+        <span class="nh-taste-tile__caption"><span class="nh-taste-tile__label">Trà</span><span class="nh-taste-tile__text">Trà là một nét văn hóa lâu đời, mộc mạc và gắn liền với đời sống người Việt</span></span>
+      </div>
+      <img src="../../assets/images/taste-row-3.jpg" alt="" loading="lazy">
+      <img src="../../assets/images/taste-row-4.jpg" alt="" loading="lazy">
+    </div>
+  </section>
+
+  <section class="nh-contact-band" style="--nh-contact-band-image:url(../../assets/images/contact-band-bg.jpg)">
+    <div class="nh-contact-band__inner">
+      <div class="nh-contact-band__form">
+        <h2 class="nh-contact-band__lead">HÃY KẾT NỐI — ĐỂ LẠI THÔNG TIN BÊN DƯỚI VÀ ĐỘI NGŨ CỦA CHÚNG TÔI SẼ LIÊN HỆ VỚI BẠN.</h2>
+        <form class="nh-contact-form">
+          <div class="nh-contact-form__fields">
+            <input class="nh-plate" type="text" name="name" placeholder="Họ và tên" aria-label="Họ và tên">
+            <div class="nh-contact-form__pair">
+              <input class="nh-plate" type="tel" name="phone" placeholder="Số điện thoại" aria-label="Số điện thoại">
+              <input class="nh-plate" type="email" name="email" placeholder="Email" aria-label="Email">
+            </div>
+            <select class="nh-plate" name="service" aria-label="Chọn dịch vụ">
+              <option value="">Chọn dịch vụ</option>
+              <option>Thiết kế</option>
+              <option>Thi công</option>
+              <option>Nội thất &amp; vật liệu</option>
+            </select>
+            <textarea class="nh-plate" name="note" placeholder="Ghi chú:" aria-label="Ghi chú"></textarea>
+          </div>
+          <div class="nh-contact-form__foot">
+            <p class="nh-contact-form__note">Chúng tôi rất mong được đồng hành cùng bạn.</p>
+            <button class="nh-cta" type="submit">GỬI ngay<span class="nh-cta__arrow"><svg width="16" height="16"><use href="#nh-arrow-right"></use></svg></span></button>
+          </div>
+        </form>
+      </div>
+      <div class="nh-contact-band__aside">
+        <h2 class="nh-contact-band__title">KẾT NỐI VỚI CHÚNG TÔI &amp;<br>KHÁM PHÁ PORTFOLIO</h2>
+        <p class="nh-contact-band__body">Khám phá bộ sưu tập được tuyển chọn gồm những không gian, phong cách và các tác phẩm sáng tạo. Kết nối với đội ngũ của chúng tôi để khám phá những portfolio phù hợp và tìm thấy nguồn cảm hứng thực sự đồng điệu với gu thẩm mỹ của bạn.</p>
+        <div class="nh-contact-band__details">
+          <p>Địa chỉ: R4 Royal City, Nguyễn Trãi, Thanh Xuân, Hà Nội</p>
+          <p>Điện thoại: 0968 677 337</p>
+          <p>Email: info@nhatoreview.com</p>
+          <p>Giờ mở cửa: Monday – Friday: 09:00 – 18:00</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nh-container" style="width:min(100% - (var(--gutter) * 2),1295px)">
+    <div class="nh-two-col">
+      <div>
+        <div class="nh-col-head">
+          <h2>Đối tác</h2>
+          <a class="nh-text-link" href="#">Xem tất cả <span>↗</span></a>
+        </div>
+        <div class="nh-partner-grid" style="--nh-partner-sheet:url(../../assets/images/partners-sheet.png);margin-top:32px">
+          <a class="nh-partner" href="#" style="background-position:3.079% 23.33%" aria-label="Đối tác 1"></a>
+          <a class="nh-partner" href="#" style="background-position:50.067% 23.33%" aria-label="Đối tác 2"></a>
+          <a class="nh-partner" href="#" style="background-position:97.016% 23.33%" aria-label="Đối tác 3"></a>
+          <a class="nh-partner" href="#" style="background-position:3.079% 70.168%" aria-label="Đối tác 4"></a>
+          <a class="nh-partner" href="#" style="background-position:50.067% 70.538%" aria-label="Đối tác 5"></a>
+          <a class="nh-partner" href="#" style="background-position:97.016% 70.518%" aria-label="Đối tác 6"></a>
+        </div>
+      </div>
+      <div>
+        <div class="nh-col-head">
+          <h2>Sự kiện sắp tới</h2>
+          <a class="nh-text-link" href="#">Xem tất cả <span>↗</span></a>
+        </div>
+        <div class="nh-event-grid" style="margin-top:32px">
+          <article class="nh-event-card"><span class="nh-event-card__date"><strong>15</strong><span>Jun</span></span><span class="nh-event-card__body"><span class="nh-event-card__title">NHATO<br>Private Dinner</span><span class="nh-event-card__text">Một buổi tối riêng tư với ẩm thực tinh tế và những cuộc trò chuyện đầy ý nghĩa.</span><a class="nh-event-card__cta" href="#">ĐĂNG KÝ<svg><use href="#nh-arrow-right"></use></svg></a></span></article>
+          <article class="nh-event-card"><span class="nh-event-card__date"><strong>15</strong><span>Jun</span></span><span class="nh-event-card__body"><span class="nh-event-card__title">NHATO<br>Private Dinner</span><span class="nh-event-card__text">Một buổi tối riêng tư với ẩm thực tinh tế và những cuộc trò chuyện đầy ý nghĩa.</span><a class="nh-event-card__cta" href="#">ĐĂNG KÝ<svg><use href="#nh-arrow-right"></use></svg></a></span></article>
+          <article class="nh-event-card"><span class="nh-event-card__date"><strong>15</strong><span>Jun</span></span><span class="nh-event-card__body"><span class="nh-event-card__title">NHATO<br>Private Dinner</span><span class="nh-event-card__text">Một buổi tối riêng tư với ẩm thực tinh tế và những cuộc trò chuyện đầy ý nghĩa.</span><a class="nh-event-card__cta" href="#">ĐĂNG KÝ<svg><use href="#nh-arrow-right"></use></svg></a></span></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer class="nh-footer"><div class="nh-footer__main nh-container">
+  <div class="nh-footer__intro">
+    <a class="nh-footer__brand-box" href="#" aria-label="NHATO Collection"><img src="../../assets/logo/nhato-footer-logo.png" alt="NHATO Collection"></a>
+    <p class="nh-footer__description">NHATO Collection là không gian kết nối giữa kiến trúc, nội thất, nghệ thuật và phong cách sống, hướng đến việc tạo nên những giá trị bền vững và truyền cảm hứng cho những trải nghiệm sống.</p>
+    <div class="nh-footer__follow"><p class="nh-footer__label">Follow us on</p>
+      <div class="nh-social nh-social--tight" aria-label="Mạng xã hội">
+        <a class="nh-social__link" href="#" aria-label="Facebook"><svg class="nh-icon"><use href="#nh-facebook"></use></svg></a>
+        <a class="nh-social__link" href="#" aria-label="X"><svg class="nh-icon"><use href="#nh-x"></use></svg></a>
+        <a class="nh-social__link" href="#" aria-label="TikTok"><svg class="nh-icon"><use href="#nh-tiktok"></use></svg></a>
+        <a class="nh-social__link" href="#" aria-label="YouTube"><svg class="nh-icon"><use href="#nh-youtube"></use></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="nh-footer__column"><h2 class="nh-footer__heading">Khám phá</h2><ul class="nh-footer__links"><li><a href="#">Về NHATO</a></li><li><a href="#">Kết nối</a></li><li><a href="#">Không gian sống</a></li><li><a href="#">Nghệ thuật</a></li><li><a href="#">Phong vị</a></li><li><a href="#">Bản sắc</a></li></ul></div>
+  <div class="nh-footer__column"><h2 class="nh-footer__heading">Hỗ trợ</h2><ul class="nh-footer__links"><li><a href="#">Câu hỏi thường gặp</a></li><li><a href="#">Chính sách bảo mật</a></li><li><a href="#">Điều khoản sử dụng</a></li><li><a href="#">Chính sách hoàn tiền</a></li><li><a href="#">Tham quan Showroom</a></li></ul></div>
+  <address class="nh-footer__column nh-footer__contact"><h2 class="nh-footer__heading">Contact us</h2><p>R4 Royal City, Nguyễn Trãi,<br>Thanh Xuân, Hà Nội</p><p><a href="mailto:info@nhatoreview.com">info@nhatoreview.com</a></p><p><a href="tel:+84968677337">0968 677 337</a></p><p>Monday – Friday: 09:00 – 18:00</p></address>
+  <div class="nh-footer__newsletter"><h2 class="nh-footer__newsletter-title">Giữ nguồn cảm hứng cùng NHATO</h2>
+    <p class="nh-footer__newsletter-copy">Đăng ký để nhận những cập nhật mới nhất về không gian, nghệ thuật và các trải nghiệm.</p>
+    <div class="nh-newsletter"><input type="email" placeholder="Your email address"><button class="nh-newsletter__submit" type="button" aria-label="Đăng ký nhận tin"><svg class="nh-icon"><use href="#nh-arrow-right"></use></svg></button></div>
+    <p class="nh-footer__credit">Designed by NHATO Design</p>
+  </div>
+</div></footer>
+
+</div>
+
+</x-dc>
+</body>
+</html>

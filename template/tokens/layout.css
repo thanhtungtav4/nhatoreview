@@ -1,0 +1,49 @@
+/* NHATO Collection — space, geometry, motion.
+   Figma frames are 1440 wide with a 72px page gutter; the web build narrows the
+   content column to 1296px with a fluid gutter. Both are recorded. */
+:root{
+  --page-width:1440px;        /* Figma frame width */
+  --page-gutter:72px;         /* Figma left/right page margin */
+  --container-width:1296px;   /* web build content column */
+  --gutter:clamp(1.25rem,5vw,4.5rem); /* @kind spacing */
+  --header-height:94px;       /* Figma node 3:5 — 94 tall, padding 16px 72px, content 62 */
+
+  /* Auto-layout gaps used in the file */
+  --space-1:6px;
+  --space-2:8px;
+  --space-3:10px;
+  --space-4:12px;
+  --space-5:16px;
+  --space-6:20px;
+  --space-7:24px;
+  --space-8:32px;
+  --space-9:64px;             /* header nav gap */
+  --space-10:72px;
+
+  /* Radii — the file is almost entirely square */
+  --radius-none:0;            /* default: cards, images, buttons are hard-cornered */
+  --radius-sm:2px;
+  --radius-panel:.45rem;      /* the homepage category panel */
+  --radius-pill:1000px;       /* the "Tin mới" chip and circular arrow buttons */
+
+  /* Borders */
+  --border-thin:1px;
+  --border-icon:1.333px;      /* circular icon-button stroke in Figma */
+
+  /* Elevation */
+  --shadow-header:0 4px 4px rgba(0,0,0,.25);
+  --shadow-header-scrolled:0 18px 42px rgba(0,0,0,.16);
+  --shadow-panel:0 1rem 2.8rem rgba(29,28,26,.06);
+  --shadow-soft:0 1px 2px rgba(16,24,40,.1);
+
+  /* Scrims */
+  --scrim-header:linear-gradient(180deg,#1e1e1e 0%,rgba(30,30,30,.6) 100%); /* @kind color */
+  --scrim-hero:linear-gradient(270deg,rgba(0,0,0,0) 32.21%,rgba(0,0,0,.75) 100%); /* @kind color */
+  --scrim-card:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.82) 100%); /* @kind color */
+
+  /* Motion */
+  --ease-standard:cubic-bezier(.2,.7,.2,1); /* @kind other */
+  --dur-fast:180ms; /* @kind other */
+  --dur-mid:220ms; /* @kind other */
+  --dur-slow:500ms; /* @kind other */           /* image zoom on card hover */
+}

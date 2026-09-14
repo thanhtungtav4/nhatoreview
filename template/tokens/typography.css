@@ -1,0 +1,45 @@
+/* NHATO Collection — typography.
+   Families and sizes are the exact ones counted in NHATO 2.fig.
+   Manrope carries the interface and body; Cormorant Garamond carries display;
+   Ibarra Real Nova appears only on article datelines; Inter on chips and
+   long-form article bodies. */
+:root{
+  --font-display:"Cormorant Garamond","Times New Roman",serif;
+  --font-body:"Manrope",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-editorial:"Ibarra Real Nova",Georgia,serif;
+  --font-ui:"Inter",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-alt:"Montserrat",Helvetica,Arial,sans-serif;
+  --font-alt-2:"Plus Jakarta Sans",Helvetica,Arial,sans-serif;
+  --font-legacy-serif:"Times New Roman",serif;   /* 44× in the file, unstyled headings */
+
+  /* Sizes present in the source, smallest to largest */
+  --fs-micro:11.68px;  /* Arial 11.675676px — chart / map labels */
+  --fs-13:13px;        /* Manrope Regular, 183× — the file's workhorse body size */
+  --fs-14:14px;        /* 126× — meta, nav labels, buttons */
+  --fs-15:15px;        /* "Call us:" pill */
+  --fs-16:16px;        /* 71× — card titles, nav */
+  --fs-18:18px;        /* hero lead */
+  --fs-20:20px;
+  --fs-24:24px;        /* section subheads, article H2 */
+  --fs-32:32px;
+  --fs-40:40px;
+  --fs-48:48px;
+  --fs-56:56px;        /* hero display */
+
+  /* Line heights seen in the source */
+  --lh-tight:100%;     /* the file sets most display + nav type to 100% */
+  --lh-snug:1.4; /* @kind other */
+  --lh-body:1.5; /* @kind other */
+  --lh-24:24px;        /* article paragraph */
+  --lh-26:26px;        /* card title */
+  --lh-34:34px;        /* article H2 */
+
+  --weight-regular:400;
+  --weight-medium:500;
+  --weight-semibold:600;
+  --weight-bold:700;
+
+  --tracking-caps:.13em;   /* uppercase buttons in the web build */
+  --tracking-eyebrow:.18em;
+  --tracking-display:-.045em;
+}

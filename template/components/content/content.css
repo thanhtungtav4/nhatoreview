@@ -1,0 +1,375 @@
+/* NHATO Collection — cards, tiles and editorial rows.
+   Project / article / category patterns from the shipped homepage CSS;
+   the three article row variants are the Figma components Frame 1731,
+   Frame 2144771281 and Frame 2144771605. */
+
+/* ── Section heading: eyebrow + display title ────────────────── */
+.nh-section-head{align-items:flex-end;display:flex;justify-content:space-between;gap:1.5rem}
+.nh-section-title{color:var(--nh-ink);font-family:var(--font-legacy-serif);font-size:var(--fs-48);font-weight:var(--weight-regular);line-height:var(--lh-tight);margin-top:13px}
+.nh-rule{border-top:1px solid rgba(30,30,30,.16);flex:1}
+
+/* Centred editorial headline — news pages. Cormorant Garamond SemiBold 40,
+   line-height 1.4, uppercase, ink. Section stacks sit 40px apart. */
+.nh-headline{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-40);font-weight:var(--weight-semibold);line-height:1.4;text-align:center;text-transform:uppercase}
+.nh-hairline{border:0;border-top:.5px solid var(--nh-gray-2);height:0;margin:0;width:100%}
+.nh-stack{display:flex;flex-direction:column;gap:40px}
+.nh-headline--quiet{font-weight:var(--weight-medium)}
+
+
+/* ── Responsive section grids ─────────────────────────────────
+   Breakpoints transcribed from the shipped build (home.css and the news/
+   article/contact page CSS): everything collapses at 1050px, then at 620px. */
+.nh-lead-grid{display:grid;grid-template-columns:minmax(0,887fr) minmax(0,389fr);gap:var(--space-6);align-items:start}
+.nh-detail-grid{display:grid;grid-template-columns:minmax(0,880fr) minmax(0,388fr);gap:40px;align-items:start}
+.nh-split-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
+.nh-values-grid{display:grid;grid-template-columns:minmax(22rem,.63fr) minmax(0,1fr);gap:2rem;align-items:start}
+.nh-grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-6)}
+.nh-grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-6)}
+.nh-grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-6)}
+.nh-project-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(1rem,1.45vw,1.5rem)}
+.nh-article-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,1.6vw,1.5rem)}
+.nh-process-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3.4rem 2rem}
+.nh-rail{display:flex;flex-direction:column;gap:var(--space-7)}
+.nh-aside{display:flex;flex-direction:column;gap:var(--space-7);position:sticky;top:calc(var(--header-height) + var(--space-7))}
+.nh-title-row{align-items:center;display:grid;gap:1.5rem;grid-template-columns:auto minmax(4rem,1fr) auto}
+@media (max-width:1050px){
+  .nh-lead-grid,.nh-detail-grid,.nh-split-grid,.nh-values-grid{grid-template-columns:minmax(0,1fr)}
+  .nh-split-grid{gap:2.5rem}
+  .nh-grid-4,.nh-grid-3,.nh-project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nh-aside{position:static}
+}
+@media (max-width:620px){
+  .nh-grid-4,.nh-grid-3,.nh-grid-2,.nh-project-grid,.nh-article-grid,.nh-process-list{grid-template-columns:minmax(0,1fr)}
+  .nh-title-row{grid-template-columns:1fr auto}
+  .nh-title-row .nh-rule{display:none}
+}
+
+/* ── News grid card — Figma: Frame 2144771281 (268:1596), 309×407.014 ──
+   Image 220.014 tall, dateline (no chip), Manrope SemiBold 16/26 title,
+   Manrope Regular 14/22 #595959 excerpt, 16px stack gap. */
+.nh-news-card{display:flex;flex-direction:column;gap:var(--space-5);min-width:0}
+.nh-news-card img{width:100%;aspect-ratio:1.4045;object-fit:cover;background:var(--nh-gray-2)}
+.nh-news-card__title{font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);line-height:var(--lh-26);color:var(--nh-ink)}
+.nh-news-card__excerpt{font-family:var(--font-body);font-size:var(--fs-14);line-height:22px;color:var(--nh-gray-8)}
+.nh-news-card .nh-dateline,.nh-news-card__meta{align-items:flex-start;display:flex;gap:var(--space-4);justify-content:space-between}
+
+/* ── Lead story — Figma: 887-wide column, 436px image, 860-wide body ──── */
+.nh-lead{display:flex;flex-direction:column;gap:var(--space-6)}
+.nh-lead__figure{display:block;overflow:hidden}
+.nh-lead__figure img{width:100%;height:436px;object-fit:cover;background:var(--nh-gray-2);transition:transform var(--dur-slow) var(--ease-standard)}
+.nh-lead:hover .nh-lead__figure img{transform:scale(1.03)}
+.nh-lead__meta{align-items:flex-start;display:flex;gap:var(--space-4);justify-content:space-between}
+.nh-lead__title{font-family:var(--font-body);font-size:var(--fs-24);font-weight:var(--weight-semibold);line-height:var(--lh-26);color:var(--nh-ink)}
+.nh-lead__excerpt{-webkit-box-orient:vertical;-webkit-line-clamp:2;display:-webkit-box;font-family:var(--font-body);font-size:var(--fs-14);line-height:22px;color:var(--nh-gray-8);overflow:hidden}
+.nh-lead__body{display:flex;flex-direction:column;gap:var(--space-4)}
+
+/* ── Video card — Figma: Frame 2144771530 (268:1686), 309×255.128 ─────
+   16:9-ish frame (309×173.128), centred YouTube badge, Manrope 600 16/22. */
+.nh-video-card{display:flex;flex-direction:column;gap:var(--space-5);min-width:0}
+.nh-video-card__frame{position:relative;aspect-ratio:1.785;overflow:hidden;background:var(--nh-ink)}
+.nh-video-card__frame img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-standard)}
+.nh-video-card:hover .nh-video-card__frame img{transform:scale(1.035)}
+.nh-video-card__badge{align-items:center;display:flex;inset:0;justify-content:center;position:absolute}
+.nh-video-card__badge svg{width:48px;height:33.75px}
+.nh-video-card__title{font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);line-height:22px;color:var(--nh-ink)}
+.nh-video-card--lead .nh-video-card__badge svg{width:64px;height:45px}
+.nh-video-card--lead .nh-video-card__title{font-family:var(--font-ui);line-height:var(--lh-26)}
+
+/* ── "Xem thêm" — Figma: 123×40, radius 6, gold, Inter 400 14/24 ─────── */
+.nh-more-btn{align-items:center;background:var(--nh-gold);border:0;border-radius:6px;color:var(--nh-white);display:inline-flex;font-family:var(--font-ui);font-size:var(--fs-14);font-weight:var(--weight-regular);gap:4px;justify-content:center;line-height:var(--lh-24);min-height:40px;padding:8px 16px}
+.nh-more-btn svg{width:20px;height:20px}
+.nh-more-btn:hover{background:var(--nh-gold-light);color:var(--nh-ink)}
+
+/* ── Section-page rule head — Figma: 1297-wide row at y748, gap 41 ──────
+   Times New Roman 32 title, 0.5px #CECECE rule, Manrope Bold 16 uppercase
+   action with a 28.364px ring-less arrow. */
+.nh-rule-head{align-items:center;display:flex;gap:41px}
+.nh-rule-head__title{color:var(--nh-ink);font-family:var(--font-legacy-serif);font-size:var(--fs-32);font-weight:var(--weight-regular);line-height:var(--lh-tight);white-space:nowrap}
+.nh-rule-head__line{border-top:.5px solid var(--nh-gray-2);flex:1;min-width:1rem}
+.nh-rule-head__action{align-items:center;color:var(--nh-ink);display:inline-flex;gap:10.636px;white-space:nowrap}
+.nh-rule-head__action span{font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-bold);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-rule-head__action svg{width:28.364px;height:28.364px}
+.nh-rule-head__action:hover{color:var(--nh-gold)}
+
+/* ── Feature band — Figma: full-bleed #EDE9E3, padding 40/72/24, gap 40 ──
+   420-wide copy column beside a 760×434 image; the even band reverses. */
+.nh-feature{background:var(--nh-paper-warm);display:flex;flex-direction:column;gap:40px;padding:40px 72px 24px}
+.nh-feature__row{align-items:flex-start;display:flex;gap:40px;justify-content:space-between}
+.nh-feature__copy{display:flex;flex-direction:column;gap:15px;flex:0 1 420px;min-width:0}
+.nh-feature__number{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-32);font-weight:var(--weight-regular);line-height:var(--lh-tight)}
+.nh-feature__title{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-40);font-weight:var(--weight-bold);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-feature__rule{border-top:.5px solid var(--nh-ink);width:45px}
+.nh-feature__text{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);line-height:26px}
+.nh-feature__copy .nh-cta{align-self:flex-start;min-width:150px}
+.nh-feature__media{flex:0 1 760px;min-width:0;position:relative;align-self:stretch;min-height:434px;overflow:hidden}
+.nh-feature__media img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-standard)}
+.nh-feature__media::after{background:rgba(0,0,0,.2);content:"";inset:0;pointer-events:none;position:absolute}
+.nh-feature:hover .nh-feature__media img{transform:scale(1.02)}
+.nh-feature--reverse .nh-feature__row{flex-direction:row-reverse}
+.nh-feature__foot{display:flex;flex-direction:column;gap:24px}
+@media (max-width:1050px){
+  .nh-feature{padding:32px var(--gutter) 24px}
+  .nh-feature__row{flex-direction:column}
+  .nh-feature--reverse .nh-feature__row{flex-direction:column}
+  .nh-feature__copy,.nh-feature__media{flex:1 1 auto;width:100%}
+  .nh-feature__media{min-height:0;aspect-ratio:1.751}
+}
+
+/* ── Stat row — eye / clock / calendar / share, Manrope 14 #797979 ─────── */
+.nh-statbar{align-items:center;column-gap:24px;display:flex;flex-wrap:wrap;justify-content:space-between;row-gap:12px}
+.nh-statbar__group{align-items:center;column-gap:24px;display:flex;flex-wrap:wrap;row-gap:12px}
+.nh-stat{align-items:center;color:var(--nh-gray-5);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-14);gap:11px;line-height:var(--lh-tight);white-space:nowrap}
+.nh-stat svg{width:24px;height:24px;flex:0 0 auto}
+.nh-stat + .nh-stat{border-left:.5px solid var(--nh-gray-2);padding-left:24px}
+.nh-statbar a.nh-stat:hover{color:var(--nh-ink)}
+
+/* ── Feature post card — Figma: Frame 2144771538, 418×381 ─────────────── */
+.nh-post-card{display:flex;flex-direction:column;gap:24px;min-width:0}
+.nh-post-card__image{aspect-ratio:1.665;display:block;overflow:hidden}
+.nh-post-card__image img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-standard)}
+.nh-post-card:hover .nh-post-card__image img{transform:scale(1.04)}
+.nh-post-card__body{display:flex;flex-direction:column;gap:var(--space-2)}
+.nh-post-card__title{color:var(--nh-ink);font-family:var(--font-legacy-serif);font-size:var(--fs-24);font-weight:var(--weight-regular);line-height:var(--lh-tight)}
+.nh-post-card__text{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);line-height:var(--lh-tight)}
+
+/* ── Centred section intro — gold rule + eyebrow, display head, lead ────
+   Figma (taste): 32px 0.5px #CB890F rule, Manrope 16 uppercase #CB890F,
+   Cormorant SemiBold 40 uppercase ink, Manrope 14 lead at 607 wide. */
+.nh-intro{align-items:center;display:flex;flex-direction:column;gap:24px;text-align:center}
+.nh-intro__eyebrow{align-items:center;color:var(--nh-gold-deep);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-regular);gap:var(--space-4);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-intro__eyebrow::before{background:var(--nh-gold-deep);content:"";height:.5px;width:32px}
+.nh-intro__title{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-40);font-weight:var(--weight-semibold);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-intro__lead{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);line-height:var(--lh-tight);max-width:607px}
+
+/* ── Pillar row — 4 icon columns divided by hairlines (taste) ─────────── */
+.nh-pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.nh-pillar{align-items:center;display:flex;flex-direction:column;gap:var(--space-5);padding-inline:24px;position:relative;text-align:center}
+.nh-pillar + .nh-pillar::before{background:var(--nh-gray-2);content:"";height:100%;left:0;position:absolute;top:0;width:.5px}
+.nh-pillar__icon{color:var(--nh-ink);height:72px;width:72px}
+.nh-pillar__title{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-24);font-weight:var(--weight-regular);line-height:var(--lh-tight)}
+.nh-pillar__text{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);line-height:22px}
+@media (max-width:1050px){.nh-pillars{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 0}}
+@media (max-width:620px){.nh-pillars{grid-template-columns:minmax(0,1fr)}.nh-pillar + .nh-pillar::before{display:none}}
+
+/* ── Tall portrait card — Figma: Frame 2144771547, 309×571 ────────────── */
+.nh-portrait-card{display:flex;flex-direction:column;gap:24px;min-width:0}
+.nh-portrait-card__image{aspect-ratio:.653;display:block;overflow:hidden}
+.nh-portrait-card__image img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-standard)}
+.nh-portrait-card:hover .nh-portrait-card__image img{transform:scale(1.04)}
+.nh-portrait-card__body{display:flex;flex-direction:column;gap:var(--space-2)}
+.nh-portrait-card__title{color:var(--nh-ink);font-family:var(--font-legacy-serif);font-size:var(--fs-24);font-weight:var(--weight-regular);line-height:var(--lh-tight)}
+.nh-portrait-card__text{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);line-height:var(--lh-tight)}
+
+/* ── Split hero panel — Figma (original): 638×615 photo with centred copy ─ */
+.nh-panel{align-items:center;background-position:center;background-size:cover;box-sizing:border-box;color:var(--nh-white);display:flex;flex-direction:column;gap:15px;justify-content:center;min-height:615px;padding:60px 48px;position:relative;text-align:center}
+.nh-panel::before{background:rgba(0,0,0,.2);content:"";inset:0;position:absolute;transition:background var(--dur-fast) var(--ease-standard)}
+.nh-panel--dim::before{background:rgba(0,0,0,.36)}
+.nh-panel:hover::before{background:rgba(0,0,0,.12)}
+.nh-panel > *{position:relative}
+.nh-panel__number{font-family:var(--font-body);font-size:var(--fs-32);font-weight:var(--weight-regular);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-panel__title{font-family:var(--font-display);font-size:var(--fs-40);font-weight:var(--weight-bold);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-panel__rule{background:var(--nh-white);height:.5px;width:45px}
+.nh-panel__text{font-family:var(--font-body);font-size:var(--fs-16);line-height:var(--lh-tight);max-width:385px}
+@media (max-width:1050px){.nh-panel{min-height:460px;padding:48px 32px}}
+
+/* ── Pull quote — Figma (original): #EDE9E3 band, gold mark, Cormorant 32 ─ */
+.nh-quote{align-items:center;background:var(--nh-paper-warm);box-sizing:border-box;display:flex;flex-direction:column;gap:20px;padding:16px;text-align:center}
+.nh-quote__mark{color:var(--nh-gold);height:27.116px;width:27.2px}
+.nh-quote__mark svg{height:27.116px;width:27.2px}
+.nh-quote p{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-32);font-weight:var(--weight-regular);line-height:var(--lh-tight);max-width:630px}
+
+/* ── Role tile — Figma (network): 418×418 photo, icon + copy at the foot ─ */
+.nh-role-card{align-items:flex-end;background:var(--nh-ink);background-position:center;background-size:cover;box-sizing:border-box;color:var(--nh-white);display:flex;min-height:418px;padding:20px;position:relative}
+.nh-role-card::before{background:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2)),linear-gradient(180deg,rgba(76,76,76,0) 50%,rgb(0,0,0) 100%);content:"";inset:0;position:absolute}
+.nh-role-card__body{display:flex;gap:var(--space-5);position:relative;width:100%}
+.nh-role-card__icon{color:var(--nh-white);flex:0 0 48px;height:48px;width:48px}
+.nh-role-card__copy{display:flex;flex-direction:column;gap:var(--space-2);min-width:0}
+.nh-role-card__copy strong{font-family:var(--font-display);font-size:var(--fs-20);font-weight:var(--weight-bold);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-role-card__copy span{font-family:var(--font-body);font-size:var(--fs-14);line-height:18px}
+@media (max-width:1050px){.nh-role-card{min-height:320px}}
+
+/* ── Audience card — Figma: Frame 2144771468, 342×183 on ink ──────────── */
+.nh-audience-card{background:var(--nh-ink);border:var(--border-thin) solid var(--nh-gray-3);box-sizing:border-box;color:var(--nh-white);display:flex;flex-direction:column;gap:20px;min-height:183px;padding:24px}
+.nh-audience-card__head{display:flex;flex-direction:column;gap:var(--space-3)}
+.nh-audience-card__head strong{font-family:var(--font-display);font-size:var(--fs-24);font-weight:var(--weight-semibold);line-height:var(--lh-tight)}
+.nh-audience-card__head span{font-family:var(--font-body);font-size:var(--fs-14);font-weight:var(--weight-bold);line-height:var(--lh-tight)}
+.nh-audience-card p{font-family:var(--font-body);font-size:var(--fs-14);line-height:18px}
+
+/* ── Marquee gallery — Figma (network): two 180px rows, white edge fade ── */
+.nh-gallery{overflow:hidden;position:relative}
+.nh-gallery::after{background:linear-gradient(90deg,var(--nh-white) 0%,rgba(255,255,255,0) 20%,rgba(255,255,255,0) 80%,var(--nh-white) 100%);content:"";inset:0;pointer-events:none;position:absolute;z-index:2}
+.nh-gallery__row{display:flex;gap:20px;width:100%}
+.nh-gallery__row + .nh-gallery__row{margin-top:20px}
+.nh-gallery__row img{flex:1 1 0;min-width:0;height:180px;object-fit:cover}
+.nh-gallery__row img:nth-child(1),.nh-gallery__row img:nth-child(5){flex-grow:280}
+.nh-gallery__row img:nth-child(3){flex-grow:260}
+.nh-gallery__row img:nth-child(2),.nh-gallery__row img:nth-child(4),.nh-gallery__row img:nth-child(6){flex-grow:180}
+.nh-gallery__row--offset{margin-left:-90px}
+
+/* ── Flanked heading — Figma (about): 280px rules either side ────────── */
+.nh-flanked{align-items:center;display:flex;gap:var(--space-5);justify-content:center}
+.nh-flanked::before,.nh-flanked::after{background:var(--nh-gray-2);content:"";flex:0 1 280px;height:.5px}
+.nh-flanked span{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-24);font-weight:var(--weight-bold);letter-spacing:.04em;line-height:1;text-transform:uppercase;white-space:nowrap}
+
+/* ── Timeline card — Figma: Frame 2144771574, 309×488 ────────────────── */
+.nh-step-card{display:flex;flex-direction:column;gap:24px;min-width:0}
+.nh-step-card__image{aspect-ratio:1.471;display:block;overflow:hidden}
+.nh-step-card__image img{width:100%;height:100%;object-fit:cover}
+.nh-step-card__num{align-items:flex-end;display:flex;gap:var(--space-5)}
+.nh-step-card__num em{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-48);font-style:italic;font-weight:var(--weight-semibold);line-height:26px}
+.nh-step-card__num i{background:var(--nh-ink);flex:1;height:.5px;margin-bottom:8px}
+.nh-step-card__title{color:var(--nh-ink);font-family:var(--font-display);font-size:22px;font-weight:var(--weight-bold);line-height:var(--lh-26);text-transform:uppercase}
+.nh-step-card__text{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);line-height:22px}
+.nh-step-card__body{display:flex;flex-direction:column;gap:22px}
+
+/* ── Vision / mission panel — Figma (about): photo under rgba(0,0,0,.59) ─ */
+.nh-mission{align-items:flex-start;background-position:center;background-size:cover;box-sizing:border-box;color:var(--nh-white);display:flex;flex-direction:column;gap:12px;justify-content:center;min-height:339px;padding:0 32px;position:relative}
+.nh-mission::before{background:rgba(0,0,0,.59);content:"";inset:0;position:absolute}
+.nh-mission > *{position:relative}
+.nh-mission__icon{color:var(--nh-white);height:48px;width:48px}
+.nh-mission__title{font-family:var(--font-display);font-size:var(--fs-32);font-weight:var(--weight-semibold);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-mission__text{font-family:var(--font-body);font-size:var(--fs-16);line-height:26px;max-width:397px}
+
+/* ── Core-value column — Figma (about): 200-wide cells, hairline divides ─ */
+.nh-values{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}
+.nh-value{display:flex;flex-direction:column;gap:12px;justify-content:center;min-width:0;position:relative}
+.nh-value + .nh-value::before{background:var(--nh-gray-2);content:"";height:136px;left:-12px;position:absolute;top:50%;transform:translateY(-50%);width:.5px}
+.nh-value strong{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-24);font-weight:var(--weight-semibold);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-value p{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-16);line-height:var(--lh-24)}
+@media (max-width:1050px){.nh-values{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:32px}.nh-value + .nh-value::before{display:none}}
+@media (max-width:620px){.nh-values{grid-template-columns:minmax(0,1fr)}}
+
+/* ── Category tile (Figma: Frame 2144771310, 5× across the hero foot) ──
+   288×232, 1px #9D9D9D border, the photo under a flat rgba(0,0,0,.8) layer,
+   Times New Roman 24 capitalize title, Manrope 14 body, gold circular arrow. */
+.nh-tile-strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.nh-tile{align-items:flex-start;background-position:center;background-size:cover;border:var(--border-thin) solid var(--nh-gray-3);box-sizing:border-box;color:var(--nh-white);display:flex;min-height:232px;padding:32px 70px;position:relative}
+.nh-tile::before{background:rgba(0,0,0,.8);content:"";inset:0;position:absolute;transition:background var(--dur-fast) var(--ease-standard)}
+.nh-tile:hover::before{background:rgba(0,0,0,.68)}
+.nh-tile__body{display:flex;flex-direction:column;gap:var(--space-5);justify-content:center;min-width:0;position:relative;width:100%}
+.nh-tile__title{font-family:var(--font-legacy-serif);font-size:var(--fs-24);font-weight:var(--weight-regular);line-height:var(--lh-tight);text-transform:capitalize}
+.nh-tile__text{font-family:var(--font-body);font-size:var(--fs-14);font-weight:var(--weight-regular);line-height:var(--lh-tight)}
+.nh-round-arrow{align-items:center;border-radius:333.333px;box-shadow:inset 0 0 0 var(--border-icon) var(--nh-gold);box-sizing:border-box;color:var(--nh-white);display:flex;flex:0 0 auto;height:32px;justify-content:center;padding:9.667px 7px;width:32px}
+.nh-round-arrow svg{height:12.667px;width:100%}
+.nh-tile:hover .nh-round-arrow{background:var(--nh-gold);color:var(--nh-ink)}
+/* Five tiles don't divide into a 3- or 2-up grid without orphaning one, so below the
+   full-width breakpoint the strip keeps its 5-across rhythm and scrolls horizontally. */
+@media (max-width:1180px){
+  .nh-tile-strip{grid-auto-columns:minmax(240px,1fr);grid-auto-flow:column;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .nh-tile{padding:32px;scroll-snap-align:start}
+}
+@media (max-width:760px){.nh-tile-strip{grid-auto-columns:minmax(215px,1fr)}}
+
+/* ── Video tile — Figma: Frame 2144771595 (260:300), 309×280 ──────────
+   A full-bleed still with the YouTube badge centred; no caption. */
+.nh-video-tile{background:var(--nh-white);display:block;min-width:0;overflow:hidden;position:relative;aspect-ratio:1.104}
+.nh-video-tile img{height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-standard);width:100%}
+.nh-video-tile:hover img{transform:scale(1.035)}
+.nh-video-tile__badge{align-items:center;display:flex;inset:0;justify-content:center;position:absolute}
+.nh-video-tile__badge svg{height:34px;width:48px}
+
+/* ── Team card — Figma: Frame 2144771585 (257:179), 309×471 ───────────
+   387-tall portrait over a centred name / role pair, 24px gap. */
+.nh-team-card{display:flex;flex-direction:column;gap:24px;min-width:0}
+.nh-team-card img{height:387px;object-fit:cover;width:100%;background:var(--nh-gray-2)}
+.nh-team-card__body{align-items:center;display:flex;flex-direction:column;gap:var(--space-2);justify-content:center;text-align:center}
+.nh-team-card__name{color:var(--nh-ink);font-family:var(--font-legacy-serif);font-size:var(--fs-24);font-weight:var(--weight-regular);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-team-card__role{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-16);line-height:var(--lh-24);text-transform:uppercase}
+@media (max-width:1050px){.nh-team-card img{height:300px}}
+
+/* ── Carousel arrow — Figma: 56×56, .9 white, blur 8, 1px #CECECE ─────── */
+.nh-carousel-arrow{align-items:center;backdrop-filter:blur(8px);background:rgba(255,255,255,.9);border:0;box-shadow:inset 0 0 0 1px var(--nh-gray-2);color:var(--nh-gold);display:inline-flex;height:56px;justify-content:center;width:56px}
+.nh-carousel-arrow svg{height:14px;width:14px}
+.nh-carousel-arrow:hover{background:var(--nh-gold);color:var(--nh-ink)}
+
+/* ── Category panel — Figma: Không gian - Home, 1298×212 ───────────────
+   radius 8, #EDE9E3, shadow 0 0 8.4 rgba(0,0,0,.25), padding 40/20, gap 24.
+   Five 196×131 cells: 40px gold icon, Cormorant Bold 24 uppercase title,
+   Manrope 16 line, divided by 0.5px #CECECE verticals 132 tall. */
+.nh-category-panel{background:var(--nh-paper-warm);border-radius:8px;box-shadow:0 0 8.4px rgba(0,0,0,.25);box-sizing:border-box;display:grid;gap:24px;grid-template-columns:repeat(5,minmax(0,1fr));padding:40px 20px}
+.nh-category{align-items:flex-start;box-sizing:border-box;color:var(--nh-ink);display:flex;flex-direction:column;gap:12px;justify-content:center;min-height:131px;padding:10px 8px;position:relative}
+.nh-category + .nh-category::before{background:var(--nh-gray-2);content:"";height:132px;left:-12px;position:absolute;top:50%;transform:translateY(-50%);width:.5px}
+.nh-category__icon{color:var(--nh-gold);height:40px;width:40px;transition:transform var(--dur-fast) var(--ease-standard)}
+.nh-category__body{display:flex;flex-direction:column;gap:var(--space-2)}
+.nh-category h3{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-24);font-weight:var(--weight-bold);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-category p{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-16);line-height:var(--lh-tight)}
+.nh-category:hover .nh-category__icon{transform:translateY(-.2rem)}
+@media (max-width:1050px){.nh-category-panel{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:32px}}
+@media (max-width:620px){.nh-category-panel{grid-template-columns:repeat(2,minmax(0,1fr))}.nh-category + .nh-category::before{display:none}}
+
+/* ── Project card — Figma: Frame 2144771499 (139:172), 309×340 ──────
+   Flat rgba(0,0,0,.2) over a 180° transparent→black gradient from 50%,
+   20px padding, Cormorant 24 uppercase title, Manrope 16 line, 8px gap. */
+.nh-project-card{background:var(--nh-ink);display:flex;flex-direction:column;justify-content:flex-end;min-width:0;overflow:hidden;padding:20px;position:relative;aspect-ratio:.909}
+.nh-project-card img,.nh-project-card__shade{inset:0;position:absolute}
+.nh-project-card img{height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-standard);width:100%}
+.nh-project-card__shade{background:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2)),linear-gradient(180deg,rgba(76,76,76,0) 50%,rgb(0,0,0) 100%)}
+.nh-project-card__copy{display:flex;flex-direction:column;gap:var(--space-2);position:relative}
+.nh-project-card__copy strong{color:var(--nh-white);font-family:var(--font-display);font-size:var(--fs-24);font-weight:var(--weight-regular);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-project-card__copy small{color:var(--nh-white);font-family:var(--font-body);font-size:var(--fs-16);line-height:var(--lh-tight)}
+.nh-project-card:hover img{transform:scale(1.045)}
+
+/* ── Article card — 1.66 image, meta row, serif title ────────── */
+.nh-article-card{min-width:0}
+.nh-article-card__image{aspect-ratio:1.66;display:block;overflow:hidden}
+.nh-article-card__image img{height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-standard);width:100%}
+.nh-article-card:hover .nh-article-card__image img{transform:scale(1.04)}
+.nh-article-card h3{font-family:var(--font-display);font-size:clamp(1.25rem,2vw,1.65rem);font-weight:var(--weight-medium);letter-spacing:-.025em;line-height:1.05;margin-top:.85rem;max-width:23rem}
+.nh-article-card h3 a:hover{color:var(--nh-gold)}
+.nh-article-card p{color:var(--nh-gray-5);font-size:.75rem;line-height:1.4;margin-top:.65rem;max-width:24rem}
+
+/* ── Meta row (views / date) ─────────────────────────────────── */
+.nh-meta{align-items:center;color:var(--nh-gray-5);display:flex;font-size:.69rem;gap:.65rem;margin-top:1.25rem;white-space:nowrap}
+.nh-meta svg{fill:none;height:1.05rem;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.2;width:1.05rem}
+/* Dateline — Ibarra Real Nova 14 / clock glyph, from Frame 2144771605. */
+.nh-dateline{align-items:center;color:var(--nh-gray-6);display:inline-flex;font-family:var(--font-editorial);font-size:var(--fs-14);gap:7px;line-height:var(--lh-body)}
+.nh-dateline strong{font-weight:var(--weight-medium)}
+.nh-dateline svg{color:var(--nh-gray-5);height:20px;width:20px}
+
+/* ── Article list row — 880 wide, 320.683 image, 20px gap ────── */
+.nh-article-row{display:flex;gap:var(--space-6);align-items:flex-start;width:100%;max-width:880px}
+.nh-article-row__image{flex:0 0 320.683px;width:320.683px;min-width:0;align-self:stretch;background:var(--nh-gray-2);object-fit:cover;min-height:180px}
+.nh-article-row__body{display:flex;flex-direction:column;gap:var(--space-5);flex:1;min-width:0}
+.nh-article-row__title{font-family:var(--font-ui);font-size:var(--fs-24);font-weight:var(--weight-semibold);line-height:var(--lh-34);color:var(--nh-black)}
+.nh-article-row__excerpt{font-family:var(--font-ui);font-size:var(--fs-14);line-height:var(--lh-24);color:var(--nh-gray-5)}
+
+/* ── Compact row — 388 wide, 94px square thumb, chip ─────────── */
+.nh-article-compact{display:flex;gap:var(--space-5);align-items:flex-start;width:100%;max-width:388px}
+.nh-article-compact__thumb{flex:0 0 94px;width:94px;min-width:0;height:94px;object-fit:cover;background:var(--nh-gray-2)}
+.nh-article-compact__body{display:flex;flex-direction:column;gap:var(--space-5);flex:1;min-width:0}
+.nh-article-compact__top{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-4)}
+.nh-article-compact__title{font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);line-height:var(--lh-26);color:var(--nh-ink)}
+
+/* ── Thumb card — 280×268, 180px image, Manrope SemiBold 16 ──── */
+.nh-thumb-card{display:flex;flex-direction:column;gap:var(--space-2);width:280px}
+.nh-thumb-card img{height:180px;width:100%;object-fit:cover;background:var(--nh-gray-2)}
+.nh-thumb-card__title{font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);line-height:var(--lh-body);color:var(--nh-black)}
+
+/* ── Process snake — Figma node 132:473, the 697×381 step canvas ───────
+   Five 151×175 steps on two rows: 01–03 left→right at top 0 (lefts 0 / 211 / 419),
+   then a 271.5×206 dashed U-turn (radius 41) down into 04 at left 318 and 05 at
+   left 106, both at top 206. Straight 147px dashed runs join neighbours at the
+   circle centre (top 24). Positions are percentages of the canvas so it scales. */
+.nh-process-canvas{aspect-ratio:697/381;max-width:697px;position:relative;width:100%}
+.nh-process-step{align-items:center;color:var(--nh-white);display:flex;flex-direction:column;gap:12px;position:absolute;width:21.665%}
+.nh-process-step__number{align-items:center;background:var(--nh-ink);border-radius:45px;box-shadow:inset 0 0 0 1px var(--nh-gold);box-sizing:border-box;color:var(--nh-white);display:inline-flex;flex:0 0 auto;font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);height:48px;justify-content:center;line-height:var(--lh-tight);padding:10px;width:48px}
+.nh-process-step__body{align-items:center;display:flex;flex-direction:column;gap:var(--space-2);width:100%}
+.nh-process-step__icon{color:var(--nh-white);height:40px;width:40px}
+.nh-process-step strong{font-family:var(--font-legacy-serif);font-size:var(--fs-18);font-weight:var(--weight-regular);line-height:var(--lh-tight);text-align:center;text-transform:uppercase}
+.nh-process-step small{font-family:var(--font-body);font-size:var(--fs-14);font-weight:var(--weight-semibold);line-height:var(--lh-tight);text-align:center}
+.nh-process-step--1{left:0;top:0}
+.nh-process-step--2{left:30.273%;top:0}
+.nh-process-step--3{left:60.115%;top:0;width:22.238%}
+.nh-process-step--4{left:45.624%;top:54.068%}
+.nh-process-step--5{left:15.208%;top:54.068%}
+.nh-process-link{border-top:1px dashed var(--nh-gold);position:absolute;top:6.299%;width:21.091%}
+.nh-process-link--1{left:15.638%}
+.nh-process-link--2{left:45.911%}
+.nh-process-link--3{left:30.847%;top:60.367%}
+.nh-process-turn{border:1px dashed var(--nh-gold);border-left:0;border-radius:0 41px 41px 0;height:54.068%;left:61.048%;position:absolute;top:6.299%;width:38.951%}
+@media (max-width:1050px){
+  .nh-process-canvas{aspect-ratio:auto;display:grid;gap:40px 20px;grid-template-columns:repeat(2,minmax(0,1fr));max-width:none}
+  .nh-process-step,.nh-process-step--1,.nh-process-step--2,.nh-process-step--3,.nh-process-step--4,.nh-process-step--5{left:auto;position:static;top:auto;width:auto}
+  .nh-process-link,.nh-process-turn{display:none}
+}
+@media (max-width:520px){.nh-process-canvas{grid-template-columns:minmax(0,1fr)}}

@@ -1,0 +1,65 @@
+/* NHATO Collection — colour.
+   The Figma file (NHATO 2.fig) is the source of truth; usage counts in comments.
+   The values the shipped web build used (thanhtungtav4/nhatoreview
+   template/assets/css/common/variables.css) are kept below as reference only —
+   components and aliases resolve to the Figma values. */
+:root{
+  /* ── Brand gold ───────────────────────────────────────────── */
+  --nh-gold:#dda642;            /* rgb(221,166,66) — 127× in Figma. The brand accent. */
+  --nh-gold-deep:#cb890f;       /* rgb(203,137,15) — 34×. Hairline rules, small caps type. */
+  --nh-gold-light:#f0ca86;      /* rgb(240,202,134) — hover / focus ring */
+  --nh-gold-warm:#c8aa6c;       /* reference: the web build's gold — not used by components */
+  --nh-gold-warm-light:#e4d0a1; /* reference: the web build's gold-light */
+
+  /* ── Ink ──────────────────────────────────────────────────── */
+  --nh-ink:#1e1e1e;             /* rgb(30,30,30) — 289×. Primary text and dark surfaces. */
+  --nh-ink-2:#252525;           /* rgb(37,37,37) */
+  --nh-ink-3:#494949;           /* rgb(73,73,73) — strokes */
+  --nh-black:#000000;           /* 103× — article body headings */
+  --nh-charcoal:#1d1c1a;        /* reference: web build --color-charcoal */
+  --nh-charcoal-deep:#151412;   /* reference: web build footer ground */
+  --nh-charcoal-soft:#2d2a26;   /* reference */
+  --nh-umber:#28241f;           /* reference: the "Giá trị NHATO" band in the web build */
+
+  /* ── Neutrals ─────────────────────────────────────────────── */
+  --nh-white:#ffffff;           /* 726× — the most-used colour in the file */
+  --nh-paper:#f0efed;           /* rgb(240,239,237) — Figma page ground */
+  --nh-paper-warm:#ede9e3;      /* rgb(237,233,227) */
+  --nh-paper-web:#f4f2ee;       /* reference: web build --color-paper */
+  --nh-paper-muted:#d5d0c7;     /* reference */
+  --nh-gray-1:#d9d9d9;          /* rgb(217,217,217) */
+  --nh-gray-2:#cecece;          /* rgb(206,206,206) — input & card strokes */
+  --nh-gray-3:#9d9d9d;          /* rgb(157,157,157) — hero frame stroke */
+  --nh-gray-4:#909090;          /* rgb(144,144,144) */
+  --nh-gray-5:#797979;          /* rgb(121,121,121) — 117×. Meta text, icon strokes. */
+  --nh-gray-6:#757575;          /* rgb(117,117,117) — dateline text */
+  --nh-gray-7:#5d5959;          /* rgb(93,89,89) */
+  --nh-gray-8:#595959;          /* rgb(89,89,89) */
+  --nh-divider:#e4e7ec;         /* rgb(228,231,236) */
+
+  /* ── Semantic ─────────────────────────────────────────────── */
+  --nh-alert:#ff0000;           /* rgb(255,0,0) — 40×. Required-field marks, live labels. */
+  --nh-alert-deep:#e02c1f;      /* rgb(224,44,31) */
+  --nh-info:#42a5f5;            /* rgb(66,165,245) */
+
+  /* ── Translucency ─────────────────────────────────────────── */
+  --nh-scrim-ink:rgba(30,30,30,.6);   /* header gradient tail */
+  --nh-scrim-heavy:rgba(0,0,0,.75);   /* hero left-edge scrim */
+  --nh-scrim-soft:rgba(0,0,0,.2);
+  --nh-line-dark:rgba(255,255,255,.18);
+  --nh-line-light:rgba(30,30,30,.16);
+
+  /* ── Semantic aliases ─────────────────────────────────────── */
+  --text-body:var(--nh-ink);
+  --text-muted:var(--nh-gray-5);
+  --text-meta:var(--nh-gray-6);
+  --text-invert:var(--nh-white);
+  --text-accent:var(--nh-gold);
+  --surface-page:var(--nh-paper);
+  --surface-card:var(--nh-white);
+  --surface-dark:var(--nh-ink);
+  --surface-footer:var(--nh-ink);
+  --border-hairline:var(--nh-gray-2);
+  --border-accent:var(--nh-gold);
+  --focus-ring:var(--nh-gold-light);
+}

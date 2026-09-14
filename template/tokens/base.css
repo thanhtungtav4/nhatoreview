@@ -1,0 +1,22 @@
+/* NHATO Collection — base layer.
+   Lifted from thanhtungtav4/nhatoreview template/assets/css/common/{reset,base}.css. */
+*,*::before,*::after{box-sizing:border-box}
+html{min-width:320px;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-body);font-size:var(--fs-16);line-height:1.55;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+button,input,textarea,select{color:inherit;font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+button{cursor:pointer}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,p{margin-block:0}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--nh-gold)}
+a,button,input{transition:color var(--dur-fast) var(--ease-standard),background-color var(--dur-fast) var(--ease-standard),border-color var(--dur-fast) var(--ease-standard),opacity var(--dur-fast) var(--ease-standard),transform var(--dur-fast) var(--ease-standard)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--focus-ring);outline-offset:4px}
+.nh-container{width:min(100% - (var(--gutter) * 2),var(--container-width));margin-inline:auto}
+.nh-eyebrow{align-items:center;color:var(--nh-gold-deep);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-regular);gap:var(--space-2);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-eyebrow::before{background:var(--nh-gold-deep);content:"";height:.5px;width:32px}
+.nh-display{font-family:var(--font-display);font-weight:var(--weight-bold);line-height:var(--lh-tight);letter-spacing:var(--tracking-display)}
+.sr-only{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}

@@ -1,0 +1,27 @@
+/* Mobile ergonomics — the one place the kit departs from the Figma desktop
+   frames: 44px minimum hit targets and no type below 13px. Imported last so
+   it wins over the component sheets. */
+@media (max-width:1180px){
+  /* 44px hit targets */
+  .nh-social__link{align-items:center;display:inline-flex;justify-content:center;min-height:44px;min-width:44px}
+  .nh-footer__links a,.nh-footer__contact a,.article__readmore,.nh-event-card__cta{align-items:center;display:inline-flex;min-height:44px}
+  .nh-text-link{align-items:center;display:inline-flex;font-size:var(--fs-14);min-height:44px}
+  .nh-dateline a,.article__toc-head button,[data-nh-toc] a{align-items:center;display:inline-flex;min-height:44px}
+  /* Pagination: 44px cells, wrapping rather than widening past the viewport. */
+  .nh-pagination{flex-wrap:wrap;justify-content:center}
+  .nh-pagination a,.nh-pagination span{align-items:center;display:inline-flex;justify-content:center;min-height:44px;min-width:44px}
+  .nh-meta{font-size:var(--fs-13)}
+}
+@media (max-width:760px){
+  /* Brand + call pill + search + hamburger do not fit a 390px bar; the phone
+     number stays reachable in the footer and on the contact page. */
+  .nh-header__call{display:none}
+}
+/* Rule head: an unwrappable serif title, a flexible rule and a nowrap action
+   cannot share a 390px row — stack them and drop the rule. */
+@media (max-width:620px){
+  .nh-rule-head{flex-wrap:wrap;gap:12px}
+  .nh-rule-head__title{white-space:normal}
+  .nh-rule-head__line{display:none}
+  .nh-rule-head__action{min-height:44px}
+}

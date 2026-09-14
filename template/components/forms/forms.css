@@ -1,0 +1,22 @@
+/* NHATO Collection — forms.
+   The newsletter field is the only input pattern the sources define:
+   a 1px gold rule around a transparent field with a solid gold submit. */
+
+.nh-field{background:transparent;border:var(--border-thin) solid var(--nh-gray-2);color:var(--nh-ink);padding:.72rem .75rem;width:100%;font-family:var(--font-body);font-size:var(--fs-14)}
+.nh-field::placeholder{color:var(--nh-gray-4)}
+.nh-field:focus-visible{border-color:var(--nh-gold);outline:0}
+
+/* Newsletter — Figma: 43px tall, 1px gold inset, 8/12 padding,
+   Manrope 14 placeholder #909090, 44×43 solid-gold submit. */
+.nh-newsletter{align-items:stretch;display:flex;gap:0;margin-top:var(--space-2)}
+.nh-newsletter input{background:transparent;border:0;box-shadow:inset 0 0 0 1px var(--nh-gold);color:var(--nh-white);font-family:var(--font-body);font-size:var(--fs-14);line-height:var(--lh-tight);min-width:0;outline:0;padding:8px 12px;width:100%}
+.nh-newsletter input::placeholder{color:var(--nh-gray-4)}
+.nh-newsletter:focus-within input{box-shadow:inset 0 0 0 1px var(--nh-gold-light)}
+.nh-newsletter__submit{align-items:center;background:var(--nh-gold);border:0;box-shadow:inset 0 0 0 1.333px var(--nh-gold);color:var(--nh-ink);display:inline-flex;flex:0 0 44px;height:43px;justify-content:center;width:44px}
+.nh-newsletter__submit svg{width:17.332px;height:12.667px}
+.nh-newsletter__submit:hover{background:var(--nh-gold-light);transform:translateX(3px)}
+.nh-newsletter__status{color:var(--nh-gold-light);font-size:.72rem;min-height:1.2rem;padding-top:.65rem}
+.nh-newsletter__status.is-error{color:var(--nh-alert)}
+
+.nh-label{display:block;font-family:var(--font-body);font-size:var(--fs-13);font-weight:var(--weight-medium);margin-bottom:.4rem}
+.nh-label__required{color:var(--nh-alert)}

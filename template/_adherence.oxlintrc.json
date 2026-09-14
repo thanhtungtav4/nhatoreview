@@ -1,0 +1,342 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "assets/icons/**",
+              "assets/js/**",
+              "components/actions/**",
+              "components/chrome/**",
+              "components/content/**",
+              "ui_kits/nhato-web/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Cormorant Garamond|Manrope|Ibarra Real Nova|Inter|Montserrat|Plus Jakarta Sans))/i]",
+        "message": "Font not provided by the design system. Available: Cormorant Garamond, Manrope, Ibarra Real Nova, Inter, Montserrat, Plus Jakarta Sans."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Frame1731'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|title|href|className|style|key|ref|className|style|children)$/]",
+        "message": "<Frame1731> doesn't accept that prop. Declared props: image, title, href, className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Frame2144771281'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|title|date|excerpt|href|className|style|key|ref|className|style|children)$/]",
+        "message": "<Frame2144771281> doesn't accept that prop. Declared props: image, title, date, excerpt, href, className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Frame2144771605'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|title|date|chip|href|className|style|key|ref|className|style|children)$/]",
+        "message": "<Frame2144771605> doesn't accept that prop. Declared props: image, title, date, chip, href, className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Frame5'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|current|phone|logoSrc|social|scrolled|className|style|key|ref|className|style|children)$/]",
+        "message": "<Frame5> doesn't accept that prop. Declared props: items, current, phone, logoSrc, social, scrolled, className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|size|className|style|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, size, className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute[name.name='name'] > Literal[value!=/^(?:facebook|tiktok|youtube|x|arrow-right|arrow-down|menu|eye|calendar|clock|house|apartment|villa|office|commercial|listen|spark|build|schedule|handover)$/]",
+        "message": "<Icon> name must be one of 'facebook' | 'tiktok' | 'youtube' | 'x' | 'arrow-right' | 'arrow-down' | 'menu' | 'eye' | 'calendar' | 'clock' | 'house' | 'apartment' | 'villa' | 'office' | 'commercial' | 'listen' | 'spark' | 'build' | 'schedule' | 'handover'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Frame1731": {
+        "replaces": []
+      },
+      "Frame2144771281": {
+        "replaces": []
+      },
+      "Frame2144771605": {
+        "replaces": []
+      },
+      "Frame5": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--backgrounds-grouped-secondary",
+      "--backgrounds-tertiary",
+      "--backgrounds-tertiary-elevated",
+      "--border-accent",
+      "--border-hairline",
+      "--border-icon",
+      "--border-thin",
+      "--color",
+      "--container-width",
+      "--dur-fast",
+      "--dur-mid",
+      "--dur-slow",
+      "--ease-standard",
+      "--focus-ring",
+      "--font-alt",
+      "--font-alt-2",
+      "--font-body",
+      "--font-display",
+      "--font-editorial",
+      "--font-legacy-serif",
+      "--font-ui",
+      "--fs-13",
+      "--fs-14",
+      "--fs-15",
+      "--fs-16",
+      "--fs-18",
+      "--fs-20",
+      "--fs-24",
+      "--fs-32",
+      "--fs-40",
+      "--fs-48",
+      "--fs-56",
+      "--fs-micro",
+      "--gutter",
+      "--header-height",
+      "--lh-24",
+      "--lh-26",
+      "--lh-34",
+      "--lh-body",
+      "--lh-snug",
+      "--lh-tight",
+      "--nh-alert",
+      "--nh-alert-deep",
+      "--nh-black",
+      "--nh-charcoal",
+      "--nh-charcoal-deep",
+      "--nh-charcoal-soft",
+      "--nh-divider",
+      "--nh-gold",
+      "--nh-gold-deep",
+      "--nh-gold-light",
+      "--nh-gold-warm",
+      "--nh-gold-warm-light",
+      "--nh-gray-1",
+      "--nh-gray-2",
+      "--nh-gray-3",
+      "--nh-gray-4",
+      "--nh-gray-5",
+      "--nh-gray-6",
+      "--nh-gray-7",
+      "--nh-gray-8",
+      "--nh-info",
+      "--nh-ink",
+      "--nh-ink-2",
+      "--nh-ink-3",
+      "--nh-line-dark",
+      "--nh-line-light",
+      "--nh-paper",
+      "--nh-paper-muted",
+      "--nh-paper-warm",
+      "--nh-paper-web",
+      "--nh-scrim-heavy",
+      "--nh-scrim-ink",
+      "--nh-scrim-soft",
+      "--nh-umber",
+      "--nh-white",
+      "--page-gutter",
+      "--page-width",
+      "--radius-none",
+      "--radius-panel",
+      "--radius-pill",
+      "--radius-sm",
+      "--scrim-card",
+      "--scrim-header",
+      "--scrim-hero",
+      "--shadow-header",
+      "--shadow-header-scrolled",
+      "--shadow-panel",
+      "--shadow-soft",
+      "--space-1",
+      "--space-10",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--space-9",
+      "--surface-card",
+      "--surface-dark",
+      "--surface-footer",
+      "--surface-page",
+      "--text-accent",
+      "--text-body",
+      "--text-invert",
+      "--text-meta",
+      "--text-muted",
+      "--tracking-caps",
+      "--tracking-display",
+      "--tracking-eyebrow",
+      "--weight-bold",
+      "--weight-medium",
+      "--weight-regular",
+      "--weight-semibold"
+    ],
+    "tokenKinds": {
+      "--nh-gold": "color",
+      "--nh-gold-deep": "color",
+      "--nh-gold-light": "color",
+      "--nh-gold-warm": "color",
+      "--nh-gold-warm-light": "color",
+      "--nh-ink": "color",
+      "--nh-ink-2": "color",
+      "--nh-ink-3": "color",
+      "--nh-black": "color",
+      "--nh-charcoal": "color",
+      "--nh-charcoal-deep": "color",
+      "--nh-charcoal-soft": "color",
+      "--nh-umber": "color",
+      "--nh-white": "color",
+      "--nh-paper": "color",
+      "--nh-paper-warm": "color",
+      "--nh-paper-web": "color",
+      "--nh-paper-muted": "color",
+      "--nh-gray-1": "color",
+      "--nh-gray-2": "color",
+      "--nh-gray-3": "color",
+      "--nh-gray-4": "color",
+      "--nh-gray-5": "color",
+      "--nh-gray-6": "color",
+      "--nh-gray-7": "color",
+      "--nh-gray-8": "color",
+      "--nh-divider": "color",
+      "--nh-alert": "color",
+      "--nh-alert-deep": "color",
+      "--nh-info": "color",
+      "--nh-scrim-ink": "color",
+      "--nh-scrim-heavy": "color",
+      "--nh-scrim-soft": "color",
+      "--nh-line-dark": "color",
+      "--nh-line-light": "color",
+      "--text-body": "font",
+      "--text-muted": "font",
+      "--text-meta": "font",
+      "--text-invert": "font",
+      "--text-accent": "font",
+      "--surface-page": "color",
+      "--surface-card": "color",
+      "--surface-dark": "color",
+      "--surface-footer": "color",
+      "--border-hairline": "color",
+      "--border-accent": "color",
+      "--focus-ring": "color",
+      "--font-display": "font",
+      "--font-body": "font",
+      "--font-editorial": "font",
+      "--font-ui": "font",
+      "--font-alt": "font",
+      "--font-alt-2": "font",
+      "--font-legacy-serif": "font",
+      "--fs-micro": "spacing",
+      "--fs-13": "spacing",
+      "--fs-14": "spacing",
+      "--fs-15": "spacing",
+      "--fs-16": "spacing",
+      "--fs-18": "spacing",
+      "--fs-20": "spacing",
+      "--fs-24": "spacing",
+      "--fs-32": "spacing",
+      "--fs-40": "spacing",
+      "--fs-48": "spacing",
+      "--fs-56": "spacing",
+      "--lh-tight": "spacing",
+      "--lh-snug": "other",
+      "--lh-body": "other",
+      "--lh-24": "spacing",
+      "--lh-26": "spacing",
+      "--lh-34": "spacing",
+      "--weight-regular": "font",
+      "--weight-medium": "font",
+      "--weight-semibold": "font",
+      "--weight-bold": "font",
+      "--tracking-caps": "font",
+      "--tracking-eyebrow": "font",
+      "--tracking-display": "font",
+      "--page-width": "spacing",
+      "--page-gutter": "spacing",
+      "--container-width": "spacing",
+      "--gutter": "spacing",
+      "--header-height": "spacing",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--space-9": "spacing",
+      "--space-10": "spacing",
+      "--radius-none": "radius",
+      "--radius-sm": "radius",
+      "--radius-panel": "radius",
+      "--radius-pill": "radius",
+      "--border-thin": "spacing",
+      "--border-icon": "spacing",
+      "--shadow-header": "shadow",
+      "--shadow-header-scrolled": "shadow",
+      "--shadow-panel": "shadow",
+      "--shadow-soft": "shadow",
+      "--scrim-header": "color",
+      "--scrim-hero": "color",
+      "--scrim-card": "color",
+      "--ease-standard": "other",
+      "--dur-fast": "other",
+      "--dur-mid": "other",
+      "--dur-slow": "other",
+      "--backgrounds-grouped-secondary": "color",
+      "--backgrounds-tertiary-elevated": "color",
+      "--backgrounds-tertiary": "color",
+      "--color": "color"
+    },
+    "fontFamilies": [
+      "Cormorant Garamond",
+      "Ibarra Real Nova",
+      "Inter",
+      "Manrope",
+      "Montserrat",
+      "Plus Jakarta Sans"
+    ]
+  }
+}

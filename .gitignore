@@ -1,0 +1,8 @@
+.DS_Store
+**/.DS_Store
+template/tmp/
+Claude outputs/
+output/
+/tmp/
+.playwright-cli/
+nhato-collection-design-system.html
