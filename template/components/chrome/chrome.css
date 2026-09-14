@@ -40,8 +40,9 @@
 .nh-header__link:hover,.nh-header__link[aria-current="page"]{color:var(--nh-gold-light)}
 .nh-header__link:hover::after,.nh-header__link[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
 .nh-header__utilities{align-items:center;display:flex;gap:var(--space-6);justify-self:end}
-.nh-header__call{align-self:stretch;border:var(--border-thin) solid var(--nh-ink);color:var(--nh-white);display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-body);font-size:var(--fs-15);font-weight:var(--weight-regular);line-height:var(--lh-tight);min-height:44px;min-width:195px;padding:12px 24px;text-align:center;white-space:nowrap}
-.nh-header__call:hover{background:var(--nh-gold);color:var(--nh-ink)}
+/* Figma: fill #1E1E1E + 1px stroke linear-gradient(90deg, #F0CA86, #DDA642). */
+.nh-header__call{align-self:stretch;border:1px solid transparent;background:linear-gradient(0deg,var(--nh-ink),var(--nh-ink)) padding-box,linear-gradient(90deg,var(--nh-gold-light) 0%,var(--nh-gold) 100%) border-box;color:var(--nh-white);display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-body);font-size:var(--fs-15);font-weight:var(--weight-regular);line-height:var(--lh-tight);min-height:44px;min-width:195px;padding:12px 24px;text-align:center;white-space:nowrap}
+.nh-header__call:hover{background:var(--nh-gold);border-color:var(--nh-gold);color:var(--nh-ink)}
 .nh-header__toggle{align-items:center;background:transparent;border:0;color:currentColor;display:none;flex-direction:column;gap:.35rem;justify-content:center;min-height:2.75rem;min-width:2.75rem;padding:.5rem}
 /* Gold search plate — Figma: 44×44, #DDA642, 20px ink glyph. */
 .nh-header__search{align-items:center;background:var(--nh-gold);border:0;color:var(--nh-ink);display:inline-flex;height:44px;justify-content:center;width:44px;flex:0 0 auto}
@@ -59,11 +60,22 @@
   /* Collapsed mobile nav: a display reveal, so the panel always resolves to
      its real height (an animated max-height collapse did not). */
   .nh-header__nav{background:rgba(30,30,30,.98);border-top:1px solid rgba(255,255,255,.18);display:none;inset-inline:0;justify-self:stretch;max-height:calc(100vh - var(--header-height));overflow-y:auto;position:absolute;top:var(--header-height)}
-  .nh-header__nav.is-open{display:block;animation:nh-nav-drop 200ms var(--ease-standard,ease) both}
-  @keyframes nh-nav-drop{from{opacity:0;transform:translateY(-.5rem)}to{opacity:1;transform:none}}
+  .nh-header__nav.is-open{display:block}
   .nh-header__list{align-items:stretch;flex-direction:column;gap:0;padding:clamp(1rem,4vh,2.5rem) var(--gutter) 1.5rem}
   .nh-header__item{border-bottom:1px solid rgba(255,255,255,.18)}
+  .nh-header__item:has([aria-current="page"]){border-bottom-color:var(--nh-gold)}
+  /* Staggered fall-in from the right; skip the desktop menu glyph (nth 1, hidden here). */
+  .nh-header__nav.is-open .nh-header__item{animation:nh-nav-item-in 620ms cubic-bezier(.16,1,.3,1) both}
+  .nh-header__nav.is-open .nh-header__item:nth-child(1){animation:none}
+  .nh-header__nav.is-open .nh-header__item:nth-child(2){animation-delay:40ms}
+  .nh-header__nav.is-open .nh-header__item:nth-child(3){animation-delay:110ms}
+  .nh-header__nav.is-open .nh-header__item:nth-child(4){animation-delay:180ms}
+  .nh-header__nav.is-open .nh-header__item:nth-child(5){animation-delay:250ms}
+  .nh-header__nav.is-open .nh-header__item:nth-child(6){animation-delay:320ms}
+  .nh-header__nav.is-open .nh-header__item:nth-child(n+7){animation-delay:390ms}
+  @keyframes nh-nav-item-in{from{opacity:0;transform:translate3d(2.75rem,-.9rem,0)}to{opacity:1;transform:none}}
   .nh-header__link{display:block;font-family:var(--font-display);font-size:clamp(1.6rem,4.4vw,2.75rem);font-weight:var(--weight-regular);line-height:1;padding:.8rem 0 .95rem}
+  .nh-header__link::after{display:none}
   .nh-header__call{font-size:var(--fs-13);min-height:44px;padding:0 12px}
   .nh-header__search{height:44px;width:44px}
   .nh-header__menu{display:none}
@@ -78,6 +90,10 @@
 .nh-footer__main{display:grid;gap:3.5rem clamp(1.5rem,3vw,3rem);grid-template-columns:minmax(0,270fr) minmax(0,100fr) minmax(0,134fr) minmax(0,183fr) minmax(0,302fr);padding:64px 0 56px}
 .nh-footer__description{color:var(--nh-white);font-size:var(--fs-13);line-height:20px;margin-top:var(--space-5)}
 .nh-footer__follow{align-items:center;display:flex;gap:var(--space-5);margin-top:var(--space-5)}
+.nh-footer__follow .nh-social{gap:16px}
+.nh-footer__follow .nh-icon{height:20px;width:20px}
+.nh-footer__follow .nh-social__link{min-height:20px;min-width:20px}
+.nh-footer__follow .nh-social__link::after{display:none}
 .nh-footer__label{color:var(--nh-white);font-size:var(--fs-13);line-height:1;white-space:nowrap}
 .nh-footer__heading{color:var(--nh-white);font-size:var(--fs-16);font-weight:var(--weight-bold);line-height:20px;margin-bottom:13px;text-transform:uppercase}
 .nh-footer__links{display:grid;gap:var(--space-2)}
