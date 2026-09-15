@@ -4,19 +4,24 @@
 
 .nh-hero{background:var(--nh-ink);color:var(--nh-white);height:clamp(36rem,48.6vw,44rem);overflow:hidden;position:relative}
 .nh-hero__media,.nh-hero__overlay{inset:0;position:absolute}
-.nh-hero__media{border:var(--border-thin) solid var(--nh-gray-3)}
 .nh-hero__media img{height:100%;object-fit:cover;width:100%}
 .nh-hero__overlay{background:var(--scrim-hero),linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}
-.nh-hero__inner{padding-block:clamp(10.5rem,29vh,13.56rem) 4rem;position:relative;z-index:1}
-.nh-hero__title{font-family:var(--font-display);font-size:clamp(3rem,3.95vw,var(--fs-56));font-weight:var(--weight-bold);letter-spacing:var(--tracking-display);line-height:var(--lh-tight);text-transform:uppercase}
-.nh-hero__lead{color:var(--nh-white);font-size:clamp(1rem,1.2vw,var(--fs-18));line-height:var(--lh-tight);margin-top:var(--space-5);max-width:529px}
+.nh-hero__inner{box-sizing:border-box;min-height:100%;padding-block:clamp(10.5rem,29vh,13.56rem) 4rem;position:relative;z-index:1}
+.nh-hero__title{font-family:var(--font-display);font-size:clamp(3rem,3.95vw,var(--fs-56));font-weight:var(--weight-regular);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-hero__lead{color:var(--nh-white);font-family:var(--font-body);font-size:var(--fs-18);font-weight:var(--weight-regular);letter-spacing:0;line-height:25px;margin-top:var(--space-5);max-width:530px}
 .nh-hero__actions{margin-top:var(--space-5)}
+.nh-hero__actions .nh-cta{white-space:nowrap}
 
-/* Slide counter — Figma: 3× Frame 2144771317 at (1144,644), 64px wide,
-   gold Manrope 16 over a 0.5px gold rule, 16px apart. */
-.nh-slide-index{align-items:flex-start;display:flex;gap:var(--space-5)}
-.nh-slide-index > *{border-bottom:.5px solid var(--nh-gold);color:var(--nh-gold);display:block;font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-regular);line-height:var(--lh-tight);padding-bottom:4px;width:64px}
-.nh-slide-index > *:not(.is-current){opacity:.55}
+/* Slide counter — Figma (1144,644) on 1440×708: bottom-right of the hero, 64px cells. */
+.nh-slide-index{align-items:flex-start;bottom:38px;display:flex;gap:var(--space-5);max-width:calc(100% - 72px - var(--gutter));overflow-x:auto;overscroll-behavior-x:contain;position:absolute;right:72px;z-index:2;-webkit-overflow-scrolling:touch}
+.nh-slide-index > *{border-bottom:.5px solid var(--nh-white);color:var(--nh-white);display:block;flex:0 0 64px;font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-regular);line-height:var(--lh-tight);padding-bottom:4px;width:64px}
+.nh-slide-index > .is-current{border-bottom-color:var(--nh-gold);color:var(--nh-gold)}
+@media (max-width:720px){
+  .nh-hero{display:flex;flex-direction:column;height:auto;min-height:36rem}
+  .nh-hero__inner{flex:1 1 auto;min-height:0;padding-bottom:24px}
+  .nh-hero__lead{max-width:none}
+  .nh-slide-index{bottom:auto;box-sizing:border-box;flex:0 0 auto;gap:12px;left:auto;max-width:none;padding:0 var(--gutter) 16px;position:relative;right:auto;width:100%}
+}
 
 /* Section-page hero — no CTA; the copy block is 658 wide at 72/217. */
 .nh-hero--section .nh-hero__inner{padding-block:clamp(10.5rem,29vh,13.56rem) 4rem}

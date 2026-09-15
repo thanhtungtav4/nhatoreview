@@ -15,8 +15,8 @@ a:hover{color:var(--nh-gold)}
 a,button,input{transition:color var(--dur-fast) var(--ease-standard),background-color var(--dur-fast) var(--ease-standard),border-color var(--dur-fast) var(--ease-standard),opacity var(--dur-fast) var(--ease-standard),transform var(--dur-fast) var(--ease-standard)}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--focus-ring);outline-offset:4px}
 .nh-container{width:min(100% - (var(--gutter) * 2),var(--container-width));margin-inline:auto}
-.nh-eyebrow{align-items:center;color:var(--nh-gold-deep);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-regular);gap:var(--space-2);line-height:var(--lh-tight);text-transform:uppercase}
-.nh-eyebrow::before{background:var(--nh-gold-deep);content:"";height:.5px;width:32px}
+.nh-eyebrow{align-items:center;color:var(--nh-gold-deep);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-regular);gap:var(--space-2);line-height:22px;text-transform:uppercase}
+.nh-eyebrow::before{background:var(--nh-gold-deep);content:"";height:1px;width:32px}
 .nh-display{font-family:var(--font-display);font-weight:var(--weight-bold);line-height:var(--lh-tight);letter-spacing:var(--tracking-display)}
 .sr-only{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
