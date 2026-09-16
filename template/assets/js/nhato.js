@@ -67,12 +67,30 @@
       if (ok) form.reset();
     });
 
+    var lastY = 0;
+    var ticking = false;
     var read = function () {
-      var header = document.querySelector("[data-nh-header]");
-      if (!header) return;
-      var scroller = header.closest("[data-nh-scroll]");
-      var y = scroller ? scroller.scrollTop : window.scrollY;
-      header.classList.toggle("is-scrolled", y > 24);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        var header = document.querySelector("[data-nh-header]");
+        if (!header) return;
+        var scroller = header.closest("[data-nh-scroll]");
+        var y = scroller ? scroller.scrollTop : window.scrollY;
+        var nav = document.querySelector("[data-nh-nav]");
+        var menuOpen = nav && nav.classList.contains("is-open");
+        var searchOpen = document.body.classList.contains("nh-search-locked");
+        header.classList.toggle("is-scrolled", y > 24);
+        if (menuOpen || searchOpen || y <= 48) {
+          header.classList.remove("is-hidden");
+        } else if (y > lastY + 8) {
+          header.classList.add("is-hidden");
+        } else if (y < lastY - 8) {
+          header.classList.remove("is-hidden");
+        }
+        lastY = y;
+      });
     };
     window.addEventListener("scroll", read, { passive: true });
     document.addEventListener("scroll", read, { passive: true, capture: true });

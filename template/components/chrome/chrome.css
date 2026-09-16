@@ -23,10 +23,11 @@
 /* ── Header ──────────────────────────────────────────────────── */
 /* Figma node 3:5: the header frame is exactly 94 tall with the ink→60% gradient and a
    hard 0 4px 4px rgba(0,0,0,.25) drop, both present at rest (not only on scroll). */
-.nh-header{box-shadow:var(--shadow-header);color:var(--nh-white);left:0;position:absolute;right:0;top:0;z-index:20}
+.nh-header{box-shadow:var(--shadow-header);color:var(--nh-white);left:0;position:fixed;right:0;top:0;transform:translateY(0);transition:transform var(--dur-mid) var(--ease-standard),background-color var(--dur-fast) var(--ease-standard),box-shadow var(--dur-fast) var(--ease-standard);z-index:20}
 .nh-header::before{background:var(--scrim-header);content:"";inset:0 0 auto;height:var(--header-height);pointer-events:none;position:absolute;z-index:-1}
 .nh-header.is-scrolled{background:rgba(30,30,30,.96);box-shadow:var(--shadow-header-scrolled)}
 .nh-header.is-scrolled::before{display:none}
+.nh-header.is-hidden{pointer-events:none;transform:translateY(-100%)}
 .nh-header__inner{align-items:center;box-sizing:border-box;display:grid;gap:var(--space-5);grid-template-columns:auto minmax(0,1fr) auto;min-height:var(--header-height);padding-block:16px;position:relative;z-index:2}
 .nh-header__nav{justify-self:center;position:relative}
 .nh-header__list{align-items:center;display:flex;gap:clamp(1.4rem,2.6vw,56px)}
