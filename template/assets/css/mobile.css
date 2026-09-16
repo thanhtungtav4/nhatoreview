@@ -18,11 +18,10 @@
      number stays reachable in the footer and on the contact page. */
   .nh-header__call{display:none}
 }
-/* Rule head: an unwrappable serif title, a flexible rule and a nowrap action
-   cannot share a 390px row — stack them and drop the rule. */
+/* Rule head: drop the middle rule and pin title left / action right. */
 @media (max-width:620px){
-  .nh-rule-head{flex-wrap:wrap;gap:12px}
-  .nh-rule-head__title{white-space:normal}
+  .nh-rule-head{flex-wrap:nowrap;gap:12px;justify-content:space-between;width:100%}
+  .nh-rule-head__title{white-space:nowrap}
   .nh-rule-head__line{display:none}
-  .nh-rule-head__action{min-height:44px}
+  .nh-rule-head__action{margin-left:auto;min-height:44px}
 }

@@ -77,7 +77,7 @@
   .nh-art-feature__media{height:auto;aspect-ratio:1.749}
   .nh-stack-title{height:auto;max-width:100%;overflow:visible}
   .nh-stack-title__ghost{font-size:clamp(1.5rem,7.2vw,2.5rem)}
-  .nh-stack-title__lead{font-size:clamp(1.75rem,8.4vw,3rem);padding:clamp(1.15rem,5.2vw,2.875rem) 0 0 clamp(1.75rem,16vw,8.125rem)}
+  .nh-stack-title__lead{font-size:clamp(1.75rem,8.4vw,3rem);padding:clamp(1.85rem,8vw,2.875rem) 0 0 clamp(1.75rem,16vw,8.125rem)}
 }
 
 /* ── Taste row — same 1298 column as art feature; Figma 262 fill / 450 hover × 442 ─ */

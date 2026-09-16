@@ -5,7 +5,7 @@
 
 /* ── Section heading: eyebrow + display title ────────────────── */
 .nh-section-head{align-items:flex-end;display:flex;justify-content:space-between;gap:1.5rem}
-.nh-section-title{color:var(--nh-ink);font-family:var(--font-legacy-serif);font-size:var(--fs-48);font-weight:var(--weight-regular);line-height:var(--lh-tight);margin-top:13px}
+.nh-section-title{color:var(--nh-ink);font-family:var(--font-legacy-serif);font-size:var(--fs-48);font-weight:var(--weight-regular);line-height:55px;margin-top:13px}
 .nh-rule{border-top:1px solid rgba(30,30,30,.16);flex:1}
 
 /* Centred editorial headline — news pages. Cormorant Garamond SemiBold 40,
@@ -82,13 +82,13 @@
 
 /* ── Section-page rule head — Figma: 1297-wide row at y748, gap 41 ──────
    Times New Roman 32 title, 0.5px #CECECE rule, Manrope Bold 16 uppercase
-   action with a 28.364px ring-less arrow. */
+   action with a 16px ring-less arrow. */
 .nh-rule-head{align-items:center;display:flex;gap:41px}
 .nh-rule-head__title{color:var(--nh-ink);font-family:var(--font-legacy-serif);font-size:var(--fs-32);font-weight:var(--weight-regular);line-height:var(--lh-tight);white-space:nowrap}
 .nh-rule-head__line{border-top:.5px solid var(--nh-gray-2);flex:1;min-width:1rem}
 .nh-rule-head__action{align-items:center;color:var(--nh-ink);display:inline-flex;gap:10.636px;white-space:nowrap}
 .nh-rule-head__action span{font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-bold);line-height:var(--lh-tight);text-transform:uppercase}
-.nh-rule-head__action svg{width:28.364px;height:28.364px}
+.nh-rule-head__action svg{width:16px;height:16px}
 .nh-rule-head__action:hover{color:var(--nh-gold)}
 
 /* ── Feature band — Figma: full-bleed #EDE9E3, padding 40/72/24, gap 40 ──
@@ -130,7 +130,7 @@
 .nh-post-card:hover .nh-post-card__image img{transform:scale(1.04)}
 .nh-post-card__body{display:flex;flex-direction:column;gap:var(--space-2)}
 .nh-post-card__title{color:var(--nh-ink);font-family:var(--font-legacy-serif);font-size:var(--fs-24);font-weight:var(--weight-regular);line-height:var(--lh-tight)}
-.nh-post-card__text{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);line-height:var(--lh-tight)}
+.nh-post-card__text{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);line-height:19px}
 
 /* ── Centred section intro — gold rule + eyebrow, display head, lead ────
    Figma (taste): 32px 0.5px #CB890F rule, Manrope 16 uppercase #CB890F,
@@ -184,27 +184,33 @@
 .nh-role-card__body{display:flex;gap:var(--space-5);position:relative;width:100%}
 .nh-role-card__icon{color:var(--nh-white);flex:0 0 48px;height:48px;width:48px}
 .nh-role-card__copy{display:flex;flex-direction:column;gap:var(--space-2);min-width:0}
-.nh-role-card__copy strong{font-family:var(--font-display);font-size:var(--fs-20);font-weight:var(--weight-bold);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-role-card__copy strong{font-family:var(--font-display);font-size:var(--fs-20);font-weight:var(--weight-regular);line-height:var(--lh-tight);text-transform:uppercase}
 .nh-role-card__copy span{font-family:var(--font-body);font-size:var(--fs-14);line-height:18px}
 @media (max-width:1050px){.nh-role-card{min-height:320px}}
 
 /* ── Audience card — Figma: Frame 2144771468, 342×183 on ink ──────────── */
-.nh-audience-card{background:var(--nh-ink);border:var(--border-thin) solid var(--nh-gray-3);box-sizing:border-box;color:var(--nh-white);display:flex;flex-direction:column;gap:20px;min-height:183px;padding:24px}
+.nh-audience-card{background:var(--nh-ink);box-sizing:border-box;color:var(--nh-white);display:flex;flex-direction:column;gap:20px;min-height:183px;padding:24px;position:relative}
+.nh-audience-card + .nh-audience-card::before{background:var(--nh-gray-3);content:"";height:100%;left:0;position:absolute;top:0;width:.5px}
+@media (max-width:1050px){.nh-audience-card + .nh-audience-card::before{height:.5px;width:100%}}
 .nh-audience-card__head{display:flex;flex-direction:column;gap:var(--space-3)}
-.nh-audience-card__head strong{font-family:var(--font-display);font-size:var(--fs-24);font-weight:var(--weight-semibold);line-height:var(--lh-tight)}
+.nh-audience-card__head strong{font-family:var(--font-display);font-size:var(--fs-24);font-weight:var(--weight-regular);line-height:var(--lh-tight)}
 .nh-audience-card__head span{font-family:var(--font-body);font-size:var(--fs-14);font-weight:var(--weight-bold);line-height:var(--lh-tight)}
-.nh-audience-card p{font-family:var(--font-body);font-size:var(--fs-14);line-height:18px}
+.nh-audience-card p{font-family:var(--font-body);font-size:var(--fs-14);line-height:19px}
 
-/* ── Marquee gallery — Figma (network): two 180px rows, white edge fade ── */
+/* ── Marquee gallery — Figma (network): 180px rows, white edge fade, infinite ── */
 .nh-gallery{overflow:hidden;position:relative}
 .nh-gallery::after{background:linear-gradient(90deg,var(--nh-white) 0%,rgba(255,255,255,0) 20%,rgba(255,255,255,0) 80%,var(--nh-white) 100%);content:"";inset:0;pointer-events:none;position:absolute;z-index:2}
-.nh-gallery__row{display:flex;gap:20px;width:100%}
+.nh-gallery__row{overflow:hidden}
 .nh-gallery__row + .nh-gallery__row{margin-top:20px}
-.nh-gallery__row img{flex:1 1 0;min-width:0;height:180px;object-fit:cover}
-.nh-gallery__row img:nth-child(1),.nh-gallery__row img:nth-child(5){flex-grow:280}
-.nh-gallery__row img:nth-child(3){flex-grow:260}
-.nh-gallery__row img:nth-child(2),.nh-gallery__row img:nth-child(4),.nh-gallery__row img:nth-child(6){flex-grow:180}
-.nh-gallery__row--offset{margin-left:-90px}
+.nh-gallery__track{display:flex;width:max-content;will-change:transform;animation:nh-gallery-marquee 40s linear infinite}
+.nh-gallery__row:nth-child(even) .nh-gallery__track{animation-direction:reverse;animation-duration:48s}
+.nh-gallery__row:nth-child(3) .nh-gallery__track{animation-duration:36s;animation-delay:-8s}
+.nh-gallery__set{display:flex;flex:none;gap:20px;padding-right:20px}
+.nh-gallery__set img{display:block;flex:none;height:180px;max-width:none;object-fit:cover;width:180px}
+.nh-gallery__set img:nth-child(1),.nh-gallery__set img:nth-child(5){width:280px}
+.nh-gallery__set img:nth-child(3){width:260px}
+@keyframes nh-gallery-marquee{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.nh-gallery__track{animation:none !important}}
 
 /* ── Flanked heading — Figma (about): 280px rules either side ────────── */
 .nh-flanked{align-items:center;display:flex;gap:var(--space-5);justify-content:center}

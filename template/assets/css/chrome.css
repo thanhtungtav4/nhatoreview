@@ -37,8 +37,9 @@
 .nh-header__menu{align-items:center;background:none;border:0;color:var(--nh-white);display:inline-flex;flex:0 0 auto;height:32px;justify-content:center;width:32px}
 .nh-header__menu:hover{color:var(--nh-gold-light)}
 .nh-header__link{color:var(--nh-white);display:inline-block;font-size:var(--fs-16);font-weight:var(--weight-medium);line-height:var(--lh-tight);padding:.6rem 0;position:relative;text-transform:capitalize}
+.nh-header__link::first-letter{color:var(--nh-gold)}
 .nh-header__link::after{background:var(--nh-gold);bottom:.2rem;content:"";height:1px;left:0;position:absolute;transform:scaleX(0);transform-origin:right;transition:transform var(--dur-mid) var(--ease-standard);width:100%}
-.nh-header__link:hover,.nh-header__link[aria-current="page"]{color:var(--nh-gold-light)}
+.nh-header__link:hover,.nh-header__link[aria-current="page"]{color:var(--nh-gold)}
 .nh-header__link:hover::after,.nh-header__link[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
 .nh-header__utilities{align-items:center;display:flex;gap:var(--space-6);justify-self:end}
 /* Figma: fill #1E1E1E + 1px stroke linear-gradient(90deg, #F0CA86, #DDA642). */

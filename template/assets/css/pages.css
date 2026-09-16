@@ -17,14 +17,20 @@
 .section-audience__inner{align-items:center;display:flex;gap:40px;justify-content:space-between}
 .section-audience__cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));flex:1}
 .section-gallery{padding-block:80px;background:var(--nh-white)}
-.section-partners{background:var(--nh-white);padding-block:80px}
+.section-partners{background:var(--nh-ink);padding:48px 0 40px}
+.section-partners .nh-intro__title{color:var(--nh-white);font-weight:var(--weight-regular)}
 .nh-partner-table{display:flex;flex-direction:column;margin-top:40px}
-.nh-partner-row{align-items:center;border-top:var(--border-thin) solid var(--nh-gray-2);display:flex;gap:40px;padding-block:24px}
-.nh-partner-row:last-child{border-bottom:var(--border-thin) solid var(--nh-gray-2)}
-.nh-partner-row__label{color:var(--nh-ink);flex:0 0 176px}
-.nh-partner-row__label strong{display:block;font-family:var(--font-ui);font-size:var(--fs-16);font-weight:var(--weight-semibold);line-height:var(--lh-body)}
-.nh-partner-row__label span{color:var(--nh-gray-5);display:block;font-family:var(--font-body);font-size:var(--fs-14);line-height:var(--lh-body);margin-top:4px}
-.nh-partner-row__logos{display:grid;gap:14px 15px;grid-template-columns:repeat(6,182px)}
+.nh-partner-row{align-items:center;border-bottom:.5px solid var(--nh-line-dark);display:flex;gap:0;padding-block:24px}
+.nh-partner-row__label{box-sizing:border-box;flex:0 0 248px;padding-right:24px;width:248px}
+.nh-partner-row__label strong{color:var(--nh-gold-deep);display:block;font-family:var(--font-legacy-serif);font-size:var(--fs-20);font-style:normal;font-weight:var(--weight-regular);letter-spacing:0;line-height:var(--lh-tight)}
+.nh-partner-row__label span{color:var(--nh-white);display:block;font-family:var(--font-body);font-size:var(--fs-14);font-style:normal;font-weight:var(--weight-regular);letter-spacing:0;line-height:var(--lh-tight);margin-top:4px}
+.nh-partner-row__logos{display:grid;flex:1;gap:0;grid-template-columns:repeat(6,minmax(0,1fr));min-width:0}
+.section-partners .nh-partner{align-items:center;background-image:none;box-shadow:none;display:flex;height:90px;justify-content:center;position:relative}
+.section-partners .nh-partner:hover{box-shadow:none}
+.section-partners .nh-partner::after{background-image:var(--nh-partner-sheet);background-position:inherit;background-repeat:no-repeat;background-size:328.346% 396.889%;content:"";height:90px;left:50%;pointer-events:none;position:absolute;top:50%;transform:translate(-50%,-50%);width:160px}
+.section-partners .nh-partner:has(img)::after{content:none}
+.section-partners .nh-partner img{display:block;flex:none;height:90px;max-width:none;object-fit:contain;width:160px}
+.section-partners .nh-partner-row__logos .nh-partner{border-left:.5px solid var(--nh-line-dark)}
 .section-timeline{padding-block:0 80px}
 /* Space page: the value band puts a 370 copy column opposite the 697 step canvas. */
 .nh-values-grid{align-items:flex-start;display:flex;gap:40px;justify-content:space-between}
@@ -42,10 +48,19 @@
 @media (max-width:1050px){
   .section-audience__inner{flex-direction:column;align-items:flex-start}
   .section-audience__cards{grid-template-columns:minmax(0,1fr);width:100%}
-  .nh-partner-row{align-items:flex-start;flex-direction:column;gap:16px}
+  .nh-audience-card + .nh-audience-card::before{height:.5px;left:0;top:0;width:100%}
+  .nh-partner-row{align-items:stretch;flex-direction:column;gap:8px;padding-block:16px}
+  .nh-partner-row__label{flex:none;padding-right:0;width:auto}
   .nh-partner-row__logos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .section-partners .nh-partner-row__logos .nh-partner:nth-child(3n+1){border-left:0}
+  .section-partners .nh-partner-row__logos .nh-partner:nth-child(n+4){border-top:.5px solid var(--nh-line-dark)}
 }
-@media (max-width:560px){.nh-partner-row__logos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){
+  .nh-partner-row__logos{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .section-partners .nh-partner-row__logos .nh-partner{border-left:.5px solid var(--nh-line-dark);border-top:0}
+  .section-partners .nh-partner-row__logos .nh-partner:nth-child(odd){border-left:0}
+  .section-partners .nh-partner-row__logos .nh-partner:nth-child(n+3){border-top:.5px solid var(--nh-line-dark)}
+}
 
 /* News detail */
 .article{display:grid;grid-template-columns:minmax(0,880fr) minmax(0,388fr);gap:40px;align-items:start}

@@ -1,0 +1,19 @@
+/* NHATO Collection — global stylesheet. Link this one file.
+   Fonts: every family below is named verbatim in NHATO 2.fig and served from
+   Google Fonts; no binaries ship with the kit. Times New Roman and Arial also
+   appear in the source and resolve to the local system faces. */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Manrope:wght@200..800&family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Inter:wght@100..900&family=Montserrat:wght@100..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap");
+@import url("./tokens/colors.css");
+@import url("./tokens/typography.css");
+@import url("./tokens/layout.css");
+@import url("./tokens/figma-variables.css");
+@import url("./tokens/base.css");
+@import url("./chrome.css");
+@import url("./search.css");
+@import url("./actions.css");
+@import url("./content.css");
+@import url("./home-sections.css");
+@import url("./forms.css");
+@import url("./media.css");
+@import url("./pages.css");
+@import url("./mobile.css");
