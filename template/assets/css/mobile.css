@@ -7,7 +7,7 @@
   .nh-footer__follow .nh-social__link{min-height:20px;min-width:20px}
   .nh-footer__links a,.nh-footer__contact a,.article__readmore,.nh-event-card__cta{align-items:center;display:inline-flex;min-height:44px}
   .nh-text-link{align-items:center;display:inline-flex;font-size:var(--fs-14);min-height:44px}
-  .nh-dateline a,.article__toc-head button,[data-nh-toc] a{align-items:center;display:inline-flex;min-height:44px}
+  .nh-dateline a,.article__toc-head button{align-items:center;display:inline-flex;min-height:44px}
   /* Pagination: 44px cells, wrapping rather than widening past the viewport. */
   .nh-pagination{flex-wrap:wrap;justify-content:center}
   .nh-pagination a,.nh-pagination span{align-items:center;display:inline-flex;justify-content:center;min-height:44px;min-width:44px}
@@ -30,4 +30,5 @@
   .nh-statbar .nh-stat{min-height:44px}
   .nh-statbar .nh-stat + .nh-stat{border-left:0;padding-left:0}
   .nh-statbar .nh-statbar__group > .nh-stat:nth-child(even),.nh-statbar > a.nh-stat{border-left:.5px solid var(--nh-gray-2);padding-left:16px}
+  .nh-news-card__meta,.nh-news-card__title{margin-top:8px}
 }

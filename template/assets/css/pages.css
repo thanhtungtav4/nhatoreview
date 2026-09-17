@@ -69,28 +69,39 @@
 }
 
 /* News detail */
-.article{display:grid;grid-template-columns:minmax(0,880fr) minmax(0,388fr);gap:40px;align-items:start}
-.article__title{font-family:var(--font-ui);font-size:32px;font-weight:var(--weight-semibold);line-height:1.3;color:var(--nh-black)}
+.article{display:grid;grid-template-columns:minmax(0,880fr) minmax(0,388fr);gap:var(--space-6);align-items:start}
+.article__top{align-items:center;border-bottom:.5px solid var(--nh-gray-2);display:flex;gap:16px;justify-content:space-between;padding-bottom:8px}
+.article__top .nh-dateline svg{color:var(--nh-gray-6);flex:0 0 auto;height:16px;width:16px}
+.article__crumbs{align-items:center;display:flex;flex-wrap:wrap;gap:0}
+.article__crumbs a{color:var(--nh-gray-6);font-family:var(--font-body);font-size:var(--fs-14);font-style:normal;font-weight:var(--weight-semibold);letter-spacing:0;line-height:var(--lh-body)}
+.article__crumbs a + a{align-items:center;display:inline-flex}
+.article__crumbs a + a::before{background:var(--nh-gray-2);content:"";height:26px;margin:0 8px;width:.5px}
+.article__crumbs a[aria-current="page"]{color:var(--nh-gray-6);font-family:var(--font-body);font-size:var(--fs-14);font-style:normal;font-weight:var(--weight-regular);letter-spacing:0;line-height:var(--lh-body)}
+.article__title{color:var(--nh-black);font-family:var(--font-ui);font-size:var(--fs-24);font-weight:var(--weight-semibold);line-height:1.3;margin-top:8px}
+.article__lead{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);font-weight:var(--weight-regular);line-height:var(--lh-26);margin-top:24px}
 .article__hero{width:100%;aspect-ratio:1.66;object-fit:cover;margin-top:24px;background:var(--nh-gray-2)}
 .article__body{margin-top:24px;display:flex;flex-direction:column;gap:16px}
 .article__body p{font-family:var(--font-ui);font-size:var(--fs-16);line-height:28px;color:var(--nh-ink-3)}
 .article__body h2{font-family:var(--font-ui);font-size:var(--fs-24);font-weight:var(--weight-semibold);line-height:var(--lh-34);color:var(--nh-black);margin-top:8px}
-.article__share{display:flex;align-items:center;gap:12px;margin-top:28px;padding-top:20px;border-top:.5px solid var(--nh-gray-2)}
-.article__share span{font-size:var(--fs-13);color:var(--nh-gray-5)}
 .aside{display:flex;flex-direction:column;gap:20px;position:sticky;top:calc(var(--header-height) + 24px)}
+.aside .nh-article-compact{max-width:none}
+.aside .nh-article-compact__thumb{flex-basis:120px;height:80px;width:120px}
+.aside .nh-article-compact__body{gap:8px}
 
 /* Article extras — Figma node 261:434. The body column is 888 wide; type in the
    long-form column is Manrope 600/16 heads over 400/14 copy at line-height 1.5. */
-.article__toc{display:flex;flex-direction:column;gap:8px}
+.article__toc{background:#fff4df;box-sizing:border-box;display:flex;flex-direction:column;gap:8px;max-width:100%;padding:16px 20px;width:541px}
 .article__toc-head{align-items:center;display:flex;gap:4px}
-.article__toc-head strong{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);line-height:var(--lh-body)}
+.article__toc-head strong{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-16);font-style:normal;font-weight:var(--weight-semibold);letter-spacing:0;line-height:var(--lh-body)}
 .article__toc-head button{background:none;border:0;color:var(--nh-gold);font-family:var(--font-body);font-size:var(--fs-14);line-height:var(--lh-body);padding:0}
-.article__toc ol{color:var(--nh-ink);counter-reset:toc;display:flex;flex-direction:column;font-family:var(--font-body);font-size:var(--fs-14);line-height:var(--lh-body)}
+.article__toc ol{color:var(--nh-ink);counter-reset:toc;display:flex;flex-direction:column;font-family:var(--font-body);font-size:var(--fs-14);gap:4px;line-height:var(--lh-24)}
 .article__toc ol[hidden]{display:none}
 .article__toc li{counter-increment:toc}
-.article__toc li a::before{content:counter(toc) ". "}
+.article__toc li a{align-items:flex-start;display:flex;gap:6px}
+.article__toc li a::before{content:counter(toc) ".";flex:0 0 auto}
 .article__toc li a:hover{color:var(--nh-gold)}
 .article__section{display:flex;flex-direction:column;gap:16px}
+.article__section .nh-more-btn{align-self:center}
 .article__section h2{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);line-height:var(--lh-body)}
 .article__section p{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);line-height:var(--lh-body)}
 .article__figure{align-items:center;display:flex;flex-direction:column;gap:16px}
@@ -161,6 +172,11 @@
   .nh-close-band{height:auto;min-height:421px;padding:40px var(--gutter)}
   .nh-close-band__inner{width:100%}
   .nh-close-band__title{font-size:var(--fs-32);line-height:1.2}
+  .article__top{align-items:center;flex-wrap:wrap;gap:6px 8px}
+  .article__crumbs{flex-wrap:nowrap;min-width:0}
+  .article__top .nh-dateline{margin-left:auto}
+  .article__crumbs a + a::before{height:14px;margin:0 6px}
+  .article__toc{padding:12px 16px;width:100%}
 }
 
 @media (max-width:1050px){

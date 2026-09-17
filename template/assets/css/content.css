@@ -10,10 +10,10 @@
 
 /* Centred editorial headline — news pages. Cormorant Garamond SemiBold 40,
    line-height 1.4, uppercase, ink. Section stacks sit 40px apart. */
-.nh-headline{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-40);font-weight:var(--weight-semibold);line-height:1.4;text-align:center;text-transform:uppercase}
+.nh-headline{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-40);font-weight:var(--weight-regular);line-height:1.4;text-align:center;text-transform:uppercase}
 .nh-hairline{border:0;border-top:.5px solid var(--nh-gray-2);height:0;margin:0;width:100%}
 .nh-stack{display:flex;flex-direction:column;gap:40px}
-.nh-headline--quiet{font-weight:var(--weight-medium)}
+.nh-headline--quiet{font-weight:var(--weight-regular)}
 
 
 /* ── Responsive section grids ─────────────────────────────────
@@ -29,7 +29,7 @@
 .nh-project-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(1rem,1.45vw,1.5rem)}
 .nh-article-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,1.6vw,1.5rem)}
 .nh-process-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3.4rem 2rem}
-.nh-rail{display:flex;flex-direction:column;gap:var(--space-7)}
+.nh-rail{display:flex;flex-direction:column;gap:var(--space-6)}
 .nh-aside{display:flex;flex-direction:column;gap:var(--space-7);position:sticky;top:calc(var(--header-height) + var(--space-7))}
 .nh-title-row{align-items:center;display:grid;gap:1.5rem;grid-template-columns:auto minmax(4rem,1fr) auto}
 @media (max-width:1050px){
@@ -47,21 +47,22 @@
 /* ── News grid card — Figma: Frame 2144771281 (268:1596), 309×407.014 ──
    Image 220.014 tall, dateline (no chip), Manrope SemiBold 16/26 title,
    Manrope Regular 14/22 #595959 excerpt, 16px stack gap. */
-.nh-news-card{display:flex;flex-direction:column;gap:var(--space-5);min-width:0}
+.nh-news-card{display:flex;flex-direction:column;gap:0;min-width:0}
 .nh-news-card img{width:100%;aspect-ratio:1.4045;object-fit:cover;background:var(--nh-gray-2)}
-.nh-news-card__title{font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);line-height:var(--lh-26);color:var(--nh-ink)}
-.nh-news-card__excerpt{font-family:var(--font-body);font-size:var(--fs-14);line-height:22px;color:var(--nh-gray-8)}
-.nh-news-card .nh-dateline,.nh-news-card__meta{align-items:flex-start;display:flex;gap:var(--space-4);justify-content:space-between}
+.nh-news-card__title{-webkit-box-orient:vertical;-webkit-line-clamp:2;color:var(--nh-ink);display:-webkit-box;font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);line-clamp:2;line-height:var(--lh-26);margin-top:16px;overflow:hidden}
+.nh-news-card__excerpt{-webkit-box-orient:vertical;-webkit-line-clamp:3;color:var(--nh-gray-8);display:-webkit-box;font-family:var(--font-body);font-size:var(--fs-14);line-clamp:3;line-height:22px;margin-top:8px;overflow:hidden}
+.nh-news-card .nh-dateline,.nh-news-card__meta{align-items:center;display:flex;gap:var(--space-4);justify-content:space-between}
+.nh-news-card__meta{margin-top:16px}
 
 /* ── Lead story — Figma: 887-wide column, 436px image, 860-wide body ──── */
 .nh-lead{display:flex;flex-direction:column;gap:var(--space-6)}
 .nh-lead__figure{display:block;overflow:hidden}
 .nh-lead__figure img{width:100%;height:436px;object-fit:cover;background:var(--nh-gray-2);transition:transform var(--dur-slow) var(--ease-standard)}
 .nh-lead:hover .nh-lead__figure img{transform:scale(1.03)}
-.nh-lead__meta{align-items:flex-start;display:flex;gap:var(--space-4);justify-content:space-between}
-.nh-lead__title{font-family:var(--font-body);font-size:var(--fs-24);font-weight:var(--weight-semibold);line-height:var(--lh-26);color:var(--nh-ink)}
-.nh-lead__excerpt{-webkit-box-orient:vertical;-webkit-line-clamp:2;display:-webkit-box;font-family:var(--font-body);font-size:var(--fs-14);line-height:22px;color:var(--nh-gray-8);overflow:hidden}
-.nh-lead__body{display:flex;flex-direction:column;gap:var(--space-4)}
+.nh-lead__meta{align-items:center;display:flex;gap:var(--space-4);justify-content:space-between}
+.nh-lead__title{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-24);font-weight:var(--weight-semibold);line-height:var(--lh-26);margin-top:16px}
+.nh-lead__excerpt{-webkit-box-orient:vertical;-webkit-line-clamp:2;color:var(--nh-gray-8);display:-webkit-box;font-family:var(--font-body);font-size:var(--fs-14);line-height:22px;margin-top:12px;overflow:hidden}
+.nh-lead__body{display:flex;flex-direction:column;gap:0}
 
 /* ── Video card — Figma: Frame 2144771530 (268:1686), 309×255.128 ─────
    16:9-ish frame (309×173.128), centred YouTube badge, Manrope 600 16/22. */
@@ -369,7 +370,7 @@ body.nh-video-locked{overflow:hidden}
 .nh-meta{align-items:center;color:var(--nh-gray-5);display:flex;font-size:.69rem;gap:.65rem;margin-top:1.25rem;white-space:nowrap}
 .nh-meta svg{fill:none;height:1.05rem;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.2;width:1.05rem}
 /* Dateline — Ibarra Real Nova 14 / clock glyph, from Frame 2144771605. */
-.nh-dateline{align-items:center;color:var(--nh-gray-6);display:inline-flex;font-family:var(--font-editorial);font-size:var(--fs-14);gap:7px;line-height:var(--lh-body)}
+.nh-dateline{align-items:center;color:var(--nh-gray-6);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-14);font-weight:var(--weight-regular);gap:7px;letter-spacing:0;line-height:var(--lh-body)}
 .nh-dateline strong{font-weight:var(--weight-medium)}
 .nh-dateline svg{color:var(--nh-gray-5);height:20px;width:20px}
 
@@ -384,8 +385,8 @@ body.nh-video-locked{overflow:hidden}
 .nh-article-compact{display:flex;gap:var(--space-5);align-items:flex-start;width:100%;max-width:388px}
 .nh-article-compact__thumb{flex:0 0 94px;width:94px;min-width:0;height:94px;object-fit:cover;background:var(--nh-gray-2)}
 .nh-article-compact__body{display:flex;flex-direction:column;gap:var(--space-5);flex:1;min-width:0}
-.nh-article-compact__top{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-4)}
-.nh-article-compact__title{font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);line-height:var(--lh-26);color:var(--nh-ink)}
+.nh-article-compact__top{align-items:center;display:flex;gap:var(--space-4);justify-content:space-between}
+.nh-article-compact__title{-webkit-box-orient:vertical;-webkit-line-clamp:2;color:var(--nh-ink);display:-webkit-box;font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);line-clamp:2;line-height:var(--lh-26);overflow:hidden}
 
 /* ── Thumb card — 280×268, 180px image, Manrope SemiBold 16 ──── */
 .nh-thumb-card{display:flex;flex-direction:column;gap:var(--space-2);width:280px}

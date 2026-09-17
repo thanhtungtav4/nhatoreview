@@ -25,6 +25,8 @@
    hard 0 4px 4px rgba(0,0,0,.25) drop, both present at rest (not only on scroll). */
 .nh-header{box-shadow:var(--shadow-header);color:var(--nh-white);left:0;position:fixed;right:0;top:0;transform:translateY(0);transition:transform var(--dur-mid) var(--ease-standard),background-color var(--dur-fast) var(--ease-standard),box-shadow var(--dur-fast) var(--ease-standard);z-index:20}
 .nh-header::before{background:var(--scrim-header);content:"";inset:0 0 auto;height:var(--header-height);pointer-events:none;position:absolute;z-index:-1}
+body:not(:has(.nh-hero)) .nh-header:not(.is-scrolled),
+body:not(:has(.nh-hero)) .nh-header:not(.is-scrolled)::before{background:var(--nh-ink)}
 .nh-header.is-scrolled{background:rgba(30,30,30,.96);box-shadow:var(--shadow-header-scrolled)}
 .nh-header.is-scrolled::before{display:none}
 .nh-header.is-hidden{pointer-events:none;transform:translateY(-100%)}
