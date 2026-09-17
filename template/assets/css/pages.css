@@ -8,8 +8,11 @@
 
 /* Section pages — Figma: rule head at y748, feature bands from y827,
    related posts at y2100. */
-.section-head{padding-block:40px 0}
+.section-head{padding:40px 0}
 .section-intro{padding-block:80px}
+[data-page="about"] .section-intro{padding-block:60px}
+[data-page="taste"] .section-intro,
+.section-intro:has(.nh-quote){padding-bottom:0}
 .section-panel{padding-block:60px 0}
 .section-projects{padding-block:80px}
 .section-posts{padding-block:60px 80px}
@@ -31,19 +34,22 @@
 .section-partners .nh-partner:has(img)::after{content:none}
 .section-partners .nh-partner img{display:block;flex:none;height:90px;max-width:none;object-fit:contain;width:160px}
 .section-partners .nh-partner-row__logos .nh-partner{border-left:.5px solid var(--nh-line-dark)}
-.section-timeline{padding-block:0 80px}
+.section-timeline{padding-block:0 60px}
+.section-timeline .nh-intro{gap:0}
+.section-timeline .nh-intro .nh-intro__title{margin-top:16px}
+.section-timeline .nh-intro .nh-intro__lead{margin-top:24px}
 /* Space page: the value band puts a 370 copy column opposite the 697 step canvas. */
 .nh-values-grid{align-items:flex-start;display:flex;gap:40px;justify-content:space-between}
 @media (max-width:1050px){.nh-values-grid{flex-direction:column;align-items:stretch}.nh-values-grid .nh-band__copy{max-width:none}}
 
-.section-values{padding-block:0 80px}
+.section-values{background:var(--nh-paper-warm);padding:60px 0}
+.section-values .nh-stack{gap:0}
 /* About: video strip and the founder carousel (Figma 223:10, y3687, 1298×604). */
-.section-video{padding-block:0 80px}
-.section-team{padding-block:0 100px}
-.section-team__inner{display:flex;flex-direction:column;gap:40px;position:relative}
-.section-team__arrows{display:flex;justify-content:space-between;left:0;pointer-events:none;position:absolute;right:0;top:370px}
-.section-team__arrows .nh-carousel-arrow{pointer-events:auto}
-@media (max-width:1050px){.section-team__arrows{position:static;justify-content:center;gap:16px;top:auto}}
+.section-video{background:var(--nh-paper-warm);margin-bottom:80px;padding:40px 0}
+.nh-video-head{text-align:center}
+.section-video .nh-cta{align-self:center}
+.section-team{padding-block:60px}
+.section-team__inner{display:flex;flex-direction:column;gap:40px}
 .section-gallery .nh-gallery{margin-top:40px}
 @media (max-width:1050px){
   .section-audience__inner{flex-direction:column;align-items:flex-start}
@@ -119,9 +125,48 @@
 .contact__row b{display:block;font-size:var(--fs-13);font-weight:var(--weight-semibold);color:var(--nh-ink)}
 .contact__row span{font-size:var(--fs-14);color:var(--nh-gray-5)}
 .contact__form{display:grid;gap:14px}
-.contact__map{margin-top:40px;aspect-ratio:2.6;width:100%;object-fit:cover;background:var(--nh-gray-1)}
+.contact__map{background:var(--nh-gray-1);border:0;border-radius:16px;box-shadow:0 6px 12px 0 #0000001c;display:block;height:608px;margin-top:60px;overflow:hidden;width:100%}
+
+/* Enquire card — Figma: photo info + white form, 32px corners. */
+.nh-enquire{background:var(--nh-white);border-radius:24px;box-shadow:0 6px 12px 0 #0000001c;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);height:550px;overflow:hidden}
+.nh-enquire__info{color:var(--nh-white);min-height:0;position:relative}
+.nh-enquire__info img{height:100%;inset:0;object-fit:cover;position:absolute;width:100%}
+.nh-enquire__info::after{background:#00000099;content:"";inset:0;position:absolute}
+.nh-enquire__copy{box-sizing:border-box;display:flex;flex-direction:column;gap:var(--space-7);height:100%;padding:44px 40px;position:relative;z-index:1}
+.nh-enquire__heading{font-family:var(--font-legacy-serif);font-size:var(--fs-32);font-style:normal;font-weight:var(--weight-regular);letter-spacing:0;line-height:var(--lh-tight);text-transform:uppercase}
+.nh-enquire__form .nh-enquire__heading{color:var(--nh-ink);text-align:center}
+.nh-enquire__details{display:flex;flex-direction:column;gap:var(--space-5)}
+.nh-enquire__details p{color:var(--nh-white);font-family:var(--font-body);font-size:var(--fs-18);font-weight:var(--weight-regular);line-height:var(--lh-26)}
+.nh-enquire__details strong{font-weight:var(--weight-bold)}
+.nh-enquire__form{box-sizing:border-box;display:flex;flex-direction:column;gap:var(--space-8);min-height:0;padding:24px 64px}
+.nh-enquire .nh-plate{background:var(--nh-white);border:var(--border-thin) solid var(--nh-gray-2);font-family:var(--font-body);font-size:var(--fs-14);font-style:normal;font-weight:var(--weight-regular);letter-spacing:0;line-height:22px}
+.nh-enquire .nh-plate::placeholder{color:var(--nh-gray-7);font-family:var(--font-body);font-size:var(--fs-14);font-style:normal;font-weight:var(--weight-regular);letter-spacing:0;line-height:22px}
+.nh-enquire .nh-contact-form{flex:1;min-height:0}
+.nh-enquire .nh-contact-form,.nh-enquire .nh-contact-form__fields{gap:var(--space-5)}
+.nh-enquire .nh-contact-form__foot{margin-top:auto}
+.nh-enquire .nh-contact-form__note{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);font-style:normal;font-weight:var(--weight-regular);letter-spacing:0;line-height:22px}
+.nh-enquire .nh-cta{background:var(--nh-gold);color:var(--nh-ink);box-shadow:none}
+.nh-enquire .nh-cta:hover{background:var(--nh-gold-light)}
+.nh-enquire .nh-cta__arrow{box-shadow:inset 0 0 0 var(--border-icon) var(--nh-ink)}
+
+/* Contact close band — Figma: centred copy on contact-bg-01. */
+.nh-close-band{align-items:center;background:url("../images/contact-bg-01.png") center / cover no-repeat;box-sizing:border-box;display:flex;height:421px;justify-content:center}
+.nh-close-band__inner{align-items:center;display:flex;flex-direction:column;gap:var(--space-7);text-align:center}
+.nh-close-band__title{color:var(--nh-ink);font-family:var(--font-legacy-serif);font-size:var(--fs-40);font-weight:var(--weight-regular);line-height:46px}
+.nh-close-band__lead{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-16);line-height:var(--lh-26);max-width:640px}
+.nh-close-band__action{align-items:center;color:var(--nh-gold);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-bold);gap:10.636px;line-height:var(--lh-tight);min-height:44px;text-transform:uppercase;white-space:nowrap}
+.nh-close-band__action svg{height:16px;width:16px}
+.nh-close-band__action:hover{color:var(--nh-gold-deep)}
+@media (max-width:620px){
+  .nh-close-band{height:auto;min-height:421px;padding:40px var(--gutter)}
+  .nh-close-band__inner{width:100%}
+  .nh-close-band__title{font-size:var(--fs-32);line-height:1.2}
+}
 
 @media (max-width:1050px){
   .article,.contact{grid-template-columns:minmax(0,1fr)}
   .aside{position:static}
+  .nh-enquire{grid-template-columns:minmax(0,1fr);height:auto}
+  .nh-enquire__info{min-height:360px}
+  .nh-enquire__form{padding:24px}
 }

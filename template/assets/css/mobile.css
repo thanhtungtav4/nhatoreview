@@ -18,10 +18,16 @@
      number stays reachable in the footer and on the contact page. */
   .nh-header__call{display:none}
 }
-/* Rule head: drop the middle rule and pin title left / action right. */
+/* Rule head: drop the middle rule, title wraps, action stays right. */
 @media (max-width:620px){
-  .nh-rule-head{flex-wrap:nowrap;gap:12px;justify-content:space-between;width:100%}
-  .nh-rule-head__title{white-space:nowrap}
+  .nh-rule-head{align-items:center;flex-wrap:nowrap;gap:12px;justify-content:space-between}
+  .nh-rule-head__title{flex:1;font-size:var(--fs-24);line-height:1.2;max-width:8em;min-width:0;white-space:normal}
   .nh-rule-head__line{display:none}
-  .nh-rule-head__action{margin-left:auto;min-height:44px}
+  .nh-rule-head__action{align-self:center;flex:none;margin-left:auto;min-height:44px}
+  /* Stat bar: 2×2 so the leftover divider from wrapping is gone. */
+  .nh-statbar{display:grid;gap:12px 16px;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nh-statbar .nh-statbar__group{display:contents}
+  .nh-statbar .nh-stat{min-height:44px}
+  .nh-statbar .nh-stat + .nh-stat{border-left:0;padding-left:0}
+  .nh-statbar .nh-statbar__group > .nh-stat:nth-child(even),.nh-statbar > a.nh-stat{border-left:.5px solid var(--nh-gray-2);padding-left:16px}
 }
