@@ -40,7 +40,8 @@
 .nh-pagination a,.nh-pagination span{align-items:center;color:var(--nh-gray-5);display:inline-flex;font-size:var(--fs-18);height:2rem;justify-content:center;min-width:2rem}
 .nh-pagination svg{flex:0 0 auto;height:16px;width:16px}
 .nh-pagination a:hover,.nh-pagination a.is-current{color:var(--nh-ink)}
-.nh-pagination a.is-current{border-bottom:var(--border-thin) solid var(--nh-gold)}
+.nh-pagination a.is-current{border-bottom:0;position:relative}
+.nh-pagination a.is-current::after{background:var(--nh-gold);bottom:4px;content:"";height:var(--border-thin);left:50%;position:absolute;transform:translateX(-50%);width:12px}
 
 /* "Tin mới" chip — gold pill, Inter Medium 14, 6px/8px padding, r1000. */
 .nh-chip{align-items:center;background:var(--nh-gold);border-radius:var(--radius-pill);box-sizing:border-box;color:var(--nh-white);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-14);font-weight:var(--weight-medium);gap:var(--space-3);height:22px;justify-content:center;letter-spacing:0;line-height:1;padding:6px 8px}

@@ -5,7 +5,12 @@
 
 /* ── Section heading: eyebrow + display title ────────────────── */
 .nh-section-head{align-items:flex-end;display:flex;justify-content:space-between;gap:1.5rem}
-.nh-section-title{color:var(--nh-ink);font-family:var(--font-legacy-serif);font-size:var(--fs-40);font-weight:var(--weight-regular);line-height:55px;margin-top:13px}
+.nh-section-head .nh-cta--ink{align-self:flex-end}
+.nh-section-title{color:var(--nh-ink);font-family:var(--font-legacy-serif);font-size:var(--fs-48);font-weight:var(--weight-regular);line-height:var(--lh-tight);margin-top:13px}
+@media (max-width:620px){
+  .nh-section-head{align-items:flex-start;flex-direction:column;gap:16px}
+  .nh-section-head .nh-cta--ink{align-self:flex-start}
+}
 .nh-rule{border-top:1px solid rgba(30,30,30,.16);flex:1}
 
 /* Centred editorial headline — news pages. Cormorant Garamond SemiBold 40,
@@ -334,16 +339,25 @@ body.nh-video-locked{overflow:hidden}
    radius 8, #EDE9E3, shadow 0 0 8.4 rgba(0,0,0,.25), padding 40/20, gap 24.
    Five 196×131 cells: 40px gold icon, Cormorant Bold 24 uppercase title,
    Manrope 16 line, divided by 0.5px #CECECE verticals 132 tall. */
-.nh-category-panel{background:var(--nh-paper-warm);border-radius:8px;box-shadow:0 0 8.4px rgba(0,0,0,.25);box-sizing:border-box;display:grid;gap:24px;grid-template-columns:repeat(5,minmax(0,1fr));padding:40px 20px}
-.nh-category{align-items:flex-start;box-sizing:border-box;color:var(--nh-ink);display:flex;flex-direction:column;gap:12px;justify-content:center;min-height:131px;padding:10px 8px;position:relative}
-.nh-category + .nh-category::before{background:var(--nh-gray-2);content:"";height:132px;left:-12px;position:absolute;top:50%;transform:translateY(-50%);width:.5px}
+.nh-category-panel{background:var(--nh-paper-warm);border-radius:8px;box-shadow:0 0 8.4px rgba(0,0,0,.25);box-sizing:border-box;display:grid;gap:48px;grid-template-columns:repeat(5,196px);padding:40px 63px}
+.nh-category{align-items:flex-start;box-sizing:border-box;color:var(--nh-ink);display:flex;flex-direction:column;gap:12px;justify-content:center;min-height:131px;padding:0;position:relative}
+.nh-category + .nh-category::before{background:var(--nh-gray-2);content:"";height:132px;left:-24px;position:absolute;top:50%;transform:translateY(-50%);width:.5px}
 .nh-category__icon{color:var(--nh-gold);height:40px;width:40px;transition:transform var(--dur-fast) var(--ease-standard)}
 .nh-category__body{display:flex;flex-direction:column;gap:var(--space-2)}
-.nh-category h3{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-24);font-weight:var(--weight-bold);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-category h3{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-24);font-weight:var(--weight-regular);line-height:var(--lh-tight);text-transform:uppercase}
 .nh-category p{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-16);line-height:var(--lh-tight)}
 .nh-category:hover .nh-category__icon{transform:translateY(-.2rem)}
-@media (max-width:1050px){.nh-category-panel{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:32px}}
-@media (max-width:620px){.nh-category-panel{grid-template-columns:repeat(2,minmax(0,1fr))}.nh-category + .nh-category::before{display:none}}
+@media (max-width:1050px){
+  .nh-category-panel{gap:32px 24px;grid-template-columns:repeat(3,minmax(0,1fr));padding:32px 24px}
+  .nh-category{min-height:0}
+  .nh-category + .nh-category::before{display:none}
+}
+@media (max-width:620px){
+  .nh-category-panel{gap:0;grid-template-columns:minmax(0,1fr);padding:8px 20px}
+  .nh-category{align-items:center;display:grid;gap:16px;grid-template-columns:40px minmax(0,12.5rem);justify-content:flex-start;min-height:44px;padding:16px 0}
+  .nh-category + .nh-category{border-top:.5px solid var(--nh-gray-2)}
+  .nh-category__icon{flex:none;height:40px;width:40px}
+}
 
 /* ── Project card — Figma: Frame 2144771499 (139:172), 309×340 ──────
    Flat rgba(0,0,0,.2) over a 180° transparent→black gradient from 50%,
@@ -399,25 +413,26 @@ body.nh-video-locked{overflow:hidden}
    left 106, both at top 206. Straight 147px dashed runs join neighbours at the
    circle centre (top 24). Positions are percentages of the canvas so it scales. */
 .nh-process-canvas{aspect-ratio:697/381;max-width:697px;position:relative;width:100%}
-.nh-process-step{align-items:center;color:var(--nh-white);display:flex;flex-direction:column;gap:12px;position:absolute;width:21.665%}
+.nh-process-path{color:var(--nh-gold);display:block;height:100%;left:0;overflow:visible;pointer-events:none;position:absolute;top:0;width:100%;z-index:0}
+.nh-process-path path{fill:none;stroke:currentColor;stroke-dasharray:4 4;stroke-width:1}
+.nh-process-step{align-items:center;color:var(--nh-white);display:flex;flex-direction:column;gap:12px;position:absolute;width:21.665%;z-index:1}
 .nh-process-step__number{align-items:center;background:var(--nh-ink);border-radius:45px;box-shadow:inset 0 0 0 1px var(--nh-gold);box-sizing:border-box;color:var(--nh-white);display:inline-flex;flex:0 0 auto;font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);height:48px;justify-content:center;line-height:var(--lh-tight);padding:10px;width:48px}
 .nh-process-step__body{align-items:center;display:flex;flex-direction:column;gap:var(--space-2);width:100%}
 .nh-process-step__icon{color:var(--nh-white);height:40px;width:40px}
 .nh-process-step strong{font-family:var(--font-legacy-serif);font-size:var(--fs-18);font-weight:var(--weight-regular);line-height:var(--lh-tight);text-align:center;text-transform:uppercase}
-.nh-process-step small{font-family:var(--font-body);font-size:var(--fs-14);font-weight:var(--weight-semibold);line-height:var(--lh-tight);text-align:center}
+.nh-process-step small{font-family:var(--font-body);font-size:var(--fs-14);font-weight:var(--weight-regular);line-height:19px;text-align:center}
 .nh-process-step--1{left:0;top:0}
 .nh-process-step--2{left:30.273%;top:0}
 .nh-process-step--3{left:60.115%;top:0;width:22.238%}
 .nh-process-step--4{left:45.624%;top:54.068%}
 .nh-process-step--5{left:15.208%;top:54.068%}
-.nh-process-link{border-top:1px dashed var(--nh-gold);position:absolute;top:6.299%;width:21.091%}
-.nh-process-link--1{left:15.638%}
-.nh-process-link--2{left:45.911%}
-.nh-process-link--3{left:30.847%;top:60.367%}
-.nh-process-turn{border:1px dashed var(--nh-gold);border-left:0;border-radius:0 41px 41px 0;height:54.068%;left:61.048%;position:absolute;top:6.299%;width:38.951%}
 @media (max-width:1050px){
-  .nh-process-canvas{aspect-ratio:auto;display:grid;gap:40px 20px;grid-template-columns:repeat(2,minmax(0,1fr));max-width:none}
-  .nh-process-step,.nh-process-step--1,.nh-process-step--2,.nh-process-step--3,.nh-process-step--4,.nh-process-step--5{left:auto;position:static;top:auto;width:auto}
-  .nh-process-link,.nh-process-turn{display:none}
+  .nh-process-canvas{aspect-ratio:auto;display:flex;flex-direction:column;gap:24px;max-width:none}
+  .nh-process-canvas::before{background:repeating-linear-gradient(to bottom,var(--nh-gold) 0 4px,transparent 4px 8px);bottom:24px;content:"";left:24px;position:absolute;top:24px;transform:translateX(-50%);width:1px;z-index:0}
+  .nh-process-path{display:none}
+  .nh-process-step,.nh-process-step--1,.nh-process-step--2,.nh-process-step--3,.nh-process-step--4,.nh-process-step--5{align-items:flex-start;display:grid;gap:16px;grid-template-columns:48px minmax(0,1fr);left:auto;position:relative;top:auto;width:auto}
+  .nh-process-step__number{position:relative;z-index:1}
+  .nh-process-step__body{align-items:flex-start;display:grid;gap:4px 12px;grid-template-columns:40px minmax(0,1fr)}
+  .nh-process-step__icon{grid-row:1 / span 2}
+  .nh-process-step strong,.nh-process-step small{text-align:left}
 }
-@media (max-width:520px){.nh-process-canvas{grid-template-columns:minmax(0,1fr)}}

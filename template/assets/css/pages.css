@@ -14,7 +14,7 @@
 [data-page="taste"] .section-intro,
 .section-intro:has(.nh-quote){padding-bottom:0}
 .section-panel{padding-block:60px 0}
-.section-projects{padding-block:80px}
+.section-projects{padding-block:60px}
 .section-posts{padding-block:60px 80px}
 .section-audience{background:var(--nh-ink);padding-block:40px}
 .section-audience__inner{align-items:center;display:flex;gap:40px;justify-content:space-between}
@@ -101,7 +101,7 @@
 .article__toc li a::before{content:counter(toc) ".";flex:0 0 auto}
 .article__toc li a:hover{color:var(--nh-gold)}
 .article__section{display:flex;flex-direction:column;gap:16px}
-.article__section .nh-more-btn{align-self:center}
+.article__body > .nh-more-btn{align-self:center;margin-block:32px}
 .article__section h2{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);line-height:var(--lh-body)}
 .article__section p{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);line-height:var(--lh-body)}
 .article__figure{align-items:center;display:flex;flex-direction:column;gap:16px}
@@ -111,7 +111,7 @@
 .article__readmore svg{height:20px;width:20px}
 .article__readmore:hover{color:var(--nh-gold)}
 /* Featured card — 4px #F1D49D cap rule over a 1px #CECECE inner frame. */
-.article__featured{border:var(--border-thin) solid #f1d49d;border-top-width:4px;box-sizing:border-box;display:block;padding-block:4px}
+.article__featured{border-top:4px solid #f1d49d;box-sizing:border-box;display:block}
 .article__featured-inner{align-items:center;border:var(--border-thin) solid var(--nh-gray-2);display:flex;gap:24px}
 .article__featured img{flex:0 0 237.378px;height:196.487px;object-fit:cover;background:var(--nh-gray-2)}
 .article__featured-copy{display:flex;flex-direction:column;gap:8px;min-width:0;padding-right:24px}
