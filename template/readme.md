@@ -14,7 +14,7 @@ gian** (spaces), **Art / Nghệ thuật**, **Taste / Phong vị** and **Original
 plus About and Contact.
 
 Everything in this kit is plain **HTML, CSS and vanilla JS**. There is no React, no build
-step and no npm. Link `styles.css` and write markup.
+step and no npm. Link `assets/css/nhato.css` and write markup.
 
 ## Sources
 
@@ -186,24 +186,25 @@ gradient, so it sits on ink or paper and never on gold. Do not redraw or recolou
 
 | Path | What it is |
 | --- | --- |
-| `styles.css` | The one file consumers link. Google Fonts import + every token and component import. |
-| `tokens/colors.css` | Brand gold, ink, neutrals, semantic colours, scrims, semantic aliases. |
-| `tokens/typography.css` | Font stacks, the size scale, line heights, weights, tracking. |
-| `tokens/layout.css` | Page grid, auto-layout gaps, radii, borders, shadows, scrims, motion. |
-| `tokens/base.css` | Reset, base element styles, `.nh-container`, `.nh-eyebrow`, `.sr-only`. |
-| `tokens/figma-variables.css` | The 4 Figma Variables in the file (light + dark modes). |
-| `components/chrome/chrome.css` | Brand lockup, social row, site header, site footer. |
-| `components/actions/actions.css` | Buttons, hero CTA, outline link, text link, icon button, chip, pagination. |
-| `components/content/content.css` | Section heads, hairlines, category tile, project card, article card, news card, the three Figma article rows, meta and dateline, process step. |
-| `components/forms/forms.css` | Field, label, newsletter form. |
-| `components/media/media.css` | Hero, slide index, dark band, page intro. |
+| `assets/css/nhato.css` | The one file consumers link. Google Fonts import + every token, component and page import. |
+| `assets/css/tokens/colors.css` | Brand gold, ink, neutrals, semantic colours, scrims, semantic aliases. |
+| `assets/css/tokens/typography.css` | Font stacks, the size scale, line heights, weights, tracking. |
+| `assets/css/tokens/layout.css` | Page grid, auto-layout gaps, radii, borders, shadows, scrims, motion. |
+| `assets/css/tokens/base.css` | Reset, base element styles, `.nh-container`, `.nh-eyebrow`, `.sr-only`. |
+| `assets/css/tokens/figma-variables.css` | The 4 Figma Variables in the file (light + dark modes). |
+| `assets/css/chrome.css` | Brand lockup, social row, site header, site footer. |
+| `assets/css/actions.css` | Buttons, hero CTA, outline link, text link, icon button, chip, pagination. |
+| `assets/css/content.css` | Section heads, hairlines, category tile, project card, article card, news card, the three Figma article rows, meta and dateline, process step. |
+| `assets/css/forms.css` | Field, label, newsletter form. |
+| `assets/css/media.css` | Hero, slide index, dark band, page intro. |
+| `assets/css/pages.css` | Screen-specific layouts (news lead, article column, section bands). |
 | `guidelines/*.card.html` | 18 foundation specimen cards (Colors, Type, Spacing, Brand). |
-| `ui_kits/nhato-web/` | The website recreation — 10 screens, one per Figma frame, plus `chrome.js`, `pages.css` and its own README. |
+| `ui_kits/nhato-web/` | The website recreation — 10 screens, one per Figma frame, plus `chrome.js` and its own README. |
 | `templates/homepage/` | Starting-point template: the full marketing homepage. |
 | `templates/article/` | Starting-point template: the long-form article page with sidebar rail. |
 | `templates/news/` | Starting-point template: the editorial index — lead story, news grid, video row. |
 | `templates/contact/` | Starting-point template: masthead, enquiry form, map and CTA band. |
-| `assets/logo/`, `assets/images/`, `assets/icons/`, `assets/js/` | Logo, photography, icon sprite, site behaviour. |
+| `assets/css/`, `assets/logo/`, `assets/images/`, `assets/icons/`, `assets/js/` | Stylesheets, logo, photography, icon sprite, site behaviour. |
 | `SKILL.md` | Agent-skill entry point. |
 | `github.md` | Upstream repository association and sync record. |
 

@@ -4,9 +4,10 @@
 @media (max-width:1180px){
   /* 44px hit targets */
   .nh-social__link{align-items:center;display:inline-flex;justify-content:center;min-height:44px;min-width:44px}
+  .nh-footer__follow .nh-social__link{min-height:20px;min-width:20px}
   .nh-footer__links a,.nh-footer__contact a,.article__readmore,.nh-event-card__cta{align-items:center;display:inline-flex;min-height:44px}
   .nh-text-link{align-items:center;display:inline-flex;font-size:var(--fs-14);min-height:44px}
-  .nh-dateline a,.article__toc-head button,[data-nh-toc] a{align-items:center;display:inline-flex;min-height:44px}
+  .nh-dateline a,.article__toc-head button{align-items:center;display:inline-flex;min-height:44px}
   /* Pagination: 44px cells, wrapping rather than widening past the viewport. */
   .nh-pagination{flex-wrap:wrap;justify-content:center}
   .nh-pagination a,.nh-pagination span{align-items:center;display:inline-flex;justify-content:center;min-height:44px;min-width:44px}
@@ -17,11 +18,17 @@
      number stays reachable in the footer and on the contact page. */
   .nh-header__call{display:none}
 }
-/* Rule head: an unwrappable serif title, a flexible rule and a nowrap action
-   cannot share a 390px row — stack them and drop the rule. */
+/* Rule head: drop the middle rule, title wraps, action stays right. */
 @media (max-width:620px){
-  .nh-rule-head{flex-wrap:wrap;gap:12px}
-  .nh-rule-head__title{white-space:normal}
+  .nh-rule-head{align-items:center;flex-wrap:nowrap;gap:12px;justify-content:space-between}
+  .nh-rule-head__title{flex:1;font-size:var(--fs-24);line-height:1.2;max-width:8em;min-width:0;white-space:normal}
   .nh-rule-head__line{display:none}
-  .nh-rule-head__action{min-height:44px}
+  .nh-rule-head__action{align-self:center;flex:none;margin-left:auto;min-height:44px}
+  /* Stat bar: 2×2 so the leftover divider from wrapping is gone. */
+  .nh-statbar{display:grid;gap:12px 16px;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nh-statbar .nh-statbar__group{display:contents}
+  .nh-statbar .nh-stat{min-height:44px}
+  .nh-statbar .nh-stat + .nh-stat{border-left:0;padding-left:0}
+  .nh-statbar .nh-statbar__group > .nh-stat:nth-child(even),.nh-statbar > a.nh-stat{border-left:.5px solid var(--nh-gray-2);padding-left:16px}
+  .nh-news-card__meta,.nh-news-card__title{margin-top:8px}
 }

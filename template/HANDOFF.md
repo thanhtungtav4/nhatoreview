@@ -7,21 +7,21 @@ Bạn đang có toàn bộ design system NHATO Collection dưới dạng **HTML 
 1. Đọc `readme.md` — đây là tài liệu chính: content rules (song ngữ VI/EN), visual foundations, iconography, danh sách component classes, và các quyết định thiết kế đã chốt (Figma thắng khi lệch với web build).
 2. Link một file CSS duy nhất:
    ```html
-   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="assets/css/nhato.css">
    <script src="assets/icons/nhato-icons.js"></script>
    ```
-   `styles.css` đã import toàn bộ tokens + components.
+   `assets/css/nhato.css` đã import toàn bộ tokens + components.
 3. Xem `ui_kits/nhato-web/` — 10 screen dựng lại đầy đủ website, mỗi screen tương ứng 1 Figma frame. Đây là reference chuẩn nhất cho markup.
 
 ## Cấu trúc
 
 | Path | Nội dung |
 | --- | --- |
-| `styles.css` | Entry point duy nhất. Google Fonts + toàn bộ import. |
-| `tokens/` | `colors.css`, `typography.css`, `layout.css`, `base.css`, `figma-variables.css` — 119 CSS custom properties. |
-| `components/` | CSS theo nhóm: `chrome/` (header, footer, brand, social), `actions/` (button, chip, pagination, icon button), `content/` (card, section head, process step, meta), `forms/`, `media/` (hero, band, page intro). Tất cả BEM-ish prefix `nh-`. |
-| `assets/` | `logo/` (2 PNG — logo là raster, không redraw), `images/` (photography), `icons/` (sprite 20 glyph + loader JS), `js/` (site behaviour). |
-| `ui_kits/nhato-web/` | 10 screen hoàn chỉnh + `chrome.js`, `pages.css`. |
+| `assets/css/nhato.css` | Entry point duy nhất. Google Fonts + toàn bộ import. |
+| `assets/css/tokens/` | `colors.css`, `typography.css`, `layout.css`, `base.css`, `figma-variables.css` — 119 CSS custom properties. |
+| `assets/css/` | CSS theo nhóm: `chrome.css` (header, footer, brand, social), `actions.css` (button, chip, pagination, icon button), `content.css` (card, section head, process step, meta), `forms.css`, `media.css` (hero, band, page intro), `pages.css`. Tất cả BEM-ish prefix `nh-`. |
+| `assets/` | `css/`, `logo/` (2 PNG — logo là raster, không redraw), `images/` (photography), `icons/` (sprite 20 glyph + loader JS), `js/` (site behaviour). |
+| `ui_kits/nhato-web/` | 10 screen hoàn chỉnh + `chrome.js`. |
 | `templates/` | 4 starting point: `homepage/`, `article/`, `news/`, `contact/`. Mỗi folder là một `.dc.html` + `ds-base.js`. |
 | `guidelines/` | 18 specimen card (Colors, Type, Spacing, Brand). |
 | `github.md` | Liên kết repo gốc + lịch sử sync. |
@@ -43,12 +43,12 @@ Bạn đang có toàn bộ design system NHATO Collection dưới dạng **HTML 
 
 ## Nếu port sang framework
 
-Kit này là CSS-first nên port rất nhẹ: giữ nguyên `tokens/` + `components/` làm global stylesheet, wrap markup thành component của framework đích. Các React wrapper trong `components/` (`Frame5`, `Frame2144771281`, `Frame2144771605`, `Frame1731`, `Icon`) chỉ là typed props contract, không chứa style — xoá đi CSS vẫn chạy.
+Kit này là CSS-first nên port rất nhẹ: giữ nguyên `assets/css/` làm global stylesheet, wrap markup thành component của framework đích. Các React wrapper trong `components/` (`Frame5`, `Frame2144771281`, `Frame2144771605`, `Frame1731`, `Icon`) chỉ là typed props contract, không chứa style — xoá đi CSS vẫn chạy.
 
 ## Còn thiếu
 
 - Social URLs, newsletter endpoint, contact endpoint — đang là placeholder.
-- Font binaries — đang load từ Google Fonts. Nếu NHATO license cut riêng thì drop file vào và đổi `@import` trong `styles.css`.
+- Font binaries — đang load từ Google Fonts. Nếu NHATO license cut riêng thì drop file vào và đổi `@import` trong `assets/css/nhato.css`.
 - 5 page frame trong Figma chưa dựng.
 - Arial / Times New Roman xuất hiện trong Figma trên layer chưa restyle — không phải phần của palette, đừng dùng.
 

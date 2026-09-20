@@ -30,10 +30,8 @@ Two sections were added in that pass — the article outline / related-news bloc
 
 ## How it is wired
 
-- `../../styles.css` carries every token and component class. Nothing in this folder
-  redefines a colour, a font or a radius — page files only hold page layout.
-- `pages.css` holds the grids that are specific to a screen (news lead, article column,
-  contact split, the section-page band rhythm).
+- `../../assets/css/nhato.css` carries every token, component and page-layout class. Nothing
+  in this folder redefines a colour, a font or a radius.
 - `chrome.js` injects the shared header and footer into `<div data-nh-mount="header">`
   and `…="footer">`. In WordPress these become `header.php` / `footer.php`.
 - `../../assets/icons/nhato-icons.js` inlines the icon sprite as the first element in
@@ -61,7 +59,7 @@ homepage in NHATO 3.fig. They live on `space.html` (grid + value band) and `news
   partner logo assets.
 - Homepage bitmaps were downscaled from the Figma exports (some were 4096px / 7 MB) to the
   sizes the layout actually renders. Re-export at full size if you need print resolution.
-- Mobile ergonomics live in `components/chrome/mobile.css`, the one place the kit departs
+- Mobile ergonomics live in `assets/css/mobile.css`, the one place the kit departs
   from the Figma desktop frames: ≤1180px raises every link, icon and pagination cell to a
   44px hit target and lifts meta type to 13px; ≤760px drops the header "Call us" pill (the
   number stays in the footer and on the contact page); ≤620px stacks `.nh-rule-head`.

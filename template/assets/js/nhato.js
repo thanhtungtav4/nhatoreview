@@ -46,11 +46,33 @@
         if (hidden) list.removeAttribute("hidden");
         else list.setAttribute("hidden", "");
         toc.textContent = hidden ? "[Ẩn]" : "[Hiện]";
+        return;
+      }
+      var vid = e.target.closest && e.target.closest("[data-nh-video]");
+      if (vid) {
+        e.preventDefault();
+        openVideo(vid.getAttribute("data-nh-video") || vid.getAttribute("href"));
+        return;
+      }
+      var slideBtn = e.target.closest && e.target.closest("[data-nh-slider-prev],[data-nh-slider-next]");
+      if (slideBtn && !slideBtn.disabled) {
+        var root = slideBtn.closest("[data-nh-slider]");
+        var track = root && root.querySelector("[data-nh-slider-track]");
+        if (!track) return;
+        e.preventDefault();
+        var card = track.querySelector(".nh-team-card");
+        var gap = parseFloat(getComputedStyle(track).gap);
+        if (isNaN(gap)) gap = 0;
+        var step = card ? card.getBoundingClientRect().width + gap : track.clientWidth;
+        track.scrollLeft += slideBtn.hasAttribute("data-nh-slider-next") ? step : -step;
       }
     });
 
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeNav();
+      if (e.key === "Escape") {
+        closeVideo();
+        closeNav();
+      }
     });
 
     /* Newsletter: client-side validation only — no endpoint is defined by the source. */
@@ -67,18 +89,120 @@
       if (ok) form.reset();
     });
 
+    var lastY = 0;
+    var ticking = false;
     var read = function () {
-      var header = document.querySelector("[data-nh-header]");
-      if (!header) return;
-      var scroller = header.closest("[data-nh-scroll]");
-      var y = scroller ? scroller.scrollTop : window.scrollY;
-      header.classList.toggle("is-scrolled", y > 24);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        var header = document.querySelector("[data-nh-header]");
+        if (!header) return;
+        var scroller = header.closest("[data-nh-scroll]");
+        var y = scroller ? scroller.scrollTop : window.scrollY;
+        var nav = document.querySelector("[data-nh-nav]");
+        var menuOpen = nav && nav.classList.contains("is-open");
+        var searchOpen = document.body.classList.contains("nh-search-locked");
+        var videoOpen = document.body.classList.contains("nh-video-locked");
+        header.classList.toggle("is-scrolled", y > 24);
+        if (menuOpen || searchOpen || videoOpen || y <= 48) {
+          header.classList.remove("is-hidden");
+        } else if (y > lastY + 8) {
+          header.classList.add("is-hidden");
+        } else if (y < lastY - 8) {
+          header.classList.remove("is-hidden");
+        }
+        lastY = y;
+      });
     };
     window.addEventListener("scroll", read, { passive: true });
     document.addEventListener("scroll", read, { passive: true, capture: true });
     read();
 
     initSearch();
+    initSliders();
+    initVideo();
+  }
+
+  function initSliders() {
+    document.querySelectorAll("[data-nh-slider]").forEach(function (root) {
+      if (root.__nhSlider) return;
+      var track = root.querySelector("[data-nh-slider-track]");
+      var prev = root.querySelector("[data-nh-slider-prev]");
+      var next = root.querySelector("[data-nh-slider-next]");
+      if (!track) return;
+      root.__nhSlider = true;
+      function sync() {
+        var max = Math.max(0, track.scrollWidth - track.clientWidth);
+        var x = track.scrollLeft;
+        if (prev) prev.disabled = x <= 1;
+        if (next) next.disabled = x >= max - 1;
+      }
+      track.addEventListener("scroll", sync, { passive: true });
+      window.addEventListener("resize", sync);
+      sync();
+    });
+  }
+
+  var videoApi = null;
+
+  function youtubeId(value) {
+    if (!value || value === "#") return "";
+    var m = String(value).match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/);
+    if (m) return m[1];
+    return /^[\w-]{11}$/.test(value) ? value : "";
+  }
+
+  function closeVideo() {
+    if (videoApi && videoApi.close) videoApi.close();
+  }
+
+  function openVideo(value) {
+    var id = youtubeId(value);
+    if (!id) return;
+    initVideo().open(id);
+  }
+
+  function initVideo() {
+    if (videoApi && videoApi.root && videoApi.root.isConnected) return videoApi;
+    document.querySelectorAll(".nh-video-modal").forEach(function (el) { el.remove(); });
+    var root = document.createElement("div");
+    root.className = "nh-video-modal";
+    root.setAttribute("role", "dialog");
+    root.setAttribute("aria-modal", "true");
+    root.setAttribute("aria-label", "Xem video");
+    root.innerHTML =
+      '<div class="nh-video-modal__scrim" data-nh-video-close></div>' +
+      '<div class="nh-video-modal__dialog">' +
+        '<button class="nh-video-modal__close" type="button" data-nh-video-close>Esc</button>' +
+        '<div class="nh-video-modal__frame"><iframe allow="autoplay; fullscreen; picture-in-picture" title="Video"></iframe></div>' +
+      "</div>";
+    document.body.appendChild(root);
+    var frame = root.querySelector("iframe");
+    var last = null;
+
+    function open(id) {
+      last = document.activeElement;
+      frame.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id) + "?autoplay=1";
+      root.classList.add("is-open");
+      document.body.classList.add("nh-video-locked");
+      var closeBtn = root.querySelector("[data-nh-video-close]");
+      if (closeBtn && closeBtn.focus) closeBtn.focus();
+    }
+
+    function close() {
+      root.classList.remove("is-open");
+      document.body.classList.remove("nh-video-locked");
+      frame.src = "";
+      if (last && last.focus) last.focus();
+    }
+
+    root.addEventListener("click", function (e) {
+      if (e.target.closest("[data-nh-video-close]")) close();
+    });
+
+    videoApi = { root: root, open: open, close: close };
+    return videoApi;
   }
 
   onReady(function () {

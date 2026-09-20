@@ -1,0 +1,46 @@
+/* NHATO Collection — hero / full-bleed media bands.
+   Hero geometry from NHATO 2.fig: 1440×708 image, 270° black-to-clear scrim,
+   copy block at x=72 y=217, 538 wide, 16px stack gap. */
+
+.nh-hero{background:var(--nh-ink);color:var(--nh-white);height:clamp(36rem,48.6vw,44rem);overflow:hidden;position:relative}
+.nh-hero__media,.nh-hero__overlay{inset:0;position:absolute}
+.nh-hero__media img{height:100%;object-fit:cover;width:100%}
+.nh-hero__overlay{background:var(--scrim-hero),linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}
+.nh-hero__inner{box-sizing:border-box;min-height:100%;padding-block:clamp(10.5rem,29vh,13.56rem) 4rem;position:relative;z-index:1}
+.nh-hero__title{font-family:var(--font-display);font-size:clamp(3rem,3.95vw,var(--fs-56));font-weight:var(--weight-regular);line-height:64px;text-transform:uppercase}
+.nh-hero__lead{color:var(--nh-white);font-family:var(--font-body);font-size:var(--fs-18);font-weight:var(--weight-regular);letter-spacing:0;line-height:25px;margin-top:var(--space-5);max-width:530px}
+.nh-hero__actions{margin-top:var(--space-5)}
+.nh-hero__actions .nh-cta{white-space:nowrap}
+
+/* Slide counter — Figma (1144,644) on 1440×708: bottom-right of the hero, 64px cells. */
+.nh-slide-index{align-items:flex-start;bottom:38px;display:flex;gap:var(--space-5);max-width:calc(100% - 72px - var(--gutter));overflow-x:auto;overscroll-behavior-x:contain;position:absolute;right:72px;z-index:2;-webkit-overflow-scrolling:touch}
+.nh-slide-index > *{border-bottom:.5px solid var(--nh-white);color:var(--nh-white);display:block;flex:0 0 64px;font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-regular);line-height:var(--lh-tight);padding-bottom:4px;width:64px}
+.nh-slide-index > .is-current{border-bottom-color:var(--nh-gold);color:var(--nh-gold)}
+@media (max-width:720px){
+  .nh-hero{display:flex;flex-direction:column;height:auto;min-height:36rem}
+  .nh-hero__inner{flex:1 1 auto;min-height:0;padding-bottom:24px}
+  .nh-hero__lead{max-width:none}
+  .nh-slide-index{bottom:auto;box-sizing:border-box;flex:0 0 auto;gap:12px;left:auto;max-width:none;padding:0 var(--gutter) 16px;position:relative;right:auto;width:100%}
+}
+
+/* Section-page hero — no CTA; the copy block is 658 wide at 72/217. */
+.nh-hero--section .nh-hero__inner{padding-block:clamp(10.5rem,29vh,13.56rem) 4rem}
+.nh-hero--section .nh-hero__title{max-width:658px}
+
+/* Dark editorial band ("Giá trị NHATO"). */
+.nh-band{background:var(--nh-ink);color:var(--nh-white);overflow:hidden;position:relative}
+.nh-band__image{inset:0;overflow:hidden;position:absolute}
+.nh-band__image img{height:100%;object-fit:cover;width:100%}
+.nh-band__image::after{background:none;content:"";inset:0;position:absolute}
+.nh-band__content{position:relative;padding-block:clamp(4rem,8vw,7rem)}
+.nh-band .nh-eyebrow{color:var(--nh-gold-deep)}
+/* Figma node 132:473: the band copy column is 370 wide with a 13px stack gap;
+   the title is Times New Roman 48 white, the lead Manrope 16 white at 100%. */
+.nh-band__copy{display:flex;flex-direction:column;gap:13px;max-width:370px}
+.nh-band__title{font-family:var(--font-legacy-serif);font-size:var(--fs-48);font-weight:var(--weight-regular);line-height:55px}
+.nh-band__lead{color:var(--nh-white);font-family:var(--font-body);font-size:var(--fs-16);line-height:22px}
+
+/* Page intro for interior pages. */
+.nh-page-intro{background:var(--surface-page);padding-block:calc(var(--header-height) + 7rem) 4rem}
+.nh-page-intro__title{color:var(--nh-ink);font-family:var(--font-display);font-size:clamp(3rem,8vw,7rem);font-weight:var(--weight-regular);line-height:.9;max-width:12ch}
+.nh-page-intro__copy{color:var(--nh-charcoal-soft);font-family:var(--font-display);font-size:1.2rem;margin-top:1.5rem;max-width:34rem}

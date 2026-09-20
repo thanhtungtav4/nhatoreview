@@ -9,7 +9,7 @@ If creating visual artifacts (slides, mocks, throwaway prototypes, etc), copy as
 If the user invokes this skill without any other guidance, ask them what they want to build or design, ask some questions, and act as an expert designer who outputs HTML artifacts _or_ production code, depending on the need.
 
 Note: this system is plain HTML, CSS and vanilla JS — no React, no build step. Link
-`styles.css`, load `assets/icons/nhato-icons.js` as the first element in `<body>`, and
+`assets/css/nhato.css`, load `assets/icons/nhato-icons.js` as the first element in `<body>`, and
 compose with the `nh-*` classes listed in readme.md.
 
 ## Continuing the Figma → HTML conversion
@@ -31,7 +31,7 @@ To convert further frames or re-sync a changed one:
    `.nh-hero`, `.nh-rule-head`, `.nh-intro`, `.nh-cta`, `.nh-post-card`, `.nh-art-feature`,
    `.nh-style-tile`, `.nh-service-card`, `.nh-contact-band`. Add a new class only when the
    pattern genuinely has no counterpart, and put it in the matching
-   `components/<group>/*.css` with a comment naming the Figma node it came from.
+   `assets/css/` with a comment naming the Figma node it came from.
 4. **Copy the real bitmaps.** Every `url(./assets/<hash>.<ext>)` in the node tree names an
    exact export. Copy that file; never redraw a photo, logo or brand mark as SVG. Downscale
    to the size the layout renders (the raw exports run to 4096px / 7 MB).
