@@ -1,0 +1,7 @@
+---
+description: Underscores theme project guidance
+alwaysApply: true
+---
+
+Follow `AGENTS.md` and the rules + skills in `.ai/` for all conventions
+(PSR-4 hooks, naming, ACF Local JSON, data-rendering: no dummy data, guard empty only).

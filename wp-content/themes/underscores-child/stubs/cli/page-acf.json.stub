@@ -1,0 +1,30 @@
+{
+    "key": "{{FIELD_GROUP_KEY}}",
+    "title": "{{TITLE}} Page",
+    "fields": [
+        {
+            "key": "field_{{FIELD_GROUP_NAME}}_sections",
+            "label": "Sections",
+            "name": "sections",
+            "type": "flexible_content",
+            "instructions": "Mỗi layout render bằng partials/sections/{layout-name}.php. Tiêu đề, nội dung, ảnh đại diện, trích dẫn dùng WP core — không tạo field trùng.",
+            "button_label": "Thêm section",
+            "layouts": []
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "{{TEMPLATE_FILE}}"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

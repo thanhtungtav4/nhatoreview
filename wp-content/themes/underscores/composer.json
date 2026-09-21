@@ -1,0 +1,17 @@
+{
+    "name": "underscores/theme",
+    "description": "Underscores theme wordpress",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Thanh Tung",
+            "email": "nguyenthanhtung74119@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Theme\\": "app/",
+            "Theme\\Child\\": "../underscores-child/app/"
+        }
+    }
+}
