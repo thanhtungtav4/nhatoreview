@@ -35,7 +35,7 @@ body:not(:has(.nh-hero)) .nh-header:not(.is-scrolled)::before{background:var(--n
 .nh-header__list{align-items:center;display:flex;gap:clamp(1.4rem,2.6vw,56px)}
 /* Menu glyph — Figma: ci:menu-alt-05, an 18.667×13.333 white mark inside a 32×32 box.
    The export outlines its 1.333px stroke, so the rendered box carries that overflow. */
-.nh-header__menu svg{width:21.333px !important;height:16px}
+.nh-header__menu .nh-icon-mask{width:21.333px !important;height:16px}
 .nh-header__menu{align-items:center;background:none;border:0;color:var(--nh-white);display:inline-flex;flex:0 0 auto;height:32px;justify-content:center;width:32px}
 .nh-header__menu:hover{color:var(--nh-gold-light)}
 .nh-header__link{color:var(--nh-white);display:inline-block;font-size:var(--fs-16);font-weight:var(--weight-medium);line-height:var(--lh-tight);padding:.6rem 0;position:relative;text-transform:capitalize}
@@ -50,7 +50,7 @@ body:not(:has(.nh-hero)) .nh-header:not(.is-scrolled)::before{background:var(--n
 .nh-header__toggle{align-items:center;background:transparent;border:0;color:currentColor;display:none;flex-direction:column;gap:.35rem;justify-content:center;min-height:2.75rem;min-width:2.75rem;padding:.5rem}
 /* Gold search plate — Figma: 44×44, #DDA642, 20px ink glyph. */
 .nh-header__search{align-items:center;background:var(--nh-gold);border:0;color:var(--nh-ink);display:inline-flex;height:44px;justify-content:center;width:44px;flex:0 0 auto}
-.nh-header__search svg{height:22px;width:22px}
+.nh-header__search .nh-icon-mask{height:22px;width:22px}
 .nh-header__search:hover{background:var(--nh-gold-light)}
 .nh-header__toggle span{background:currentColor;display:block;height:1px;width:1.35rem;transition:transform var(--dur-fast) var(--ease-standard)}
 .nh-header__toggle[aria-expanded="true"] span:first-child{transform:translateY(.23rem) rotate(45deg)}

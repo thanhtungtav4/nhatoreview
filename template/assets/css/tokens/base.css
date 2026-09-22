@@ -19,4 +19,5 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .nh-eyebrow::before{background:var(--nh-gold-text);content:"";height:1px;width:32px}
 .nh-display{font-family:var(--font-display);font-weight:var(--weight-bold);line-height:var(--lh-tight);letter-spacing:var(--tracking-display)}
 .sr-only{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}
+.nh-icon-mask{background-color:currentColor;display:inline-block;-webkit-mask-image:var(--nh-icon-mask);mask-image:var(--nh-icon-mask);-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}

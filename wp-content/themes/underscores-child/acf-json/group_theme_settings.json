@@ -204,6 +204,142 @@
                     "instructions": "In ở cuối wp_footer()."
                 }
             ]
+        },
+        {
+            "key": "field_ts_tab_icons",
+            "label": "Icon hệ thống",
+            "name": "",
+            "type": "tab",
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_ts_icon_menu",
+            "label": "Icon menu (header)",
+            "name": "icon_menu",
+            "type": "image",
+            "instructions": "Dùng mask-image (CSS tô màu currentColor) — upload icon đơn sắc, hình dạng trên nền trong suốt.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_search",
+            "label": "Icon tìm kiếm (header)",
+            "name": "icon_search",
+            "type": "image",
+            "instructions": "Hiển thị trực tiếp (không đổi màu theo hover) — upload màu ink cố định.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_arrow_right",
+            "label": "Icon mũi tên phải (CTA)",
+            "name": "icon_arrow_right",
+            "type": "image",
+            "instructions": "Dùng mask-image — upload icon đơn sắc, hình dạng trên nền trong suốt.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_clock",
+            "label": "Icon đồng hồ (dateline)",
+            "name": "icon_clock",
+            "type": "image",
+            "instructions": "Hiển thị trực tiếp — upload màu xám cố định.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_clock_sm",
+            "label": "Icon đồng hồ nhỏ (dateline)",
+            "name": "icon_clock_sm",
+            "type": "image",
+            "instructions": "Hiển thị trực tiếp — upload màu xám cố định.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_calendar",
+            "label": "Icon lịch (thống kê bài viết)",
+            "name": "icon_calendar",
+            "type": "image",
+            "instructions": "Hiển thị trực tiếp — upload màu xám cố định.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_eye",
+            "label": "Icon mắt (lượt xem)",
+            "name": "icon_eye",
+            "type": "image",
+            "instructions": "Hiển thị trực tiếp — upload màu xám cố định.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_page_prev",
+            "label": "Icon phân trang - trước",
+            "name": "icon_page_prev",
+            "type": "image",
+            "instructions": "Dùng mask-image — upload icon đơn sắc, hình dạng trên nền trong suốt.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_page_next",
+            "label": "Icon phân trang - sau",
+            "name": "icon_page_next",
+            "type": "image",
+            "instructions": "Dùng mask-image — upload icon đơn sắc, hình dạng trên nền trong suốt.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_youtube_badge",
+            "label": "Icon badge YouTube",
+            "name": "icon_youtube_badge",
+            "type": "image",
+            "instructions": "Hiển thị trực tiếp — icon 2 màu cố định (đỏ/trắng), không đổi theo context.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_share",
+            "label": "Icon chia sẻ",
+            "name": "icon_share",
+            "type": "image",
+            "instructions": "Dùng mask-image — upload icon đơn sắc, hình dạng trên nền trong suốt.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_quote_mark",
+            "label": "Icon dấu trích dẫn",
+            "name": "icon_quote_mark",
+            "type": "image",
+            "instructions": "Hiển thị trực tiếp — upload màu gold cố định.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_chevron_right",
+            "label": "Icon chevron phải",
+            "name": "icon_chevron_right",
+            "type": "image",
+            "instructions": "Dùng mask-image — upload icon đơn sắc, hình dạng trên nền trong suốt.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_more_chevrons",
+            "label": "Icon chevron kép (xem thêm)",
+            "name": "icon_more_chevrons",
+            "type": "image",
+            "instructions": "Dùng mask-image — upload icon đơn sắc, hình dạng trên nền trong suốt.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_carousel_left",
+            "label": "Icon carousel - trái",
+            "name": "icon_carousel_left",
+            "type": "image",
+            "instructions": "Dùng mask-image — upload icon đơn sắc, hình dạng trên nền trong suốt.",
+            "return_format": "id"
+        },
+        {
+            "key": "field_ts_icon_carousel_right",
+            "label": "Icon carousel - phải",
+            "name": "icon_carousel_right",
+            "type": "image",
+            "instructions": "Dùng mask-image — upload icon đơn sắc, hình dạng trên nền trong suốt.",
+            "return_format": "id"
         }
     ],
     "location": [

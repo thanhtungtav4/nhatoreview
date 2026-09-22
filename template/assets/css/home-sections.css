@@ -150,7 +150,7 @@ textarea.nh-plate{min-height:161px;resize:vertical}
 .nh-event-card__title{font-family:var(--font-legacy-serif);font-size:var(--fs-16);font-weight:var(--weight-regular);line-height:18px}
 .nh-event-card__text{-webkit-box-orient:vertical;-webkit-line-clamp:3;display:-webkit-box;font-family:var(--font-body);font-size:var(--fs-13);line-clamp:3;line-height:17px;overflow:hidden}
 .nh-event-card__cta{align-items:center;color:var(--nh-white);display:flex;font-family:var(--font-body);font-size:var(--fs-14);font-weight:var(--weight-bold);gap:19px;line-height:var(--lh-tight);min-height:32px;text-transform:uppercase}
-.nh-event-card__cta svg{flex:0 0 auto;height:12px;width:17px}
+.nh-event-card__cta .nh-icon-mask{flex:0 0 auto;height:12px;width:17px}
 .nh-event-card__cta:hover{color:var(--nh-gold-light)}
 @media (max-width:1050px){
   .nh-two-col{flex-direction:column;gap:56px;align-items:stretch}

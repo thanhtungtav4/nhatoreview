@@ -50,7 +50,7 @@ $render_related = static function (WP_Query $query): void {
     ?>
     <section class="section-posts"><div class="nh-container nh-stack"><div class="nh-rule-head">
         <h2 class="nh-rule-head__title"><?php esc_html_e('Bài viết khác', 'underscores-child'); ?></h2><span class="nh-rule-head__line"></span>
-        <a class="nh-rule-head__action" href="<?php echo esc_url(get_post_type_archive_link('post') ?: home_url('/')); ?>"><span><?php esc_html_e('Tất cả bài viết', 'underscores-child'); ?></span><svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg></a>
+        <a class="nh-rule-head__action" href="<?php echo esc_url(get_post_type_archive_link('post') ?: home_url('/')); ?>"><span><?php esc_html_e('Tất cả bài viết', 'underscores-child'); ?></span><?php echo underscores_child_icon_mask('icon_arrow_right'); ?></a>
     </div><div class="nh-grid-3">
         <?php while ($query->have_posts()) : $query->the_post(); get_template_part('partials/components/card-post', null, ['post_id' => get_the_ID()]); endwhile; ?>
     </div></div></section>
@@ -88,7 +88,7 @@ $projects = new WP_Query([
 if ($section_enabled($projects_settings) && $projects->have_posts()) : ?>
     <?php underscores_child_prime_thumbnail_cache($projects); ?>
     <section class="section-projects"><div class="nh-container nh-stack">
-        <div class="nh-section-head"><div><?php if (!empty($projects_settings['eyebrow'])) : ?><p class="nh-eyebrow"><?php echo esc_html((string) $projects_settings['eyebrow']); ?></p><?php endif; ?><?php if (!empty($projects_settings['title'])) : ?><h2 class="nh-section-title"><?php echo esc_html((string) $projects_settings['title']); ?></h2><?php endif; ?></div><?php if (!empty($projects_settings['link'])) : ?><?php echo underscores_child_acf_link($projects_settings['link'], '<span>' . esc_html__('Xem tất cả', 'underscores-child') . '</span><span class="nh-cta__arrow" aria-hidden="true"><svg width="16" height="16"><use href="#nh-arrow-right"></use></svg></span>', 'nh-cta nh-cta--ink'); ?><?php endif; ?></div>
+        <div class="nh-section-head"><div><?php if (!empty($projects_settings['eyebrow'])) : ?><p class="nh-eyebrow"><?php echo esc_html((string) $projects_settings['eyebrow']); ?></p><?php endif; ?><?php if (!empty($projects_settings['title'])) : ?><h2 class="nh-section-title"><?php echo esc_html((string) $projects_settings['title']); ?></h2><?php endif; ?></div><?php if (!empty($projects_settings['link'])) : ?><?php echo underscores_child_acf_link($projects_settings['link'], '<span>' . esc_html__('Xem tất cả', 'underscores-child') . '</span><span class="nh-cta__arrow" aria-hidden="true">' . underscores_child_icon_mask('icon_arrow_right') . '</span>', 'nh-cta nh-cta--ink'); ?><?php endif; ?></div>
         <div class="nh-grid-4">
             <?php while ($projects->have_posts()) : $projects->the_post(); get_template_part('partials/components/card-project', null, ['post_id' => get_the_ID()]); endwhile; ?>
         </div>

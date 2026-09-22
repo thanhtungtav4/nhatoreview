@@ -149,3 +149,51 @@ if (!function_exists('underscores_child_render_cf7')) {
         return do_shortcode('[contact-form-7 id="' . $form_id . '"]');
     }
 }
+
+if (!function_exists('underscores_child_icon')) {
+    /**
+     * Render a Theme Settings system icon (group_theme_settings.icon_*) as a plain <img>.
+     * Only for icons with a single fixed color everywhere they appear — the uploaded file
+     * already bakes that color in. For icons whose color changes with hover/context, use
+     * underscores_child_icon_mask() instead.
+     *
+     * @param array<string,mixed> $attrs Extra wp_get_attachment_image() attributes.
+     */
+    function underscores_child_icon(string $option_name, array $attrs = []): string
+    {
+        $id = absint(underscores_get_option($option_name, 0));
+        if ($id < 1) {
+            return '';
+        }
+
+        $attrs = wp_parse_args($attrs, ['alt' => '', 'loading' => 'lazy']);
+
+        return (string) wp_get_attachment_image($id, 'full', false, $attrs);
+    }
+}
+
+if (!function_exists('underscores_child_icon_mask')) {
+    /**
+     * Render a Theme Settings system icon (group_theme_settings.icon_*) as a CSS mask-image
+     * element — for icons whose color changes with hover/context (arrow, chevron, menu...).
+     * background-color:currentColor through the mask reproduces the old inline-SVG
+     * fill="currentColor" behaviour, hover states included, with an uploaded file instead of
+     * the sprite. Pair with the shared .nh-icon-mask rule in tokens/base.css.
+     */
+    function underscores_child_icon_mask(string $option_name, string $class = ''): string
+    {
+        $id = absint(underscores_get_option($option_name, 0));
+        if ($id < 1) {
+            return '';
+        }
+
+        $url = wp_get_attachment_image_url($id, 'full');
+        if (! $url) {
+            return '';
+        }
+
+        $classes = trim('nh-icon-mask ' . $class);
+
+        return '<span class="' . esc_attr($classes) . '" style="--nh-icon-mask:url(' . esc_url($url) . ')" aria-hidden="true"></span>';
+    }
+}

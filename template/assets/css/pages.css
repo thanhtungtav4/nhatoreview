@@ -115,7 +115,7 @@
 .article__figure img{width:100%;object-fit:cover;background:var(--nh-gray-2)}
 .article__figure figcaption{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);line-height:var(--lh-body);text-align:center}
 .article__readmore{align-items:center;color:var(--nh-ink);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-14);gap:4px;line-height:var(--lh-body)}
-.article__readmore svg{height:20px;width:20px}
+.article__readmore .nh-icon-mask{height:20px;width:20px}
 .article__readmore:hover{color:var(--nh-gold)}
 /* Featured card — 4px #F1D49D cap rule over a 1px #CECECE inner frame. */
 .article__featured{border-top:4px solid #f1d49d;box-sizing:border-box;display:block}

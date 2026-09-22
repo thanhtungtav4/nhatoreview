@@ -77,14 +77,14 @@
 .nh-video-card__frame img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-standard)}
 .nh-video-card:hover .nh-video-card__frame img{transform:scale(1.035)}
 .nh-video-card__badge{align-items:center;display:flex;inset:0;justify-content:center;position:absolute}
-.nh-video-card__badge svg{width:48px;height:33.75px}
+.nh-video-card__badge svg,.nh-video-card__badge img{width:48px;height:33.75px}
 .nh-video-card__title{font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);line-height:22px;color:var(--nh-ink)}
-.nh-video-card--lead .nh-video-card__badge svg{width:64px;height:45px}
+.nh-video-card--lead .nh-video-card__badge svg,.nh-video-card--lead .nh-video-card__badge img{width:64px;height:45px}
 .nh-video-card--lead .nh-video-card__title{font-family:var(--font-ui);line-height:var(--lh-26)}
 
 /* ── "Xem thêm" — Figma: 123×40, radius 6, gold, Inter 400 14/24 ─────── */
 .nh-more-btn{align-items:center;background:var(--nh-gold);border:0;border-radius:6px;color:var(--nh-white);display:inline-flex;font-family:var(--font-ui);font-size:var(--fs-14);font-weight:var(--weight-regular);gap:4px;justify-content:center;line-height:var(--lh-24);min-height:40px;padding:8px 16px}
-.nh-more-btn svg{width:20px;height:20px}
+.nh-more-btn .nh-icon-mask{width:20px;height:20px}
 .nh-more-btn:hover{background:var(--nh-gold-light);color:var(--nh-ink)}
 
 /* ── Section-page rule head — Figma: 1297-wide row at y748, gap 41 ──────
@@ -95,7 +95,7 @@
 .nh-rule-head__line{border-top:.5px solid var(--nh-gray-2);flex:1;min-width:1rem}
 .nh-rule-head__action{align-items:center;color:var(--nh-ink);display:inline-flex;gap:10.636px;white-space:nowrap}
 .nh-rule-head__action span{font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-bold);line-height:var(--lh-tight);text-transform:uppercase}
-.nh-rule-head__action svg{width:16px;height:16px}
+.nh-rule-head__action .nh-icon-mask{width:16px;height:16px}
 .nh-rule-head__action:hover{color:var(--nh-gold)}
 
 /* ── Feature band — Figma: full-bleed #EDE9E3, padding 40/72/24, gap 40 ──
@@ -127,7 +127,7 @@
 .nh-statbar{align-items:center;column-gap:24px;display:flex;flex-wrap:wrap;justify-content:space-between;row-gap:12px}
 .nh-statbar__group{align-items:center;column-gap:24px;display:flex;flex-wrap:wrap;row-gap:12px}
 .nh-stat{align-items:center;color:var(--nh-gray-5);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-14);gap:11px;line-height:var(--lh-tight);white-space:nowrap}
-.nh-stat svg,.nh-stat img{width:24px;height:24px;flex:0 0 auto;object-fit:contain}
+.nh-stat img,.nh-stat .nh-icon-mask{width:24px;height:24px;flex:0 0 auto;object-fit:contain}
 .nh-stat + .nh-stat{border-left:.5px solid var(--nh-gray-2);padding-left:24px}
 .nh-stat.nh-stat--plain{border-left:0;padding-left:0}
 .nh-statbar a.nh-stat:hover{color:var(--nh-ink)}
@@ -191,7 +191,7 @@
 /* ── Pull quote — Figma (original): #EDE9E3 band, gold mark, Cormorant 32 ─ */
 .nh-quote{align-items:center;background:var(--nh-paper-warm);box-sizing:border-box;display:flex;flex-direction:column;gap:20px;margin:0;padding:16px;text-align:center}
 .nh-quote__mark{color:var(--nh-gold);height:27.116px;width:27.2px}
-.nh-quote__mark svg{height:27.116px;width:27.2px}
+.nh-quote__mark svg,.nh-quote__mark img{height:27.116px;width:27.2px}
 .nh-quote p{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-32);font-style:italic;font-weight:var(--weight-regular);line-height:36px;max-width:630px}
 
 /* ── Role tile — Figma (network): 418×418 photo, icon + copy at the foot ─ */
@@ -285,7 +285,7 @@
 .nh-tile__title{font-family:var(--font-legacy-serif);font-size:var(--fs-24);font-weight:var(--weight-regular);line-height:var(--lh-tight);text-transform:capitalize}
 .nh-tile__text{font-family:var(--font-body);font-size:var(--fs-14);font-weight:var(--weight-regular);line-height:25px}
 .nh-round-arrow{align-items:center;border-radius:333.333px;box-shadow:inset 0 0 0 var(--border-icon) var(--nh-gold);box-sizing:border-box;color:var(--nh-white);display:flex;flex:0 0 auto;height:32px;justify-content:center;padding:9.667px 7px;width:32px}
-.nh-round-arrow svg{height:12.667px;width:100%}
+.nh-round-arrow .nh-icon-mask{height:12.667px;width:100%}
 .nh-tile:hover .nh-round-arrow{background:var(--nh-gold);color:var(--nh-ink)}
 /* Five tiles don't divide into a 3- or 2-up grid without orphaning one, so below the
    full-width breakpoint the strip keeps its 5-across rhythm and scrolls horizontally. */
@@ -302,7 +302,7 @@
 .nh-video-tile img{height:100%;object-fit:cover;transition:transform var(--dur-slow) var(--ease-standard);width:100%}
 .nh-video-tile:hover img{transform:scale(1.035)}
 .nh-video-tile__badge{align-items:center;display:flex;inset:0;justify-content:center;position:absolute}
-.nh-video-tile__badge svg{height:34px;width:48px}
+.nh-video-tile__badge svg,.nh-video-tile__badge img{height:34px;width:48px}
 .nh-video-modal{align-items:center;display:none;inset:0;justify-content:center;position:fixed;z-index:400}
 .nh-video-modal.is-open{display:flex}
 .nh-video-modal__scrim{animation:nh-search-fade .18s var(--ease-standard,ease) both;backdrop-filter:blur(6px);background:rgba(15,15,15,.74);inset:0;position:absolute;-webkit-backdrop-filter:blur(6px)}
@@ -336,7 +336,7 @@ body.nh-video-locked{overflow:hidden}
 
 /* ── Carousel arrow — Figma: 56×56, .9 white, blur 8, 1px #CECECE ─────── */
 .nh-carousel-arrow{align-items:center;backdrop-filter:blur(8px);background:rgba(255,255,255,.9);border:0;box-shadow:inset 0 0 0 1px var(--nh-gray-2);color:var(--nh-gold);display:inline-flex;height:56px;justify-content:center;width:56px}
-.nh-carousel-arrow svg{flex:0 0 auto;height:16px;overflow:visible;width:16px}
+.nh-carousel-arrow .nh-icon-mask{flex:0 0 auto;height:16px;overflow:visible;width:16px}
 .nh-carousel-arrow:hover{background:var(--nh-gold);color:var(--nh-ink)}
 .nh-carousel-arrow:disabled{cursor:default;opacity:.35}
 .nh-carousel-arrow:disabled:hover{background:rgba(255,255,255,.9);color:var(--nh-gold)}
@@ -392,7 +392,7 @@ body.nh-video-locked{overflow:hidden}
 /* Dateline — Ibarra Real Nova 14 / clock glyph, from Frame 2144771605. */
 .nh-dateline{align-items:center;color:var(--nh-gray-6);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-14);font-weight:var(--weight-regular);gap:7px;letter-spacing:0;line-height:var(--lh-body)}
 .nh-dateline strong{font-weight:var(--weight-medium)}
-.nh-dateline svg{color:var(--nh-gray-5);height:20px;width:20px}
+.nh-dateline svg,.nh-dateline img{color:var(--nh-gray-5);height:20px;width:20px}
 
 /* ── Article list row — 880 wide, 320.683 image, 20px gap ────── */
 .nh-article-row{display:flex;gap:var(--space-6);align-items:flex-start;width:100%;max-width:880px}

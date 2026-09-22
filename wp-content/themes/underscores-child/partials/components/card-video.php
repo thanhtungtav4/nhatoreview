@@ -43,7 +43,7 @@ if ($image === '') {
 <a class="nh-video-tile" href="<?php echo esc_url($youtube_url); ?>" data-nh-video="<?php echo esc_attr($youtube_id); ?>">
     <?php echo $image; ?>
     <span class="nh-video-tile__badge">
-        <svg aria-hidden="true"><use href="#nh-youtube-badge"></use></svg>
+        <?php echo underscores_child_icon('icon_youtube_badge'); ?>
     </span>
 </a>
 <?php else : ?>
@@ -51,7 +51,7 @@ if ($image === '') {
     <span class="nh-video-card__frame">
         <?php echo $image; ?>
         <span class="nh-video-card__badge">
-            <svg aria-hidden="true"><use href="#nh-youtube-badge"></use></svg>
+            <?php echo underscores_child_icon('icon_youtube_badge'); ?>
         </span>
     </span>
     <span class="nh-video-card__title"><?php echo esc_html($title); ?></span>

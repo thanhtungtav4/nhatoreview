@@ -42,7 +42,7 @@ $toc_entries = is_array($toc_data['toc'] ?? null) ? $toc_data['toc'] : [];
                     <?php endif; ?>
                 </nav>
                 <span class="nh-dateline">
-                    <svg aria-hidden="true" focusable="false"><use href="#nh-clock-sm"></use></svg>
+                    <?php echo underscores_child_icon('icon_clock_sm'); ?>
                     <span><strong><?php esc_html_e('Ngày đăng:', 'underscores'); ?></strong> <?php echo esc_html(get_the_date('d/m/Y')); ?></span>
                 </span>
             </div>
@@ -105,7 +105,7 @@ $toc_entries = is_array($toc_data['toc'] ?? null) ? $toc_data['toc'] : [];
                 ?>
                 <?php if ($featured_query->have_posts()) : ?>
                     <a class="nh-more-btn" href="#tin-lien-quan">
-                        <?php esc_html_e('Đọc tiếp', 'underscores'); ?><svg aria-hidden="true" focusable="false"><use href="#nh-more-chevrons"></use></svg>
+                        <?php esc_html_e('Đọc tiếp', 'underscores'); ?><?php echo underscores_child_icon_mask('icon_more_chevrons'); ?>
                     </a>
                 <?php endif; ?>
                 <?php if ($featured_query->have_posts()) : ?>
@@ -168,7 +168,7 @@ $toc_entries = is_array($toc_data['toc'] ?? null) ? $toc_data['toc'] : [];
                             <h2><?php esc_html_e('Tin liên quan', 'underscores'); ?></h2>
                             <?php if ($primary_term_link !== '') : ?>
                                 <a class="article__readmore" href="<?php echo esc_url($primary_term_link); ?>">
-                                    <?php esc_html_e('Xem tất cả', 'underscores'); ?><svg aria-hidden="true" focusable="false"><use href="#nh-chevron-right"></use></svg>
+                                    <?php esc_html_e('Xem tất cả', 'underscores'); ?><?php echo underscores_child_icon_mask('icon_chevron_right'); ?>
                                 </a>
                             <?php endif; ?>
                         </div>
@@ -220,7 +220,7 @@ $toc_entries = is_array($toc_data['toc'] ?? null) ? $toc_data['toc'] : [];
                         <span class="nh-article-compact__body">
                             <span class="nh-article-compact__top">
                                 <span class="nh-dateline">
-                                    <svg aria-hidden="true" focusable="false"><use href="#nh-clock"></use></svg>
+                                    <?php echo underscores_child_icon('icon_clock'); ?>
                                     <span><?php echo esc_html(get_the_date('d/m/Y')); ?></span>
                                 </span>
                             </span>

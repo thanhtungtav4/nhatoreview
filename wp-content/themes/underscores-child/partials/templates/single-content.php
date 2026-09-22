@@ -152,7 +152,7 @@ get_header();
                     <?php endif; ?>
                 </nav>
                 <span class="nh-dateline">
-                    <svg aria-hidden="true" focusable="false"><use href="#nh-clock-sm"></use></svg>
+                    <?php echo underscores_child_icon('icon_clock_sm'); ?>
                     <span><strong><?php esc_html_e('Ngày đăng:', 'underscores'); ?></strong> <?php echo esc_html(get_the_date('d/m/Y', $post_id)); ?></span>
                 </span>
             </div>
@@ -186,7 +186,7 @@ get_header();
                 <?php if ($external_link !== '') : ?>
                     <a class="nh-cta nh-cta--ink single-content__cta" href="<?php echo esc_url($external_link); ?>" target="_blank" rel="noopener">
                         <?php esc_html_e('Xem dự án bên ngoài', 'underscores'); ?>
-                        <span class="nh-cta__arrow"><svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg></span>
+                        <span class="nh-cta__arrow"><?php echo underscores_child_icon_mask('icon_arrow_right'); ?></span>
                     </a>
                 <?php endif; ?>
 
@@ -194,7 +194,7 @@ get_header();
                     <?php $registration_target = trim((string) ($event_registration['target'] ?? '')); ?>
                     <a class="nh-cta nh-cta--ink single-content__cta" href="<?php echo esc_url((string) $event_registration['url']); ?>"<?php echo $registration_target !== '' ? ' target="' . esc_attr($registration_target) . '" rel="noopener"' : ''; ?>>
                         <?php echo esc_html((string) ($event_registration['title'] ?? __('Đăng ký', 'underscores'))); ?>
-                        <span class="nh-cta__arrow"><svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg></span>
+                        <span class="nh-cta__arrow"><?php echo underscores_child_icon_mask('icon_arrow_right'); ?></span>
                     </a>
                 <?php endif; ?>
 

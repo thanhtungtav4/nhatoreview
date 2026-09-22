@@ -328,11 +328,13 @@
     root.setAttribute("role", "dialog");
     root.setAttribute("aria-modal", "true");
     root.setAttribute("aria-label", "Tìm kiếm");
+    var headerSearchIcon = document.querySelector(".nh-header__search .nh-icon-mask");
+    var searchIconStyle = headerSearchIcon ? ' style="' + headerSearchIcon.getAttribute("style") + '"' : "";
     root.innerHTML =
       '<div class="nh-search__scrim" data-nh-search-close></div>' +
       '<div class="nh-search__dialog">' +
         '<label class="nh-search__field">' +
-          '<svg aria-hidden="true"><use href="#nh-search"></use></svg>' +
+          '<span class="nh-icon-mask"' + searchIconStyle + ' aria-hidden="true"></span>' +
           '<input class="nh-search__input" type="search" autocomplete="off" placeholder="Tìm không gian, nghệ thuật, bài viết…" aria-label="Từ khoá tìm kiếm">' +
           '<button class="nh-search__close" type="button" data-nh-search-close>Esc</button>' +
         "</label>" +

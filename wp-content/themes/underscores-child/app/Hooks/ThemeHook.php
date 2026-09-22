@@ -150,9 +150,10 @@ final class ThemeHook
     {
         do_action('underscores_before_common_js');
 
-        // nhato-icons.js + nhato.js gộp thành 1 file (scripts/build-asset-bundles.sh) — cả 2
-        // là IIFE độc lập `(function(){...})()`, nối theo đúng thứ tự cũ (icons trước, hành vi
-        // UI sau) nên giữ nguyên semantics, chỉ còn 1 request thay vì 2.
+        // bundle.js = nhato.js only (scripts/build-asset-bundles.sh). nhato-icons.js (the SVG
+        // sprite) dropped from the bundle — every icon this theme renders now comes from a
+        // Theme Settings image upload (underscores_child_icon()/underscores_child_icon_mask()
+        // in content-functions.php), not the sprite's <use href="#nh-*">.
         wp_enqueue_script(
             'nhato-script',
             UNDERSCORES_SITE_TEMPLATE_URL . '/assets/js/bundle.js',

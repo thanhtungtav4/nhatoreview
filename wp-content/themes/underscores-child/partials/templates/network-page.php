@@ -176,7 +176,7 @@ if ($section_enabled($gallery_settings) && $gallery !== []) : ?>
             <?php endforeach; ?>
         </div>
         <?php if (!empty($gallery_settings['link'])) : ?>
-            <div class="nh-container u-flex u-justify-center u-mt-40"><?php echo underscores_child_acf_link($gallery_settings['link'], '<span>' . esc_html__('XEM TẤT CẢ', 'underscores-child') . '</span><span class="nh-cta__arrow" aria-hidden="true"><svg width="16" height="16"><use href="#nh-arrow-right"></use></svg></span>', 'nh-cta nh-cta--ink'); ?></div>
+            <div class="nh-container u-flex u-justify-center u-mt-40"><?php echo underscores_child_acf_link($gallery_settings['link'], '<span>' . esc_html__('XEM TẤT CẢ', 'underscores-child') . '</span><span class="nh-cta__arrow" aria-hidden="true">' . underscores_child_icon_mask('icon_arrow_right') . '</span>', 'nh-cta nh-cta--ink'); ?></div>
         <?php endif; ?>
     </section>
 <?php endif;

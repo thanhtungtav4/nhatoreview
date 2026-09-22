@@ -19,7 +19,7 @@
 .nh-cta--ink{align-self:flex-start;color:var(--nh-ink);width:max-content}
 .nh-cta--ink .nh-cta__arrow{color:var(--nh-ink)}
 .nh-cta__arrow{align-items:center;border-radius:var(--radius-pill);box-shadow:inset 0 0 0 var(--border-icon) var(--nh-gold);display:inline-flex;height:32px;justify-content:center;width:32px;flex:0 0 auto}
-.nh-cta__arrow svg{width:18px;height:13px}
+.nh-cta__arrow .nh-icon-mask{width:18px;height:13px}
 
 /* Section "Xem tất cả" link with the ringed arrow. */
 .nh-outline-link{align-items:center;border:var(--border-thin) solid var(--nh-gold);color:var(--nh-ink);display:inline-flex;font-size:.68rem;font-weight:var(--weight-bold);gap:.85rem;letter-spacing:.12em;min-height:3.65rem;padding-inline:1.05rem .7rem;text-transform:uppercase}
@@ -28,7 +28,7 @@
 
 /* Bare text link — Figma “XEM TẤT CẢ”: Manrope Bold 12.41 / 100%, ink, arrow right. */
 .nh-text-link{align-items:center;color:var(--nh-ink);display:inline-flex;font-family:var(--font-body);font-size:12.41px;font-weight:var(--weight-bold);gap:17px;letter-spacing:0;line-height:var(--lh-tight);text-transform:uppercase}
-.nh-text-link svg{flex:0 0 auto;height:11px;width:15px}
+.nh-text-link .nh-icon-mask{flex:0 0 auto;height:11px;width:15px}
 .nh-text-link:hover{color:var(--nh-gold)}
 
 /* Circular icon button — the arrow-down / arrow-right control from the kit. */
@@ -38,7 +38,7 @@
 /* Pagination — «  1 2 3 …  » */
 .nh-pagination{align-items:center;display:flex;gap:8px;justify-content:center}
 .nh-pagination a,.nh-pagination span{align-items:center;color:var(--nh-gray-5);display:inline-flex;font-size:var(--fs-18);height:2rem;justify-content:center;min-width:2rem}
-.nh-pagination svg{flex:0 0 auto;height:16px;width:16px}
+.nh-pagination .nh-icon-mask{flex:0 0 auto;height:16px;width:16px}
 .nh-pagination a:hover,.nh-pagination a.is-current{color:var(--nh-ink)}
 .nh-pagination a.is-current{border-bottom:0;position:relative}
 .nh-pagination a.is-current::after{background:var(--nh-ink);bottom:4px;content:"";height:var(--border-thin);left:50%;position:absolute;transform:translateX(-50%);width:12px}

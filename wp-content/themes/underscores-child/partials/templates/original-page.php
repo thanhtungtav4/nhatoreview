@@ -55,7 +55,7 @@ $render_related = static function (WP_Query $query): void {
                 <span class="nh-rule-head__line"></span>
                 <a class="nh-rule-head__action" href="<?php echo esc_url(get_post_type_archive_link('post') ?: home_url('/')); ?>">
                     <span><?php esc_html_e('Tất cả bài viết', 'underscores-child'); ?></span>
-                    <svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg>
+                    <?php echo underscores_child_icon_mask('icon_arrow_right'); ?>
                 </a>
             </div>
             <div class="nh-grid-3">
@@ -121,7 +121,7 @@ if ($section_enabled($intro_settings) && ($intro_eyebrow !== '' || $intro_title 
                             <span class="nh-panel__rule"></span>
                             <?php if (!empty($panel['text'])) : ?><span class="nh-panel__text"><?php echo esc_html((string) $panel['text']); ?></span><?php endif; ?>
                             <?php if ($href !== '') : ?>
-                                <span class="nh-cta"><span><?php esc_html_e('Khám phá', 'underscores-child'); ?></span><span class="nh-cta__arrow"><svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg></span></span>
+                                <span class="nh-cta"><span><?php esc_html_e('Khám phá', 'underscores-child'); ?></span><span class="nh-cta__arrow"><?php echo underscores_child_icon_mask('icon_arrow_right'); ?></span></span>
                             <?php endif; ?>
                         <?php if ($href !== '') : ?></a><?php else : ?></div><?php endif; ?>
                     <?php endforeach; ?>
@@ -130,7 +130,7 @@ if ($section_enabled($intro_settings) && ($intro_eyebrow !== '' || $intro_title 
 
             <?php if ($quote !== '') : ?>
                 <blockquote class="nh-quote">
-                    <span class="nh-quote__mark" aria-hidden="true"><svg><use href="#nh-quote-mark"></use></svg></span>
+                    <span class="nh-quote__mark"><?php echo underscores_child_icon('icon_quote_mark'); ?></span>
                     <p><?php echo wp_kses_post($quote); ?></p>
                 </blockquote>
             <?php endif; ?>

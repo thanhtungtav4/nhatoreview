@@ -45,7 +45,7 @@ if (have_posts()) {
                 <span class="nh-lead__body">
                     <span class="nh-lead__meta">
                         <span class="nh-dateline">
-                            <svg aria-hidden="true"><use href="#nh-clock"></use></svg>
+                            <?php echo underscores_child_icon('icon_clock'); ?>
                             <span><strong><?php esc_html_e('Ngày đăng:', 'underscores-child'); ?></strong> <?php echo esc_html(get_the_date('d/m/Y', $lead_post)); ?></span>
                         </span>
                         <?php $lead_category = get_the_category($lead_post); ?>
@@ -77,7 +77,7 @@ if (have_posts()) {
                             <span class="nh-article-compact__body">
                                 <span class="nh-article-compact__top">
                                     <span class="nh-dateline">
-                                        <svg aria-hidden="true"><use href="#nh-clock"></use></svg>
+                                        <?php echo underscores_child_icon('icon_clock'); ?>
                                         <span><strong><?php esc_html_e('Ngày đăng:', 'underscores-child'); ?></strong> <?php echo esc_html(get_the_date('d/m/Y', $rail_post)); ?></span>
                                 </span>
                                 </span>
@@ -127,21 +127,19 @@ if (have_posts()) {
                     );
                     $pagination_item = str_replace(
                         '__NHATO_PREV__',
-                        '<svg aria-hidden="true" focusable="false"><use href="#nh-page-prev"></use></svg><span class="screen-reader-text">' . esc_html__('Trang trước', 'underscores-child') . '</span>',
+                        underscores_child_icon_mask('icon_page_prev') . '<span class="screen-reader-text">' . esc_html__('Trang trước', 'underscores-child') . '</span>',
                         $pagination_item
                     );
                     $pagination_item = str_replace(
                         '__NHATO_NEXT__',
-                        '<svg aria-hidden="true" focusable="false"><use href="#nh-page-next"></use></svg><span class="screen-reader-text">' . esc_html__('Trang tiếp theo', 'underscores-child') . '</span>',
+                        underscores_child_icon_mask('icon_page_next') . '<span class="screen-reader-text">' . esc_html__('Trang tiếp theo', 'underscores-child') . '</span>',
                         $pagination_item
                     );
                     echo wp_kses(
                         $pagination_item,
                         [
                             'a'    => ['class' => true, 'href' => true, 'aria-current' => true, 'aria-label' => true],
-                            'span' => ['class' => true, 'aria-current' => true],
-                            'svg'  => ['aria-hidden' => true, 'focusable' => true],
-                            'use'  => ['href' => true],
+                            'span' => ['class' => true, 'aria-current' => true, 'aria-hidden' => true, 'style' => true],
                         ]
                     );
                     ?>

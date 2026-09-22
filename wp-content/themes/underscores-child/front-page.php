@@ -86,7 +86,7 @@ if ($section_visible($banner_settings) && ($banner_image_id > 0 || $banner_title
             <?php if ($banner_link['url'] !== '') : ?>
                 <div class="nh-hero__actions">
                     <a class="nh-cta" href="<?php echo esc_url($banner_link['url']); ?>"<?php echo $banner_link['target'] !== '' ? ' target="' . esc_attr($banner_link['target']) . '" rel="noopener"' : ''; ?>>
-                        <?php echo esc_html($banner_link['title']); ?><span class="nh-cta__arrow"><svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg></span>
+                        <?php echo esc_html($banner_link['title']); ?><span class="nh-cta__arrow"><?php echo underscores_child_icon_mask('icon_arrow_right'); ?></span>
                     </a>
                 </div>
             <?php endif; ?>
@@ -120,7 +120,7 @@ if ($section_visible($category_strip_settings) && $category_items !== []) :
                     <span class="nh-tile__body">
                         <?php if ($title !== '') : ?><span class="nh-tile__title"><?php echo esc_html($title); ?></span><?php endif; ?>
                         <?php if ($text !== '') : ?><span class="nh-tile__text"><?php echo esc_html($text); ?></span><?php endif; ?>
-                        <span class="nh-round-arrow"><svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg></span>
+                        <span class="nh-round-arrow"><?php echo underscores_child_icon_mask('icon_arrow_right'); ?></span>
                     </span>
                 </a>
             <?php endforeach; ?>
@@ -142,7 +142,7 @@ if ($section_visible($category_strip_settings) && $category_items !== []) :
                         <?php if (!empty($style_picker_settings['title'])) : ?><h2 class="nh-section-title u-mt-0"><?php echo esc_html((string) $style_picker_settings['title']); ?></h2><?php endif; ?>
                         <?php if (!empty($style_picker_settings['text'])) : ?><p><?php echo esc_html((string) $style_picker_settings['text']); ?></p><?php endif; ?>
                     </div>
-                    <?php if ($style_link['url'] !== '') : ?><a class="nh-cta nh-cta--ink" href="<?php echo esc_url($style_link['url']); ?>"<?php echo $style_link['target'] !== '' ? ' target="' . esc_attr($style_link['target']) . '" rel="noopener"' : ''; ?>><?php echo esc_html($style_link['title']); ?><span class="nh-cta__arrow"><svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg></span></a><?php endif; ?>
+                    <?php if ($style_link['url'] !== '') : ?><a class="nh-cta nh-cta--ink" href="<?php echo esc_url($style_link['url']); ?>"<?php echo $style_link['target'] !== '' ? ' target="' . esc_attr($style_link['target']) . '" rel="noopener"' : ''; ?>><?php echo esc_html($style_link['title']); ?><span class="nh-cta__arrow"><?php echo underscores_child_icon_mask('icon_arrow_right'); ?></span></a><?php endif; ?>
                 </div>
                 <?php if ($style_items !== []) : ?>
                     <div class="nh-style-picker__rows">
@@ -183,7 +183,7 @@ if ($section_visible($category_strip_settings) && $category_items !== []) :
                     <?php if (!empty($booking_settings['eyebrow'])) : ?><p class="nh-eyebrow"><?php echo esc_html((string) $booking_settings['eyebrow']); ?></p><?php endif; ?>
                     <?php if (!empty($booking_settings['title'])) : ?><h2 class="nh-booking__title"><?php echo esc_html((string) $booking_settings['title']); ?></h2><?php endif; ?>
                 </div>
-                <?php if ($booking_link['url'] !== '') : ?><a class="nh-cta" href="<?php echo esc_url($booking_link['url']); ?>"<?php echo $booking_link['target'] !== '' ? ' target="' . esc_attr($booking_link['target']) . '" rel="noopener"' : ''; ?>><?php echo esc_html($booking_link['title']); ?><span class="nh-cta__arrow"><svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg></span></a><?php endif; ?>
+                <?php if ($booking_link['url'] !== '') : ?><a class="nh-cta" href="<?php echo esc_url($booking_link['url']); ?>"<?php echo $booking_link['target'] !== '' ? ' target="' . esc_attr($booking_link['target']) . '" rel="noopener"' : ''; ?>><?php echo esc_html($booking_link['title']); ?><span class="nh-cta__arrow"><?php echo underscores_child_icon_mask('icon_arrow_right'); ?></span></a><?php endif; ?>
             </div>
         </section>
     <?php endif; ?>
@@ -261,7 +261,7 @@ if ($section_visible($category_strip_settings) && $category_items !== []) :
                     <?php if (!empty($services_settings['eyebrow'])) : ?><p class="nh-eyebrow"><?php echo esc_html((string) $services_settings['eyebrow']); ?></p><?php endif; ?>
                     <?php if (!empty($services_settings['title'])) : ?><h2 class="nh-section-title u-text-white u-text-upper"><?php echo esc_html((string) $services_settings['title']); ?></h2><?php endif; ?>
                 </div>
-                <?php if ($services_link['url'] !== '') : ?><a class="nh-cta" href="<?php echo esc_url($services_link['url']); ?>"<?php echo $services_link['target'] !== '' ? ' target="' . esc_attr($services_link['target']) . '" rel="noopener"' : ''; ?>><?php echo esc_html($services_link['title']); ?><span class="nh-cta__arrow"><svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg></span></a><?php endif; ?>
+                <?php if ($services_link['url'] !== '') : ?><a class="nh-cta" href="<?php echo esc_url($services_link['url']); ?>"<?php echo $services_link['target'] !== '' ? ' target="' . esc_attr($services_link['target']) . '" rel="noopener"' : ''; ?>><?php echo esc_html($services_link['title']); ?><span class="nh-cta__arrow"><?php echo underscores_child_icon_mask('icon_arrow_right'); ?></span></a><?php endif; ?>
             </div>
             <div class="home-services__grid">
                 <?php foreach ($service_items as $service) :
@@ -311,7 +311,7 @@ if ($section_visible($category_strip_settings) && $category_items !== []) :
                         <?php if ($art_ghost !== '' || $art_title !== '') : ?><h2 class="nh-stack-title"><?php if ($art_ghost !== '') : ?><span class="nh-stack-title__ghost"><?php echo esc_html($art_ghost); ?></span><?php endif; ?><?php if ($art_title !== '') : ?><span class="nh-stack-title__lead"><?php echo esc_html($art_title); ?></span><?php endif; ?></h2><?php endif; ?>
                     </div>
                     <?php if ($art_text !== '') : ?><p class="nh-art-feature__text"><?php echo esc_html($art_text); ?></p><?php endif; ?>
-                    <?php if ($art_link['url'] !== '') : ?><a class="nh-cta nh-cta--ink" href="<?php echo esc_url($art_link['url']); ?>"<?php echo $art_link['target'] !== '' ? ' target="' . esc_attr($art_link['target']) . '" rel="noopener"' : ''; ?>><?php echo esc_html($art_link['title']); ?><span class="nh-cta__arrow"><svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg></span></a><?php endif; ?>
+                    <?php if ($art_link['url'] !== '') : ?><a class="nh-cta nh-cta--ink" href="<?php echo esc_url($art_link['url']); ?>"<?php echo $art_link['target'] !== '' ? ' target="' . esc_attr($art_link['target']) . '" rel="noopener"' : ''; ?>><?php echo esc_html($art_link['title']); ?><span class="nh-cta__arrow"><?php echo underscores_child_icon_mask('icon_arrow_right'); ?></span></a><?php endif; ?>
                 </div>
                 <?php if ($art_image > 0) : ?><div class="nh-art-feature__media"><?php echo wp_get_attachment_image($art_image, 'large', false, ['alt' => $art_title, 'loading' => 'lazy']); ?></div><?php endif; ?>
             </section>
@@ -407,7 +407,7 @@ if ($section_visible($category_strip_settings) && $category_items !== []) :
                     <div>
                         <div class="nh-col-head">
                             <?php if (!empty($partners_settings['title'])) : ?><h2><?php echo esc_html((string) $partners_settings['title']); ?></h2><?php endif; ?>
-                            <?php if ($partners_link['url'] !== '') : ?><a class="nh-text-link" href="<?php echo esc_url($partners_link['url']); ?>"<?php echo $partners_link['target'] !== '' ? ' target="' . esc_attr($partners_link['target']) . '" rel="noopener"' : ''; ?>><?php echo esc_html($partners_link['title']); ?><svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg></a><?php endif; ?>
+                            <?php if ($partners_link['url'] !== '') : ?><a class="nh-text-link" href="<?php echo esc_url($partners_link['url']); ?>"<?php echo $partners_link['target'] !== '' ? ' target="' . esc_attr($partners_link['target']) . '" rel="noopener"' : ''; ?>><?php echo esc_html($partners_link['title']); ?><?php echo underscores_child_icon_mask('icon_arrow_right'); ?></a><?php endif; ?>
                         </div>
                         <div class="nh-partner-grid u-mt-32">
                             <?php foreach ($partners as $partner) :
@@ -431,7 +431,7 @@ if ($section_visible($category_strip_settings) && $category_items !== []) :
                     <div>
                         <div class="nh-col-head">
                             <?php if (!empty($events_settings['title'])) : ?><h2><?php echo esc_html((string) $events_settings['title']); ?></h2><?php endif; ?>
-                            <?php if ($events_link['url'] !== '') : ?><a class="nh-text-link" href="<?php echo esc_url($events_link['url']); ?>"<?php echo $events_link['target'] !== '' ? ' target="' . esc_attr($events_link['target']) . '" rel="noopener"' : ''; ?>><?php echo esc_html($events_link['title']); ?><svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg></a><?php endif; ?>
+                            <?php if ($events_link['url'] !== '') : ?><a class="nh-text-link" href="<?php echo esc_url($events_link['url']); ?>"<?php echo $events_link['target'] !== '' ? ' target="' . esc_attr($events_link['target']) . '" rel="noopener"' : ''; ?>><?php echo esc_html($events_link['title']); ?><?php echo underscores_child_icon_mask('icon_arrow_right'); ?></a><?php endif; ?>
                         </div>
                         <div class="nh-event-grid u-mt-32">
                             <?php while ($events_query->have_posts()) : $events_query->the_post(); ?>

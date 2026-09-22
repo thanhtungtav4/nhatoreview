@@ -36,7 +36,7 @@ $target = trim((string) ($registration['target'] ?? ''));
         <span class="nh-event-card__text"><?php echo esc_html($excerpt); ?></span>
         <a class="nh-event-card__cta" href="<?php echo esc_url($register_url); ?>"<?php echo $target !== '' ? ' target="' . esc_attr($target) . '" rel="noopener"' : ''; ?>>
             <?php echo esc_html($register_text); ?>
-            <svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg>
+            <?php echo underscores_child_icon_mask('icon_arrow_right'); ?>
         </a>
     </span>
 </article>

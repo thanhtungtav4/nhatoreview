@@ -96,7 +96,7 @@ if (is_home() || is_singular('post') || is_category() || is_tag() || is_search()
             <ul class="nh-header__list">
                 <li class="nh-header__item">
                     <button class="nh-header__menu" type="button" aria-label="<?php esc_attr_e('Mở danh mục', 'underscores'); ?>">
-                        <svg class="nh-icon" aria-hidden="true" focusable="false"><use href="#nh-menu"></use></svg>
+                        <?php echo underscores_child_icon_mask('icon_menu'); ?>
                     </button>
                 </li>
                 <?php
@@ -121,7 +121,7 @@ if (is_home() || is_singular('post') || is_category() || is_tag() || is_search()
                 </a>
             <?php endif; ?>
             <button class="nh-header__search" type="button" aria-label="<?php esc_attr_e('Tìm kiếm', 'underscores'); ?>">
-                <svg class="nh-icon" aria-hidden="true" focusable="false"><use href="#nh-search"></use></svg>
+                <?php echo underscores_child_icon_mask('icon_search'); ?>
             </button>
             <button class="nh-header__toggle" type="button" data-nh-menu-toggle aria-controls="nh-nav" aria-expanded="false" aria-label="<?php esc_attr_e('Mở menu', 'underscores'); ?>">
                 <span></span><span></span>

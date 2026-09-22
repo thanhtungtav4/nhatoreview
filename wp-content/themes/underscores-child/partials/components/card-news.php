@@ -26,7 +26,7 @@ if ($title === '' || $permalink === '' || $thumbnail_id < 1 || $excerpt === '' |
     <?php echo $image; ?>
     <span class="nh-news-card__meta">
         <span class="nh-dateline">
-            <svg aria-hidden="true"><use href="#nh-clock"></use></svg>
+            <?php echo underscores_child_icon('icon_clock'); ?>
             <span><strong><?php esc_html_e('Ngày đăng:', 'underscores-child'); ?></strong> <?php echo esc_html($date); ?></span>
         </span>
     </span>

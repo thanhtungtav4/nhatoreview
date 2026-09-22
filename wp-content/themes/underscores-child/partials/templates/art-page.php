@@ -58,7 +58,7 @@ $render_related = static function (WP_Query $query): void {
                 <span class="nh-rule-head__line"></span>
                 <a class="nh-rule-head__action" href="<?php echo esc_url(get_post_type_archive_link('post') ?: home_url('/')); ?>">
                     <span><?php esc_html_e('Tất cả bài viết', 'underscores-child'); ?></span>
-                    <svg aria-hidden="true" viewBox="0 0 18 13"><use href="#nh-arrow-right"></use></svg>
+                    <?php echo underscores_child_icon_mask('icon_arrow_right'); ?>
                 </a>
             </div>
             <div class="nh-grid-3">
@@ -105,7 +105,7 @@ if ($section_enabled($topics_settings) && $features !== []) :
             <span class="nh-rule-head__line"></span>
             <a class="nh-rule-head__action" href="#chu-de-01">
                 <span><?php echo esc_html(sprintf(_n('%d chủ đề', '%d chủ đề', count($features), 'underscores-child'), count($features))); ?></span>
-                <svg aria-hidden="true" viewBox="0 0 18 13"><use href="#nh-arrow-right"></use></svg>
+                <?php echo underscores_child_icon_mask('icon_arrow_right'); ?>
             </a>
         </div>
     </section>
@@ -121,7 +121,7 @@ if ($section_enabled($topics_settings) && $features !== []) :
                     <span class="nh-feature__rule"></span>
                     <?php if (!empty($feature['text'])) : ?><p class="nh-feature__text"><?php echo esc_html((string) $feature['text']); ?></p><?php endif; ?>
                     <?php if (!empty($feature['link'])) : ?>
-                        <?php echo underscores_child_acf_link($feature['link'], '<span>' . esc_html__('Xem tất cả', 'underscores-child') . '</span><span class="nh-cta__arrow" aria-hidden="true"><svg viewBox="0 0 18 13"><use href="#nh-arrow-right"></use></svg></span>', 'nh-cta nh-cta--ink'); ?>
+                        <?php echo underscores_child_acf_link($feature['link'], '<span>' . esc_html__('Xem tất cả', 'underscores-child') . '</span><span class="nh-cta__arrow" aria-hidden="true">' . underscores_child_icon_mask('icon_arrow_right') . '</span>', 'nh-cta nh-cta--ink'); ?>
                     <?php endif; ?>
                 </div>
                 <?php if ($media !== '') : ?><div class="nh-feature__media"><img src="<?php echo esc_url($media); ?>" alt="<?php echo esc_attr(wp_strip_all_tags(str_ireplace(['<br>', '<br/>', '<br />'], ' ', (string) ($feature['title'] ?? '')))); ?>" loading="lazy"></div><?php endif; ?>
@@ -149,7 +149,7 @@ if ($section_enabled($topics_settings) && $features !== []) :
                         $share_link_url = is_array($feature['share_link'] ?? null) ? trim((string) ($feature['share_link']['url'] ?? '')) : '';
                         if ($share_link_url !== '' && $share_link_url[0] !== '#') :
                             ?>
-                            <?php echo underscores_child_acf_link($feature['share_link'], '<svg aria-hidden="true"><use href="#nh-share"></use></svg><span>' . esc_html__('Chia sẻ', 'underscores-child') . '</span>', 'nh-stat'); ?>
+                            <?php echo underscores_child_acf_link($feature['share_link'], underscores_child_icon_mask('icon_share') . '<span>' . esc_html__('Chia sẻ', 'underscores-child') . '</span>', 'nh-stat'); ?>
                         <?php endif; ?>
                     </div>
                 </div>

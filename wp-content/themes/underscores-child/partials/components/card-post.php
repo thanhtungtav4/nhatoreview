@@ -31,12 +31,12 @@ if ($title === '' || $permalink === '' || $thumbnail_id < 1 || $text === '' || $
         <span class="nh-statbar__group">
             <?php if ($views !== '') : ?>
                 <span class="nh-stat">
-                    <svg aria-hidden="true"><use href="#nh-eye"></use></svg>
+                    <?php echo underscores_child_icon('icon_eye'); ?>
                     <?php echo esc_html($views); ?>
                 </span>
             <?php endif; ?>
             <span class="nh-stat">
-                <svg aria-hidden="true"><use href="#nh-calendar"></use></svg>
+                <?php echo underscores_child_icon('icon_calendar'); ?>
                 <?php echo esc_html($date); ?>
             </span>
         </span>
