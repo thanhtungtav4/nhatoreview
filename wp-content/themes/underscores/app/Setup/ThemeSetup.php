@@ -65,6 +65,7 @@ final class ThemeSetup
         add_filter('script_loader_src', [$this, 'remove_version_from_scripts']);
         add_filter('mod_rewrite_rules', [$this, 'rewrite_htaccess'], 999999);
         add_filter('image_editor_output_format', [$this, 'image_editor_output_format']);
+        add_filter('wp_generate_attachment_metadata', [$this, 'compress_original_image_backup'], 20, 2);
         add_filter('upload_mimes', [$this, 'custom_upload_mimes']);
         add_filter('wp_handle_upload_prefilter', [$this, 'sanitize_svg_upload']);
         add_filter('wpcf7_autop_or_not', '__return_false');
@@ -163,6 +164,60 @@ final class ThemeSetup
         $formats['image/png']  = 'image/webp';
 
         return $formats;
+    }
+
+    /**
+     * Core giữ nguyên byte-gốc (chưa nén) dưới `original_image` khi upload bị đổi format/scale
+     * (phục vụ "Restore Original Image" trong Media Editor). Ảnh chụp thẳng máy ảnh / export
+     * PNG không nén có thể vài MB–chục MB mỗi file — không phục vụ cho visitor (chỉ dùng khi
+     * admin bấm restore) nhưng vẫn tốn dung lượng host/backup. Nén lại thành WebP q87 ngay sau
+     * khi tạo, đổi tên `{stem}-original.webp` để không đụng file `{stem}.webp` đang serve.
+     * Không nén nhỏ hơn → bỏ qua, giữ nguyên bản gốc (an toàn, hiếm khi xảy ra).
+     *
+     * @param array<string, mixed> $metadata
+     */
+    public function compress_original_image_backup(array $metadata, int $attachment_id): array
+    {
+        if (empty($metadata['original_image']) || str_ends_with((string) $metadata['original_image'], '-original.webp')) {
+            return $metadata;
+        }
+
+        $file = get_attached_file($attachment_id);
+        if ($file === '' || $file === false || ! file_exists($file)) {
+            return $metadata;
+        }
+
+        $dir      = dirname($file);
+        $old_path = $dir . '/' . $metadata['original_image'];
+        if (! file_exists($old_path)) {
+            return $metadata;
+        }
+
+        $old_size = filesize($old_path);
+        $stem     = pathinfo((string) $metadata['original_image'], PATHINFO_FILENAME);
+        $new_path = $dir . '/' . $stem . '-original.webp';
+
+        $editor = wp_get_image_editor($old_path);
+        if (is_wp_error($editor)) {
+            return $metadata;
+        }
+
+        $editor->set_quality(87);
+        $saved = $editor->save($new_path, 'image/webp');
+        if (is_wp_error($saved)) {
+            return $metadata;
+        }
+
+        $new_size = file_exists($new_path) ? filesize($new_path) : 0;
+        if ($new_size <= 0 || $new_size >= $old_size) {
+            @unlink($new_path); // phpcs:ignore WordPress.PHP.NoSilencedErrors -- best-effort cleanup of a failed/no-gain attempt.
+            return $metadata;
+        }
+
+        unlink($old_path);
+        $metadata['original_image'] = $stem . '-original.webp';
+
+        return $metadata;
     }
 
     /**
