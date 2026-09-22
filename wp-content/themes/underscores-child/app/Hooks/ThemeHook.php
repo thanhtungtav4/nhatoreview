@@ -106,6 +106,17 @@ final class ThemeHook
             $previous_handle = $handle;
         }
 
+        // Không có trang nào cần 2 file này cho first paint:
+        // - search.css: chỉ style .nh-search (display:none mặc định, JS bật .is-open khi bấm nút
+        //   tìm kiếm trong header) — xem comment đầu file search.css.
+        // - forms.css: chỉ style .nh-newsletter, dùng đúng 1 chỗ là footer.php (site-wide, luôn
+        //   dưới fold). .nh-field/.nh-label khai báo nhưng chưa component nào dùng.
+        // Dùng cơ chế media-swap có sẵn (PerformanceHook::apply_style_loading_strategy):
+        // tải với media=print (không chặn render) rồi JS-less onload đổi thành media=all,
+        // kèm <noscript> fallback cho trình duyệt tắt JS.
+        underscores_child_mark_style_loading_strategy('nhato-search', 'media');
+        underscores_child_mark_style_loading_strategy('nhato-forms', 'media');
+
         wp_enqueue_style(
             'underscores-child-style',
             underscores_child_asset_uri('assets/css/child-theme.css'),
