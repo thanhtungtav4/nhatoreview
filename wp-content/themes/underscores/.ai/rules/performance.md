@@ -37,6 +37,11 @@ Mở rộng `lazy-first.md` + `wp-core-first.md`. Rule này ép cách viết the
   webview Zalo, Facebook — muốn AVIF phải làm `<picture>` + `sources` (chưa làm, cần đánh giá riêng).
   Ảnh cũ trong thư viện: `wp media regenerate --yes` để áp dụng lại; sau đó dọn file orphan format cũ (không
   còn trong `wp_get_attachment_metadata()['sizes']`/`['file']`, khác `['original_image']`).
+- `original_image` (backup byte-gốc core giữ cho "Restore Original Image" khi upload bị đổi format/scale)
+  KHÔNG được `image_editor_output_format` xử lý — core giữ nguyên bytes thô. Hook
+  `ThemeSetup::compress_original_image_backup()` (`wp_generate_attachment_metadata`, priority 20) tự nén xuống
+  WebP q87 ngay sau upload, đổi tên `{stem}-original.webp` (không đụng `{stem}.webp` đang serve), xóa file thô.
+  Không serve cho visitor — chỉ tốn dung lượng host/backup nếu để nguyên (từng đo: 272MB/326MB thư viện cũ, 84%).
 
 ## 3. Query
 
