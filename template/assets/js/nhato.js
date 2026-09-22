@@ -107,20 +107,6 @@
       }
     });
 
-    /* Newsletter: client-side validation only — no endpoint is defined by the source. */
-    document.addEventListener("submit", function (e) {
-      var form = e.target.closest && e.target.closest("[data-nh-newsletter]");
-      if (!form) return;
-      e.preventDefault();
-      var input = form.querySelector("input[type=email]");
-      var status = form.parentElement && form.parentElement.querySelector("[data-nh-newsletter-status]");
-      if (!status) return;
-      var ok = input && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(input.value.trim());
-      status.textContent = ok ? "Cảm ơn bạn đã đăng ký." : "Vui lòng nhập email hợp lệ.";
-      status.classList.toggle("is-error", !ok);
-      if (ok) form.reset();
-    });
-
     var lastY = 0;
     var ticking = false;
     var read = function () {
@@ -130,8 +116,7 @@
         ticking = false;
         var header = document.querySelector("[data-nh-header]");
         if (!header) return;
-        var scroller = header.closest("[data-nh-scroll]");
-        var y = scroller ? scroller.scrollTop : window.scrollY;
+        var y = window.scrollY;
         var nav = document.querySelector("[data-nh-nav]");
         var menuOpen = nav && nav.classList.contains("is-open");
         var searchOpen = document.body.classList.contains("nh-search-locked");
@@ -148,7 +133,6 @@
       });
     };
     window.addEventListener("scroll", read, { passive: true });
-    document.addEventListener("scroll", read, { passive: true, capture: true });
     read();
 
     initSearch();
