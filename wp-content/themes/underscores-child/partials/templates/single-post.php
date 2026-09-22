@@ -9,6 +9,14 @@ underscores_child_set_main_class('page-news');
 get_header();
 
 $post_id = (int) get_the_ID();
+$post_fields = function_exists('get_fields') ? (get_fields($post_id) ?: []) : [];
+$related_settings = is_array($post_fields['related_settings'] ?? null) ? $post_fields['related_settings'] : [];
+$related_is_show = !array_key_exists('is_show', $related_settings) || (bool) $related_settings['is_show'];
+$related_mode = (($related_settings['mode'] ?? 'auto') === 'manual') ? 'manual' : 'auto';
+$related_selected_posts = is_array($related_settings['posts'] ?? null)
+    ? array_values(array_filter(array_map('absint', $related_settings['posts'])))
+    : [];
+
 $primary_term = underscores_get_primary_term($post_id, 'category');
 $primary_term_link = $primary_term instanceof WP_Term ? get_term_link($primary_term) : '';
 
@@ -120,26 +128,32 @@ $toc_entries = is_array($toc_data['toc'] ?? null) ? $toc_data['toc'] : [];
                 <?php endif; ?>
                 <?php wp_reset_postdata(); ?>
                 <?php
-                $related_query_args = [
-                    'post_type'           => 'post',
-                    'post_status'         => 'publish',
-                    'posts_per_page'      => 6,
-                    'post__not_in'        => array_values(array_unique(array_merge([$post_id], $featured_post_ids))),
-                    'ignore_sticky_posts' => true,
-                ];
+                $related_query = null;
+                if ($related_is_show) {
+                    $related_query_args = [
+                        'post_type'           => 'post',
+                        'post_status'         => 'publish',
+                        'posts_per_page'      => 6,
+                        'post__not_in'        => array_values(array_unique(array_merge([$post_id], $featured_post_ids))),
+                        'ignore_sticky_posts' => true,
+                    ];
 
-                if ($primary_term instanceof WP_Term) {
-                    $related_query_args['category__in'] = [(int) $primary_term->term_id];
-                }
+                    if ($related_mode === 'manual') {
+                        $related_query_args['post__in'] = $related_selected_posts !== [] ? $related_selected_posts : [0];
+                        $related_query_args['orderby'] = 'post__in';
+                    } elseif ($primary_term instanceof WP_Term) {
+                        $related_query_args['category__in'] = [(int) $primary_term->term_id];
+                    }
 
-                $related_query = new WP_Query($related_query_args);
-                if (!$related_query->have_posts() && $primary_term instanceof WP_Term) {
-                    unset($related_query_args['category__in']);
                     $related_query = new WP_Query($related_query_args);
+                    if ($related_mode === 'auto' && !$related_query->have_posts() && $primary_term instanceof WP_Term) {
+                        unset($related_query_args['category__in']);
+                        $related_query = new WP_Query($related_query_args);
+                    }
                 }
                 ?>
 
-                <?php if ($related_query->have_posts()) : ?>
+                <?php if ($related_query instanceof WP_Query && $related_query->have_posts()) : ?>
                     <hr class="nh-hairline">
                     <div id="tin-lien-quan" class="u-flex-col u-gap-24 u-mt-16">
                         <div class="article__related-head">
