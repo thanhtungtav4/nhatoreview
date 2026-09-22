@@ -64,6 +64,7 @@ final class ThemeSetup
         add_filter('style_loader_src', [$this, 'remove_version_from_scripts']);
         add_filter('script_loader_src', [$this, 'remove_version_from_scripts']);
         add_filter('mod_rewrite_rules', [$this, 'rewrite_htaccess'], 999999);
+        add_filter('image_editor_output_format', [$this, 'image_editor_output_format']);
         add_filter('upload_mimes', [$this, 'custom_upload_mimes']);
         add_filter('wp_handle_upload_prefilter', [$this, 'sanitize_svg_upload']);
         add_filter('wpcf7_autop_or_not', '__return_false');
@@ -143,6 +144,25 @@ final class ThemeSetup
 
         $mimes['svg'] = 'image/svg+xml';
         return $mimes;
+    }
+
+    /**
+     * Sub size (thumbnail/medium/medium_large/large) sinh ra từ JPEG/PNG → xuất WebP.
+     * Core tự kiểm tra server hỗ trợ WebP trước khi đổi format (không hỗ trợ → giữ nguyên,
+     * an toàn để bật mặc định). Không map sang AVIF: AVIF chỉ ~82-95% trình duyệt hỗ trợ
+     * (2026), thiếu fallback <picture> sẽ vỡ ảnh trên trình duyệt cũ / webview Zalo, Facebook.
+     * File gốc (ảnh dưới ngưỡng big_image_size_threshold, phục vụ size 'full') KHÔNG đổi định
+     * dạng — chỉ sub size dùng cho card/grid/srcset.
+     *
+     * @param array<string, string> $formats Map mime nguồn → mime đích.
+     * @return array<string, string>
+     */
+    public function image_editor_output_format(array $formats): array
+    {
+        $formats['image/jpeg'] = 'image/webp';
+        $formats['image/png']  = 'image/webp';
+
+        return $formats;
     }
 
     /**

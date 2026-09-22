@@ -30,6 +30,13 @@ Mở rộng `lazy-first.md` + `wp-core-first.md`. Rule này ép cách viết the
   Mỗi trang **1** ảnh `fetchpriority="high"`. Ảnh còn lại để core tự `loading="lazy"` + `decoding="async"`.
 - `<img>` viết tay (icon trong build `/template`) phải có `width`/`height` (chống CLS). Icon đơn sắc → inline SVG.
 - `add_image_size()` chỉ khi dùng thật (mỗi size = thêm 1 file cho mọi ảnh upload).
+- Sub size (thumbnail/medium/medium_large/large/scaled) tự xuất WebP qua filter core `image_editor_output_format`
+  (`ThemeSetup::image_editor_output_format()`, map `image/jpeg` + `image/png` → `image/webp`). Core tự kiểm tra
+  server hỗ trợ trước khi đổi — an toàn bật mặc định, không cần `<picture>` fallback (WebP gần như mọi trình
+  duyệt hỗ trợ). KHÔNG map sang AVIF: ~82-95% trình duyệt (2026), thiếu fallback sẽ vỡ ảnh trên trình duyệt cũ /
+  webview Zalo, Facebook — muốn AVIF phải làm `<picture>` + `sources` (chưa làm, cần đánh giá riêng).
+  Ảnh cũ trong thư viện: `wp media regenerate --yes` để áp dụng lại; sau đó dọn file orphan format cũ (không
+  còn trong `wp_get_attachment_metadata()['sizes']`/`['file']`, khác `['original_image']`).
 
 ## 3. Query
 
