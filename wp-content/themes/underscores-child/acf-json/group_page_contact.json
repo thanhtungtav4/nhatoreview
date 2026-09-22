@@ -88,7 +88,7 @@
                     "name": "link",
                     "type": "link",
                     "return_format": "array",
-                    "instructions": "Nhập liên kết đích; nếu để trống, item hoặc nút tương ứng sẽ không hiển thị."
+                    "instructions": "Dùng URL trang hoặc anchor có thật, ví dụ: /contact/#contact-form. Nếu để trống, nút sẽ không hiển thị."
                 }
             ],
             "instructions": "Dải kêu gọi hành động cuối trang. Nút chỉ hiện khi có liên kết."

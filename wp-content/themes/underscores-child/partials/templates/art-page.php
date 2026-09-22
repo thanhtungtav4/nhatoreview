@@ -142,7 +142,10 @@ if ($section_enabled($topics_settings) && $features !== []) :
                                 </span>
                             <?php endforeach; ?>
                         </div>
-                        <?php if (!empty($feature['share_link'])) : ?>
+                        <?php
+                        $share_link_url = is_array($feature['share_link'] ?? null) ? trim((string) ($feature['share_link']['url'] ?? '')) : '';
+                        if ($share_link_url !== '' && $share_link_url[0] !== '#') :
+                            ?>
                             <?php echo underscores_child_acf_link($feature['share_link'], '<svg aria-hidden="true"><use href="#nh-share"></use></svg><span>' . esc_html__('Chia sẻ', 'underscores-child') . '</span>', 'nh-stat'); ?>
                         <?php endif; ?>
                     </div>
