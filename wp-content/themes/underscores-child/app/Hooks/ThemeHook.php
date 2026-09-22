@@ -106,14 +106,17 @@ final class ThemeHook
         );
 
         // search.css/forms.css (không trang nào cần cho first paint — xem comment gốc 2 file)
-        // + phần deferred riêng theo template, gộp chung 1 request bằng media-swap.
+        // + phần deferred riêng theo template, gộp chung 1 request bằng preload-swap.
+        // 'preload' (rel=preload as=style, không phải 'media' = media=print) vì Chrome đo được
+        // media=print bị xếp initialPriority=VeryLow (thấp nhất) — preload as=style báo đúng
+        // "sắp dùng làm stylesheet" nên scheduler ưu tiên cao hơn, tải xong sớm hơn thật sự.
         wp_enqueue_style(
             'nhato-deferred-base',
             $css_base . 'deferred-base.css',
             ['nhato-blocking'],
             underscores_child_template_asset_version('/assets/css/bundles/deferred-base.css')
         );
-        underscores_child_mark_style_loading_strategy('nhato-deferred-base', 'media');
+        underscores_child_mark_style_loading_strategy('nhato-deferred-base', 'preload');
 
         $previous_handle = 'nhato-deferred-base';
         if ($group !== 'default') {
@@ -123,7 +126,7 @@ final class ThemeHook
                 ['nhato-deferred-base'],
                 underscores_child_template_asset_version('/assets/css/bundles/deferred-' . $group . '.css')
             );
-            underscores_child_mark_style_loading_strategy('nhato-deferred', 'media');
+            underscores_child_mark_style_loading_strategy('nhato-deferred', 'preload');
             $previous_handle = 'nhato-deferred';
         }
 
