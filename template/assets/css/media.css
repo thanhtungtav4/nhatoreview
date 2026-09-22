@@ -6,7 +6,7 @@
 .nh-hero__media,.nh-hero__overlay{inset:0;position:absolute}
 .nh-hero__media img{height:100%;object-fit:cover;width:100%}
 .nh-hero__overlay{background:var(--scrim-hero),linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}
-.nh-hero__inner{box-sizing:border-box;min-height:100%;padding-block:clamp(10.5rem,29vh,13.56rem) 4rem;position:relative;z-index:1}
+.nh-hero__inner{box-sizing:border-box;min-height:100%;padding-block:217px 4rem;position:relative;z-index:1}
 .nh-hero__title{font-family:var(--font-display);font-size:clamp(3rem,3.95vw,var(--fs-56));font-weight:var(--weight-regular);line-height:64px;text-transform:uppercase}
 .nh-hero__lead{color:var(--nh-white);font-family:var(--font-body);font-size:var(--fs-18);font-weight:var(--weight-regular);letter-spacing:0;line-height:25px;margin-top:var(--space-5);max-width:530px}
 .nh-hero__actions{margin-top:var(--space-5)}
@@ -24,7 +24,7 @@
 }
 
 /* Section-page hero — no CTA; the copy block is 658 wide at 72/217. */
-.nh-hero--section .nh-hero__inner{padding-block:clamp(10.5rem,29vh,13.56rem) 4rem}
+.nh-hero--section .nh-hero__inner{padding-block:217px 4rem}
 .nh-hero--section .nh-hero__title{max-width:658px}
 
 /* Dark editorial band ("Giá trị NHATO"). */
