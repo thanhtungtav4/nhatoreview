@@ -108,11 +108,12 @@ if ($section_enabled($intro_settings) && ($intro_eyebrow !== '' || $intro_title 
                         $copy = (string) ($role['text'] ?? $role['description'] ?? '');
                         $href = is_array($role['link'] ?? null) ? (string) ($role['link']['url'] ?? '') : (string) ($role['url'] ?? '');
                         $background = $image_url($role['image'] ?? '');
+                        $role_icon_id = absint($role['icon'] ?? 0);
                         if ($name === '' && $copy === '' && $background === '') { continue; }
                         $role_tag = $href !== '' ? 'a' : 'div';
                         ?>
                         <<?php echo $role_tag; ?> class="nh-role-card"<?php if ($href !== '') : ?> href="<?php echo esc_url($href); ?>"<?php endif; ?><?php if ($background !== '') : ?> style="--nh-role-card-image:url('<?php echo esc_url($background); ?>')"<?php endif; ?>>
-                            <span class="nh-role-card__body"><?php if (!empty($role['icon'])) : ?><svg class="nh-role-card__icon" aria-hidden="true" width="48" height="48"><use href="#<?php echo esc_attr(ltrim((string) $role['icon'], '#')); ?>"></use></svg><?php endif; ?><span class="nh-role-card__copy">
+                            <span class="nh-role-card__body"><?php if ($role_icon_id > 0) : ?><?php echo wp_get_attachment_image($role_icon_id, 'thumbnail', false, ['class' => 'nh-role-card__icon', 'alt' => '', 'loading' => 'lazy']); ?><?php endif; ?><span class="nh-role-card__copy">
                                 <?php if ($name !== '') : ?><strong><?php echo esc_html($name); ?></strong><?php endif; ?>
                                 <?php if ($copy !== '') : ?><span><?php echo esc_html($copy); ?></span><?php endif; ?>
                             </span></span>

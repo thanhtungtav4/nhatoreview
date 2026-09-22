@@ -130,8 +130,10 @@
                                     "key": "field_page_art_stat_icon",
                                     "label": "Biểu tượng",
                                     "name": "icon",
-                                    "type": "text",
-                                    "instructions": "ID biểu tượng trong sprite, ví dụ: nh-eye, nh-clock, nh-calendar."
+                                    "type": "image",
+                                    "return_format": "id",
+                                    "preview_size": "thumbnail",
+                                    "library": "all"
                                 },
                                 {
                                     "key": "field_page_art_stat_label",

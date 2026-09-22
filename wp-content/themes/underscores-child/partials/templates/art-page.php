@@ -135,12 +135,12 @@ if ($section_enabled($topics_settings) && $features !== []) :
                                 if (!is_array($stat) || (empty($stat['value']) && empty($stat['label']))) {
                                     continue;
                                 }
-                                $icon = sanitize_key((string) ($stat['icon'] ?? ''));
+                                $icon_id = absint($stat['icon'] ?? 0);
                                 $value = trim((string) ($stat['value'] ?? ''));
                                 $label = trim((string) ($stat['label'] ?? ''));
                                 ?>
                                 <span class="nh-stat">
-                                    <?php if ($icon !== '') : ?><svg aria-hidden="true"><use href="#<?php echo esc_attr($icon); ?>"></use></svg><?php endif; ?>
+                                    <?php if ($icon_id > 0) : ?><?php echo wp_get_attachment_image($icon_id, 'thumbnail', false, ['alt' => '', 'loading' => 'lazy']); ?><?php endif; ?>
                                     <?php echo esc_html(trim($value . ' ' . $label)); ?>
                                 </span>
                             <?php endforeach; ?>

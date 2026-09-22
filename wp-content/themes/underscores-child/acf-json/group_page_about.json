@@ -228,10 +228,13 @@
                         },
                         {
                             "key": "field_page_about_vision_icon",
-                            "label": "Biểu tượng SVG",
+                            "label": "Biểu tượng",
                             "name": "icon",
-                            "type": "textarea",
-                            "rows": 2
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "instructions": "Nền trong suốt, màu trắng khuyến nghị (hiển thị trên nền tối)."
                         },
                         {
                             "key": "field_page_about_vision_title",
@@ -266,10 +269,13 @@
                         },
                         {
                             "key": "field_page_about_mission_icon",
-                            "label": "Biểu tượng SVG",
+                            "label": "Biểu tượng",
                             "name": "icon",
-                            "type": "textarea",
-                            "rows": 2
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "instructions": "Nền trong suốt, màu trắng khuyến nghị (hiển thị trên nền tối)."
                         },
                         {
                             "key": "field_page_about_mission_title",

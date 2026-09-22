@@ -91,10 +91,13 @@
                     "sub_fields": [
                         {
                             "key": "field_page_taste_pillar_icon",
-                            "label": "Mã biểu tượng",
+                            "label": "Biểu tượng",
                             "name": "icon",
-                            "type": "text",
-                            "instructions": "Nhập mã biểu tượng trong sprite, ví dụ: nh-taste-space."
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "instructions": "Nền trong suốt, màu ink khuyến nghị (hiển thị trên nền sáng)."
                         },
                         {
                             "key": "field_page_taste_pillar_title",
