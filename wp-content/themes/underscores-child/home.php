@@ -10,6 +10,8 @@ get_header();
 
 $blog_posts = [];
 if (have_posts()) {
+    global $wp_query;
+    underscores_child_prime_thumbnail_cache($wp_query);
     while (have_posts()) {
         the_post();
         $current_post = get_post();

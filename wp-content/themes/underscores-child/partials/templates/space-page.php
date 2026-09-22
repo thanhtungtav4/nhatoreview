@@ -35,6 +35,8 @@ $related_query_args = [
     'post_status' => 'publish',
     'posts_per_page' => 3,
     'ignore_sticky_posts' => true,
+    'no_found_rows' => true,
+    'update_post_term_cache' => false,
 ];
 if ($related_mode === 'manual') {
     $related_query_args['post__in'] = $selected_posts !== [] ? $selected_posts : [0];
@@ -44,6 +46,7 @@ $related_query = new WP_Query($related_query_args);
 
 $render_related = static function (WP_Query $query): void {
     if (!$query->have_posts()) { return; }
+    underscores_child_prime_thumbnail_cache($query);
     ?>
     <section class="section-posts"><div class="nh-container nh-stack"><div class="nh-rule-head">
         <h2 class="nh-rule-head__title"><?php esc_html_e('Bài viết khác', 'underscores-child'); ?></h2><span class="nh-rule-head__line"></span>
@@ -80,8 +83,10 @@ $projects = new WP_Query([
     'post_status' => 'publish',
     'posts_per_page' => 16,
     'paged' => max(1, (int) get_query_var('paged')),
+    'update_post_term_cache' => false,
 ]);
 if ($section_enabled($projects_settings) && $projects->have_posts()) : ?>
+    <?php underscores_child_prime_thumbnail_cache($projects); ?>
     <section class="section-projects"><div class="nh-container nh-stack">
         <div class="nh-section-head"><div><?php if (!empty($projects_settings['eyebrow'])) : ?><p class="nh-eyebrow"><?php echo esc_html((string) $projects_settings['eyebrow']); ?></p><?php endif; ?><?php if (!empty($projects_settings['title'])) : ?><h2 class="nh-section-title"><?php echo esc_html((string) $projects_settings['title']); ?></h2><?php endif; ?></div><?php if (!empty($projects_settings['link'])) : ?><?php echo underscores_child_acf_link($projects_settings['link'], '<span>' . esc_html__('Xem tất cả', 'underscores-child') . '</span><span class="nh-cta__arrow" aria-hidden="true"><svg width="16" height="16"><use href="#nh-arrow-right"></use></svg></span>', 'nh-cta nh-cta--ink'); ?><?php endif; ?></div>
         <div class="nh-grid-4">

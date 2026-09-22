@@ -85,3 +85,17 @@ if (!function_exists('underscores_child_acf_link')) {
         return '<a' . $class_attr . ' href="' . esc_url($url) . '"' . $target_attr . $rel_attr . '>' . $inner_html . '</a>';
     }
 }
+
+if (!function_exists('underscores_child_prime_thumbnail_cache')) {
+    /**
+     * Prime attachment cache cho toàn bộ thumbnail của 1 WP_Query trong 1 query,
+     * tránh N+1 khi loop gọi wp_get_attachment_image()/get_the_post_thumbnail() theo từng bài.
+     * Gọi 1 lần ngay sau khi xác nhận have_posts() true, trước vòng lặp while.
+     */
+    function underscores_child_prime_thumbnail_cache(WP_Query $query): void
+    {
+        if ($query->post_count > 0) {
+            update_post_thumbnail_cache($query);
+        }
+    }
+}

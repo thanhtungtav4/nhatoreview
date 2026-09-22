@@ -229,6 +229,7 @@ if ($section_visible($category_strip_settings) && $category_items !== []) :
                 </div>
             <?php endif; ?>
             <?php if ($portfolio_query->have_posts()) : ?>
+                <?php underscores_child_prime_thumbnail_cache($portfolio_query); ?>
                 <div id="portfolio-grid" class="nh-grid-4" data-portfolio-grid<?php echo $has_mosaic ? ' hidden' : ''; ?>>
                     <?php while ($portfolio_query->have_posts()) : $portfolio_query->the_post(); ?>
                         <?php
@@ -386,14 +387,15 @@ if ($section_visible($category_strip_settings) && $category_items !== []) :
         $partners = is_array($partners) ? $partners : [];
     }
     $events_query = new WP_Query([
-        'post_type'           => 'event',
-        'post_status'         => 'publish',
-        'posts_per_page'      => 3,
-        'ignore_sticky_posts' => true,
-        'meta_key'            => 'event_date',
-        'orderby'             => 'meta_value',
-        'order'               => 'ASC',
-        'no_found_rows'       => true,
+        'post_type'              => 'event',
+        'post_status'            => 'publish',
+        'posts_per_page'         => 3,
+        'ignore_sticky_posts'    => true,
+        'meta_key'               => 'event_date',
+        'orderby'                => 'meta_value',
+        'order'                  => 'ASC',
+        'no_found_rows'          => true,
+        'update_post_term_cache' => false,
     ]);
     if (($section_visible($partners_settings) && $partners !== []) || ($section_visible($events_settings) && $events_query->have_posts())) :
         $partners_link = $link_data($partners_settings['link'] ?? []);

@@ -17,6 +17,7 @@ get_header();
     <h1 class="nh-headline"><?php echo esc_html($term_name); ?></h1>
 
     <?php if (have_posts()) : ?>
+        <?php global $wp_query; underscores_child_prime_thumbnail_cache($wp_query); ?>
         <div class="nh-grid-4">
             <?php
             while (have_posts()) :

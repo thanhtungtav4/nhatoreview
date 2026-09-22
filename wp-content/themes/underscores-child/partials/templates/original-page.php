@@ -33,6 +33,8 @@ $related_query_args = [
     'post_status' => 'publish',
     'posts_per_page' => 3,
     'ignore_sticky_posts' => true,
+    'no_found_rows' => true,
+    'update_post_term_cache' => false,
 ];
 if ($related_mode === 'manual') {
     $related_query_args['post__in'] = $selected_posts !== [] ? $selected_posts : [0];
@@ -44,6 +46,7 @@ $render_related = static function (WP_Query $query): void {
     if (!$query->have_posts()) {
         return;
     }
+    underscores_child_prime_thumbnail_cache($query);
     ?>
     <section class="section-posts">
         <div class="nh-container nh-stack">

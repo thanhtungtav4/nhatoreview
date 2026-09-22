@@ -85,11 +85,13 @@ $toc_entries = is_array($toc_data['toc'] ?? null) ? $toc_data['toc'] : [];
                 <?php
                 $featured_post_ids = [];
                 $featured_query_args = [
-                    'post_type'           => 'post',
-                    'post_status'         => 'publish',
-                    'posts_per_page'      => 1,
-                    'post__not_in'        => [$post_id],
-                    'ignore_sticky_posts' => true,
+                    'post_type'              => 'post',
+                    'post_status'            => 'publish',
+                    'posts_per_page'         => 1,
+                    'post__not_in'           => [$post_id],
+                    'ignore_sticky_posts'    => true,
+                    'no_found_rows'          => true,
+                    'update_post_term_cache' => false,
                 ];
 
                 if ($primary_term instanceof WP_Term) {
@@ -97,6 +99,9 @@ $toc_entries = is_array($toc_data['toc'] ?? null) ? $toc_data['toc'] : [];
                 }
 
                 $featured_query = new WP_Query($featured_query_args);
+                if ($featured_query->have_posts()) {
+                    underscores_child_prime_thumbnail_cache($featured_query);
+                }
                 ?>
                 <?php if ($featured_query->have_posts()) : ?>
                     <a class="nh-more-btn" href="#tin-lien-quan">
@@ -131,11 +136,13 @@ $toc_entries = is_array($toc_data['toc'] ?? null) ? $toc_data['toc'] : [];
                 $related_query = null;
                 if ($related_is_show) {
                     $related_query_args = [
-                        'post_type'           => 'post',
-                        'post_status'         => 'publish',
-                        'posts_per_page'      => 6,
-                        'post__not_in'        => array_values(array_unique(array_merge([$post_id], $featured_post_ids))),
-                        'ignore_sticky_posts' => true,
+                        'post_type'              => 'post',
+                        'post_status'            => 'publish',
+                        'posts_per_page'         => 6,
+                        'post__not_in'           => array_values(array_unique(array_merge([$post_id], $featured_post_ids))),
+                        'ignore_sticky_posts'    => true,
+                        'no_found_rows'          => true,
+                        'update_post_term_cache' => false,
                     ];
 
                     if ($related_mode === 'manual') {
@@ -154,6 +161,7 @@ $toc_entries = is_array($toc_data['toc'] ?? null) ? $toc_data['toc'] : [];
                 ?>
 
                 <?php if ($related_query instanceof WP_Query && $related_query->have_posts()) : ?>
+                    <?php underscores_child_prime_thumbnail_cache($related_query); ?>
                     <hr class="nh-hairline">
                     <div id="tin-lien-quan" class="u-flex-col u-gap-24 u-mt-16">
                         <div class="article__related-head">
@@ -188,14 +196,17 @@ $toc_entries = is_array($toc_data['toc'] ?? null) ? $toc_data['toc'] : [];
 
         <?php
         $latest_query = new WP_Query([
-            'post_type'           => 'post',
-            'post_status'         => 'publish',
-            'posts_per_page'      => 5,
-            'post__not_in'        => [$post_id],
-            'ignore_sticky_posts' => true,
+            'post_type'              => 'post',
+            'post_status'            => 'publish',
+            'posts_per_page'         => 5,
+            'post__not_in'           => [$post_id],
+            'ignore_sticky_posts'    => true,
+            'no_found_rows'          => true,
+            'update_post_term_cache' => false,
         ]);
         ?>
         <?php if ($latest_query->have_posts()) : ?>
+                <?php underscores_child_prime_thumbnail_cache($latest_query); ?>
             <aside class="aside">
                 <?php while ($latest_query->have_posts()) : $latest_query->the_post(); ?>
                     <?php
