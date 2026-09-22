@@ -18,9 +18,28 @@ final class PerformanceHook
     {
         $self = new self();
         add_action('wp_enqueue_scripts', [$self, 'optimize_jquery'], 1);
+        add_action('wp_enqueue_scripts', [$self, 'defer_cf7_scripts'], 20);
         add_action('wp_head', [$self, 'output_critical_css'], 2);
         add_filter('style_loader_tag', [$self, 'apply_style_loading_strategy'], 20, 4);
     }
+
+    /**
+     * Contact Form 7's own JS (handle 'contact-form-7') reads window.wp.i18n directly at
+     * module scope for client-side validation message translation - wp-i18n/wp-hooks are a
+     * REAL runtime dependency, not dead weight (verified: blocking them throws "wp is not
+     * defined" and breaks CF7's AJAX submit/validation, confirmed live before adding this).
+     * Core's own Script Loading Strategies API (6.3+) refuses to defer a dependency (wp-i18n/
+     * wp-hooks) unless every script that depends on it is ALSO defer-eligible - so the whole
+     * chain needs marking, not just the two core handles, or core silently falls back all
+     * four to blocking.
+     */
+    public function defer_cf7_scripts(): void
+    {
+        foreach (['wp-hooks', 'wp-i18n', 'swv', 'contact-form-7'] as $handle) {
+            wp_script_add_data($handle, 'strategy', 'defer');
+        }
+    }
+
 
     /**
      * jQuery mặc định in trong <head> → chặn render (~30KB + migrate). Đưa về footer (group 1).
