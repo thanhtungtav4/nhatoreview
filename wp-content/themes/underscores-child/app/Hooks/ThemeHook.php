@@ -57,15 +57,13 @@ final class ThemeHook
     {
         do_action('underscores_before_common_css');
 
-        // Google Fonts trực tiếp qua <link> (không @import trong nhato.css): browser preload
-        // scanner thấy ngay từ HTML đầu, và CommonHook::preconnect_fonts() (kiểm tra
-        // wp_styles()->queue theo src chứa fonts.googleapis.com) mới bắt được để in
-        // rel=preconnect cho fonts.googleapis.com + fonts.gstatic.com — @import giấu URL này
-        // bên trong nội dung CSS nên trước đây filter đó luôn no-op.
-        // Chỉ 4 family đang có component thật dùng qua --font-display/--font-body/
-        // --font-editorial/--font-ui. Token --font-alt (Montserrat) / --font-alt-2 (Plus Jakarta
-        // Sans) trong tokens/typography.css chưa có component nào áp dụng — thêm lại 2 family
-        // này vào URL bên dưới ngay khi có component thật dùng var(--font-alt[-2]).
+        // Google Fonts trực tiếp qua <link> (không @import): CommonHook::preconnect_fonts()
+        // (kiểm tra wp_styles()->queue theo src chứa fonts.googleapis.com) in được
+        // rel=preconnect cho fonts.googleapis.com + fonts.gstatic.com. Chỉ 4 family có
+        // component thật dùng qua --font-display/--font-body/--font-editorial/--font-ui.
+        // Token --font-alt (Montserrat) / --font-alt-2 (Plus Jakarta Sans) trong
+        // tokens/typography.css chưa có component nào áp dụng — thêm lại 2 family này vào
+        // URL bên dưới ngay khi có component thật dùng var(--font-alt[-2]).
         wp_enqueue_style(
             'nhato-fonts',
             'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Manrope:wght@200..800&family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Inter:wght@100..900&display=swap',
@@ -73,72 +71,60 @@ final class ThemeHook
             null
         );
 
-        // Partial trước đây @import trong nhato.css → enqueue riêng, deps nối chuỗi để giữ đúng
-        // thứ tự cascade (token trước, component sau) mà vẫn để browser tải song song qua
-        // HTTP/2 ngay từ HTML thay vì phải tải+parse nhato.css xong mới biết có các file này.
-        $css_base = UNDERSCORES_SITE_TEMPLATE_URL . '/assets/css/';
-        $partials = [
-            'nhato-tokens-colors'     => 'tokens/colors.css',
-            'nhato-tokens-typography' => 'tokens/typography.css',
-            'nhato-tokens-layout'     => 'tokens/layout.css',
-            'nhato-tokens-figma'      => 'tokens/figma-variables.css',
-            'nhato-tokens-base'       => 'tokens/base.css',
-            'nhato-chrome'            => 'chrome.css',
-            'nhato-search'            => 'search.css',
-            'nhato-actions'           => 'actions.css',
-            'nhato-content'           => 'content.css',
-            'nhato-home-sections'     => 'home-sections.css',
-            'nhato-forms'             => 'forms.css',
-            'nhato-media'             => 'media.css',
-            'nhato-pages'             => 'pages.css',
-            'nhato-utilities'         => 'utilities.css',
-            'nhato-mobile'            => 'mobile.css',
-        ];
+        // 14 partial trước đây enqueue riêng (parallel discovery, đúng, nhưng 14 request) →
+        // gộp thành bundle sinh bởi scripts/build-asset-bundles.sh (chạy lại script đó sau khi
+        // sửa bất kỳ file .css nào nó đọc). Vẫn giữ nguyên chiến lược 2 tầng: bundle luôn-chặn
+        // (core) + bundle theo-template (blocking-{a,b,c,d,default}, xem phân tích Playwright
+        // ở commit trước) + bundle luôn-defer (deferred-base) + bundle theo-template defer.
+        // mobile.css nằm trong core (không bao giờ defer — xem lý do trong build script).
+        $css_base = UNDERSCORES_SITE_TEMPLATE_URL . '/assets/css/bundles/';
 
-        $previous_handle = 'nhato-fonts';
-        foreach ($partials as $handle => $relative_path) {
+        wp_enqueue_style(
+            'nhato-core',
+            $css_base . 'core.css',
+            ['nhato-fonts'],
+            underscores_child_template_asset_version('/assets/css/bundles/core.css')
+        );
+
+        $template_groups = [
+            'front-page' => 'c',
+            'about'      => 'a',
+            'art'        => 'a',
+            'network'    => 'b',
+            'original'   => 'b',
+            'space'      => 'a',
+            'taste'      => 'a',
+            'contact'    => 'd',
+        ];
+        $group = $template_groups[underscores_child_get_current_template_slug() ?? ''] ?? 'default';
+
+        wp_enqueue_style(
+            'nhato-blocking',
+            $css_base . 'blocking-' . $group . '.css',
+            ['nhato-core'],
+            underscores_child_template_asset_version('/assets/css/bundles/blocking-' . $group . '.css')
+        );
+
+        // search.css/forms.css (không trang nào cần cho first paint — xem comment gốc 2 file)
+        // + phần deferred riêng theo template, gộp chung 1 request bằng media-swap.
+        wp_enqueue_style(
+            'nhato-deferred-base',
+            $css_base . 'deferred-base.css',
+            ['nhato-blocking'],
+            underscores_child_template_asset_version('/assets/css/bundles/deferred-base.css')
+        );
+        underscores_child_mark_style_loading_strategy('nhato-deferred-base', 'media');
+
+        $previous_handle = 'nhato-deferred-base';
+        if ($group !== 'default') {
             wp_enqueue_style(
-                $handle,
-                $css_base . $relative_path,
-                [$previous_handle],
-                underscores_child_template_asset_version('/assets/css/' . $relative_path)
+                'nhato-deferred',
+                $css_base . 'deferred-' . $group . '.css',
+                ['nhato-deferred-base'],
+                underscores_child_template_asset_version('/assets/css/bundles/deferred-' . $group . '.css')
             );
-            $previous_handle = $handle;
-        }
-
-        // Không có trang nào cần 2 file này cho first paint:
-        // - search.css: chỉ style .nh-search (display:none mặc định, JS bật .is-open khi bấm nút
-        //   tìm kiếm trong header) — xem comment đầu file search.css.
-        // - forms.css: chỉ style .nh-newsletter, dùng đúng 1 chỗ là footer.php (site-wide, luôn
-        //   dưới fold). .nh-field/.nh-label khai báo nhưng chưa component nào dùng.
-        // Dùng cơ chế media-swap có sẵn (PerformanceHook::apply_style_loading_strategy):
-        // tải với media=print (không chặn render) rồi JS-less onload đổi thành media=all,
-        // kèm <noscript> fallback cho trình duyệt tắt JS.
-        underscores_child_mark_style_loading_strategy('nhato-search', 'media');
-        underscores_child_mark_style_loading_strategy('nhato-forms', 'media');
-
-        // Per-template defer: Playwright rendered mỗi trang ở 2 viewport (390×844, 1440×900),
-        // với mỗi file kiểm tra "có selector nào khớp element nằm trong fold không" (không tách
-        // rule bên trong file — an toàn hơn, tránh vỡ thứ tự cascade/reconstruct @media sai).
-        // File không khớp ở CẢ 2 viewport trên template đó → defer qua media-swap.
-        // tokens/chrome/mobile KHÔNG BAO GIỜ nằm trong danh sách này: mobile.css có rule
-        // `.nh-header__call{display:none}` ẩn số điện thoại trong header ở mobile — element này
-        // mặc định HIỂN THỊ (chrome.css), heuristic rect-based không bắt được "file cần để ẨN
-        // thứ đang hiện" (rect đã =0 ở trạng thái cuối) — defer sai sẽ làm header vỡ layout
-        // thoáng qua lúc gap. Xem chi tiết & script phân tích trong commit message.
-        $template_defer_map = [
-            'front-page' => ['nhato-home-sections', 'nhato-pages', 'nhato-utilities'],
-            'about'      => ['nhato-actions', 'nhato-home-sections', 'nhato-utilities'],
-            'art'        => ['nhato-actions', 'nhato-home-sections', 'nhato-utilities'],
-            'network'    => ['nhato-actions', 'nhato-home-sections'],
-            'original'   => ['nhato-actions', 'nhato-home-sections'],
-            'space'      => ['nhato-actions', 'nhato-home-sections', 'nhato-utilities'],
-            'taste'      => ['nhato-actions', 'nhato-home-sections', 'nhato-utilities'],
-            'contact'    => ['nhato-actions', 'nhato-content', 'nhato-home-sections', 'nhato-utilities'],
-        ];
-        $current_template_slug = underscores_child_get_current_template_slug();
-        foreach ($template_defer_map[$current_template_slug] ?? [] as $deferred_handle) {
-            underscores_child_mark_style_loading_strategy($deferred_handle, 'media');
+            underscores_child_mark_style_loading_strategy('nhato-deferred', 'media');
+            $previous_handle = 'nhato-deferred';
         }
 
         wp_enqueue_style(
@@ -153,24 +139,17 @@ final class ThemeHook
 
     public function enqueue_common_js_assets(): void
     {
-        $defer = ['in_footer' => true, 'strategy' => 'defer'];
-
         do_action('underscores_before_common_js');
 
-        wp_enqueue_script(
-            'nhato-icons',
-            UNDERSCORES_SITE_TEMPLATE_URL . '/assets/icons/nhato-icons.js',
-            [],
-            underscores_child_template_asset_version('/assets/icons/nhato-icons.js'),
-            $defer
-        );
-
+        // nhato-icons.js + nhato.js gộp thành 1 file (scripts/build-asset-bundles.sh) — cả 2
+        // là IIFE độc lập `(function(){...})()`, nối theo đúng thứ tự cũ (icons trước, hành vi
+        // UI sau) nên giữ nguyên semantics, chỉ còn 1 request thay vì 2.
         wp_enqueue_script(
             'nhato-script',
-            UNDERSCORES_SITE_TEMPLATE_URL . '/assets/js/nhato.js',
-            ['nhato-icons'],
-            underscores_child_template_asset_version('/assets/js/nhato.js'),
-            $defer
+            UNDERSCORES_SITE_TEMPLATE_URL . '/assets/js/bundle.js',
+            [],
+            underscores_child_template_asset_version('/assets/js/bundle.js'),
+            ['in_footer' => true, 'strategy' => 'defer']
         );
 
         do_action('underscores_after_common_js');
