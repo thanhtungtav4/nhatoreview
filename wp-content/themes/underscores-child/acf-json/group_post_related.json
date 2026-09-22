@@ -11,6 +11,53 @@
             "endpoint": 0
         },
         {
+            "key": "field_post_featured_tab",
+            "label": "Bài đọc tiếp",
+            "name": "featured_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_post_featured_settings",
+            "label": "Bài đọc tiếp",
+            "name": "featured_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_post_featured_mode",
+                    "label": "Chế độ lấy bài",
+                    "name": "mode",
+                    "type": "select",
+                    "instructions": "Tự động lấy bài nổi bật mới nhất cùng chuyên mục. Chọn thủ công để chỉ định một bài.",
+                    "choices": {
+                        "auto": "Tự động — bài nổi bật",
+                        "manual": "Chọn 1 bài"
+                    },
+                    "default_value": "auto",
+                    "return_format": "value",
+                    "ui": 1,
+                    "allow_null": 0,
+                    "multiple": 0
+                },
+                {
+                    "key": "field_post_featured_post",
+                    "label": "Bài viết nổi bật",
+                    "name": "post",
+                    "type": "post_object",
+                    "instructions": "Chỉ dùng khi chọn thủ công. Chọn đúng 1 bài; bài đang xem sẽ tự động bị loại.",
+                    "post_type": [
+                        "post"
+                    ],
+                    "return_format": "id",
+                    "ui": 1,
+                    "allow_null": 1,
+                    "multiple": 0
+                }
+            ]
+        },
+        {
             "key": "field_post_related_settings",
             "label": "Bài viết liên quan",
             "name": "related_settings",

@@ -16,6 +16,10 @@ $related_mode = (($related_settings['mode'] ?? 'auto') === 'manual') ? 'manual' 
 $related_selected_posts = is_array($related_settings['posts'] ?? null)
     ? array_values(array_filter(array_map('absint', $related_settings['posts'])))
     : [];
+$featured_settings = function_exists('get_field') ? get_field('field_post_featured_settings', $post_id) : [];
+$featured_mode = (($featured_settings['mode'] ?? 'auto') === 'manual') ? 'manual' : 'auto';
+$featured_selected_post = absint($featured_settings['post'] ?? 0);
+
 
 $primary_term = underscores_get_primary_term($post_id, 'category');
 $primary_term_link = $primary_term instanceof WP_Term ? get_term_link($primary_term) : '';
@@ -94,7 +98,10 @@ $toc_entries = is_array($toc_data['toc'] ?? null) ? $toc_data['toc'] : [];
                     'update_post_term_cache' => false,
                 ];
 
-                if ($primary_term instanceof WP_Term) {
+                if ($featured_mode === 'manual') {
+                    $featured_query_args['post__in'] = $featured_selected_post > 0 ? [$featured_selected_post] : [0];
+                    $featured_query_args['orderby'] = 'post__in';
+                } elseif ($primary_term instanceof WP_Term) {
                     $featured_query_args['category__in'] = [(int) $primary_term->term_id];
                 }
 
