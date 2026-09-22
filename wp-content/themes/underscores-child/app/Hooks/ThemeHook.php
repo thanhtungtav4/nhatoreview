@@ -118,7 +118,6 @@ final class ThemeHook
         );
         underscores_child_mark_style_loading_strategy('nhato-deferred-base', 'preload');
 
-        $previous_handle = 'nhato-deferred-base';
         if ($group !== 'default') {
             wp_enqueue_style(
                 'nhato-deferred',
@@ -127,15 +126,15 @@ final class ThemeHook
                 underscores_child_template_asset_version('/assets/css/bundles/deferred-' . $group . '.css')
             );
             underscores_child_mark_style_loading_strategy('nhato-deferred', 'preload');
-            $previous_handle = 'nhato-deferred';
         }
 
-        wp_enqueue_style(
-            'underscores-child-style',
-            underscores_child_asset_uri('assets/css/child-theme.css'),
-            [$previous_handle],
-            underscores_child_asset_version('assets/css/child-theme.css')
-        );
+        // child-theme.css (real page-specific CSS — single-content layout, about-page
+        // timeline/team tweaks, partner grid, site-wide CF7 newsletter overrides; NOT the
+        // theme's required style.css header, which lives at the theme root and is never
+        // enqueued) used to be its own always-render-blocking <link>. It's now folded into
+        // the core.css bundle by scripts/build-asset-bundles.sh — same render-blocking
+        // priority either way, so this is a free request cut (see script comment for the
+        // selector-collision check done before merging).
 
         do_action('underscores_after_common_css');
     }
