@@ -151,7 +151,7 @@ if ($section_enabled($audience_settings) && $audiences !== []) : ?>
 
 $gallery = is_array($gallery_settings['images'] ?? null) ? $gallery_settings['images'] : [];
 if ($section_enabled($gallery_settings) && $gallery !== []) : ?>
-    <section class="section-gallery">
+    <section id="gallery" class="section-gallery">
         <div class="nh-container nh-intro u-gap-13">
             <?php if (!empty($gallery_settings['eyebrow'])) : ?><p class="nh-intro__eyebrow u-gap-8"><?php echo esc_html((string) $gallery_settings['eyebrow']); ?></p><?php endif; ?>
             <?php if (!empty($gallery_settings['title'])) : ?><h2 class="nh-intro__title"><?php echo esc_html((string) $gallery_settings['title']); ?></h2><?php endif; ?>
