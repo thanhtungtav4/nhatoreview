@@ -175,8 +175,24 @@
                     "default_value": 1
                 },
                 {
+                    "key": "field_page_taste_related_mode",
+                    "label": "Chế độ lấy bài",
+                    "name": "mode",
+                    "type": "select",
+                    "instructions": "Tự động lấy bài theo chuyên mục mặc định của trang hoặc chọn từng bài để kiểm soát nội dung và thứ tự.",
+                    "choices": {
+                        "auto": "Tự động",
+                        "manual": "Chọn từng bài"
+                    },
+                    "default_value": "auto",
+                    "return_format": "value",
+                    "ui": 1,
+                    "allow_null": 0,
+                    "multiple": 0
+                },
+                {
                     "key": "field_page_taste_related_posts",
-                    "label": "Bài viết liên quan",
+                    "label": "Bài viết chọn thủ công",
                     "name": "posts",
                     "type": "relationship",
                     "post_type": [
@@ -189,7 +205,8 @@
                     ],
                     "return_format": "id",
                     "min": 0,
-                    "max": 3
+                    "max": 3,
+                    "instructions": "Chỉ dùng khi chế độ là Chọn từng bài. Thứ tự tại đây sẽ là thứ tự hiển thị."
                 }
             ]
         }

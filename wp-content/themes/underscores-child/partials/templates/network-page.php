@@ -9,6 +9,7 @@ $_page_sections = [
     'audience' => is_array($page_fields['audience_settings'] ?? null) ? $page_fields['audience_settings'] : [],
     'gallery' => is_array($page_fields['gallery_settings'] ?? null) ? $page_fields['gallery_settings'] : [],
     'partners' => is_array($page_fields['partners_settings'] ?? null) ? $page_fields['partners_settings'] : [],
+    'related' => is_array($page_fields['related_settings'] ?? null) ? $page_fields['related_settings'] : [],
 ];
 $section_enabled = static function (array $section): bool {
     return !array_key_exists('is_show', $section) || (bool) $section['is_show'];
@@ -19,8 +20,10 @@ $audience_settings = $_page_sections['audience'];
 $gallery_settings = $_page_sections['gallery'];
 $partners_settings = $_page_sections['partners'];
 
+$related_settings = $_page_sections['related'];
+
 // Expected ACF sections: banner_settings, intro_settings, audience_settings,
-// gallery_settings, partners_settings.
+// gallery_settings, partners_settings, related_settings.
 $image_url = static function ($image): string {
     $id = is_array($image) ? absint($image['ID'] ?? $image['id'] ?? 0) : absint($image);
     if ($id > 0) {
@@ -28,13 +31,22 @@ $image_url = static function ($image): string {
     }
     return is_string($image) ? $image : '';
 };
-$render_related = static function (): void {
-    $query = new WP_Query([
-        'post_type'           => 'post',
-        'post_status'         => 'publish',
-        'posts_per_page'      => 3,
-        'ignore_sticky_posts' => true,
-    ]);
+$related_posts = is_array($related_settings['posts'] ?? null) ? $related_settings['posts'] : [];
+$selected_posts = array_values(array_filter(array_map('absint', $related_posts)));
+$related_mode = (($related_settings['mode'] ?? 'auto') === 'manual') ? 'manual' : 'auto';
+$related_query_args = [
+    'post_type' => 'post',
+    'post_status' => 'publish',
+    'posts_per_page' => 3,
+    'ignore_sticky_posts' => true,
+];
+if ($related_mode === 'manual') {
+    $related_query_args['post__in'] = $selected_posts !== [] ? $selected_posts : [0];
+    $related_query_args['orderby'] = 'post__in';
+}
+$related_query = new WP_Query($related_query_args);
+
+$render_related = static function (WP_Query $query): void {
     if (!$query->have_posts()) {
         return;
     }
@@ -188,4 +200,4 @@ if ($section_enabled($partners_settings) && $partners !== []) : ?>
     </section>
 <?php endif;
 
-$render_related();
+if ($section_enabled($related_settings)) { $render_related($related_query); }

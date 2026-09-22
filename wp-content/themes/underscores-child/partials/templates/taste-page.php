@@ -23,14 +23,15 @@ $image_url = static function ($image): string {
 };
 $related_posts = is_array($related_settings['posts'] ?? null) ? $related_settings['posts'] : [];
 $selected_posts = array_values(array_filter(array_map('absint', $related_posts)));
+$related_mode = (($related_settings['mode'] ?? 'auto') === 'manual') ? 'manual' : 'auto';
 $related_query_args = [
     'post_type' => 'post',
     'post_status' => 'publish',
     'posts_per_page' => 3,
     'ignore_sticky_posts' => true,
 ];
-if ($selected_posts !== []) {
-    $related_query_args['post__in'] = $selected_posts;
+if ($related_mode === 'manual') {
+    $related_query_args['post__in'] = $selected_posts !== [] ? $selected_posts : [0];
     $related_query_args['orderby'] = 'post__in';
 } else {
     $related_query_args['category_name'] = 'phong-vi';
