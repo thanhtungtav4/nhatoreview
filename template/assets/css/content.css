@@ -100,6 +100,7 @@
 /* ── Feature band — Figma: full-bleed #EDE9E3, padding 40/72/24, gap 40 ──
    420-wide copy column beside a 760×434 image; the even band reverses. */
 .nh-feature{background:var(--nh-paper-warm);display:flex;flex-direction:column;gap:40px;padding:40px 0 24px}
+.nh-feature + .nh-feature{margin-top:40px}
 .nh-feature__row{align-items:flex-start;display:flex;gap:40px;justify-content:space-between;margin-inline:auto;width:min(100% - (var(--gutter) * 2),var(--container-width))}
 .nh-feature__copy{display:flex;flex-direction:column;gap:15px;flex:0 1 420px;min-width:0}
 .nh-feature__number{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-32);font-weight:var(--weight-regular);line-height:var(--lh-tight)}
@@ -228,12 +229,13 @@
 
 /* ── Flanked heading — Figma (about): 280px rules either side ────────── */
 .nh-flanked{align-items:center;display:flex;gap:var(--space-7);justify-content:center;width:100%}
-.nh-flanked::before,.nh-flanked::after{background:var(--nh-gray-2);content:"";flex:1;height:.5px;min-width:0}
+.nh-flanked::before,.nh-flanked::after{background:var(--nh-gray-2);content:"";flex:none;height:.5px;width:280px}
 .nh-flanked span{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-24);font-weight:var(--weight-regular);letter-spacing:.04em;line-height:1;text-transform:uppercase;white-space:nowrap}
 .nh-break-mb{display:none}
 @media (max-width:620px){
   .nh-break-mb{display:inline}
   .nh-flanked{gap:12px}
+  .nh-flanked::before,.nh-flanked::after{flex:1;max-width:280px;min-width:0;width:auto}
   .nh-flanked span{line-height:1.25;min-width:0;white-space:normal}
 }
 
