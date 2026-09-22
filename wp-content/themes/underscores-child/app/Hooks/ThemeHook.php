@@ -117,6 +117,30 @@ final class ThemeHook
         underscores_child_mark_style_loading_strategy('nhato-search', 'media');
         underscores_child_mark_style_loading_strategy('nhato-forms', 'media');
 
+        // Per-template defer: Playwright rendered mỗi trang ở 2 viewport (390×844, 1440×900),
+        // với mỗi file kiểm tra "có selector nào khớp element nằm trong fold không" (không tách
+        // rule bên trong file — an toàn hơn, tránh vỡ thứ tự cascade/reconstruct @media sai).
+        // File không khớp ở CẢ 2 viewport trên template đó → defer qua media-swap.
+        // tokens/chrome/mobile KHÔNG BAO GIỜ nằm trong danh sách này: mobile.css có rule
+        // `.nh-header__call{display:none}` ẩn số điện thoại trong header ở mobile — element này
+        // mặc định HIỂN THỊ (chrome.css), heuristic rect-based không bắt được "file cần để ẨN
+        // thứ đang hiện" (rect đã =0 ở trạng thái cuối) — defer sai sẽ làm header vỡ layout
+        // thoáng qua lúc gap. Xem chi tiết & script phân tích trong commit message.
+        $template_defer_map = [
+            'front-page' => ['nhato-home-sections', 'nhato-pages', 'nhato-utilities'],
+            'about'      => ['nhato-actions', 'nhato-home-sections', 'nhato-utilities'],
+            'art'        => ['nhato-actions', 'nhato-home-sections', 'nhato-utilities'],
+            'network'    => ['nhato-actions', 'nhato-home-sections'],
+            'original'   => ['nhato-actions', 'nhato-home-sections'],
+            'space'      => ['nhato-actions', 'nhato-home-sections', 'nhato-utilities'],
+            'taste'      => ['nhato-actions', 'nhato-home-sections', 'nhato-utilities'],
+            'contact'    => ['nhato-actions', 'nhato-content', 'nhato-home-sections', 'nhato-utilities'],
+        ];
+        $current_template_slug = underscores_child_get_current_template_slug();
+        foreach ($template_defer_map[$current_template_slug] ?? [] as $deferred_handle) {
+            underscores_child_mark_style_loading_strategy($deferred_handle, 'media');
+        }
+
         wp_enqueue_style(
             'underscores-child-style',
             underscores_child_asset_uri('assets/css/child-theme.css'),
