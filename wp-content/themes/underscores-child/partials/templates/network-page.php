@@ -3,9 +3,24 @@ declare(strict_types=1);
 defined('ABSPATH') || exit;
 
 $page_fields = function_exists('get_fields') ? (get_fields() ?: []) : [];
+$_page_sections = [
+    'banner' => is_array($page_fields['banner_settings'] ?? null) ? $page_fields['banner_settings'] : [],
+    'intro' => is_array($page_fields['intro_settings'] ?? null) ? $page_fields['intro_settings'] : [],
+    'audience' => is_array($page_fields['audience_settings'] ?? null) ? $page_fields['audience_settings'] : [],
+    'gallery' => is_array($page_fields['gallery_settings'] ?? null) ? $page_fields['gallery_settings'] : [],
+    'partners' => is_array($page_fields['partners_settings'] ?? null) ? $page_fields['partners_settings'] : [],
+];
+$section_enabled = static function (array $section): bool {
+    return !array_key_exists('is_show', $section) || (bool) $section['is_show'];
+};
+$banner_settings = $_page_sections['banner'];
+$intro_settings = $_page_sections['intro'];
+$audience_settings = $_page_sections['audience'];
+$gallery_settings = $_page_sections['gallery'];
+$partners_settings = $_page_sections['partners'];
 
-// Expected ACF keys: hero_image, hero_lead, intro_eyebrow, intro_title, network_roles,
-// network_audiences, network_gallery, partners, related_posts.
+// Expected ACF sections: banner_settings, intro_settings, audience_settings,
+// gallery_settings, partners_settings.
 $image_url = static function ($image): string {
     $id = is_array($image) ? absint($image['ID'] ?? $image['id'] ?? 0) : absint($image);
     if ($id > 0) {
@@ -42,9 +57,9 @@ $render_related = static function (): void {
     wp_reset_postdata();
 };
 
-$hero_image = $image_url($page_fields['hero_image'] ?? get_post_thumbnail_id());
-$hero_lead  = (string) ($page_fields['hero_lead'] ?? '');
-if ($hero_image !== '' || $hero_lead !== '' || get_the_title() !== '') :
+$hero_image = $image_url($banner_settings['image'] ?? get_post_thumbnail_id());
+$hero_lead  = (string) ($banner_settings['lead'] ?? '');
+if ($section_enabled($banner_settings) && ($hero_image !== '' || $hero_lead !== '' || get_the_title() !== '')) :
     ?>
     <section class="nh-hero nh-hero--section">
         <?php if ($hero_image !== '') : ?><div class="nh-hero__media"><img src="<?php echo esc_url($hero_image); ?>" alt="" fetchpriority="high"></div><?php endif; ?>
@@ -57,10 +72,10 @@ if ($hero_image !== '' || $hero_lead !== '' || get_the_title() !== '') :
     <?php
 endif;
 
-$intro_eyebrow = (string) ($page_fields['intro_eyebrow'] ?? '');
-$intro_title   = (string) ($page_fields['intro_title'] ?? '');
-$roles         = is_array($page_fields['network_roles'] ?? null) ? $page_fields['network_roles'] : [];
-if ($intro_eyebrow !== '' || $intro_title !== '' || $roles !== []) :
+$intro_eyebrow = (string) ($intro_settings['eyebrow'] ?? '');
+$intro_title   = (string) ($intro_settings['title'] ?? '');
+$roles         = is_array($intro_settings['roles'] ?? null) ? $intro_settings['roles'] : [];
+if ($section_enabled($intro_settings) && ($intro_eyebrow !== '' || $intro_title !== '' || $roles !== [])) :
     ?>
     <section class="section-intro">
         <div class="nh-container nh-stack">
@@ -94,13 +109,13 @@ if ($intro_eyebrow !== '' || $intro_title !== '' || $roles !== []) :
     <?php
 endif;
 
-$audiences = is_array($page_fields['network_audiences'] ?? null) ? $page_fields['network_audiences'] : [];
-if ($audiences !== []) : ?>
+$audiences = is_array($audience_settings['items'] ?? null) ? $audience_settings['items'] : [];
+if ($section_enabled($audience_settings) && $audiences !== []) : ?>
     <section class="section-audience">
         <div class="nh-container section-audience__inner">
             <div>
-                <?php if (!empty($page_fields['audience_eyebrow'])) : ?><p class="nh-eyebrow"><?php echo esc_html((string) $page_fields['audience_eyebrow']); ?></p><?php endif; ?>
-                <?php if (!empty($page_fields['audience_title'])) : ?><h2 class="nh-section-title u-text-white"><?php echo wp_kses_post((string) $page_fields['audience_title']); ?></h2><?php endif; ?>
+                <?php if (!empty($audience_settings['eyebrow'])) : ?><p class="nh-eyebrow"><?php echo esc_html((string) $audience_settings['eyebrow']); ?></p><?php endif; ?>
+                <?php if (!empty($audience_settings['title'])) : ?><h2 class="nh-section-title u-text-white"><?php echo wp_kses_post((string) $audience_settings['title']); ?></h2><?php endif; ?>
             </div>
             <div class="section-audience__cards">
                 <?php foreach ($audiences as $audience) : if (!is_array($audience)) { continue; } ?>
@@ -117,12 +132,12 @@ if ($audiences !== []) : ?>
     </section>
 <?php endif;
 
-$gallery = is_array($page_fields['network_gallery'] ?? null) ? $page_fields['network_gallery'] : [];
-if ($gallery !== []) : ?>
+$gallery = is_array($gallery_settings['images'] ?? null) ? $gallery_settings['images'] : [];
+if ($section_enabled($gallery_settings) && $gallery !== []) : ?>
     <section class="section-gallery">
         <div class="nh-container nh-intro u-gap-13">
-            <?php if (!empty($page_fields['gallery_eyebrow'])) : ?><p class="nh-intro__eyebrow u-gap-8"><?php echo esc_html((string) $page_fields['gallery_eyebrow']); ?></p><?php endif; ?>
-            <?php if (!empty($page_fields['gallery_title'])) : ?><h2 class="nh-intro__title"><?php echo esc_html((string) $page_fields['gallery_title']); ?></h2><?php endif; ?>
+            <?php if (!empty($gallery_settings['eyebrow'])) : ?><p class="nh-intro__eyebrow u-gap-8"><?php echo esc_html((string) $gallery_settings['eyebrow']); ?></p><?php endif; ?>
+            <?php if (!empty($gallery_settings['title'])) : ?><h2 class="nh-intro__title"><?php echo esc_html((string) $gallery_settings['title']); ?></h2><?php endif; ?>
         </div>
         <?php
         $gallery = array_values($gallery);
@@ -147,15 +162,15 @@ if ($gallery !== []) : ?>
     </section>
 <?php endif;
 
-$partners = is_array($page_fields['partners'] ?? null) ? $page_fields['partners'] : [];
+$partners = is_array($partners_settings['items'] ?? null) ? $partners_settings['items'] : [];
 if ($partners === []) {
     $partners = is_array(underscores_get_option('partners', [])) ? underscores_get_option('partners', []) : [];
 }
-if ($partners !== []) : ?>
+if ($section_enabled($partners_settings) && $partners !== []) : ?>
     <section class="section-partners">
         <div class="nh-container nh-intro u-gap-13">
-            <?php if (!empty($page_fields['partners_eyebrow'])) : ?><p class="nh-intro__eyebrow u-gap-8"><?php echo esc_html((string) $page_fields['partners_eyebrow']); ?></p><?php endif; ?>
-            <?php if (!empty($page_fields['partners_title'])) : ?><h2 class="nh-intro__title"><?php echo esc_html((string) $page_fields['partners_title']); ?></h2><?php endif; ?>
+            <?php if (!empty($partners_settings['eyebrow'])) : ?><p class="nh-intro__eyebrow u-gap-8"><?php echo esc_html((string) $partners_settings['eyebrow']); ?></p><?php endif; ?>
+            <?php if (!empty($partners_settings['title'])) : ?><h2 class="nh-intro__title"><?php echo esc_html((string) $partners_settings['title']); ?></h2><?php endif; ?>
         </div>
         <div class="nh-container nh-partner-table">
             <?php foreach ($partners as $partner) : if (!is_array($partner)) { continue; } $logos = is_array($partner['logos'] ?? null) ? $partner['logos'] : []; ?>

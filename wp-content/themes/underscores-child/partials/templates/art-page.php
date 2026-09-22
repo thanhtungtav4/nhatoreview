@@ -3,8 +3,17 @@ declare(strict_types=1);
 defined('ABSPATH') || exit;
 
 $page_fields = function_exists('get_fields') ? (get_fields() ?: []) : [];
+$_page_sections = [
+    'banner' => is_array($page_fields['banner_settings'] ?? null) ? $page_fields['banner_settings'] : [],
+    'topics' => is_array($page_fields['topics_settings'] ?? null) ? $page_fields['topics_settings'] : [],
+];
+$section_enabled = static function (array $section): bool {
+    return !array_key_exists('is_show', $section) || (bool) $section['is_show'];
+};
+$banner_settings = $_page_sections['banner'];
+$topics_settings = $_page_sections['topics'];
 
-// Expected ACF keys: hero_image, hero_lead, art_features, art_stats.
+// Expected ACF sections: banner_settings, topics_settings.
 $image_url = static function ($image): string {
     $id = is_array($image) ? absint($image['ID'] ?? $image['id'] ?? 0) : absint($image);
     if ($id > 0) {
@@ -48,11 +57,11 @@ $render_related = static function (): void {
     wp_reset_postdata();
 };
 
-$hero_image = $image_url($page_fields['hero_image'] ?? get_post_thumbnail_id());
-$hero_title = trim((string) ($page_fields['hero_title'] ?? ''));
+$hero_image = $image_url($banner_settings['image'] ?? get_post_thumbnail_id());
+$hero_title = trim((string) ($banner_settings['title'] ?? ''));
 $hero_title = $hero_title !== '' ? $hero_title : trim((string) get_the_title());
-$hero_lead  = trim((string) ($page_fields['hero_lead'] ?? ''));
-if ($hero_image !== '' || $hero_lead !== '' || $hero_title !== '') :
+$hero_lead  = trim((string) ($banner_settings['lead'] ?? ''));
+if ($section_enabled($banner_settings) && ($hero_image !== '' || $hero_lead !== '' || $hero_title !== '')) :
     ?>
     <section class="nh-hero nh-hero--section">
         <?php if ($hero_image !== '') : ?><div class="nh-hero__media"><img src="<?php echo esc_url($hero_image); ?>" alt="" fetchpriority="high"></div><?php endif; ?>
@@ -65,15 +74,15 @@ if ($hero_image !== '' || $hero_lead !== '' || $hero_title !== '') :
     <?php
 endif;
 
-$features = is_array($page_fields['art_features'] ?? null) ? array_values(array_filter(
-    $page_fields['art_features'],
+$features = is_array($topics_settings['items'] ?? null) ? array_values(array_filter(
+    $topics_settings['items'],
     static fn ($feature): bool => is_array($feature) && array_filter(
         $feature,
         static fn ($value): bool => $value !== '' && $value !== [] && $value !== null && $value !== 0 && $value !== false
     ) !== []
 )) : [];
-$features_title = trim((string) ($page_fields['features_title'] ?? ''));
-if ($features !== []) :
+$features_title = trim((string) ($topics_settings['title'] ?? ''));
+if ($section_enabled($topics_settings) && $features !== []) :
     ?>
     <section class="section-head">
         <div class="nh-container nh-rule-head">
@@ -132,26 +141,5 @@ if ($features !== []) :
     <?php
 endif;
 
-$stats = is_array($page_fields['art_stats'] ?? null) ? $page_fields['art_stats'] : [];
-if ($stats !== []) :
-    ?>
-    <section class="section-statbar">
-        <div class="nh-container nh-statbar">
-            <div class="nh-statbar__group">
-                <?php foreach ($stats as $stat) :
-                    if (!is_array($stat) || (empty($stat['value']) && empty($stat['label']))) {
-                        continue;
-                    }
-                    ?>
-                    <span class="nh-stat">
-                        <?php if (!empty($stat['label'])) : ?><strong><?php echo esc_html((string) $stat['label']); ?></strong><?php endif; ?>
-                        <?php if (!empty($stat['value'])) : ?><span><?php echo esc_html((string) $stat['value']); ?></span><?php endif; ?>
-                    </span>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-    <?php
-endif;
 
 $render_related();

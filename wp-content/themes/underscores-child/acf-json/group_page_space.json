@@ -3,54 +3,148 @@
     "title": "Không gian sống — Nội dung",
     "fields": [
         {
-            "key": "field_page_space_hero_image",
-            "label": "Ảnh hero",
-            "name": "hero_image",
-            "type": "image",
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all"
+            "key": "field_page_space_banner_tab",
+            "label": "Banner",
+            "name": "banner_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_page_space_hero_lead",
-            "label": "Mô tả ngắn hero",
-            "name": "hero_lead",
-            "type": "textarea",
-            "rows": 3
-        },
-        {
-            "key": "field_page_space_categories",
-            "label": "Danh mục không gian",
-            "name": "space_categories",
-            "type": "repeater",
+            "key": "field_page_space_banner_settings",
+            "label": "Banner",
+            "name": "banner_settings",
+            "type": "group",
             "layout": "block",
-            "button_label": "Thêm danh mục",
-            "min": 0,
-            "max": 5,
             "sub_fields": [
                 {
-                    "key": "field_page_space_category_title",
-                    "label": "Tiêu đề",
+                    "key": "field_page_space_banner_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_space_hero_image",
+                    "label": "Ảnh hero",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_page_space_hero_lead",
+                    "label": "Mô tả ngắn hero",
+                    "name": "lead",
+                    "type": "textarea",
+                    "rows": 3
+                }
+            ]
+        },
+        {
+            "key": "field_page_space_categories_tab",
+            "label": "Danh mục không gian",
+            "name": "categories_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_page_space_categories_settings",
+            "label": "Danh mục không gian",
+            "name": "categories_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_space_categories_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_space_categories",
+                    "label": "Danh mục không gian",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm danh mục",
+                    "min": 0,
+                    "max": 5,
+                    "sub_fields": [
+                        {
+                            "key": "field_page_space_category_title",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_space_category_text",
+                            "label": "Mô tả",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 2
+                        },
+                        {
+                            "key": "field_page_space_category_icon",
+                            "label": "Mã biểu tượng",
+                            "name": "icon",
+                            "type": "text",
+                            "instructions": "Nhập mã biểu tượng trong bộ icon NHATO, ví dụ: nh-house."
+                        },
+                        {
+                            "key": "field_page_space_category_link",
+                            "label": "Liên kết",
+                            "name": "link",
+                            "type": "link",
+                            "return_format": "array"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_page_space_projects_tab",
+            "label": "Dự án",
+            "name": "projects_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_page_space_projects_settings",
+            "label": "Dự án",
+            "name": "projects_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_space_projects_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_space_projects_eyebrow",
+                    "label": "Nhãn dự án",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_space_projects_title",
+                    "label": "Tiêu đề dự án",
                     "name": "title",
                     "type": "text"
                 },
                 {
-                    "key": "field_page_space_category_text",
-                    "label": "Mô tả",
-                    "name": "text",
-                    "type": "textarea",
-                    "rows": 2
-                },
-                {
-                    "key": "field_page_space_category_icon",
-                    "label": "Mã biểu tượng",
-                    "name": "icon",
-                    "type": "text",
-                    "instructions": "Nhập mã biểu tượng trong bộ icon NHATO, ví dụ: nh-house."
-                },
-                {
-                    "key": "field_page_space_category_link",
-                    "label": "Liên kết",
+                    "key": "field_page_space_projects_link",
+                    "label": "Liên kết xem tất cả dự án",
                     "name": "link",
                     "type": "link",
                     "return_format": "array"
@@ -58,81 +152,87 @@
             ]
         },
         {
-            "key": "field_page_space_projects_eyebrow",
-            "label": "Nhãn dự án",
-            "name": "projects_eyebrow",
-            "type": "text"
+            "key": "field_page_space_values_tab",
+            "label": "Giá trị sống",
+            "name": "values_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_page_space_projects_title",
-            "label": "Tiêu đề dự án",
-            "name": "projects_title",
-            "type": "text"
-        },
-        {
-            "key": "field_page_space_projects_link",
-            "label": "Liên kết xem tất cả dự án",
-            "name": "projects_link",
-            "type": "link",
-            "return_format": "array"
-        },
-        {
-            "key": "field_page_space_value_image",
-            "label": "Ảnh dải giá trị",
-            "name": "value_image",
-            "type": "image",
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all"
-        },
-        {
-            "key": "field_page_space_value_eyebrow",
-            "label": "Nhãn giá trị",
-            "name": "value_eyebrow",
-            "type": "text"
-        },
-        {
-            "key": "field_page_space_value_title",
-            "label": "Tiêu đề giá trị",
-            "name": "value_title",
-            "type": "text"
-        },
-        {
-            "key": "field_page_space_value_text",
-            "label": "Mô tả giá trị",
-            "name": "value_text",
-            "type": "textarea",
-            "rows": 3
-        },
-        {
-            "key": "field_page_space_value_steps",
-            "label": "Quy trình giá trị",
-            "name": "value_steps",
-            "type": "repeater",
+            "key": "field_page_space_values_settings",
+            "label": "Giá trị sống",
+            "name": "values_settings",
+            "type": "group",
             "layout": "block",
-            "button_label": "Thêm bước",
-            "min": 0,
-            "max": 5,
             "sub_fields": [
                 {
-                    "key": "field_page_space_value_step_title",
-                    "label": "Tiêu đề bước",
+                    "key": "field_page_space_values_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_space_value_image",
+                    "label": "Ảnh dải giá trị",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_page_space_value_eyebrow",
+                    "label": "Nhãn giá trị",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_space_value_title",
+                    "label": "Tiêu đề giá trị",
                     "name": "title",
                     "type": "text"
                 },
                 {
-                    "key": "field_page_space_value_step_text",
-                    "label": "Mô tả bước",
+                    "key": "field_page_space_value_text",
+                    "label": "Mô tả giá trị",
                     "name": "text",
                     "type": "textarea",
-                    "rows": 2
+                    "rows": 3
                 },
                 {
-                    "key": "field_page_space_value_step_icon",
-                    "label": "Mã biểu tượng",
-                    "name": "icon",
-                    "type": "text",
-                    "instructions": "Nhập mã biểu tượng trong bộ icon NHATO, ví dụ: nh-listen."
+                    "key": "field_page_space_value_steps",
+                    "label": "Quy trình giá trị",
+                    "name": "steps",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm bước",
+                    "min": 0,
+                    "max": 5,
+                    "sub_fields": [
+                        {
+                            "key": "field_page_space_value_step_title",
+                            "label": "Tiêu đề bước",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_space_value_step_text",
+                            "label": "Mô tả bước",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 2
+                        },
+                        {
+                            "key": "field_page_space_value_step_icon",
+                            "label": "Mã biểu tượng",
+                            "name": "icon",
+                            "type": "text",
+                            "instructions": "Nhập mã biểu tượng trong bộ icon NHATO, ví dụ: nh-listen."
+                        }
+                    ]
                 }
             ]
         }

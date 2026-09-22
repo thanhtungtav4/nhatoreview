@@ -3,9 +3,17 @@ declare(strict_types=1);
 defined('ABSPATH') || exit;
 
 $page_fields = function_exists('get_fields') ? (get_fields() ?: []) : [];
+$_page_sections = [
+    'banner' => is_array($page_fields['banner_settings'] ?? null) ? $page_fields['banner_settings'] : [],
+    'intro' => is_array($page_fields['intro_settings'] ?? null) ? $page_fields['intro_settings'] : [],
+];
+$section_enabled = static function (array $section): bool {
+    return !array_key_exists('is_show', $section) || (bool) $section['is_show'];
+};
+$banner_settings = $_page_sections['banner'];
+$intro_settings = $_page_sections['intro'];
 
-// Expected ACF keys: hero_image, hero_lead, intro_eyebrow, intro_title,
-// original_panels, original_quote, original_features.
+// Expected ACF sections: banner_settings, intro_settings.
 $image_url = static function ($image): string {
     $id = is_array($image) ? absint($image['ID'] ?? $image['id'] ?? 0) : absint($image);
     if ($id > 0) {
@@ -46,9 +54,9 @@ $render_related = static function (): void {
     wp_reset_postdata();
 };
 
-$hero_image = $image_url($page_fields['hero_image'] ?? get_post_thumbnail_id());
-$hero_lead  = (string) ($page_fields['hero_lead'] ?? '');
-if ($hero_image !== '' || $hero_lead !== '' || get_the_title() !== '') :
+$hero_image = $image_url($banner_settings['image'] ?? get_post_thumbnail_id());
+$hero_lead  = (string) ($banner_settings['lead'] ?? '');
+if ($section_enabled($banner_settings) && ($hero_image !== '' || $hero_lead !== '' || get_the_title() !== '')) :
     ?>
     <section class="nh-hero nh-hero--section">
         <?php if ($hero_image !== '') : ?>
@@ -63,11 +71,11 @@ if ($hero_image !== '' || $hero_lead !== '' || get_the_title() !== '') :
     <?php
 endif;
 
-$intro_eyebrow = (string) ($page_fields['intro_eyebrow'] ?? '');
-$intro_title   = (string) ($page_fields['intro_title'] ?? '');
-$panels       = is_array($page_fields['original_panels'] ?? null) ? $page_fields['original_panels'] : [];
-$quote        = (string) ($page_fields['original_quote'] ?? '');
-if ($intro_eyebrow !== '' || $intro_title !== '' || $panels !== [] || $quote !== '') :
+$intro_eyebrow = (string) ($intro_settings['eyebrow'] ?? '');
+$intro_title   = (string) ($intro_settings['title'] ?? '');
+$panels       = is_array($intro_settings['panels'] ?? null) ? $intro_settings['panels'] : [];
+$quote        = (string) ($intro_settings['quote'] ?? '');
+if ($section_enabled($intro_settings) && ($intro_eyebrow !== '' || $intro_title !== '' || $panels !== [] || $quote !== '')) :
     ?>
     <section class="section-intro">
         <div class="nh-container nh-stack">
@@ -116,27 +124,5 @@ if ($intro_eyebrow !== '' || $intro_title !== '' || $panels !== [] || $quote !==
     <?php
 endif;
 
-$features = is_array($page_fields['original_features'] ?? null) ? $page_fields['original_features'] : [];
-foreach ($features as $index => $feature) :
-    if (!is_array($feature)) {
-        continue;
-    }
-    $src = $image_url($feature['image'] ?? '');
-    ?>
-    <section class="nh-feature<?php echo $index % 2 === 1 ? ' nh-feature--reverse' : ''; ?>">
-        <div class="nh-feature__row">
-            <div class="nh-feature__copy">
-                <p class="nh-feature__number"><?php echo esc_html(sprintf('%02d', $index + 1)); ?></p>
-                <?php if (!empty($feature['title'])) : ?><h3 class="nh-feature__title"><?php echo wp_kses_post((string) $feature['title']); ?></h3><?php endif; ?>
-                <span class="nh-feature__rule"></span>
-                <?php if (!empty($feature['text'])) : ?><p class="nh-feature__text"><?php echo esc_html((string) $feature['text']); ?></p><?php endif; ?>
-                <?php if (!empty($feature['link'])) : ?>
-                    <?php echo underscores_child_acf_link($feature['link'], '<span>' . esc_html__('Xem tất cả', 'underscores-child') . '</span><span class="nh-cta__arrow"><svg aria-hidden="true"><use href="#nh-arrow-right"></use></svg></span>', 'nh-cta nh-cta--ink'); ?>
-                <?php endif; ?>
-            </div>
-            <?php if ($src !== '') : ?><div class="nh-feature__media"><img src="<?php echo esc_url($src); ?>" alt="<?php echo esc_attr((string) ($feature['title'] ?? '')); ?>" loading="lazy"></div><?php endif; ?>
-        </div>
-    </section>
-<?php endforeach;
 
 $render_related();

@@ -3,57 +3,31 @@
     "title": "Network — Nội dung",
     "fields": [
         {
-            "key": "field_page_network_hero_image",
-            "label": "Ảnh hero",
-            "name": "hero_image",
-            "type": "image",
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all"
+            "key": "field_page_network_banner_tab",
+            "label": "Banner",
+            "name": "banner_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_page_network_hero_lead",
-            "label": "Mô tả ngắn hero",
-            "name": "hero_lead",
-            "type": "textarea",
-            "rows": 3
-        },
-        {
-            "key": "field_page_network_intro_eyebrow",
-            "label": "Nhãn giới thiệu",
-            "name": "intro_eyebrow",
-            "type": "text"
-        },
-        {
-            "key": "field_page_network_intro_title",
-            "label": "Tiêu đề giới thiệu",
-            "name": "intro_title",
-            "type": "text"
-        },
-        {
-            "key": "field_page_network_roles",
-            "label": "Vai trò trong mạng lưới",
-            "name": "network_roles",
-            "type": "repeater",
+            "key": "field_page_network_banner_settings",
+            "label": "Banner",
+            "name": "banner_settings",
+            "type": "group",
             "layout": "block",
-            "button_label": "Thêm vai trò",
             "sub_fields": [
                 {
-                    "key": "field_page_network_role_title",
-                    "label": "Tiêu đề",
-                    "name": "title",
-                    "type": "text"
+                    "key": "field_page_network_banner_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
                 },
                 {
-                    "key": "field_page_network_role_text",
-                    "label": "Mô tả",
-                    "name": "text",
-                    "type": "textarea",
-                    "rows": 3
-                },
-                {
-                    "key": "field_page_network_role_image",
-                    "label": "Ảnh nền",
+                    "key": "field_page_network_hero_image",
+                    "label": "Ảnh hero",
                     "name": "image",
                     "type": "image",
                     "return_format": "id",
@@ -61,124 +35,275 @@
                     "library": "all"
                 },
                 {
-                    "key": "field_page_network_role_icon",
-                    "label": "Mã biểu tượng",
-                    "name": "icon",
-                    "type": "text"
-                }
-            ]
-        },
-        {
-            "key": "field_page_network_audience_eyebrow",
-            "label": "Nhãn đối tượng",
-            "name": "audience_eyebrow",
-            "type": "text"
-        },
-        {
-            "key": "field_page_network_audience_title",
-            "label": "Tiêu đề đối tượng",
-            "name": "audience_title",
-            "type": "textarea",
-            "rows": 2
-        },
-        {
-            "key": "field_page_network_audiences",
-            "label": "Đối tượng kết nối",
-            "name": "network_audiences",
-            "type": "repeater",
-            "layout": "block",
-            "button_label": "Thêm đối tượng",
-            "sub_fields": [
-                {
-                    "key": "field_page_network_audience_card_title",
-                    "label": "Tiêu đề",
-                    "name": "title",
-                    "type": "text"
-                },
-                {
-                    "key": "field_page_network_audience_subtitle",
-                    "label": "Nhãn phụ",
-                    "name": "subtitle",
-                    "type": "text"
-                },
-                {
-                    "key": "field_page_network_audience_text",
-                    "label": "Mô tả",
-                    "name": "text",
+                    "key": "field_page_network_hero_lead",
+                    "label": "Mô tả ngắn hero",
+                    "name": "lead",
                     "type": "textarea",
                     "rows": 3
                 }
             ]
         },
         {
-            "key": "field_page_network_gallery_eyebrow",
-            "label": "Nhãn thư viện ảnh",
-            "name": "gallery_eyebrow",
-            "type": "text"
+            "key": "field_page_network_intro_tab",
+            "label": "Vai trò trong mạng lưới",
+            "name": "intro_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_page_network_gallery_title",
-            "label": "Tiêu đề thư viện ảnh",
-            "name": "gallery_title",
-            "type": "text"
-        },
-        {
-            "key": "field_page_network_gallery",
-            "label": "Ảnh thư viện",
-            "name": "network_gallery",
-            "type": "gallery",
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all"
-        },
-        {
-            "key": "field_page_network_partners_eyebrow",
-            "label": "Nhãn đối tác",
-            "name": "partners_eyebrow",
-            "type": "text"
-        },
-        {
-            "key": "field_page_network_partners_title",
-            "label": "Tiêu đề đối tác",
-            "name": "partners_title",
-            "type": "text"
-        },
-        {
-            "key": "field_page_network_partners",
-            "label": "Danh sách đối tác",
-            "name": "partners",
-            "type": "repeater",
+            "key": "field_page_network_intro_settings",
+            "label": "Vai trò trong mạng lưới",
+            "name": "intro_settings",
+            "type": "group",
             "layout": "block",
-            "button_label": "Thêm nhóm đối tác",
             "sub_fields": [
                 {
-                    "key": "field_page_network_partner_title",
-                    "label": "Tên nhóm",
+                    "key": "field_page_network_intro_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_network_intro_eyebrow",
+                    "label": "Nhãn giới thiệu",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_network_intro_title",
+                    "label": "Tiêu đề giới thiệu",
                     "name": "title",
                     "type": "text"
                 },
                 {
-                    "key": "field_page_network_partner_subtitle",
-                    "label": "Nhãn phụ",
-                    "name": "subtitle",
-                    "type": "text"
-                },
-                {
-                    "key": "field_page_network_partner_logos",
-                    "label": "Logo",
-                    "name": "logos",
+                    "key": "field_page_network_roles",
+                    "label": "Vai trò trong mạng lưới",
+                    "name": "roles",
                     "type": "repeater",
-                    "layout": "table",
-                    "button_label": "Thêm logo",
+                    "layout": "block",
+                    "button_label": "Thêm vai trò",
                     "sub_fields": [
                         {
-                            "key": "field_page_network_partner_logo_image",
-                            "label": "Logo",
+                            "key": "field_page_network_role_title",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_network_role_text",
+                            "label": "Mô tả",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 3
+                        },
+                        {
+                            "key": "field_page_network_role_image",
+                            "label": "Ảnh nền",
                             "name": "image",
                             "type": "image",
                             "return_format": "id",
                             "preview_size": "medium",
                             "library": "all"
+                        },
+                        {
+                            "key": "field_page_network_role_icon",
+                            "label": "Mã biểu tượng",
+                            "name": "icon",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_page_network_audience_tab",
+            "label": "Đối tượng kết nối",
+            "name": "audience_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_page_network_audience_settings",
+            "label": "Đối tượng kết nối",
+            "name": "audience_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_network_audience_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_network_audience_eyebrow",
+                    "label": "Nhãn đối tượng",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_network_audience_title",
+                    "label": "Tiêu đề đối tượng",
+                    "name": "title",
+                    "type": "textarea",
+                    "rows": 2
+                },
+                {
+                    "key": "field_page_network_audiences",
+                    "label": "Đối tượng kết nối",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm đối tượng",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_network_audience_card_title",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_network_audience_subtitle",
+                            "label": "Nhãn phụ",
+                            "name": "subtitle",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_network_audience_text",
+                            "label": "Mô tả",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 3
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_page_network_gallery_tab",
+            "label": "Thư viện ảnh",
+            "name": "gallery_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_page_network_gallery_settings",
+            "label": "Thư viện ảnh",
+            "name": "gallery_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_network_gallery_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_network_gallery_eyebrow",
+                    "label": "Nhãn thư viện ảnh",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_network_gallery_title",
+                    "label": "Tiêu đề thư viện ảnh",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_network_gallery",
+                    "label": "Ảnh thư viện",
+                    "name": "images",
+                    "type": "gallery",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all"
+                }
+            ]
+        },
+        {
+            "key": "field_page_network_partners_tab",
+            "label": "Đối tác",
+            "name": "partners_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_page_network_partners_settings",
+            "label": "Đối tác",
+            "name": "partners_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_network_partners_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_network_partners_eyebrow",
+                    "label": "Nhãn đối tác",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_network_partners_title",
+                    "label": "Tiêu đề đối tác",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_network_partners",
+                    "label": "Danh sách đối tác",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm nhóm đối tác",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_network_partner_title",
+                            "label": "Tên nhóm",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_network_partner_subtitle",
+                            "label": "Nhãn phụ",
+                            "name": "subtitle",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_network_partner_logos",
+                            "label": "Logo",
+                            "name": "logos",
+                            "type": "repeater",
+                            "layout": "table",
+                            "button_label": "Thêm logo",
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_network_partner_logo_image",
+                                    "label": "Logo",
+                                    "name": "image",
+                                    "type": "image",
+                                    "return_format": "id",
+                                    "preview_size": "medium",
+                                    "library": "all"
+                                }
+                            ]
                         }
                     ]
                 }

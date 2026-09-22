@@ -3,97 +3,222 @@
     "title": "Liên hệ — Nội dung",
     "fields": [
         {
-            "key": "field_page_contact_hero_image",
-            "label": "Ảnh hero",
-            "name": "hero_image",
-            "type": "image",
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all"
+            "key": "field_page_contact_banner_tab",
+            "label": "Banner",
+            "name": "banner_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_page_contact_hero_lead",
-            "label": "Mô tả hero",
-            "name": "hero_lead",
-            "type": "textarea",
-            "rows": 3
-        },
-        {
-            "key": "field_page_contact_close_title",
-            "label": "Tiêu đề dải kết",
-            "name": "close_title",
-            "type": "textarea",
-            "rows": 2,
-            "instructions": "Có thể dùng thẻ br để xuống dòng."
-        },
-        {
-            "key": "field_page_contact_close_lead",
-            "label": "Mô tả dải kết",
-            "name": "close_lead",
-            "type": "textarea",
-            "rows": 3
-        },
-        {
-            "key": "field_page_contact_close_link",
-            "label": "Liên kết dải kết",
-            "name": "close_link",
-            "type": "link",
-            "return_format": "array"
-        },
-        {
-            "key": "field_page_contact_info_title",
-            "label": "Tiêu đề thông tin",
-            "name": "contact_info_title",
-            "type": "text"
-        },
-        {
-            "key": "field_page_contact_info",
-            "label": "Thông tin liên hệ",
-            "name": "contact_info",
-            "type": "repeater",
+            "key": "field_page_contact_banner_settings",
+            "label": "Banner",
+            "name": "banner_settings",
+            "type": "group",
             "layout": "block",
-            "button_label": "Thêm thông tin",
             "sub_fields": [
                 {
-                    "key": "field_page_contact_info_label",
-                    "label": "Nhãn",
-                    "name": "label",
+                    "key": "field_page_contact_banner_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_contact_hero_image",
+                    "label": "Ảnh hero",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_page_contact_hero_lead",
+                    "label": "Mô tả hero",
+                    "name": "lead",
+                    "type": "textarea",
+                    "rows": 3
+                }
+            ]
+        },
+        {
+            "key": "field_page_contact_close_tab",
+            "label": "Dải kết",
+            "name": "close_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_page_contact_close_settings",
+            "label": "Dải kết",
+            "name": "close_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_contact_close_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_contact_close_title",
+                    "label": "Tiêu đề dải kết",
+                    "name": "title",
+                    "type": "textarea",
+                    "rows": 2,
+                    "instructions": "Có thể dùng thẻ br để xuống dòng."
+                },
+                {
+                    "key": "field_page_contact_close_lead",
+                    "label": "Mô tả dải kết",
+                    "name": "lead",
+                    "type": "textarea",
+                    "rows": 3
+                },
+                {
+                    "key": "field_page_contact_close_link",
+                    "label": "Liên kết dải kết",
+                    "name": "link",
+                    "type": "link",
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "field_page_contact_info_tab",
+            "label": "Thông tin liên hệ",
+            "name": "info_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_page_contact_info_settings",
+            "label": "Thông tin liên hệ",
+            "name": "info_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_contact_info_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_contact_info_title",
+                    "label": "Tiêu đề thông tin",
+                    "name": "title",
                     "type": "text"
                 },
                 {
-                    "key": "field_page_contact_info_value",
-                    "label": "Nội dung",
-                    "name": "value",
+                    "key": "field_page_contact_info",
+                    "label": "Thông tin liên hệ",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm thông tin",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_contact_info_label",
+                            "label": "Nhãn",
+                            "name": "label",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_contact_info_value",
+                            "label": "Nội dung",
+                            "name": "value",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_page_contact_form_image",
+                    "label": "Ảnh khối thông tin",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all"
+                }
+            ]
+        },
+        {
+            "key": "field_page_contact_form_tab",
+            "label": "Biểu mẫu liên hệ",
+            "name": "form_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_page_contact_form_settings",
+            "label": "Biểu mẫu liên hệ",
+            "name": "form_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_contact_form_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_contact_form_title",
+                    "label": "Tiêu đề biểu mẫu",
+                    "name": "title",
                     "type": "text"
                 }
             ]
         },
         {
-            "key": "field_page_contact_form_title",
-            "label": "Tiêu đề biểu mẫu",
-            "name": "contact_form_title",
-            "type": "text"
+            "key": "field_page_contact_map_tab",
+            "label": "Bản đồ",
+            "name": "map_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_page_contact_form_image",
-            "label": "Ảnh khối thông tin",
-            "name": "contact_form_image",
-            "type": "image",
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all"
-        },
-        {
-            "key": "field_page_contact_map_title",
-            "label": "Tiêu đề bản đồ",
-            "name": "map_title",
-            "type": "text"
-        },
-        {
-            "key": "field_page_contact_map_url",
-            "label": "Địa chỉ nhúng bản đồ",
-            "name": "map_url",
-            "type": "url"
+            "key": "field_page_contact_map_settings",
+            "label": "Bản đồ",
+            "name": "map_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_contact_map_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_contact_map_title",
+                    "label": "Tiêu đề bản đồ",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_contact_map_url",
+                    "label": "Địa chỉ nhúng bản đồ",
+                    "name": "url",
+                    "type": "url"
+                }
+            ]
         }
     ],
     "location": [

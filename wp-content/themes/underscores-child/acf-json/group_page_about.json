@@ -3,122 +3,31 @@
     "title": "Về NHATO — Nội dung",
     "fields": [
         {
-            "key": "field_page_about_hero_image",
-            "label": "Ảnh hero",
-            "name": "hero_image",
-            "type": "image",
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all"
+            "key": "field_page_about_banner_tab",
+            "label": "Banner",
+            "name": "banner_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_page_about_hero_lead",
-            "label": "Mô tả hero",
-            "name": "hero_lead",
-            "type": "textarea",
-            "rows": 3
-        },
-        {
-            "key": "field_page_about_intro_title",
-            "label": "Tiêu đề giới thiệu",
-            "name": "intro_title",
-            "type": "textarea",
-            "rows": 2
-        },
-        {
-            "key": "field_page_about_intro_lead",
-            "label": "Mô tả giới thiệu",
-            "name": "intro_lead",
-            "type": "textarea",
-            "rows": 5
-        },
-        {
-            "key": "field_page_about_intro_image",
-            "label": "Ảnh giới thiệu chính",
-            "name": "about_intro_image",
-            "type": "image",
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all"
-        },
-        {
-            "key": "field_page_about_intro_images",
-            "label": "Ảnh giới thiệu bổ sung",
-            "name": "about_intro_images",
-            "type": "gallery",
-            "return_format": "id",
-            "preview_size": "medium",
-            "insert": "append",
-            "library": "all"
-        },
-        {
-            "key": "field_page_about_timeline_eyebrow",
-            "label": "Nhãn timeline",
-            "name": "timeline_eyebrow",
-            "type": "text"
-        },
-        {
-            "key": "field_page_about_timeline_title",
-            "label": "Tiêu đề timeline",
-            "name": "timeline_title",
-            "type": "textarea",
-            "rows": 2
-        },
-        {
-            "key": "field_page_about_timeline_lead",
-            "label": "Mô tả timeline",
-            "name": "timeline_lead",
-            "type": "textarea",
-            "rows": 4
-        },
-        {
-            "key": "field_page_about_timeline",
-            "label": "Các mốc hành trình",
-            "name": "about_timeline",
-            "type": "repeater",
-            "layout": "block",
-            "button_label": "Thêm mốc",
-            "sub_fields": [
-                {
-                    "key": "field_page_about_timeline_image",
-                    "label": "Ảnh",
-                    "name": "image",
-                    "type": "image",
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all"
-                },
-                {
-                    "key": "field_page_about_timeline_number",
-                    "label": "Số thứ tự",
-                    "name": "number",
-                    "type": "text"
-                },
-                {
-                    "key": "field_page_about_timeline_item_title",
-                    "label": "Tiêu đề",
-                    "name": "title",
-                    "type": "text"
-                },
-                {
-                    "key": "field_page_about_timeline_text",
-                    "label": "Nội dung",
-                    "name": "text",
-                    "type": "textarea",
-                    "rows": 5
-                }
-            ]
-        },
-        {
-            "key": "field_page_about_vision",
-            "label": "Tầm nhìn",
-            "name": "about_vision",
+            "key": "field_page_about_banner_settings",
+            "label": "Banner",
+            "name": "banner_settings",
             "type": "group",
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_page_about_vision_image",
-                    "label": "Ảnh nền",
+                    "key": "field_page_about_banner_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_about_hero_image",
+                    "label": "Ảnh hero",
                     "name": "image",
                     "type": "image",
                     "return_format": "id",
@@ -126,192 +35,433 @@
                     "library": "all"
                 },
                 {
-                    "key": "field_page_about_vision_icon",
-                    "label": "Biểu tượng SVG",
-                    "name": "icon",
-                    "type": "textarea",
-                    "rows": 2
-                },
-                {
-                    "key": "field_page_about_vision_title",
-                    "label": "Tiêu đề",
-                    "name": "title",
-                    "type": "text"
-                },
-                {
-                    "key": "field_page_about_vision_text",
-                    "label": "Nội dung",
-                    "name": "text",
-                    "type": "textarea",
-                    "rows": 4
-                }
-            ]
-        },
-        {
-            "key": "field_page_about_mission",
-            "label": "Sứ mệnh",
-            "name": "about_mission",
-            "type": "group",
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_page_about_mission_image",
-                    "label": "Ảnh nền",
-                    "name": "image",
-                    "type": "image",
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all"
-                },
-                {
-                    "key": "field_page_about_mission_icon",
-                    "label": "Biểu tượng SVG",
-                    "name": "icon",
-                    "type": "textarea",
-                    "rows": 2
-                },
-                {
-                    "key": "field_page_about_mission_title",
-                    "label": "Tiêu đề",
-                    "name": "title",
-                    "type": "text"
-                },
-                {
-                    "key": "field_page_about_mission_text",
-                    "label": "Nội dung",
-                    "name": "text",
-                    "type": "textarea",
-                    "rows": 4
-                }
-            ]
-        },
-        {
-            "key": "field_page_about_values_eyebrow",
-            "label": "Nhãn giá trị cốt lõi",
-            "name": "values_eyebrow",
-            "type": "text"
-        },
-        {
-            "key": "field_page_about_values_title",
-            "label": "Tiêu đề giá trị cốt lõi",
-            "name": "values_title",
-            "type": "text"
-        },
-        {
-            "key": "field_page_about_values",
-            "label": "Giá trị cốt lõi",
-            "name": "about_values",
-            "type": "repeater",
-            "layout": "block",
-            "button_label": "Thêm giá trị",
-            "sub_fields": [
-                {
-                    "key": "field_page_about_value_title",
-                    "label": "Tên giá trị",
-                    "name": "title",
-                    "type": "text"
-                },
-                {
-                    "key": "field_page_about_value_text",
-                    "label": "Mô tả",
-                    "name": "text",
+                    "key": "field_page_about_hero_lead",
+                    "label": "Mô tả hero",
+                    "name": "lead",
                     "type": "textarea",
                     "rows": 3
                 }
             ]
         },
         {
-            "key": "field_page_about_team_eyebrow",
-            "label": "Nhãn đội ngũ",
-            "name": "team_eyebrow",
-            "type": "text"
+            "key": "field_page_about_intro_tab",
+            "label": "Giới thiệu",
+            "name": "intro_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_page_about_team_title",
-            "label": "Tiêu đề đội ngũ",
-            "name": "team_title",
-            "type": "text"
-        },
-        {
-            "key": "field_page_about_team",
-            "label": "Đội ngũ",
-            "name": "about_team",
-            "type": "repeater",
+            "key": "field_page_about_intro_settings",
+            "label": "Giới thiệu",
+            "name": "intro_settings",
+            "type": "group",
             "layout": "block",
-            "button_label": "Thêm thành viên",
             "sub_fields": [
                 {
-                    "key": "field_page_about_team_photo",
-                    "label": "Ảnh chân dung",
-                    "name": "photo_id",
+                    "key": "field_page_about_intro_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_about_intro_title",
+                    "label": "Tiêu đề giới thiệu",
+                    "name": "title",
+                    "type": "textarea",
+                    "rows": 2
+                },
+                {
+                    "key": "field_page_about_intro_lead",
+                    "label": "Mô tả giới thiệu",
+                    "name": "lead",
+                    "type": "textarea",
+                    "rows": 5
+                },
+                {
+                    "key": "field_page_about_intro_image",
+                    "label": "Ảnh giới thiệu chính",
+                    "name": "image",
                     "type": "image",
                     "return_format": "id",
                     "preview_size": "medium",
                     "library": "all"
                 },
                 {
-                    "key": "field_page_about_team_name",
-                    "label": "Tên",
-                    "name": "name",
-                    "type": "text"
-                },
-                {
-                    "key": "field_page_about_team_role",
-                    "label": "Vai trò",
-                    "name": "role",
-                    "type": "text"
+                    "key": "field_page_about_intro_images",
+                    "label": "Ảnh giới thiệu bổ sung",
+                    "name": "images",
+                    "type": "gallery",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all"
                 }
             ]
         },
         {
-            "key": "field_page_about_videos_eyebrow",
-            "label": "Nhãn video",
-            "name": "videos_eyebrow",
-            "type": "text"
+            "key": "field_page_about_timeline_tab",
+            "label": "Hành trình",
+            "name": "timeline_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_page_about_videos_title",
-            "label": "Tiêu đề video",
-            "name": "videos_title",
-            "type": "text"
-        },
-        {
-            "key": "field_page_about_videos",
-            "label": "Video giới thiệu",
-            "name": "about_videos",
-            "type": "repeater",
+            "key": "field_page_about_timeline_settings",
+            "label": "Hành trình",
+            "name": "timeline_settings",
+            "type": "group",
             "layout": "block",
-            "button_label": "Thêm video",
             "sub_fields": [
                 {
-                    "key": "field_page_about_video_thumbnail",
-                    "label": "Ảnh thumbnail",
-                    "name": "thumbnail_id",
-                    "type": "image",
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all"
+                    "key": "field_page_about_timeline_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
                 },
                 {
-                    "key": "field_page_about_video_url",
-                    "label": "Link YouTube",
-                    "name": "youtube_url",
-                    "type": "url"
+                    "key": "field_page_about_timeline_eyebrow",
+                    "label": "Nhãn timeline",
+                    "name": "eyebrow",
+                    "type": "text"
                 },
                 {
-                    "key": "field_page_about_video_title",
-                    "label": "Tiêu đề",
+                    "key": "field_page_about_timeline_title",
+                    "label": "Tiêu đề timeline",
+                    "name": "title",
+                    "type": "textarea",
+                    "rows": 2
+                },
+                {
+                    "key": "field_page_about_timeline_lead",
+                    "label": "Mô tả timeline",
+                    "name": "lead",
+                    "type": "textarea",
+                    "rows": 4
+                },
+                {
+                    "key": "field_page_about_timeline",
+                    "label": "Các mốc hành trình",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm mốc",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_about_timeline_image",
+                            "label": "Ảnh",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all"
+                        },
+                        {
+                            "key": "field_page_about_timeline_number",
+                            "label": "Số thứ tự",
+                            "name": "number",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_about_timeline_item_title",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_about_timeline_text",
+                            "label": "Nội dung",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 5
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_page_about_values_tab",
+            "label": "Giá trị cốt lõi",
+            "name": "values_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_page_about_values_settings",
+            "label": "Giá trị cốt lõi",
+            "name": "values_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_about_values_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_about_vision",
+                    "label": "Tầm nhìn",
+                    "name": "vision",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_about_vision_image",
+                            "label": "Ảnh nền",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all"
+                        },
+                        {
+                            "key": "field_page_about_vision_icon",
+                            "label": "Biểu tượng SVG",
+                            "name": "icon",
+                            "type": "textarea",
+                            "rows": 2
+                        },
+                        {
+                            "key": "field_page_about_vision_title",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_about_vision_text",
+                            "label": "Nội dung",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 4
+                        }
+                    ]
+                },
+                {
+                    "key": "field_page_about_mission",
+                    "label": "Sứ mệnh",
+                    "name": "mission",
+                    "type": "group",
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_about_mission_image",
+                            "label": "Ảnh nền",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all"
+                        },
+                        {
+                            "key": "field_page_about_mission_icon",
+                            "label": "Biểu tượng SVG",
+                            "name": "icon",
+                            "type": "textarea",
+                            "rows": 2
+                        },
+                        {
+                            "key": "field_page_about_mission_title",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_about_mission_text",
+                            "label": "Nội dung",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 4
+                        }
+                    ]
+                },
+                {
+                    "key": "field_page_about_values_eyebrow",
+                    "label": "Nhãn giá trị cốt lõi",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_about_values_title",
+                    "label": "Tiêu đề giá trị cốt lõi",
                     "name": "title",
                     "type": "text"
+                },
+                {
+                    "key": "field_page_about_values",
+                    "label": "Giá trị cốt lõi",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm giá trị",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_about_value_title",
+                            "label": "Tên giá trị",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_about_value_text",
+                            "label": "Mô tả",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 3
+                        }
+                    ]
                 }
             ]
         },
         {
-            "key": "field_page_about_videos_cta",
-            "label": "Liên kết xem tất cả",
-            "name": "videos_cta",
-            "type": "link",
-            "return_format": "array"
+            "key": "field_page_about_team_tab",
+            "label": "Đội ngũ",
+            "name": "team_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_page_about_team_settings",
+            "label": "Đội ngũ",
+            "name": "team_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_about_team_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_about_team_eyebrow",
+                    "label": "Nhãn đội ngũ",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_about_team_title",
+                    "label": "Tiêu đề đội ngũ",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_about_team",
+                    "label": "Đội ngũ",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm thành viên",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_about_team_photo",
+                            "label": "Ảnh chân dung",
+                            "name": "photo_id",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all"
+                        },
+                        {
+                            "key": "field_page_about_team_name",
+                            "label": "Tên",
+                            "name": "name",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_about_team_role",
+                            "label": "Vai trò",
+                            "name": "role",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_page_about_videos_tab",
+            "label": "Video",
+            "name": "videos_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_page_about_videos_settings",
+            "label": "Video",
+            "name": "videos_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_about_videos_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_about_videos_eyebrow",
+                    "label": "Nhãn video",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_about_videos_title",
+                    "label": "Tiêu đề video",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_about_videos",
+                    "label": "Video giới thiệu",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm video",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_about_video_thumbnail",
+                            "label": "Ảnh thumbnail",
+                            "name": "thumbnail_id",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all"
+                        },
+                        {
+                            "key": "field_page_about_video_url",
+                            "label": "Link YouTube",
+                            "name": "youtube_url",
+                            "type": "url"
+                        },
+                        {
+                            "key": "field_page_about_video_title",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_page_about_videos_cta",
+                    "label": "Liên kết xem tất cả",
+                    "name": "cta",
+                    "type": "link",
+                    "return_format": "array"
+                }
+            ]
         }
     ],
     "location": [

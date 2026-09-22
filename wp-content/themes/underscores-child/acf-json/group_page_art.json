@@ -3,45 +3,31 @@
     "title": "Nghệ thuật — Nội dung",
     "fields": [
         {
-            "key": "field_page_art_hero_image",
-            "label": "Ảnh hero",
-            "name": "hero_image",
-            "type": "image",
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all"
+            "key": "field_page_art_banner_tab",
+            "label": "Banner",
+            "name": "banner_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_page_art_hero_title",
-            "label": "Tiêu đề hero",
-            "name": "hero_title",
-            "type": "text",
-            "instructions": "Có thể dùng <br> để xuống dòng."
-        },
-        {
-            "key": "field_page_art_hero_lead",
-            "label": "Mô tả hero",
-            "name": "hero_lead",
-            "type": "textarea",
-            "rows": 3
-        },
-        {
-            "key": "field_page_art_features_title",
-            "label": "Tiêu đề chủ đề",
-            "name": "features_title",
-            "type": "text"
-        },
-        {
-            "key": "field_page_art_features",
-            "label": "Chủ đề nghệ thuật",
-            "name": "art_features",
-            "type": "repeater",
+            "key": "field_page_art_banner_settings",
+            "label": "Banner",
+            "name": "banner_settings",
+            "type": "group",
             "layout": "block",
-            "button_label": "Thêm chủ đề",
             "sub_fields": [
                 {
-                    "key": "field_page_art_feature_image",
-                    "label": "Ảnh",
+                    "key": "field_page_art_banner_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_art_hero_image",
+                    "label": "Ảnh hero",
                     "name": "image",
                     "type": "image",
                     "return_format": "id",
@@ -49,60 +35,124 @@
                     "library": "all"
                 },
                 {
-                    "key": "field_page_art_feature_title",
-                    "label": "Tiêu đề",
+                    "key": "field_page_art_hero_title",
+                    "label": "Tiêu đề hero",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "Có thể dùng <br> để xuống dòng."
+                },
+                {
+                    "key": "field_page_art_hero_lead",
+                    "label": "Mô tả hero",
+                    "name": "lead",
+                    "type": "textarea",
+                    "rows": 3
+                }
+            ]
+        },
+        {
+            "key": "field_page_art_topics_tab",
+            "label": "Chủ đề nghệ thuật",
+            "name": "topics_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_page_art_topics_settings",
+            "label": "Chủ đề nghệ thuật",
+            "name": "topics_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_art_topics_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_art_features_title",
+                    "label": "Tiêu đề chủ đề",
                     "name": "title",
                     "type": "text"
                 },
                 {
-                    "key": "field_page_art_feature_text",
-                    "label": "Mô tả",
-                    "name": "text",
-                    "type": "textarea",
-                    "rows": 5
-                },
-                {
-                    "key": "field_page_art_feature_link",
-                    "label": "Liên kết",
-                    "name": "link",
-                    "type": "link",
-                    "return_format": "array"
-                },
-                {
-                    "key": "field_page_art_feature_stats",
-                    "label": "Thông tin phụ",
-                    "name": "stats",
+                    "key": "field_page_art_features",
+                    "label": "Chủ đề nghệ thuật",
+                    "name": "items",
                     "type": "repeater",
-                    "layout": "table",
-                    "button_label": "Thêm thông tin",
+                    "layout": "block",
+                    "button_label": "Thêm chủ đề",
                     "sub_fields": [
                         {
-                            "key": "field_page_art_stat_icon",
-                            "label": "Biểu tượng",
-                            "name": "icon",
-                            "type": "text",
-                            "instructions": "ID biểu tượng trong sprite, ví dụ: nh-eye, nh-clock, nh-calendar."
+                            "key": "field_page_art_feature_image",
+                            "label": "Ảnh",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all"
                         },
                         {
-                            "key": "field_page_art_stat_label",
-                            "label": "Nhãn",
-                            "name": "label",
+                            "key": "field_page_art_feature_title",
+                            "label": "Tiêu đề",
+                            "name": "title",
                             "type": "text"
                         },
                         {
-                            "key": "field_page_art_stat_value",
-                            "label": "Giá trị",
-                            "name": "value",
-                            "type": "text"
+                            "key": "field_page_art_feature_text",
+                            "label": "Mô tả",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 5
+                        },
+                        {
+                            "key": "field_page_art_feature_link",
+                            "label": "Liên kết",
+                            "name": "link",
+                            "type": "link",
+                            "return_format": "array"
+                        },
+                        {
+                            "key": "field_page_art_feature_stats",
+                            "label": "Thông tin phụ",
+                            "name": "stats",
+                            "type": "repeater",
+                            "layout": "table",
+                            "button_label": "Thêm thông tin",
+                            "sub_fields": [
+                                {
+                                    "key": "field_page_art_stat_icon",
+                                    "label": "Biểu tượng",
+                                    "name": "icon",
+                                    "type": "text",
+                                    "instructions": "ID biểu tượng trong sprite, ví dụ: nh-eye, nh-clock, nh-calendar."
+                                },
+                                {
+                                    "key": "field_page_art_stat_label",
+                                    "label": "Nhãn",
+                                    "name": "label",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_page_art_stat_value",
+                                    "label": "Giá trị",
+                                    "name": "value",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_page_art_feature_share",
+                            "label": "Liên kết chia sẻ",
+                            "name": "share_link",
+                            "type": "link",
+                            "return_format": "array"
                         }
                     ]
-                },
-                {
-                    "key": "field_page_art_feature_share",
-                    "label": "Liên kết chia sẻ",
-                    "name": "share_link",
-                    "type": "link",
-                    "return_format": "array"
                 }
             ]
         }

@@ -3,120 +3,195 @@
     "title": "Phong vị — Nội dung",
     "fields": [
         {
-            "key": "field_page_taste_hero_image",
-            "label": "Ảnh hero",
-            "name": "hero_image",
-            "type": "image",
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all"
+            "key": "field_page_taste_banner_tab",
+            "label": "Banner",
+            "name": "banner_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_page_taste_intro_eyebrow",
-            "label": "Nhãn giới thiệu",
-            "name": "intro_eyebrow",
-            "type": "text"
-        },
-        {
-            "key": "field_page_taste_intro_title",
-            "label": "Tiêu đề giới thiệu",
-            "name": "intro_title",
-            "type": "textarea",
-            "rows": 2,
-            "new_lines": "br"
-        },
-        {
-            "key": "field_page_taste_intro_lead",
-            "label": "Mô tả giới thiệu",
-            "name": "intro_lead",
-            "type": "textarea",
-            "rows": 4
-        },
-        {
-            "key": "field_page_taste_pillars",
-            "label": "Các trụ cột",
-            "name": "taste_pillars",
-            "type": "repeater",
+            "key": "field_page_taste_banner_settings",
+            "label": "Banner",
+            "name": "banner_settings",
+            "type": "group",
             "layout": "block",
-            "button_label": "Thêm trụ cột",
             "sub_fields": [
                 {
-                    "key": "field_page_taste_pillar_icon",
-                    "label": "Mã biểu tượng",
-                    "name": "icon",
-                    "type": "text",
-                    "instructions": "Nhập mã biểu tượng trong sprite, ví dụ: nh-taste-space."
+                    "key": "field_page_taste_banner_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
                 },
                 {
-                    "key": "field_page_taste_pillar_title",
-                    "label": "Tiêu đề",
-                    "name": "title",
-                    "type": "text"
-                },
-                {
-                    "key": "field_page_taste_pillar_text",
-                    "label": "Mô tả",
-                    "name": "text",
-                    "type": "textarea",
-                    "rows": 4
-                }
-            ]
-        },
-        {
-            "key": "field_page_taste_portraits",
-            "label": "Các phong vị",
-            "name": "taste_portraits",
-            "type": "repeater",
-            "layout": "block",
-            "button_label": "Thêm phong vị",
-            "sub_fields": [
-                {
-                    "key": "field_page_taste_portrait_title",
-                    "label": "Tiêu đề",
-                    "name": "title",
-                    "type": "text"
-                },
-                {
-                    "key": "field_page_taste_portrait_text",
-                    "label": "Mô tả",
-                    "name": "text",
-                    "type": "textarea",
-                    "rows": 4
-                },
-                {
-                    "key": "field_page_taste_portrait_image",
-                    "label": "Ảnh",
+                    "key": "field_page_taste_hero_image",
+                    "label": "Ảnh hero",
                     "name": "image",
                     "type": "image",
                     "return_format": "id",
                     "preview_size": "medium",
                     "library": "all"
-                },
-                {
-                    "key": "field_page_taste_portrait_link",
-                    "label": "Liên kết",
-                    "name": "link",
-                    "type": "link",
-                    "return_format": "array"
                 }
             ]
         },
         {
-            "key": "field_page_taste_related_posts",
+            "key": "field_page_taste_intro_tab",
+            "label": "Giới thiệu",
+            "name": "intro_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_page_taste_intro_settings",
+            "label": "Giới thiệu",
+            "name": "intro_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_taste_intro_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_taste_intro_eyebrow",
+                    "label": "Nhãn giới thiệu",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_taste_intro_title",
+                    "label": "Tiêu đề giới thiệu",
+                    "name": "title",
+                    "type": "textarea",
+                    "rows": 2,
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_page_taste_intro_lead",
+                    "label": "Mô tả giới thiệu",
+                    "name": "lead",
+                    "type": "textarea",
+                    "rows": 4
+                },
+                {
+                    "key": "field_page_taste_pillars",
+                    "label": "Các trụ cột",
+                    "name": "pillars",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm trụ cột",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_taste_pillar_icon",
+                            "label": "Mã biểu tượng",
+                            "name": "icon",
+                            "type": "text",
+                            "instructions": "Nhập mã biểu tượng trong sprite, ví dụ: nh-taste-space."
+                        },
+                        {
+                            "key": "field_page_taste_pillar_title",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_taste_pillar_text",
+                            "label": "Mô tả",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 4
+                        }
+                    ]
+                },
+                {
+                    "key": "field_page_taste_portraits",
+                    "label": "Các phong vị",
+                    "name": "portraits",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm phong vị",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_taste_portrait_title",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_taste_portrait_text",
+                            "label": "Mô tả",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 4
+                        },
+                        {
+                            "key": "field_page_taste_portrait_image",
+                            "label": "Ảnh",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all"
+                        },
+                        {
+                            "key": "field_page_taste_portrait_link",
+                            "label": "Liên kết",
+                            "name": "link",
+                            "type": "link",
+                            "return_format": "array"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_page_taste_related_tab",
             "label": "Bài viết liên quan",
-            "name": "related_posts",
-            "type": "relationship",
-            "post_type": [
-                "post"
-            ],
-            "filters": [
-                "search",
-                "post_type",
-                "taxonomy"
-            ],
-            "return_format": "id",
-            "min": 0,
-            "max": 3
+            "name": "related_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_page_taste_related_settings",
+            "label": "Bài viết liên quan",
+            "name": "related_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_taste_related_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
+                {
+                    "key": "field_page_taste_related_posts",
+                    "label": "Bài viết liên quan",
+                    "name": "posts",
+                    "type": "relationship",
+                    "post_type": [
+                        "post"
+                    ],
+                    "filters": [
+                        "search",
+                        "post_type",
+                        "taxonomy"
+                    ],
+                    "return_format": "id",
+                    "min": 0,
+                    "max": 3
+                }
+            ]
         }
     ],
     "location": [
