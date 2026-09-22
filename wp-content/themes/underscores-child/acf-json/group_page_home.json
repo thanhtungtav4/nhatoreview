@@ -3,26 +3,45 @@
     "title": "Trang chủ — Nội dung",
     "fields": [
         {
+            "key": "field_page_home_banner_tab",
+            "label": "Banner",
+            "name": "banner_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_page_home_hero_settings",
-            "label": "Hero",
-            "name": "hero_settings",
+            "label": "Banner",
+            "name": "banner_settings",
             "type": "group",
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_page_home_hero_image",
-                    "label": "Ảnh hero",
-                    "name": "image",
-                    "type": "image",
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all"
+                    "key": "field_page_home_banner_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
                 },
                 {
                     "key": "field_page_home_hero_title",
                     "label": "Tiêu đề",
                     "name": "title",
-                    "type": "text"
+                    "type": "text",
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_page_home_hero_image",
+                    "label": "Ảnh banner",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all"
                 },
                 {
                     "key": "field_page_home_hero_lead",
@@ -41,12 +60,28 @@
             ]
         },
         {
+            "key": "field_page_home_category_strip_tab",
+            "label": "Danh mục khám phá",
+            "name": "category_strip_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_page_home_category_strip_settings",
             "label": "Danh mục khám phá",
             "name": "category_strip_settings",
             "type": "group",
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_page_home_category_strip_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
                 {
                     "key": "field_page_home_category_title",
                     "label": "Nhãn hỗ trợ",
@@ -95,12 +130,28 @@
             ]
         },
         {
+            "key": "field_page_home_style_picker_tab",
+            "label": "Chọn phong cách",
+            "name": "style_picker_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_page_home_style_picker_settings",
             "label": "Chọn phong cách",
             "name": "style_picker_settings",
             "type": "group",
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_page_home_style_picker_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
                 {
                     "key": "field_page_home_style_eyebrow",
                     "label": "Eyebrow",
@@ -162,12 +213,28 @@
             ]
         },
         {
+            "key": "field_page_home_booking_tab",
+            "label": "Đặt lịch trải nghiệm",
+            "name": "booking_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_page_home_booking_settings",
             "label": "Đặt lịch trải nghiệm",
             "name": "booking_settings",
             "type": "group",
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_page_home_booking_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
                 {
                     "key": "field_page_home_booking_eyebrow",
                     "label": "Eyebrow",
@@ -199,12 +266,28 @@
             ]
         },
         {
+            "key": "field_page_home_portfolio_tab",
+            "label": "Portfolio",
+            "name": "portfolio_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_page_home_portfolio_settings",
             "label": "Portfolio",
             "name": "portfolio_settings",
             "type": "group",
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_page_home_portfolio_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
                 {
                     "key": "field_page_home_portfolio_text",
                     "label": "Mô tả",
@@ -264,12 +347,28 @@
             ]
         },
         {
+            "key": "field_page_home_services_tab",
+            "label": "Dịch vụ không gian sống",
+            "name": "services_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_page_home_services_settings",
             "label": "Dịch vụ không gian sống",
             "name": "services_settings",
             "type": "group",
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_page_home_services_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
                 {
                     "key": "field_page_home_services_eyebrow",
                     "label": "Eyebrow",
@@ -324,12 +423,28 @@
             ]
         },
         {
+            "key": "field_page_home_art_tab",
+            "label": "Điểm nhấn nghệ thuật",
+            "name": "art_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_page_home_art_features",
             "label": "Điểm nhấn nghệ thuật",
             "name": "art_features",
             "type": "group",
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_page_home_art_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
                 {
                     "key": "field_page_home_art_items",
                     "label": "Điểm nhấn",
@@ -385,12 +500,28 @@
             ]
         },
         {
+            "key": "field_page_home_taste_tab",
+            "label": "Phong vị",
+            "name": "taste_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_page_home_taste_settings",
             "label": "Phong vị",
             "name": "taste_settings",
             "type": "group",
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_page_home_taste_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
                 {
                     "key": "field_page_home_taste_eyebrow",
                     "label": "Eyebrow",
@@ -445,12 +576,28 @@
             ]
         },
         {
+            "key": "field_page_home_contact_band_tab",
+            "label": "Kết nối",
+            "name": "contact_band_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_page_home_contact_band_settings",
             "label": "Kết nối",
             "name": "contact_band_settings",
             "type": "group",
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_page_home_contact_band_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
                 {
                     "key": "field_page_home_contact_image",
                     "label": "Ảnh nền",
@@ -498,12 +645,28 @@
             ]
         },
         {
+            "key": "field_page_home_partners_tab",
+            "label": "Đối tác",
+            "name": "partners_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_page_home_partners_settings",
             "label": "Đối tác",
             "name": "partners_settings",
             "type": "group",
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_page_home_partners_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
                 {
                     "key": "field_page_home_partners_title",
                     "label": "Tiêu đề",
@@ -552,12 +715,28 @@
             ]
         },
         {
+            "key": "field_page_home_events_tab",
+            "label": "Sự kiện",
+            "name": "events_tab",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_page_home_events_settings",
             "label": "Sự kiện",
             "name": "events_settings",
             "type": "group",
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_page_home_events_is_show",
+                    "label": "Hiển thị",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 1
+                },
                 {
                     "key": "field_page_home_events_title",
                     "label": "Tiêu đề",
