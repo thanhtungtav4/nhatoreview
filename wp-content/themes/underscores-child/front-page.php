@@ -220,10 +220,10 @@ if ($section_visible($category_strip_settings) && $category_items !== []) :
             </div>
             <?php if ($has_mosaic) : ?>
                 <div class="nh-mosaic" data-portfolio-mosaic>
-                    <?php echo wp_get_attachment_image($mosaic_main_id, 'large', false, ['class' => 'nh-mosaic__main', 'alt' => '', 'loading' => 'lazy']); ?>
+                    <?php echo wp_get_attachment_image($mosaic_main_id, 'large', false, ['class' => 'nh-mosaic__main', 'alt' => '', 'loading' => 'lazy', 'sizes' => '(max-width: 900px) 100vw, 970px']); ?>
                     <div class="nh-mosaic__side">
                         <?php foreach ($mosaic_side_ids as $mosaic_side_id) : ?>
-                            <?php echo wp_get_attachment_image($mosaic_side_id, 'medium_large', false, ['alt' => '', 'loading' => 'lazy']); ?>
+                            <?php echo wp_get_attachment_image($mosaic_side_id, 'medium_large', false, ['alt' => '', 'loading' => 'lazy', 'sizes' => '(max-width: 900px) 200px, 306px']); ?>
                         <?php endforeach; ?>
                     </div>
                 </div>
