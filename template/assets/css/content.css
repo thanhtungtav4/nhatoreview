@@ -145,8 +145,8 @@
    Figma (taste): 32px 0.5px #CB890F rule, Manrope 16 uppercase #CB890F,
    Cormorant SemiBold 40 uppercase ink, Manrope 14 lead at 607 wide. */
 .nh-intro{align-items:center;display:flex;flex-direction:column;gap:24px;text-align:center}
-.nh-intro__eyebrow{align-items:center;color:var(--nh-gold-deep);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-regular);gap:var(--space-4);line-height:var(--lh-tight);text-transform:uppercase}
-.nh-intro__eyebrow::before{background:var(--nh-gold-deep);content:"";height:.5px;width:32px}
+.nh-intro__eyebrow{align-items:center;color:var(--nh-gold-text);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-regular);gap:var(--space-4);line-height:var(--lh-tight);text-transform:uppercase}
+.nh-intro__eyebrow::before{background:var(--nh-gold-text);content:"";height:.5px;width:32px}
 .nh-intro__title{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-40);font-weight:var(--weight-regular);line-height:46px;text-transform:uppercase}
 .nh-intro__lead{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);line-height:19px;max-width:607px}
 .nh-intro__wide-image{aspect-ratio:2.019;object-fit:cover;width:100%}

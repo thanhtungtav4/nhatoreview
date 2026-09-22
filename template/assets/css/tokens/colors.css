@@ -7,6 +7,11 @@
   /* ── Brand gold ───────────────────────────────────────────── */
   --nh-gold:#dda642;            /* rgb(221,166,66) — 127× in Figma. The brand accent. */
   --nh-gold-deep:#cb890f;       /* rgb(203,137,15) — 34×. Hairline rules, small caps type. */
+  --nh-gold-text:#8f5e09;       /* WCAG AA text on --nh-paper (4.84:1) — --nh-gold (1.9:1) and
+                                    --nh-gold-deep (2.57:1) both fail 4.5:1 for eyebrow/tab TEXT on
+                                    the paper background. Text-only use; --nh-gold/--nh-gold-deep
+                                    stay unchanged for fills, borders, hairlines and text already
+                                    sitting on dark surfaces (already >=5.6:1 there). */
   --nh-gold-light:#f0ca86;      /* rgb(240,202,134) — hover / focus ring */
   --nh-gold-warm:#c8aa6c;       /* reference: the web build's gold — not used by components */
   --nh-gold-warm-light:#e4d0a1; /* reference: the web build's gold-light */

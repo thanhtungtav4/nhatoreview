@@ -19,10 +19,14 @@
 .section-intro.section-intro--standalone{padding-bottom:80px}
 .section{padding:60px 0 80px}
 .section-audience{background:var(--nh-ink);padding-block:40px}
+.section-audience .nh-eyebrow{color:var(--nh-gold-deep)}
+.section-audience .nh-eyebrow::before{background:var(--nh-gold-deep)}
 .section-audience__inner{align-items:center;display:flex;gap:40px;justify-content:space-between}
 .section-audience__cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));flex:1}
 .section-gallery{padding-block:80px;background:var(--nh-white)}
 .section-partners{background:var(--nh-ink);padding:48px 0 40px}
+.section-partners .nh-intro__eyebrow{color:var(--nh-gold-deep)}
+.section-partners .nh-intro__eyebrow::before{background:var(--nh-gold-deep)}
 .section-partners .nh-intro__title{color:var(--nh-white);font-weight:var(--weight-regular)}
 .nh-partner-table{display:flex;flex-direction:column;margin-top:40px}
 .nh-partner-row{align-items:center;border-bottom:.5px solid var(--nh-line-dark);display:flex;gap:0;padding-block:24px}

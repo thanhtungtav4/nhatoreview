@@ -26,15 +26,16 @@
 .nh-booking__copy{display:flex;flex-direction:column;gap:8px;flex:0 1 478px}
 .nh-booking__title{color:var(--nh-white);font-family:var(--font-legacy-serif);font-size:var(--fs-40);font-weight:var(--weight-regular);line-height:46px}
 .nh-booking .nh-eyebrow{color:var(--nh-gold-deep)}
+.nh-booking .nh-eyebrow::before{background:var(--nh-gold-deep)}
 @media (max-width:900px){.nh-booking{padding:48px var(--gutter)}.nh-booking__inner{align-items:flex-start;flex-direction:column;gap:32px}}
 
 /* ── Portfolio tabs — text row, 1px ink rule, gold segment on the active item ── */
 .nh-tabs{align-items:flex-end;border-bottom:1px solid var(--nh-ink);display:flex;flex-wrap:wrap;justify-content:center;margin-inline:auto;max-width:100%;width:max-content}
 .nh-tab{align-items:center;background:none;border:0;box-sizing:border-box;color:var(--nh-ink);cursor:pointer;display:inline-flex;font-family:var(--font-legacy-serif);font-size:var(--fs-18);font-weight:var(--weight-regular);height:56px;justify-content:center;letter-spacing:.06em;line-height:var(--lh-tight);margin-bottom:-1px;min-width:118px;padding:0 24px;position:relative;text-transform:uppercase;white-space:nowrap}
 .nh-tab::after{background:var(--nh-gold);bottom:0;content:"";height:1px;left:0;position:absolute;right:0;transform:scaleX(0);transform-origin:left;transition:transform var(--dur-mid) var(--ease-standard)}
-.nh-tab[aria-selected="true"]{color:var(--nh-gold)}
+.nh-tab[aria-selected="true"]{color:var(--nh-gold-text)}
 .nh-tab[aria-selected="true"]::after{transform:scaleX(1)}
-.nh-tab:hover{color:var(--nh-gold)}
+.nh-tab:hover{color:var(--nh-gold-text)}
 
 /* ── Portfolio mosaic — flexible main + 306 column of three 193 tiles ─── */
 .nh-mosaic{align-items:flex-start;display:flex;gap:20px;min-width:0;width:100%}
@@ -160,6 +161,8 @@ textarea.nh-plate{min-height:161px;resize:vertical}
 @media (max-width:620px){.nh-partner-grid,.nh-event-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* Homepage dark services band — full-bleed ink; inner column matches .nh-container. */
 .home-services{background:var(--nh-ink);box-sizing:border-box;display:flex;flex-direction:column;gap:40px;padding:70px 0}
+.home-services .nh-eyebrow{color:var(--nh-gold-deep)}
+.home-services .nh-eyebrow::before{background:var(--nh-gold-deep)}
 .home-services__head,.home-services__grid{width:min(100% - (var(--gutter) * 2),1298px);margin-inline:auto}
 .home-services__head{align-items:flex-end;display:flex;gap:24px;justify-content:space-between}
 .home-services__grid{display:grid;gap:20px;grid-template-columns:repeat(3,minmax(0,1fr))}

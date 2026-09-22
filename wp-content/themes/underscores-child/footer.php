@@ -21,7 +21,7 @@ $support_location  = has_nav_menu('footer-support-menu') ? 'footer-support-menu'
         <div class="nh-footer__intro">
             <a class="nh-footer__brand-box" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(get_bloginfo('name')); ?> — Trang chủ">
                 <?php if ($logo_id > 0) : ?>
-                    <?php echo wp_get_attachment_image($logo_id, 'full', false, ['alt' => get_bloginfo('name')]); ?>
+                    <?php echo wp_get_attachment_image($logo_id, 'full', false, ['alt' => get_bloginfo('name'), 'sizes' => '130px']); ?>
                 <?php else : ?>
                     <span><?php bloginfo('name'); ?></span>
                 <?php endif; ?>

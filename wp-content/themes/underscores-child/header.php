@@ -85,7 +85,7 @@ if (is_home() || is_singular('post') || is_category() || is_tag() || is_search()
         <a class="nh-brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(get_bloginfo('name')); ?> — Trang chủ">
             <span class="nh-brand__mark">
                 <?php if ($logo_id > 0) : ?>
-                    <?php echo wp_get_attachment_image($logo_id, 'full', false, ['alt' => get_bloginfo('name')]); ?>
+                    <?php echo wp_get_attachment_image($logo_id, 'full', false, ['alt' => get_bloginfo('name'), 'sizes' => '(max-width: 760px) 136px, 180px']); ?>
                 <?php else : ?>
                     <span><?php bloginfo('name'); ?></span>
                 <?php endif; ?>

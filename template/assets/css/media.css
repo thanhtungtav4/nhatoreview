@@ -34,6 +34,7 @@
 .nh-band__image::after{background:none;content:"";inset:0;position:absolute}
 .nh-band__content{position:relative;padding-block:clamp(4rem,8vw,7rem)}
 .nh-band .nh-eyebrow{color:var(--nh-gold-deep)}
+.nh-band .nh-eyebrow::before{background:var(--nh-gold-deep)}
 /* Figma node 132:473: the band copy column is 370 wide with a 13px stack gap;
    the title is Times New Roman 48 white, the lead Manrope 16 white at 100%. */
 .nh-band__copy{display:flex;flex-direction:column;gap:13px;max-width:370px}
