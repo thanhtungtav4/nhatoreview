@@ -38,6 +38,7 @@
 
 /* ── Portfolio mosaic — flexible main + 306 column of three 193 tiles ─── */
 .nh-mosaic{align-items:flex-start;display:flex;gap:20px;min-width:0;width:100%}
+.nh-mosaic[hidden]{display:none}
 .nh-mosaic__main{flex:1;min-width:0;height:619px;object-fit:cover;background:var(--nh-gray-2)}
 .nh-mosaic__side{display:flex;flex-direction:column;gap:20px;flex:0 0 306px;min-width:0}
 .nh-mosaic__side img{height:193px;width:100%;object-fit:cover;background:var(--nh-gray-2)}

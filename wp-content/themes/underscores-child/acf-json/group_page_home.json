@@ -213,6 +213,43 @@
                     "rows": 4
                 },
                 {
+                    "key": "field_page_home_portfolio_mosaic_main_image",
+                    "label": "Mosaic - Ảnh chính",
+                    "name": "mosaic_main_image",
+                    "type": "image",
+                    "instructions": "Hiển thị khi tab \"Tất cả\" đang chọn.",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_page_home_portfolio_mosaic_side_image_1",
+                    "label": "Mosaic - Ảnh phụ 1",
+                    "name": "mosaic_side_image_1",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_page_home_portfolio_mosaic_side_image_2",
+                    "label": "Mosaic - Ảnh phụ 2",
+                    "name": "mosaic_side_image_2",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_page_home_portfolio_mosaic_side_image_3",
+                    "label": "Mosaic - Ảnh phụ 3",
+                    "name": "mosaic_side_image_3",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
                     "key": "field_page_home_portfolio_tabs_label",
                     "label": "Nhãn nhóm",
                     "name": "tabs_label",

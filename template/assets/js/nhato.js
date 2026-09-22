@@ -27,12 +27,18 @@
     var tabList = tab.closest("[role=\"tablist\"]");
     var section = tabList && tabList.closest("section");
     var grid = section && section.querySelector("[data-portfolio-grid]");
+    var mosaic = section && section.querySelector("[data-portfolio-mosaic]");
     if (!tabList || !grid) return false;
 
     var term = tab.getAttribute("data-portfolio-term") || "";
     tabList.querySelectorAll("[data-portfolio-term]").forEach(function (item) {
       item.setAttribute("aria-selected", item === tab ? "true" : "false");
     });
+
+    if (mosaic) {
+      mosaic.hidden = term !== "";
+      grid.hidden = term === "";
+    }
 
     grid.querySelectorAll("[data-portfolio-terms]").forEach(function (card) {
       var terms = (card.getAttribute("data-portfolio-terms") || "").split(/\s+/);

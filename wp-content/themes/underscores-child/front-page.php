@@ -197,6 +197,13 @@ if ($category_items !== []) :
         'ignore_sticky_posts' => true,
         'no_found_rows'       => true,
     ]);
+    $mosaic_main_id  = $image_id($portfolio_settings['mosaic_main_image'] ?? 0);
+    $mosaic_side_ids = array_values(array_filter([
+        $image_id($portfolio_settings['mosaic_side_image_1'] ?? 0),
+        $image_id($portfolio_settings['mosaic_side_image_2'] ?? 0),
+        $image_id($portfolio_settings['mosaic_side_image_3'] ?? 0),
+    ]));
+    $has_mosaic = $mosaic_main_id > 0 && count($mosaic_side_ids) === 3;
     if ($portfolio_terms !== [] || $portfolio_query->have_posts()) :
         ?>
         <section class="nh-container u-flex-col u-gap-40 u-items-center">
@@ -207,8 +214,18 @@ if ($category_items !== []) :
                     <button class="nh-tab" type="button" role="tab" aria-selected="false" aria-controls="portfolio-grid" data-portfolio-term="<?php echo esc_attr($portfolio_term->slug); ?>"><?php echo esc_html($portfolio_term->name); ?></button>
                 <?php endforeach; ?>
             </div>
+            <?php if ($has_mosaic) : ?>
+                <div class="nh-mosaic" data-portfolio-mosaic>
+                    <?php echo wp_get_attachment_image($mosaic_main_id, 'large', false, ['class' => 'nh-mosaic__main', 'alt' => '', 'loading' => 'lazy']); ?>
+                    <div class="nh-mosaic__side">
+                        <?php foreach ($mosaic_side_ids as $mosaic_side_id) : ?>
+                            <?php echo wp_get_attachment_image($mosaic_side_id, 'medium_large', false, ['alt' => '', 'loading' => 'lazy']); ?>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
             <?php if ($portfolio_query->have_posts()) : ?>
-                <div id="portfolio-grid" class="nh-grid-4" data-portfolio-grid>
+                <div id="portfolio-grid" class="nh-grid-4" data-portfolio-grid<?php echo $has_mosaic ? ' hidden' : ''; ?>>
                     <?php while ($portfolio_query->have_posts()) : $portfolio_query->the_post(); ?>
                         <?php
                         $post_terms = get_the_terms(get_the_ID(), 'portfolio_category');
