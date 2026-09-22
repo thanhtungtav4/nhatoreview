@@ -23,6 +23,25 @@
     if (el.toggle) el.toggle.setAttribute("aria-expanded", "false");
   }
 
+  function filterPortfolio(tab) {
+    var tabList = tab.closest("[role=\"tablist\"]");
+    var section = tabList && tabList.closest("section");
+    var grid = section && section.querySelector("[data-portfolio-grid]");
+    if (!tabList || !grid) return false;
+
+    var term = tab.getAttribute("data-portfolio-term") || "";
+    tabList.querySelectorAll("[data-portfolio-term]").forEach(function (item) {
+      item.setAttribute("aria-selected", item === tab ? "true" : "false");
+    });
+
+    grid.querySelectorAll("[data-portfolio-terms]").forEach(function (card) {
+      var terms = (card.getAttribute("data-portfolio-terms") || "").split(/\s+/);
+      card.hidden = term !== "" && terms.indexOf(term) === -1;
+    });
+
+    return true;
+  }
+
   function bindOnce() {
     if (window.__nhBound) return;
     window.__nhBound = true;
@@ -36,6 +55,13 @@
         t.setAttribute("aria-expanded", String(nav.classList.toggle("is-open")));
         return;
       }
+      var portfolioTab = e.target.closest && e.target.closest("[data-portfolio-term]");
+      if (portfolioTab) {
+        if (!filterPortfolio(portfolioTab)) return;
+        e.preventDefault();
+        return;
+      }
+
       /* Article outline: the Figma head carries an [Ẩn] toggle. */
       var toc = e.target.closest && e.target.closest("[data-nh-toc-toggle]");
       if (toc) {

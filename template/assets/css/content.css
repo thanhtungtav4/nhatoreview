@@ -128,6 +128,7 @@
 .nh-stat{align-items:center;color:var(--nh-gray-5);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-14);gap:11px;line-height:var(--lh-tight);white-space:nowrap}
 .nh-stat svg{width:24px;height:24px;flex:0 0 auto}
 .nh-stat + .nh-stat{border-left:.5px solid var(--nh-gray-2);padding-left:24px}
+.nh-stat.nh-stat--plain{border-left:0;padding-left:0}
 .nh-statbar a.nh-stat:hover{color:var(--nh-ink)}
 
 /* ── Feature post card — Figma: Frame 2144771538, 418×381 ─────────────── */
@@ -147,6 +148,8 @@
 .nh-intro__eyebrow::before{background:var(--nh-gold-deep);content:"";height:.5px;width:32px}
 .nh-intro__title{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-40);font-weight:var(--weight-regular);line-height:46px;text-transform:uppercase}
 .nh-intro__lead{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);line-height:19px;max-width:607px}
+.nh-intro__wide-image{aspect-ratio:2.019;object-fit:cover;width:100%}
+.nh-intro__grid-image{height:348px;object-fit:cover;width:100%}
 
 /* ── Pillar row — 4 icon columns divided by hairlines (taste) ─────────── */
 .section-intro:has(.nh-pillars) .nh-stack{gap:0}
@@ -173,7 +176,7 @@
 .nh-portrait-card__text{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-14);line-height:19px}
 
 /* ── Split hero panel — Figma (original): 638×615 photo with centred copy ─ */
-.nh-panel{align-items:center;background-position:center;background-size:cover;box-sizing:border-box;color:var(--nh-white);display:flex;flex-direction:column;gap:15px;justify-content:center;min-height:615px;padding:60px 48px;position:relative;text-align:center}
+.nh-panel{align-items:center;background-image:var(--nh-panel-image);background-position:center;background-size:cover;box-sizing:border-box;color:var(--nh-white);display:flex;flex-direction:column;gap:15px;justify-content:center;min-height:615px;padding:60px 48px;position:relative;text-align:center}
 .nh-panel::before{background:rgba(0,0,0,.2);content:"";inset:0;position:absolute;transition:background var(--dur-fast) var(--ease-standard)}
 .nh-panel--dim::before{background:rgba(0,0,0,.36)}
 .nh-panel:hover::before{background:rgba(0,0,0,.12)}
@@ -191,7 +194,7 @@
 .nh-quote p{color:var(--nh-ink);font-family:var(--font-display);font-size:var(--fs-32);font-style:italic;font-weight:var(--weight-regular);line-height:36px;max-width:630px}
 
 /* ── Role tile — Figma (network): 418×418 photo, icon + copy at the foot ─ */
-.nh-role-card{align-items:flex-end;background:var(--nh-ink);background-position:center;background-size:cover;box-sizing:border-box;color:var(--nh-white);display:flex;min-height:418px;padding:20px;position:relative}
+.nh-role-card{align-items:flex-end;background:var(--nh-ink);background-image:var(--nh-role-card-image);background-position:center;background-size:cover;box-sizing:border-box;color:var(--nh-white);display:flex;min-height:418px;padding:20px;position:relative}
 .nh-role-card::before{background:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2)),linear-gradient(180deg,rgba(76,76,76,0) 50%,rgb(0,0,0) 100%);content:"";inset:0;position:absolute}
 .nh-role-card__body{display:flex;gap:var(--space-5);position:relative;width:100%}
 .nh-role-card__icon{color:var(--nh-white);flex:0 0 48px;height:48px;width:48px}
@@ -249,7 +252,7 @@
 .nh-step-card__body{display:flex;flex-direction:column;gap:0}
 
 /* ── Vision / mission panel — Figma (about): photo under rgba(0,0,0,.59) ─ */
-.nh-mission{align-items:flex-start;background-position:center;background-size:cover;box-sizing:border-box;color:var(--nh-white);display:flex;flex-direction:column;gap:12px;justify-content:center;min-height:339px;padding:0 32px;position:relative}
+.nh-mission{align-items:flex-start;background-image:var(--nh-mission-image);background-position:center;background-size:cover;box-sizing:border-box;color:var(--nh-white);display:flex;flex-direction:column;gap:12px;justify-content:center;min-height:339px;padding:0 32px;position:relative}
 .nh-mission::before{background:rgba(0,0,0,.59);content:"";inset:0;position:absolute}
 .nh-mission > *{position:relative}
 .nh-mission__icon{color:var(--nh-white);height:48px;width:48px}
@@ -272,7 +275,7 @@
    Times New Roman 24 capitalize title, Manrope 14 body, gold circular arrow. */
 .home-categories{position:relative}
 .nh-tile-strip{border-block:var(--border-thin) solid var(--nh-gray-3);display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
-.nh-tile{align-items:flex-start;background-position:center;background-size:cover;border:var(--border-thin) solid var(--nh-gray-3);box-sizing:border-box;color:var(--nh-white);display:flex;min-height:232px;padding:32px 70px;position:relative}
+.nh-tile{align-items:flex-start;background-image:var(--nh-tile-image);background-position:center;background-size:cover;border:var(--border-thin) solid var(--nh-gray-3);box-sizing:border-box;color:var(--nh-white);display:flex;min-height:232px;padding:32px 70px;position:relative}
 .nh-tile-strip .nh-tile{border:0;border-right:var(--border-thin) solid var(--nh-gray-3)}
 .nh-tile-strip .nh-tile:last-child{border-right:0}
 .nh-tile::before{background:rgba(0,0,0,.8);content:"";inset:0;position:absolute;transition:background var(--dur-fast) var(--ease-standard)}

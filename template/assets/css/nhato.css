@@ -10,10 +10,11 @@
 @import url("./tokens/base.css");
 @import url("./chrome.css");
 @import url("./search.css");
-@import url("./actions.css");
-@import url("./content.css");
-@import url("./home-sections.css");
+@import url("./actions.css?v=2");
+@import url("./content.css?v=3");
+@import url("./home-sections.css?v=2");
 @import url("./forms.css");
-@import url("./media.css");
-@import url("./pages.css");
+@import url("./media.css?v=2");
+@import url("./pages.css?v=3");
+@import url("./utilities.css");
 @import url("./mobile.css");

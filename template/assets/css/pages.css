@@ -16,6 +16,7 @@
 .section-panel{padding-block:60px 0}
 .section-projects{padding-block:60px}
 .section-posts{padding-block:60px 80px}
+.section{padding:60px 0 80px}
 .section-audience{background:var(--nh-ink);padding-block:40px}
 .section-audience__inner{align-items:center;display:flex;gap:40px;justify-content:space-between}
 .section-audience__cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));flex:1}
@@ -36,8 +37,9 @@
 .section-partners .nh-partner-row__logos .nh-partner{border-left:.5px solid var(--nh-line-dark)}
 .section-timeline{padding-block:0 60px}
 .section-timeline .nh-intro{gap:0}
-.section-timeline .nh-intro .nh-intro__title{margin-top:16px}
-.section-timeline .nh-intro .nh-intro__lead{margin-top:24px}
+.section-timeline .nh-intro .nh-intro__title{color:var(--nh-gold);font-size:var(--fs-32);letter-spacing:.04em;margin-top:16px}
+.section-timeline .nh-intro .nh-intro__lead{font-size:var(--fs-16);line-height:26px;margin-top:24px;max-width:556px}
+[data-page="about"] .section-intro .nh-intro__lead{font-size:var(--fs-16);line-height:26px;max-width:1024px}
 /* Space page: the value band puts a 370 copy column opposite the 697 step canvas. */
 .nh-values-grid{align-items:flex-start;display:flex;gap:40px;justify-content:space-between}
 @media (max-width:1050px){.nh-values-grid{flex-direction:column;align-items:stretch}.nh-values-grid .nh-band__copy{max-width:none}}

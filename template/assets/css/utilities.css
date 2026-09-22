@@ -1,0 +1,25 @@
+/* NHATO Collection — layout utility classes.
+   Single-purpose primitives that replace one-off inline style="" attributes in
+   page templates. Not a general utility framework: only values actually in
+   use anywhere in the kit/theme. Loads after every component stylesheet so a
+   utility class reliably wins a single-class specificity tie against a
+   component default (e.g. .nh-section-title{margin-top:13px} vs .u-mt-0). */
+.u-flex{display:flex}
+.u-flex-col{display:flex;flex-direction:column}
+.u-items-center{align-items:center}
+.u-justify-center{justify-content:center}
+.u-text-center{text-align:center}
+.u-text-white{color:var(--nh-white)}
+.u-text-upper{text-transform:uppercase}
+.u-w-full{width:100%}
+.u-border-0{border:0}
+.u-mt-0{margin-top:0}
+.u-mt-16{margin-top:16px}
+.u-mt-32{margin-top:32px}
+.u-mt-40{margin-top:40px}
+.u-gap-8{gap:8px}
+.u-gap-13{gap:13px}
+.u-gap-16{gap:16px}
+.u-gap-22{gap:22px}
+.u-gap-24{gap:24px}
+.u-gap-40{gap:40px}
