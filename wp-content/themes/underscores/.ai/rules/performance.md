@@ -43,6 +43,14 @@ Mở rộng `lazy-first.md` + `wp-core-first.md`. Rule này ép cách viết the
   WebP q87 ngay sau upload, đổi tên `{stem}-original.webp` (không đụng `{stem}.webp` đang serve), xóa file thô.
   Không serve cho visitor — chỉ tốn dung lượng host/backup nếu để nguyên (từng đo: 272MB/326MB thư viện cũ, 84%).
 
+## 2b. CSS/JS partial (`/template/assets`)
+
+- KHÔNG enqueue lẻ từng file — gộp qua `scripts/build-asset-bundles.sh` (chạy lại sau khi sửa
+  bất kỳ source partial nào nó đọc) → `template/assets/{css/bundles,js}/*.{css,js}`.
+  `ThemeHook::enqueue_common_css_assets()` chọn bundle theo nhóm template (a/b/c/d/default —
+  xem comment trong script, dựa trên phân tích above-fold bằng Playwright) thay vì tải cả 14
+  file riêng. Sửa source partial mà quên chạy lại script → bundle cũ, đổi không lên site.
+
 ## 3. Query
 
 - KHÔNG query trong vòng lặp (N+1). Cần dữ liệu liên quan → lấy trước 1 lần rồi map.
