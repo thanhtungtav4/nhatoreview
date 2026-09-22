@@ -1,4 +1,9 @@
-/* NHATO Collection — global stylesheet. Link this one file.
+/* NHATO Collection — global stylesheet for the static `/template/templates/*.dc.html`
+   design-preview pages ONLY. The live WordPress theme no longer enqueues this file —
+   ThemeHook::enqueue_common_css_assets() enqueues each partial below directly (parallel
+   HTTP/2 discovery from <head>, real <link> for Google Fonts so preconnect fires) instead of
+   relying on this @import chain, which forced the browser to fetch+parse this file before it
+   could even discover the partials it depends on.
    Fonts: every family below is named verbatim in NHATO 2.fig and served from
    Google Fonts; no binaries ship with the kit. Times New Roman and Arial also
    appear in the source and resolve to the local system faces. */

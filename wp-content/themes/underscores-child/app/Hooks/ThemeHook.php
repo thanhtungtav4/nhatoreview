@@ -57,17 +57,59 @@ final class ThemeHook
     {
         do_action('underscores_before_common_css');
 
+        // Google Fonts trực tiếp qua <link> (không @import trong nhato.css): browser preload
+        // scanner thấy ngay từ HTML đầu, và CommonHook::preconnect_fonts() (kiểm tra
+        // wp_styles()->queue theo src chứa fonts.googleapis.com) mới bắt được để in
+        // rel=preconnect cho fonts.googleapis.com + fonts.gstatic.com — @import giấu URL này
+        // bên trong nội dung CSS nên trước đây filter đó luôn no-op.
+        // Chỉ 4 family đang có component thật dùng qua --font-display/--font-body/
+        // --font-editorial/--font-ui. Token --font-alt (Montserrat) / --font-alt-2 (Plus Jakarta
+        // Sans) trong tokens/typography.css chưa có component nào áp dụng — thêm lại 2 family
+        // này vào URL bên dưới ngay khi có component thật dùng var(--font-alt[-2]).
         wp_enqueue_style(
-            'nhato-style',
-            UNDERSCORES_SITE_TEMPLATE_URL . '/assets/css/nhato.css',
+            'nhato-fonts',
+            'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Manrope:wght@200..800&family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&family=Inter:wght@100..900&display=swap',
             [],
-            underscores_child_template_asset_version('/assets/css/nhato.css')
+            null
         );
+
+        // Partial trước đây @import trong nhato.css → enqueue riêng, deps nối chuỗi để giữ đúng
+        // thứ tự cascade (token trước, component sau) mà vẫn để browser tải song song qua
+        // HTTP/2 ngay từ HTML thay vì phải tải+parse nhato.css xong mới biết có các file này.
+        $css_base = UNDERSCORES_SITE_TEMPLATE_URL . '/assets/css/';
+        $partials = [
+            'nhato-tokens-colors'     => 'tokens/colors.css',
+            'nhato-tokens-typography' => 'tokens/typography.css',
+            'nhato-tokens-layout'     => 'tokens/layout.css',
+            'nhato-tokens-figma'      => 'tokens/figma-variables.css',
+            'nhato-tokens-base'       => 'tokens/base.css',
+            'nhato-chrome'            => 'chrome.css',
+            'nhato-search'            => 'search.css',
+            'nhato-actions'           => 'actions.css',
+            'nhato-content'           => 'content.css',
+            'nhato-home-sections'     => 'home-sections.css',
+            'nhato-forms'             => 'forms.css',
+            'nhato-media'             => 'media.css',
+            'nhato-pages'             => 'pages.css',
+            'nhato-utilities'         => 'utilities.css',
+            'nhato-mobile'            => 'mobile.css',
+        ];
+
+        $previous_handle = 'nhato-fonts';
+        foreach ($partials as $handle => $relative_path) {
+            wp_enqueue_style(
+                $handle,
+                $css_base . $relative_path,
+                [$previous_handle],
+                underscores_child_template_asset_version('/assets/css/' . $relative_path)
+            );
+            $previous_handle = $handle;
+        }
 
         wp_enqueue_style(
             'underscores-child-style',
             underscores_child_asset_uri('assets/css/child-theme.css'),
-            ['nhato-style'],
+            [$previous_handle],
             underscores_child_asset_version('assets/css/child-theme.css')
         );
 
