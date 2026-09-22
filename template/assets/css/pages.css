@@ -16,6 +16,7 @@
 .section-panel{padding-block:60px 0}
 .section-projects{padding-block:60px}
 .section-posts{padding-block:60px 80px}
+.section{padding:60px 0 80px}
 .section-audience{background:var(--nh-ink);padding-block:40px}
 .section-audience__inner{align-items:center;display:flex;gap:40px;justify-content:space-between}
 .section-audience__cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));flex:1}
