@@ -41,7 +41,8 @@
                     "type": "textarea",
                     "rows": 3
                 }
-            ]
+            ],
+            "instructions": "Bật/tắt banner trang Original và chỉnh ảnh hero, mô tả ngắn."
         },
         {
             "key": "field_page_original_intro_tab",
@@ -119,7 +120,8 @@
                             "label": "Liên kết",
                             "name": "link",
                             "type": "link",
-                            "return_format": "array"
+                            "return_format": "array",
+                            "instructions": "Nhập liên kết đích; nếu để trống, item hoặc nút tương ứng sẽ không hiển thị."
                         }
                     ]
                 },
@@ -131,7 +133,8 @@
                     "rows": 3,
                     "new_lines": "br"
                 }
-            ]
+            ],
+            "instructions": "Các panel nội dung và trích dẫn. Panel không có liên kết sẽ hiển thị như nội dung tĩnh."
         },
         {
             "key": "field_page_original_related_tab",
@@ -190,7 +193,8 @@
                     "min": 0,
                     "max": 3
                 }
-            ]
+            ],
+            "instructions": "Chọn bài viết liên quan tự động hoặc thủ công."
         }
     ],
     "location": [

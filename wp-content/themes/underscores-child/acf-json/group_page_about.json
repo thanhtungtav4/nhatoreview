@@ -41,7 +41,8 @@
                     "type": "textarea",
                     "rows": 3
                 }
-            ]
+            ],
+            "instructions": "Bật/tắt banner trang Giới thiệu và chỉnh ảnh hero, mô tả ngắn."
         },
         {
             "key": "field_page_about_intro_tab",
@@ -99,7 +100,8 @@
                     "insert": "append",
                     "library": "all"
                 }
-            ]
+            ],
+            "instructions": "Nội dung mở đầu trang Giới thiệu."
         },
         {
             "key": "field_page_about_timeline_tab",
@@ -182,7 +184,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "instructions": "Các mốc thời gian hiển thị theo thứ tự trong danh sách."
         },
         {
             "key": "field_page_about_values_tab",
@@ -318,7 +321,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "instructions": "Nội dung tầm nhìn, sứ mệnh và các giá trị của NHATO."
         },
         {
             "key": "field_page_about_team_tab",
@@ -386,7 +390,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "instructions": "Danh sách thành viên hiển thị trên trang."
         },
         {
             "key": "field_page_about_videos_tab",
@@ -444,7 +449,8 @@
                             "key": "field_page_about_video_url",
                             "label": "Link YouTube",
                             "name": "youtube_url",
-                            "type": "url"
+                            "type": "url",
+                            "instructions": "Dán URL video YouTube đầy đủ."
                         },
                         {
                             "key": "field_page_about_video_title",
@@ -459,9 +465,11 @@
                     "label": "Liên kết xem tất cả",
                     "name": "cta",
                     "type": "link",
-                    "return_format": "array"
+                    "return_format": "array",
+                    "instructions": "Nhập liên kết đích; nếu để trống, item hoặc nút tương ứng sẽ không hiển thị."
                 }
-            ]
+            ],
+            "instructions": "Danh sách video; mỗi video cần thumbnail và URL YouTube. CTA chỉ hiện khi có liên kết."
         }
     ],
     "location": [

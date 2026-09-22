@@ -66,8 +66,8 @@ if ($section_enabled($banner_settings) && ($hero_image !== '' || $hero_lead !== 
 $categories = is_array($categories_settings['items'] ?? null) ? $categories_settings['items'] : [];
 if ($section_enabled($categories_settings) && $categories !== []) : ?>
     <section class="section-panel"><div class="nh-container"><div class="nh-category-panel">
-        <?php foreach ($categories as $category) : if (!is_array($category)) { continue; } $href = is_array($category['link'] ?? null) ? (string) ($category['link']['url'] ?? '') : (string) ($category['url'] ?? ''); $icon = sanitize_key((string) ($category['icon'] ?? '')); ?>
-            <a class="nh-category" href="<?php echo esc_url($href !== '' ? $href : '#'); ?>">
+        <?php foreach ($categories as $category) : if (!is_array($category)) { continue; } $href = is_array($category['link'] ?? null) ? (string) ($category['link']['url'] ?? '') : (string) ($category['url'] ?? ''); $icon = sanitize_key((string) ($category['icon'] ?? '')); if ($href === '') { continue; } ?>
+            <a class="nh-category" href="<?php echo esc_url($href); ?>">
                 <?php if ($icon !== '') : ?><svg class="nh-category__icon" aria-hidden="true"><use href="#<?php echo esc_attr($icon); ?>"></use></svg><?php endif; ?>
                 <span class="nh-category__body"><?php if (!empty($category['title'])) : ?><h3><?php echo esc_html((string) $category['title']); ?></h3><?php endif; ?><?php if (!empty($category['text'])) : ?><p><?php echo esc_html((string) $category['text']); ?></p><?php endif; ?></span>
             </a>

@@ -106,13 +106,14 @@ if ($section_enabled($intro_settings) && ($intro_eyebrow !== '' || $intro_title 
                         $href = is_array($role['link'] ?? null) ? (string) ($role['link']['url'] ?? '') : (string) ($role['url'] ?? '');
                         $background = $image_url($role['image'] ?? '');
                         if ($name === '' && $copy === '' && $background === '') { continue; }
+                        $role_tag = $href !== '' ? 'a' : 'div';
                         ?>
-                        <a class="nh-role-card" href="<?php echo esc_url($href !== '' ? $href : '#'); ?>"<?php if ($background !== '') : ?> style="--nh-role-card-image:url('<?php echo esc_url($background); ?>')"<?php endif; ?>>
+                        <<?php echo $role_tag; ?> class="nh-role-card"<?php if ($href !== '') : ?> href="<?php echo esc_url($href); ?>"<?php endif; ?><?php if ($background !== '') : ?> style="--nh-role-card-image:url('<?php echo esc_url($background); ?>')"<?php endif; ?>>
                             <span class="nh-role-card__body"><?php if (!empty($role['icon'])) : ?><svg class="nh-role-card__icon" aria-hidden="true" width="48" height="48"><use href="#<?php echo esc_attr(ltrim((string) $role['icon'], '#')); ?>"></use></svg><?php endif; ?><span class="nh-role-card__copy">
                                 <?php if ($name !== '') : ?><strong><?php echo esc_html($name); ?></strong><?php endif; ?>
                                 <?php if ($copy !== '') : ?><span><?php echo esc_html($copy); ?></span><?php endif; ?>
                             </span></span>
-                        </a>
+                        </<?php echo $role_tag; ?>>
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
@@ -170,7 +171,9 @@ if ($section_enabled($gallery_settings) && $gallery !== []) : ?>
                 </div></div>
             <?php endforeach; ?>
         </div>
-        <div class="nh-container u-flex u-justify-center u-mt-40"><a class="nh-cta nh-cta--ink" href="#">XEM TẤT CẢ<span class="nh-cta__arrow" aria-hidden="true"><svg width="16" height="16"><use href="#nh-arrow-right"></use></svg></span></a></div>
+        <?php if (!empty($gallery_settings['link'])) : ?>
+            <div class="nh-container u-flex u-justify-center u-mt-40"><?php echo underscores_child_acf_link($gallery_settings['link'], '<span>' . esc_html__('XEM TẤT CẢ', 'underscores-child') . '</span><span class="nh-cta__arrow" aria-hidden="true"><svg width="16" height="16"><use href="#nh-arrow-right"></use></svg></span>', 'nh-cta nh-cta--ink'); ?></div>
+        <?php endif; ?>
     </section>
 <?php endif;
 
@@ -192,7 +195,15 @@ if ($section_enabled($partners_settings) && $partners !== []) : ?>
                         <?php if (!empty($partner['subtitle'])) : ?><span><?php echo esc_html((string) $partner['subtitle']); ?></span><?php endif; ?>
                     </div>
                     <div class="nh-partner-row__logos">
-                        <?php foreach ($logos as $logo) : $src = $image_url(is_array($logo) && isset($logo['image']) ? $logo['image'] : $logo); if ($src !== '') : ?><a class="nh-partner" href="<?php echo esc_url(is_array($logo) ? (string) ($logo['url'] ?? '#') : '#'); ?>" aria-label="<?php echo esc_attr((string) ($partner['title'] ?? '')); ?>"><img src="<?php echo esc_url($src); ?>" alt="" loading="lazy"></a><?php endif; endforeach; ?>
+                        <?php foreach ($logos as $logo) :
+                            $logo_image = is_array($logo) && isset($logo['image']) ? $logo['image'] : $logo;
+                            $src = $image_url($logo_image);
+                            $logo_href = is_array($logo) ? trim((string) ($logo['url'] ?? '')) : '';
+                            if ($src === '') { continue; }
+                            $logo_tag = $logo_href !== '' ? 'a' : 'span';
+                            ?>
+                            <<?php echo $logo_tag; ?> class="nh-partner"<?php if ($logo_href !== '') : ?> href="<?php echo esc_url($logo_href); ?>" aria-label="<?php echo esc_attr((string) ($partner['title'] ?? '')); ?>"<?php endif; ?>><img src="<?php echo esc_url($src); ?>" alt="" loading="lazy"></<?php echo $logo_tag; ?>>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             <?php endforeach; ?>

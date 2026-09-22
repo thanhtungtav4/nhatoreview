@@ -41,7 +41,8 @@
                     "type": "textarea",
                     "rows": 3
                 }
-            ]
+            ],
+            "instructions": "Bật/tắt banner trang Liên hệ và chỉnh ảnh hero, mô tả ngắn."
         },
         {
             "key": "field_page_contact_close_tab",
@@ -86,9 +87,11 @@
                     "label": "Liên kết dải kết",
                     "name": "link",
                     "type": "link",
-                    "return_format": "array"
+                    "return_format": "array",
+                    "instructions": "Nhập liên kết đích; nếu để trống, item hoặc nút tương ứng sẽ không hiển thị."
                 }
-            ]
+            ],
+            "instructions": "Dải kêu gọi hành động cuối trang. Nút chỉ hiện khi có liên kết."
         },
         {
             "key": "field_page_contact_info_tab",
@@ -150,7 +153,8 @@
                     "preview_size": "medium",
                     "library": "all"
                 }
-            ]
+            ],
+            "instructions": "Thông tin liên hệ hiển thị theo thứ tự trong danh sách."
         },
         {
             "key": "field_page_contact_form_tab",
@@ -181,7 +185,8 @@
                     "name": "title",
                     "type": "text"
                 }
-            ]
+            ],
+            "instructions": "Thiết lập tiêu đề và trạng thái hiển thị biểu mẫu liên hệ."
         },
         {
             "key": "field_page_contact_map_tab",
@@ -216,9 +221,11 @@
                     "key": "field_page_contact_map_url",
                     "label": "Địa chỉ nhúng bản đồ",
                     "name": "url",
-                    "type": "url"
+                    "type": "url",
+                    "instructions": "Dán URL nhúng Google Maps (iframe src)."
                 }
-            ]
+            ],
+            "instructions": "Nhập URL nhúng Google Maps (iframe src), không phải URL trang bản đồ thông thường."
         }
     ],
     "location": [

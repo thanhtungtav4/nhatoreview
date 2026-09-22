@@ -48,7 +48,8 @@
                     "type": "textarea",
                     "rows": 3
                 }
-            ]
+            ],
+            "instructions": "Bật/tắt banner trang Nghệ thuật và chỉnh ảnh hero, mô tả ngắn."
         },
         {
             "key": "field_page_art_topics_tab",
@@ -114,7 +115,8 @@
                             "label": "Liên kết",
                             "name": "link",
                             "type": "link",
-                            "return_format": "array"
+                            "return_format": "array",
+                            "instructions": "Nhập liên kết đích; nếu để trống, item hoặc nút tương ứng sẽ không hiển thị."
                         },
                         {
                             "key": "field_page_art_feature_stats",
@@ -150,11 +152,13 @@
                             "label": "Liên kết chia sẻ",
                             "name": "share_link",
                             "type": "link",
-                            "return_format": "array"
+                            "return_format": "array",
+                            "instructions": "Nhập liên kết đích; nếu để trống, item hoặc nút tương ứng sẽ không hiển thị."
                         }
                     ]
                 }
-            ]
+            ],
+            "instructions": "Danh sách chủ đề nghệ thuật; mỗi item nên có tiêu đề, ảnh và liên kết."
         },
         {
             "key": "field_page_art_related_tab",
@@ -213,7 +217,8 @@
                     "min": 0,
                     "max": 3
                 }
-            ]
+            ],
+            "instructions": "Chọn bài viết liên quan tự động hoặc thủ công."
         }
     ],
     "location": [

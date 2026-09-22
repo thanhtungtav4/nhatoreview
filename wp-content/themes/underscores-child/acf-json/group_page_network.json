@@ -41,7 +41,8 @@
                     "type": "textarea",
                     "rows": 3
                 }
-            ]
+            ],
+            "instructions": "Bật/tắt banner trang Network và chỉnh ảnh hero, mô tả ngắn."
         },
         {
             "key": "field_page_network_intro_tab",
@@ -116,7 +117,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "instructions": "Danh sách vai trò trong mạng lưới. Vai trò không có liên kết sẽ hiển thị như thẻ nội dung."
         },
         {
             "key": "field_page_network_audience_tab",
@@ -183,7 +185,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "instructions": "Nội dung giới thiệu các nhóm đối tượng kết nối."
         },
         {
             "key": "field_page_network_gallery_tab",
@@ -228,8 +231,17 @@
                     "return_format": "id",
                     "preview_size": "medium",
                     "library": "all"
+                },
+                {
+                    "key": "field_page_network_gallery_link",
+                    "label": "Liên kết xem tất cả",
+                    "name": "link",
+                    "type": "link",
+                    "return_format": "array",
+                    "instructions": "Nếu có link, nút Xem tất cả sẽ hiển thị bên dưới thư viện ảnh."
                 }
-            ]
+            ],
+            "instructions": "Thư viện ảnh hiển thị theo dạng chuyển động ngang. Nút Xem tất cả chỉ hiện khi có liên kết."
         },
         {
             "key": "field_page_network_partners_tab",
@@ -307,7 +319,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "instructions": "Nếu danh sách tại trang để trống, hệ thống dùng danh sách Đối tác trong Theme Settings."
         },
         {
             "key": "field_page_network_related_tab",
@@ -366,7 +379,8 @@
                     "min": 0,
                     "max": 3
                 }
-            ]
+            ],
+            "instructions": "Chọn bài viết liên quan tự động hoặc thủ công."
         }
     ],
     "location": [

@@ -34,7 +34,8 @@
                     "preview_size": "medium",
                     "library": "all"
                 }
-            ]
+            ],
+            "instructions": "Bật/tắt banner trang Taste và chỉnh ảnh hero."
         },
         {
             "key": "field_page_taste_intro_tab",
@@ -145,11 +146,13 @@
                             "label": "Liên kết",
                             "name": "link",
                             "type": "link",
-                            "return_format": "array"
+                            "return_format": "array",
+                            "instructions": "Nhập liên kết đích; nếu để trống, item hoặc nút tương ứng sẽ không hiển thị."
                         }
                     ]
                 }
-            ]
+            ],
+            "instructions": "Nội dung giới thiệu, các trụ cột và chân dung. Liên kết chân dung là tùy chọn."
         },
         {
             "key": "field_page_taste_related_tab",
@@ -208,7 +211,8 @@
                     "max": 3,
                     "instructions": "Chỉ dùng khi chế độ là Chọn từng bài. Thứ tự tại đây sẽ là thứ tự hiển thị."
                 }
-            ]
+            ],
+            "instructions": "Chọn bài viết liên quan tự động hoặc thủ công."
         }
     ],
     "location": [

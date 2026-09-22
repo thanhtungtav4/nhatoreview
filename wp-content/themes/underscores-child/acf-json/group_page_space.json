@@ -41,7 +41,8 @@
                     "type": "textarea",
                     "rows": 3
                 }
-            ]
+            ],
+            "instructions": "Bật/tắt banner trang Không gian sống và chỉnh ảnh hero, mô tả ngắn."
         },
         {
             "key": "field_page_space_categories_tab",
@@ -101,11 +102,13 @@
                             "label": "Liên kết",
                             "name": "link",
                             "type": "link",
-                            "return_format": "array"
+                            "return_format": "array",
+                            "instructions": "Nhập liên kết đích; nếu để trống, item hoặc nút tương ứng sẽ không hiển thị."
                         }
                     ]
                 }
-            ]
+            ],
+            "instructions": "Danh sách danh mục không gian. Mỗi danh mục cần có liên kết để hiển thị."
         },
         {
             "key": "field_page_space_projects_tab",
@@ -147,9 +150,11 @@
                     "label": "Liên kết xem tất cả dự án",
                     "name": "link",
                     "type": "link",
-                    "return_format": "array"
+                    "return_format": "array",
+                    "instructions": "Nhập liên kết đích; nếu để trống, item hoặc nút tương ứng sẽ không hiển thị."
                 }
-            ]
+            ],
+            "instructions": "Danh sách dự án lấy tự động từ các project đang publish. CTA chỉ hiện khi có liên kết."
         },
         {
             "key": "field_page_space_values_tab",
@@ -234,7 +239,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "instructions": "Dải Giá trị sống; tối đa 5 bước theo thứ tự nhập."
         },
         {
             "key": "field_page_space_related_tab",
@@ -293,7 +299,8 @@
                     "min": 0,
                     "max": 3
                 }
-            ]
+            ],
+            "instructions": "Chọn bài viết liên quan tự động hoặc thủ công."
         }
     ],
     "location": [
