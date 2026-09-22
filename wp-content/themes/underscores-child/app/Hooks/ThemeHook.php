@@ -71,6 +71,13 @@ final class ThemeHook
             null
         );
 
+        // Contact Form 7's own stylesheet (handle 'contact-form-7') loads render-blocking on
+        // every page by default, but the form itself is never above the fold: footer.php's
+        // newsletter form sits after the whole footer column grid on every page, and
+        // contact-page.php's own form comes after the hero + close-band sections. Safe to
+        // preload-swap like the other non-critical bundles (PSI flagged 760ms blocking it).
+        underscores_child_mark_style_loading_strategy('contact-form-7', 'preload');
+
         // 14 partial trước đây enqueue riêng (parallel discovery, đúng, nhưng 14 request) →
         // gộp thành bundle sinh bởi scripts/build-asset-bundles.sh (chạy lại script đó sau khi
         // sửa bất kỳ file .css nào nó đọc). Vẫn giữ nguyên chiến lược 2 tầng: bundle luôn-chặn
