@@ -1,0 +1,42 @@
+{
+    "key": "group_portfolio_content",
+    "title": "Thông tin portfolio",
+    "fields": [
+        {
+            "key": "field_portfolio_gallery",
+            "label": "Thư viện hình ảnh",
+            "name": "portfolio_gallery",
+            "type": "gallery",
+            "instructions": "Ảnh trong portfolio; ảnh đại diện vẫn dùng Featured Image.",
+            "return_format": "id",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all",
+            "min": 0,
+            "max": 0
+        },
+        {
+            "key": "field_portfolio_external_link",
+            "label": "Link bên ngoài",
+            "name": "portfolio_external_link",
+            "type": "url",
+            "instructions": "Chỉ dùng nếu portfolio cần trỏ tới một nguồn bên ngoài."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "portfolio"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "show_in_rest": 1
+}

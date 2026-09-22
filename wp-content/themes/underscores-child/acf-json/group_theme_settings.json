@@ -54,6 +54,85 @@
             ]
         },
         {
+            "key": "field_ts_tab_footer_content",
+            "label": "Nội dung footer",
+            "name": "",
+            "type": "tab",
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_ts_footer_content",
+            "label": "Nội dung footer",
+            "name": "footer_content",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_ts_footer_description",
+                    "label": "Mô tả thương hiệu",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 3
+                },
+                {
+                    "key": "field_ts_footer_newsletter_title",
+                    "label": "Tiêu đề newsletter",
+                    "name": "newsletter_title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_ts_footer_newsletter_copy",
+                    "label": "Mô tả newsletter",
+                    "name": "newsletter_copy",
+                    "type": "textarea",
+                    "rows": 3
+                },
+                {
+                    "key": "field_ts_footer_credit",
+                    "label": "Credit",
+                    "name": "credit",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_ts_tab_forms",
+            "label": "Biểu mẫu",
+            "name": "",
+            "type": "tab",
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_ts_contact_form_id",
+            "label": "Form liên hệ",
+            "name": "contact_form_id",
+            "type": "post_object",
+            "instructions": "Chọn form Contact Form 7 dùng cho trang liên hệ và các CTA liên hệ.",
+            "post_type": [
+                "wpcf7_contact_form"
+            ],
+            "return_format": "id",
+            "ui": 1,
+            "allow_null": 1,
+            "multiple": 0
+        },
+        {
+            "key": "field_ts_newsletter_form_id",
+            "label": "Form newsletter",
+            "name": "newsletter_form_id",
+            "type": "post_object",
+            "instructions": "Chọn form Contact Form 7 dùng cho đăng ký nhận tin.",
+            "post_type": [
+                "wpcf7_contact_form"
+            ],
+            "return_format": "id",
+            "ui": 1,
+            "allow_null": 1,
+            "multiple": 0
+        },
+        {
             "key": "field_ts_tab_social",
             "label": "Mạng xã hội",
             "name": "",

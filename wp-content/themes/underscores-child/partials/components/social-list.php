@@ -1,37 +1,35 @@
 <?php
-/**
- * Danh sách mạng xã hội — dùng chung footer + menu mobile.
- * Data: Theme Settings → tab Mạng xã hội (social_links).
- */
 
 declare(strict_types=1);
 
 defined('ABSPATH') || exit;
 
-$socials = underscores_get_option('social_links', []);
+$args       = is_array($args ?? null) ? $args : [];
+$extra_class = trim((string) ($args['class'] ?? ''));
+$limit      = absint($args['limit'] ?? 0);
+$socials    = underscores_get_option('social_links', []);
 
-if (! $socials) {
+if (!is_array($socials) || $socials === []) {
     return;
 }
+
+if ($limit > 0) {
+    $socials = array_slice($socials, 0, $limit);
+}
 ?>
-<div class="social-block">
-    <div class="social-list">
-        <?php foreach ($socials as $social) : ?>
-            <?php
-            $url   = $social['url'] ?? '';
-            $icon  = (int) ($social['icon'] ?? 0);
-            $label = $social['platform'] ?? '';
+<div class="nh-social<?php echo $extra_class !== '' ? ' ' . esc_attr($extra_class) : ''; ?>" aria-label="<?php esc_attr_e('Mạng xã hội', 'underscores'); ?>">
+    <?php foreach ($socials as $social) : ?>
+        <?php
+        $url   = trim((string) ($social['url'] ?? ''));
+        $icon  = absint($social['icon'] ?? 0);
+        $label = trim((string) ($social['platform'] ?? ''));
 
-            if (! $url || ! $icon) {
-                continue;
-            }
-
-            // Có tên → link mang aria-label, icon là trang trí (alt rỗng); không có → giữ alt của Media.
-            $img_attrs = $label ? ['alt' => '', 'loading' => 'lazy'] : ['loading' => 'lazy'];
-            ?>
-            <a class="social-link" href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener"<?php echo $label ? ' aria-label="' . esc_attr($label) . '"' : ''; ?>>
-                <?php echo wp_get_attachment_image($icon, 'full', false, $img_attrs); ?>
-            </a>
-        <?php endforeach; ?>
-    </div>
+        if ($url === '' || $icon < 1) {
+            continue;
+        }
+        ?>
+        <a class="nh-social__link" href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener"<?php echo $label !== '' ? ' aria-label="' . esc_attr($label) . '"' : ''; ?>>
+            <?php echo wp_get_attachment_image($icon, 'full', false, ['alt' => '', 'loading' => 'lazy', 'class' => 'nh-icon']); ?>
+        </a>
+    <?php endforeach; ?>
 </div>

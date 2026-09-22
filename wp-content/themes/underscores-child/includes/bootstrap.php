@@ -15,8 +15,10 @@ defined('ABSPATH') || exit;
 require_once UNDERSCORES_CHILD_THEME_INCLUDES_PATH . '/functions/common-functions.php';
 require_once UNDERSCORES_CHILD_THEME_INCLUDES_PATH . '/functions/performance-functions.php';
 require_once UNDERSCORES_CHILD_THEME_INCLUDES_PATH . '/functions/template-functions.php';
+require_once UNDERSCORES_CHILD_THEME_INCLUDES_PATH . '/functions/content-functions.php';
 
-// Register hook + ACF classes.
+// Register content models before templates/query vars run.
+\Theme\Child\Hooks\ContentTypesHook::register();
 \Theme\Child\Acf\LocalJson::register();
 \Theme\Child\Hooks\PerformanceHook::register();
 \Theme\Child\Hooks\ThemeHook::register();

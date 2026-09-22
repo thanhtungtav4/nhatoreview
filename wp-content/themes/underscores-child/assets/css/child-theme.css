@@ -2,3 +2,55 @@
  * Child theme main stylesheet
  * Page-specific or component-specific CSS should live here first.
  */
+.page-single-content{background:var(--nh-white);padding-block:calc(var(--header-height) + 40px) 96px}
+.single-content{margin-inline:auto;max-width:960px}
+.single-content .article__top{margin-bottom:20px}
+.single-content .article__title{font-family:var(--font-display);font-size:clamp(2.75rem,6vw,5.25rem);font-weight:var(--weight-regular);letter-spacing:-.03em;line-height:1.02;margin-top:24px}
+.single-content .article__lead{font-size:var(--fs-18);line-height:1.55;max-width:720px}
+.single-content__hero{margin:40px 0 0}
+.single-content__hero img{background:var(--nh-gray-2);display:block;height:auto;max-height:720px;object-fit:cover;width:100%}
+.single-content .article__body{margin-top:40px}
+.single-content__meta{border-block:.5px solid var(--nh-gray-2);display:flex;flex-wrap:wrap;gap:16px 40px;padding-block:16px}
+.single-content__meta-item{display:flex;flex-direction:column;gap:4px;min-width:160px}
+.single-content__meta-item strong{color:var(--nh-gray-6);font-family:var(--font-body);font-size:var(--fs-13);font-weight:var(--weight-semibold);line-height:var(--lh-tight);text-transform:uppercase}
+.single-content__meta-item span{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-16);line-height:var(--lh-26)}
+.single-content__cta{align-self:flex-start}
+.single-content__gallery{display:grid;gap:20px;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:24px}
+.single-content__gallery figure{margin:0;min-width:0}
+.single-content__gallery img{background:var(--nh-gray-2);display:block;height:100%;object-fit:cover;aspect-ratio:1.35;width:100%}
+.single-content__gallery figcaption{color:var(--nh-gray-6);font-family:var(--font-body);font-size:var(--fs-13);line-height:var(--lh-body);margin-top:8px}
+@media (max-width:620px){
+  .page-single-content{padding-block:calc(var(--header-height) + 24px) 64px}
+  .single-content .article__top{align-items:flex-start;flex-direction:column;gap:12px}
+  .single-content .article__title{font-size:clamp(2.6rem,13vw,4rem);margin-top:16px}
+  .single-content .article__lead{font-size:var(--fs-16)}
+  .single-content__hero{margin-top:28px}
+  .single-content__meta{gap:16px 24px}
+  .single-content__gallery{grid-template-columns:minmax(0,1fr)}
+}
+.nh-partner-grid .nh-partner{align-items:center;background-image:none;box-sizing:border-box;display:flex;justify-content:center;overflow:hidden;padding:8px}
+.nh-partner-grid .nh-partner img{display:block;height:100%;max-width:100%;object-fit:contain;width:auto}
+.page-news .article__section h3{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-16);font-weight:var(--weight-semibold);line-height:var(--lh-body)}
+.page-about .section-timeline .nh-intro__title{color:var(--nh-gold);font-size:var(--fs-32);letter-spacing:.04em}
+.page-about .section-timeline .nh-intro__lead{font-size:var(--fs-16);line-height:26px;max-width:556px}
+.page-about .section-intro .nh-intro__lead{font-size:var(--fs-16);line-height:26px;max-width:1024px}
+.page-about .section-team .nh-intro{gap:16px}
+.page-about .section-team .nh-intro__eyebrow{gap:8px}
+.page-about .section-team .nh-section-title{margin-top:0}
+/* Contact Form 7 always wraps shortcode output in <div class="wpcf7"><form class="wpcf7-form">,
+   which breaks any display:flex/grid rule expecting the real fields as direct children.
+   display:contents lets the outer layout "see through" CF7's wrapper chrome to the real controls. */
+.nh-newsletter .wpcf7,
+.nh-newsletter .wpcf7-form,
+.nh-newsletter .wpcf7-form-control-wrap,
+.nh-contact-form .wpcf7,
+.nh-contact-form .wpcf7-form,
+.nh-contact-form .wpcf7-form-control-wrap{display:contents}
+.nh-newsletter .hidden-fields-container,
+.nh-contact-form .hidden-fields-container{display:none}
+.nh-newsletter{flex-wrap:wrap}
+.nh-newsletter input[type="email"]{flex:1 1 0;min-width:0}
+.nh-newsletter input[type="submit"]{appearance:none;background:var(--nh-gold);border:0;box-shadow:inset 0 0 0 1.333px var(--nh-gold);color:var(--nh-ink);cursor:pointer;flex:0 0 44px;font-family:var(--font-body);font-size:17px;height:43px;line-height:1;padding:0;text-align:center;width:44px}
+.nh-newsletter input[type="submit"]:hover{background:var(--nh-gold-light);transform:translateX(3px)}
+.nh-newsletter .wpcf7-response-output{order:99;width:100%}
+.nh-contact-form .wpcf7-response-output{order:99}

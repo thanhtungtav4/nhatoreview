@@ -1,0 +1,556 @@
+{
+    "key": "group_page_home",
+    "title": "Trang chủ — Nội dung",
+    "fields": [
+        {
+            "key": "field_page_home_hero_settings",
+            "label": "Hero",
+            "name": "hero_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_home_hero_image",
+                    "label": "Ảnh hero",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_page_home_hero_title",
+                    "label": "Tiêu đề",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_hero_lead",
+                    "label": "Mô tả ngắn",
+                    "name": "lead",
+                    "type": "textarea",
+                    "rows": 3
+                },
+                {
+                    "key": "field_page_home_hero_link",
+                    "label": "Nút hành động",
+                    "name": "link",
+                    "type": "link",
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "field_page_home_category_strip_settings",
+            "label": "Danh mục khám phá",
+            "name": "category_strip_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_home_category_title",
+                    "label": "Nhãn hỗ trợ",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_category_items",
+                    "label": "Danh mục",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm danh mục",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_home_category_item_title",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_home_category_item_text",
+                            "label": "Mô tả",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 3
+                        },
+                        {
+                            "key": "field_page_home_category_item_image",
+                            "label": "Ảnh nền",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all"
+                        },
+                        {
+                            "key": "field_page_home_category_item_link",
+                            "label": "Liên kết",
+                            "name": "link",
+                            "type": "link",
+                            "return_format": "array"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_page_home_style_picker_settings",
+            "label": "Chọn phong cách",
+            "name": "style_picker_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_home_style_eyebrow",
+                    "label": "Eyebrow",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_style_title",
+                    "label": "Tiêu đề",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_style_text",
+                    "label": "Mô tả",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 3
+                },
+                {
+                    "key": "field_page_home_style_link",
+                    "label": "Liên kết xem tất cả",
+                    "name": "link",
+                    "type": "link",
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_page_home_style_items",
+                    "label": "Phong cách",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm phong cách",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_home_style_item_title",
+                            "label": "Tên phong cách",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_home_style_item_image",
+                            "label": "Ảnh",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all"
+                        },
+                        {
+                            "key": "field_page_home_style_item_link",
+                            "label": "Liên kết",
+                            "name": "link",
+                            "type": "link",
+                            "return_format": "array"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_page_home_booking_settings",
+            "label": "Đặt lịch trải nghiệm",
+            "name": "booking_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_home_booking_eyebrow",
+                    "label": "Eyebrow",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_booking_title",
+                    "label": "Tiêu đề",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_booking_image",
+                    "label": "Ảnh nền",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_page_home_booking_link",
+                    "label": "Liên kết",
+                    "name": "link",
+                    "type": "link",
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "field_page_home_portfolio_settings",
+            "label": "Portfolio",
+            "name": "portfolio_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_home_portfolio_text",
+                    "label": "Mô tả",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 4
+                },
+                {
+                    "key": "field_page_home_portfolio_tabs_label",
+                    "label": "Nhãn nhóm",
+                    "name": "tabs_label",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_portfolio_all_label",
+                    "label": "Nhãn xem tất cả",
+                    "name": "all_label",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_page_home_services_settings",
+            "label": "Dịch vụ không gian sống",
+            "name": "services_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_home_services_eyebrow",
+                    "label": "Eyebrow",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_services_title",
+                    "label": "Tiêu đề",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_services_link",
+                    "label": "Liên kết xem tất cả",
+                    "name": "link",
+                    "type": "link",
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_page_home_services_items",
+                    "label": "Dịch vụ",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm dịch vụ",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_home_service_title",
+                            "label": "Tên dịch vụ",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_home_service_text",
+                            "label": "Mô tả",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 3
+                        },
+                        {
+                            "key": "field_page_home_service_image",
+                            "label": "Ảnh",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_page_home_art_features",
+            "label": "Điểm nhấn nghệ thuật",
+            "name": "art_features",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_home_art_items",
+                    "label": "Điểm nhấn",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm điểm nhấn",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_home_art_eyebrow",
+                            "label": "Eyebrow",
+                            "name": "eyebrow",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_home_art_ghost",
+                            "label": "Chữ nền (ghost)",
+                            "name": "ghost",
+                            "type": "text",
+                            "instructions": "Chữ lớn mờ phía sau tiêu đề, ví dụ \"NGHỆ THUẬT\"."
+                        },
+                        {
+                            "key": "field_page_home_art_title",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_home_art_text",
+                            "label": "Mô tả",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 4
+                        },
+                        {
+                            "key": "field_page_home_art_image",
+                            "label": "Ảnh",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all"
+                        },
+                        {
+                            "key": "field_page_home_art_link",
+                            "label": "Liên kết",
+                            "name": "link",
+                            "type": "link",
+                            "return_format": "array"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_page_home_taste_settings",
+            "label": "Phong vị",
+            "name": "taste_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_home_taste_eyebrow",
+                    "label": "Eyebrow",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_taste_title",
+                    "label": "Tiêu đề",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_taste_text",
+                    "label": "Mô tả",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 4
+                },
+                {
+                    "key": "field_page_home_taste_items",
+                    "label": "Các phong vị",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm phong vị",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_home_taste_item_title",
+                            "label": "Tên phong vị",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_home_taste_item_text",
+                            "label": "Mô tả",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 3
+                        },
+                        {
+                            "key": "field_page_home_taste_item_image",
+                            "label": "Ảnh",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_page_home_contact_band_settings",
+            "label": "Kết nối",
+            "name": "contact_band_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_home_contact_image",
+                    "label": "Ảnh nền",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_page_home_contact_title",
+                    "label": "Tiêu đề form",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_contact_aside_title",
+                    "label": "Tiêu đề bên phải",
+                    "name": "aside_title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_contact_aside_text",
+                    "label": "Mô tả bên phải",
+                    "name": "aside_text",
+                    "type": "textarea",
+                    "rows": 4
+                },
+                {
+                    "key": "field_page_home_contact_details",
+                    "label": "Thông tin liên hệ",
+                    "name": "details",
+                    "type": "repeater",
+                    "layout": "table",
+                    "button_label": "Thêm thông tin",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_home_contact_detail_text",
+                            "label": "Nội dung",
+                            "name": "text",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_page_home_partners_settings",
+            "label": "Đối tác",
+            "name": "partners_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_home_partners_title",
+                    "label": "Tiêu đề",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_partners_link",
+                    "label": "Liên kết",
+                    "name": "link",
+                    "type": "link",
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_page_home_partners_items",
+                    "label": "Đối tác",
+                    "name": "items",
+                    "type": "repeater",
+                    "layout": "block",
+                    "button_label": "Thêm đối tác",
+                    "sub_fields": [
+                        {
+                            "key": "field_page_home_partner_title",
+                            "label": "Tên đối tác",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_page_home_partner_image",
+                            "label": "Logo",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all"
+                        },
+                        {
+                            "key": "field_page_home_partner_link",
+                            "label": "Liên kết",
+                            "name": "link",
+                            "type": "link",
+                            "return_format": "array"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_page_home_events_settings",
+            "label": "Sự kiện",
+            "name": "events_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_page_home_events_title",
+                    "label": "Tiêu đề",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_home_events_link",
+                    "label": "Liên kết",
+                    "name": "link",
+                    "type": "link",
+                    "return_format": "array"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "show_in_rest": 1
+}

@@ -7,22 +7,21 @@ namespace Theme\Child\Hooks;
 defined('ABSPATH') || exit;
 
 /**
- * Child-owned common CSS/JS pipeline + child menu locations + tracking scripts (Theme Settings).
- *
- * Fires the parent extension points so context hooks still work:
- *   underscores_before_common_css / underscores_after_common_css
- *   underscores_before_common_js  / underscores_after_common_js
+ * Child-owned NHATO CSS/JS pipeline, menus and Theme Settings snippets.
  */
 final class ThemeHook
 {
     public static function register(): void
     {
         $self = new self();
+
         add_action('after_setup_theme', [$self, 'register_menus']);
         add_action('wp_enqueue_scripts', [$self, 'enqueue_common_css_assets'], 10);
         add_action('wp_enqueue_scripts', [$self, 'enqueue_common_js_assets'], 10);
         add_action('wp_head', [$self, 'print_header_scripts'], 100);
         add_action('wp_footer', [$self, 'print_footer_scripts'], 100);
+        add_filter('nav_menu_css_class', [$self, 'add_header_item_class'], 10, 4);
+        add_filter('nav_menu_link_attributes', [$self, 'add_header_link_attributes'], 10, 4);
     }
 
     public function print_header_scripts(): void
@@ -35,10 +34,6 @@ final class ThemeHook
         $this->print_tracking_script('footer_scripts');
     }
 
-    /**
-     * In nguyên snippet admin dán vào. Đã lọc lúc lưu (LocalJson::sanitize_script_field)
-     * + options page chỉ cho manage_options.
-     */
     private function print_tracking_script(string $name): void
     {
         $scripts = underscores_get_option('scripts_section', []);
@@ -49,41 +44,30 @@ final class ThemeHook
         }
     }
 
-    /**
-     * Danh sách link ở footer (vd cột "Liên kết nhanh") = WP menu, không phải ACF repeater.
-     * Tiêu đề cột lấy từ tên menu: wp_get_nav_menu_name('footer-menu').
-     */
     public function register_menus(): void
     {
         register_nav_menus([
-            'footer-menu' => __('Footer Menu', 'underscores'),
+            'footer-explore-menu' => __('Footer — Khám phá', 'underscores'),
+            'footer-support-menu' => __('Footer — Hỗ trợ', 'underscores'),
+            'footer-menu'         => __('Footer Menu (legacy)', 'underscores'),
         ]);
     }
 
     public function enqueue_common_css_assets(): void
     {
-        wp_enqueue_style(
-            'underscores-parent-style',
-            UNDERSCORES_SITE_TEMPLATE_URL . '/css/style.css',
-            [],
-            underscores_child_template_asset_version('/css/style.css')
-        );
-
         do_action('underscores_before_common_css');
 
         wp_enqueue_style(
-            'underscores-common',
-            UNDERSCORES_SITE_TEMPLATE_URL . '/css/backdoor.css',
-            ['underscores-parent-style'],
-            underscores_child_template_asset_version('/css/backdoor.css')
+            'nhato-style',
+            UNDERSCORES_SITE_TEMPLATE_URL . '/assets/css/nhato.css',
+            [],
+            underscores_child_template_asset_version('/assets/css/nhato.css')
         );
 
-        // style.css của child chỉ chứa header theme → KHÔNG enqueue (tốn 1 request vô ích).
-        // CSS dự án viết vào assets/css/child-theme.css.
         wp_enqueue_style(
             'underscores-child-style',
             underscores_child_asset_uri('assets/css/child-theme.css'),
-            ['underscores-common'],
+            ['nhato-style'],
             underscores_child_asset_version('assets/css/child-theme.css')
         );
 
@@ -92,62 +76,83 @@ final class ThemeHook
 
     public function enqueue_common_js_assets(): void
     {
-        // Mọi script theme: in ở footer + `defer` qua API core (WP 6.3+). Core tự hạ về blocking
-        // nếu một dependent không defer được — không tự chèn attribute bằng script_loader_tag.
         $defer = ['in_footer' => true, 'strategy' => 'defer'];
-
-        /**
-         * Thư viện từ build /template: handle => [path, deps].
-         * Dự án KHÔNG dùng thư viện nào thì bỏ qua filter (mỗi file thừa = 1 request + parse JS):
-         *   add_filter('underscores_child_common_libraries', fn($libs) => array_diff_key($libs, array_flip(['select2', 'splitting'])));
-         */
-        $libraries = (array) apply_filters('underscores_child_common_libraries', [
-            'swiper-bundle' => ['/assets/library/swiper/swiper-bundle.min.js', []],
-            'aos'           => ['/assets/library/aos/aos.js', []],
-            'select2'       => ['/assets/library/select2/select2.min.js', ['jquery']],
-            'fancybox'      => ['/assets/library/fancybox/fancybox.umd.js', []],
-            'smoothscroll'  => ['/assets/library/smoothscroll/SmoothScroll.min.js', []],
-            'gsap'          => ['/assets/library/gsap/gsap.min.js', []],
-            'scrolltrigger' => ['/assets/library/ScrollTrigger/ScrollTrigger.min.js', ['gsap']],
-            'splitting'     => ['/assets/library/splitting/splitting.min.js', []],
-        ]);
-
-        foreach ($libraries as $handle => [$path, $deps]) {
-            wp_enqueue_script(
-                $handle,
-                UNDERSCORES_SITE_TEMPLATE_URL . $path,
-                $deps,
-                underscores_child_template_asset_version($path),
-                $defer
-            );
-        }
 
         do_action('underscores_before_common_js');
 
         wp_enqueue_script(
-            'underscores-main',
-            UNDERSCORES_SITE_TEMPLATE_URL . '/js/main.js',
-            array_merge(['jquery'], array_keys($libraries)),
-            underscores_child_template_asset_version('/js/main.js'),
+            'nhato-icons',
+            UNDERSCORES_SITE_TEMPLATE_URL . '/assets/icons/nhato-icons.js',
+            [],
+            underscores_child_template_asset_version('/assets/icons/nhato-icons.js'),
             $defer
         );
 
         wp_enqueue_script(
-            'underscores-frontend',
-            UNDERSCORES_THEME_PATH_URI . '/assets/scripts/underscores-frontend.js',
-            ['underscores-main'],
-            UNDERSCORES_THEME_VERSION,
-            $defer
-        );
-
-        wp_enqueue_script(
-            'underscores-child-script',
-            underscores_child_asset_uri('assets/scripts/child-theme.js'),
-            ['underscores-frontend'],
-            underscores_child_asset_version('assets/scripts/child-theme.js'),
+            'nhato-script',
+            UNDERSCORES_SITE_TEMPLATE_URL . '/assets/js/nhato.js',
+            ['nhato-icons'],
+            underscores_child_template_asset_version('/assets/js/nhato.js'),
             $defer
         );
 
         do_action('underscores_after_common_js');
+    }
+
+    /**
+     * The NHATO stylesheet expects a dedicated link class and body page key.
+     * The menu remains managed by WordPress; these attributes only adapt output
+     * to the existing visual system.
+     *
+     * @param array<int,string> $classes
+     * @param \WP_Post          $item
+     * @param object             $args
+     * @param int                $depth
+     * @return array<int,string>
+     */
+    public function add_header_item_class(array $classes, $item, $args, int $depth): array
+    {
+        if (($args->nhato_context ?? '') !== 'header') {
+            return $classes;
+        }
+
+        $classes[] = 'nh-header__item';
+
+        return array_values(array_unique($classes));
+    }
+
+    /**
+     * @param array<string,string> $atts
+     * @param \WP_Post              $item
+     * @param object                $args
+     * @param int                   $depth
+     * @return array<string,string>
+     */
+    public function add_header_link_attributes(array $atts, $item, $args, int $depth): array
+    {
+        if (($args->nhato_context ?? '') !== 'header') {
+            return $atts;
+        }
+
+        $classes = preg_split('/\s+/', trim((string) ($atts['class'] ?? '')));
+        $classes = array_values(array_filter(array_unique(array_merge($classes ?: [], ['nh-header__link']))));
+
+        $atts['class']        = implode(' ', $classes);
+        $atts['data-nav-link'] = '';
+        $atts['data-page']    = $this->menu_page_key($item);
+
+        return $atts;
+    }
+
+    private function menu_page_key($item): string
+    {
+        $url  = (string) ($item->url ?? '');
+        $path = trim((string) wp_parse_url($url, PHP_URL_PATH), '/');
+
+        if ($path === '') {
+            return 'home';
+        }
+
+        return sanitize_title((string) basename($path));
     }
 }

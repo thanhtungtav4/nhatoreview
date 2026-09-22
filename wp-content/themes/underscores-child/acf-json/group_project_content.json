@@ -1,0 +1,42 @@
+{
+    "key": "group_project_content",
+    "title": "Thông tin dự án",
+    "fields": [
+        {
+            "key": "field_project_location",
+            "label": "Địa điểm",
+            "name": "project_location",
+            "type": "text",
+            "instructions": "Địa điểm hoặc khu vực của dự án."
+        },
+        {
+            "key": "field_project_gallery",
+            "label": "Thư viện hình ảnh",
+            "name": "project_gallery",
+            "type": "gallery",
+            "instructions": "Ảnh chi tiết dự án; ảnh đại diện vẫn dùng Featured Image.",
+            "return_format": "id",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all",
+            "min": 0,
+            "max": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "project"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "show_in_rest": 1
+}

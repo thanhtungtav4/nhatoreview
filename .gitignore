@@ -6,3 +6,20 @@ output/
 /tmp/
 .playwright-cli/
 nhato-collection-design-system.html
+
+# WordPress core / third-party — this repo tracks template/ and
+# wp-content/themes/ only (custom design kit + child/parent theme).
+/wp-admin/
+/wp-includes/
+/wp-content/plugins/
+/wp-content/uploads/
+/wp-content/upgrade/
+/wp-content/index.php
+/wp-*.php
+/index.php
+/license.txt
+/readme.html
+/xmlrpc.php
+
+# Local deploy credentials
+.vscode/

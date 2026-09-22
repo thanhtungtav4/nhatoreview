@@ -1,0 +1,103 @@
+{
+    "key": "group_page_original",
+    "title": "Bản sắc — Nội dung",
+    "fields": [
+        {
+            "key": "field_page_original_hero_image",
+            "label": "Ảnh hero",
+            "name": "hero_image",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_page_original_hero_lead",
+            "label": "Mô tả ngắn",
+            "name": "hero_lead",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "field_page_original_intro_eyebrow",
+            "label": "Nhãn giới thiệu",
+            "name": "intro_eyebrow",
+            "type": "text"
+        },
+        {
+            "key": "field_page_original_intro_title",
+            "label": "Tiêu đề giới thiệu",
+            "name": "intro_title",
+            "type": "text"
+        },
+        {
+            "key": "field_page_original_panels",
+            "label": "Khối khám phá",
+            "name": "original_panels",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Thêm khối",
+            "sub_fields": [
+                {
+                    "key": "field_page_original_panel_number",
+                    "label": "Số thứ tự",
+                    "name": "number",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_original_panel_title",
+                    "label": "Tiêu đề",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_page_original_panel_text",
+                    "label": "Mô tả",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 4
+                },
+                {
+                    "key": "field_page_original_panel_image",
+                    "label": "Ảnh nền",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_page_original_panel_link",
+                    "label": "Liên kết",
+                    "name": "link",
+                    "type": "link",
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "field_page_original_quote",
+            "label": "Trích dẫn",
+            "name": "original_quote",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "br"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "12"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "show_in_rest": 1
+}

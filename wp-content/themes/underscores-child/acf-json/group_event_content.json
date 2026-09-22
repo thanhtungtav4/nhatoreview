@@ -1,0 +1,52 @@
+{
+    "key": "group_event_content",
+    "title": "Thông tin sự kiện",
+    "fields": [
+        {
+            "key": "field_event_date",
+            "label": "Ngày diễn ra",
+            "name": "event_date",
+            "type": "date_picker",
+            "instructions": "Ngày hiển thị trên card sự kiện.",
+            "display_format": "d/m/Y",
+            "return_format": "Y-m-d",
+            "first_day": 1
+        },
+        {
+            "key": "field_event_time",
+            "label": "Thời gian",
+            "name": "event_time",
+            "type": "text",
+            "instructions": "Ví dụ: 18:00 – 21:00."
+        },
+        {
+            "key": "field_event_location",
+            "label": "Địa điểm",
+            "name": "event_location",
+            "type": "text"
+        },
+        {
+            "key": "field_event_registration",
+            "label": "Link đăng ký",
+            "name": "event_registration",
+            "type": "link",
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "event"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "show_in_rest": 1
+}

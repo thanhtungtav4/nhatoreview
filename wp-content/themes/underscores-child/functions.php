@@ -29,6 +29,10 @@ if (!defined('UNDERSCORES_CHILD_THEME_STUB_PATH')) {
     define('UNDERSCORES_CHILD_THEME_STUB_PATH', UNDERSCORES_CHILD_THEME_PATH . '/stubs');
 }
 
+if (!defined('UNDERSCORES_CHILD_THEME_CONFIG_PATH')) {
+    define('UNDERSCORES_CHILD_THEME_CONFIG_PATH', UNDERSCORES_CHILD_THEME_PATH . '/includes/config');
+}
+
 if (!function_exists('get_main_class')) {
     function get_main_class($css_class = ''): string
     {

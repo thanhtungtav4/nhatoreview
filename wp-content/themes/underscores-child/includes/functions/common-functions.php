@@ -12,7 +12,21 @@ if (!function_exists('underscores_get_option')) {
             return $default;
         }
 
-        $value = get_field($field_name, 'option');
+        // ACF 6.x stores the singleton in $GLOBALS['acf']; during edge-case
+        // early loading the global may be an array instead of the ACF object,
+        // causing a fatal on ->has_setting(). Guard both ways.
+        if (function_exists('acf')) {
+            $instance = acf();
+            if (!is_object($instance)) {
+                return $default;
+            }
+        }
+
+        try {
+            $value = get_field($field_name, 'option');
+        } catch (\Throwable $e) {
+            return $default;
+        }
 
         if ($value === null || $value === false || $value === '' || $value === []) {
             return $default;
