@@ -123,7 +123,8 @@
                             "label": "Liên kết",
                             "name": "link",
                             "type": "link",
-                            "return_format": "array"
+                            "return_format": "array",
+                            "instructions": "Bắt buộc nhập link; item không có link sẽ không hiển thị."
                         }
                     ]
                 }
@@ -154,7 +155,7 @@
                 },
                 {
                     "key": "field_page_home_style_eyebrow",
-                    "label": "Eyebrow",
+                    "label": "Nhãn phụ",
                     "name": "eyebrow",
                     "type": "text"
                 },
@@ -237,7 +238,7 @@
                 },
                 {
                     "key": "field_page_home_booking_eyebrow",
-                    "label": "Eyebrow",
+                    "label": "Nhãn phụ",
                     "name": "eyebrow",
                     "type": "text"
                 },
@@ -297,40 +298,43 @@
                 },
                 {
                     "key": "field_page_home_portfolio_mosaic_main_image",
-                    "label": "Mosaic - Ảnh chính",
+                    "label": "Bố cục ảnh - Ảnh chính",
                     "name": "mosaic_main_image",
                     "type": "image",
-                    "instructions": "Hiển thị khi tab \"Tất cả\" đang chọn.",
+                    "instructions": "Ảnh chính của bố cục ảnh ghép. Cần đủ 1 ảnh chính và 3 ảnh phụ để hiển thị mosaic; nếu thiếu sẽ hiển thị grid portfolio.",
                     "return_format": "id",
                     "preview_size": "medium",
                     "library": "all"
                 },
                 {
                     "key": "field_page_home_portfolio_mosaic_side_image_1",
-                    "label": "Mosaic - Ảnh phụ 1",
+                    "label": "Bố cục ảnh - Ảnh phụ 1",
                     "name": "mosaic_side_image_1",
                     "type": "image",
                     "return_format": "id",
                     "preview_size": "medium",
-                    "library": "all"
+                    "library": "all",
+                    "instructions": "Ảnh phụ của bố cục ảnh ghép; cần đủ cả 3 ảnh phụ để hiển thị mosaic."
                 },
                 {
                     "key": "field_page_home_portfolio_mosaic_side_image_2",
-                    "label": "Mosaic - Ảnh phụ 2",
+                    "label": "Bố cục ảnh - Ảnh phụ 2",
                     "name": "mosaic_side_image_2",
                     "type": "image",
                     "return_format": "id",
                     "preview_size": "medium",
-                    "library": "all"
+                    "library": "all",
+                    "instructions": "Ảnh phụ của bố cục ảnh ghép; cần đủ cả 3 ảnh phụ để hiển thị mosaic."
                 },
                 {
                     "key": "field_page_home_portfolio_mosaic_side_image_3",
-                    "label": "Mosaic - Ảnh phụ 3",
+                    "label": "Bố cục ảnh - Ảnh phụ 3",
                     "name": "mosaic_side_image_3",
                     "type": "image",
                     "return_format": "id",
                     "preview_size": "medium",
-                    "library": "all"
+                    "library": "all",
+                    "instructions": "Ảnh phụ của bố cục ảnh ghép; cần đủ cả 3 ảnh phụ để hiển thị mosaic."
                 },
                 {
                     "key": "field_page_home_portfolio_tabs_label",
@@ -344,7 +348,8 @@
                     "name": "all_label",
                     "type": "text"
                 }
-            ]
+            ],
+            "instructions": "Mosaic chỉ hiển thị khi đủ 1 ảnh chính và 3 ảnh phụ. Nếu thiếu ảnh, hệ thống sẽ hiển thị grid portfolio mặc định."
         },
         {
             "key": "field_page_home_services_tab",
@@ -371,7 +376,7 @@
                 },
                 {
                     "key": "field_page_home_services_eyebrow",
-                    "label": "Eyebrow",
+                    "label": "Nhãn phụ",
                     "name": "eyebrow",
                     "type": "text"
                 },
@@ -433,7 +438,7 @@
         {
             "key": "field_page_home_art_features",
             "label": "Điểm nhấn nghệ thuật",
-            "name": "art_features",
+            "name": "art_settings",
             "type": "group",
             "layout": "block",
             "sub_fields": [
@@ -455,13 +460,13 @@
                     "sub_fields": [
                         {
                             "key": "field_page_home_art_eyebrow",
-                            "label": "Eyebrow",
+                            "label": "Nhãn phụ",
                             "name": "eyebrow",
                             "type": "text"
                         },
                         {
                             "key": "field_page_home_art_ghost",
-                            "label": "Chữ nền (ghost)",
+                            "label": "Chữ nền",
                             "name": "ghost",
                             "type": "text",
                             "instructions": "Chữ lớn mờ phía sau tiêu đề, ví dụ \"NGHỆ THUẬT\"."
@@ -524,7 +529,7 @@
                 },
                 {
                     "key": "field_page_home_taste_eyebrow",
-                    "label": "Eyebrow",
+                    "label": "Nhãn phụ",
                     "name": "eyebrow",
                     "type": "text"
                 },
@@ -712,7 +717,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "instructions": "Nếu để trống danh sách tại đây, homepage sẽ dùng danh sách Đối tác trong Theme Settings."
         },
         {
             "key": "field_page_home_events_tab",
@@ -750,7 +756,8 @@
                     "type": "link",
                     "return_format": "array"
                 }
-            ]
+            ],
+            "instructions": "Danh sách sự kiện được lấy tự động từ các event đang publish và sắp xếp theo ngày."
         }
     ],
     "location": [

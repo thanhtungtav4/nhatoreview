@@ -23,8 +23,8 @@ $booking_settings   = is_array($page_fields['booking_settings'] ?? null) ? $page
 $portfolio_settings = is_array($page_fields['portfolio_settings'] ?? null) ? $page_fields['portfolio_settings'] : [];
 $services_settings  = is_array($page_fields['services_settings'] ?? null) ? $page_fields['services_settings'] : [];
 
-// Expected ACF group keys: art_features, taste_settings, contact_band_settings.
-$art_features           = is_array($page_fields['art_features'] ?? null) ? $page_fields['art_features'] : [];
+// Expected ACF group keys: art_settings, taste_settings, contact_band_settings.
+$art_settings           = is_array($page_fields['art_settings'] ?? null) ? $page_fields['art_settings'] : [];
 $taste_settings        = is_array($page_fields['taste_settings'] ?? null) ? $page_fields['taste_settings'] : [];
 $contact_band_settings = is_array($page_fields['contact_band_settings'] ?? null) ? $page_fields['contact_band_settings'] : [];
 
@@ -64,6 +64,10 @@ $image_url = static function (int $attachment_id, string $size = 'full'): string
     return (string) wp_get_attachment_image_url($attachment_id, $size);
 };
 
+$section_visible = static function (array $section): bool {
+    return !array_key_exists('is_show', $section) || (bool) $section['is_show'];
+};
+
 underscores_child_set_main_class('page-home');
 get_header();
 
@@ -71,7 +75,7 @@ $banner_image_id = $image_id($banner_settings['image'] ?? get_post_thumbnail_id(
 $banner_title    = trim((string) ($banner_settings['title'] ?? get_the_title()));
 $banner_lead     = trim((string) ($banner_settings['lead'] ?? $banner_settings['text'] ?? ''));
 $banner_link     = $link_data($banner_settings['link'] ?? []);
-if (!empty($banner_settings['is_show']) && ($banner_image_id > 0 || $banner_title !== '' || $banner_lead !== '')) :
+if ($section_visible($banner_settings) && ($banner_image_id > 0 || $banner_title !== '' || $banner_lead !== '')) :
     ?>
     <section class="nh-hero">
         <?php if ($banner_image_id > 0) : ?><div class="nh-hero__media"><?php echo wp_get_attachment_image($banner_image_id, 'full', false, ['alt' => $banner_title, 'loading' => 'eager', 'fetchpriority' => 'high']); ?></div><?php endif; ?>
@@ -92,7 +96,7 @@ if (!empty($banner_settings['is_show']) && ($banner_image_id > 0 || $banner_titl
 
 <?php
 $category_items = is_array($category_strip_settings['items'] ?? null) ? $category_strip_settings['items'] : [];
-if (!empty($category_strip_settings['is_show']) && $category_items !== []) :
+if ($section_visible($category_strip_settings) && $category_items !== []) :
     ?>
     <section class="home-categories">
         <?php if (!empty($category_strip_settings['title'])) : ?><h2 class="sr-only"><?php echo esc_html((string) $category_strip_settings['title']); ?></h2><?php endif; ?>
@@ -127,7 +131,7 @@ if (!empty($category_strip_settings['is_show']) && $category_items !== []) :
 <div class="home-stack">
     <?php
     $style_items = is_array($style_picker_settings['items'] ?? null) ? $style_picker_settings['items'] : [];
-    if (!empty($style_picker_settings['is_show']) && ($style_items !== [] || !empty($style_picker_settings['title']) || !empty($style_picker_settings['text']))) :
+    if ($section_visible($style_picker_settings) && ($style_items !== [] || !empty($style_picker_settings['title']) || !empty($style_picker_settings['text']))) :
         $style_link = $link_data($style_picker_settings['link'] ?? []);
         ?>
         <section class="nh-container">
@@ -170,7 +174,7 @@ if (!empty($category_strip_settings['is_show']) && $category_items !== []) :
 
     <?php
     $booking_image = $image_url($image_id($booking_settings['image'] ?? 0), 'full');
-    if (!empty($booking_settings['is_show']) && $booking_settings !== []) :
+    if ($section_visible($booking_settings) && $booking_settings !== []) :
         $booking_link = $link_data($booking_settings['link'] ?? []);
         ?>
         <section class="nh-booking"<?php if ($booking_image !== '') : ?> style="--nh-booking-image:url('<?php echo esc_url($booking_image); ?>')"<?php endif; ?>>
@@ -204,7 +208,7 @@ if (!empty($category_strip_settings['is_show']) && $category_items !== []) :
         $image_id($portfolio_settings['mosaic_side_image_3'] ?? 0),
     ]));
     $has_mosaic = $mosaic_main_id > 0 && count($mosaic_side_ids) === 3;
-    if (!empty($portfolio_settings['is_show']) && ($portfolio_terms !== [] || $portfolio_query->have_posts())) :
+    if ($section_visible($portfolio_settings) && ($portfolio_terms !== [] || $portfolio_query->have_posts())) :
         ?>
         <section class="nh-container u-flex-col u-gap-40 u-items-center">
             <?php if (!empty($portfolio_settings['text'])) : ?><p class="nh-portfolio-lead"><?php echo esc_html((string) $portfolio_settings['text']); ?></p><?php endif; ?>
@@ -247,7 +251,7 @@ if (!empty($category_strip_settings['is_show']) && $category_items !== []) :
 
     <?php
     $service_items = is_array($services_settings['items'] ?? null) ? $services_settings['items'] : [];
-    if (!empty($services_settings['is_show']) && $service_items !== []) :
+    if ($section_visible($services_settings) && $service_items !== []) :
         $services_link = $link_data($services_settings['link'] ?? []);
         ?>
         <section class="home-services">
@@ -283,11 +287,8 @@ if (!empty($category_strip_settings['is_show']) && $category_items !== []) :
     <?php endif; ?>
 
     <?php
-    $art_items = is_array($art_features['items'] ?? null) ? $art_features['items'] : $art_features;
-    if (isset($art_items['items'])) {
-        $art_items = $art_items['items'];
-    }
-    if (!empty($art_features['is_show']) && is_array($art_items) && $art_items !== []) :
+    $art_items = is_array($art_settings['items'] ?? null) ? $art_settings['items'] : [];
+    if ($section_visible($art_settings) && is_array($art_items) && $art_items !== []) :
         ?>
         <?php foreach (array_values($art_items) as $art_index => $art_item) :
             if (!is_array($art_item)) {
@@ -318,7 +319,7 @@ if (!empty($category_strip_settings['is_show']) && $category_items !== []) :
 
     <?php
     $taste_items = is_array($taste_settings['items'] ?? null) ? $taste_settings['items'] : [];
-    if (!empty($taste_settings['is_show']) && ($taste_items !== [] || !empty($taste_settings['title']) || !empty($taste_settings['text']))) :
+    if ($section_visible($taste_settings) && ($taste_items !== [] || !empty($taste_settings['title']) || !empty($taste_settings['text']))) :
         ?>
         <section class="u-flex-col u-gap-40">
             <div class="nh-container u-flex-col u-gap-24 u-items-center">
@@ -356,7 +357,7 @@ if (!empty($category_strip_settings['is_show']) && $category_items !== []) :
 
     <?php
     $contact_form = function_exists('underscores_child_render_cf7') ? underscores_child_render_cf7('contact_form_id') : '';
-    if (!empty($contact_band_settings['is_show']) && ($contact_form !== '' || $contact_band_settings !== [])) :
+    if ($section_visible($contact_band_settings) && ($contact_form !== '' || $contact_band_settings !== [])) :
         $contact_image = $image_url($image_id($contact_band_settings['image'] ?? 0), 'full');
         ?>
         <section class="nh-contact-band"<?php if ($contact_image !== '') : ?> style="--nh-contact-band-image:url('<?php echo esc_url($contact_image); ?>')"<?php endif; ?>>
@@ -394,13 +395,13 @@ if (!empty($category_strip_settings['is_show']) && $category_items !== []) :
         'order'               => 'ASC',
         'no_found_rows'       => true,
     ]);
-    if ((!empty($partners_settings['is_show']) && $partners !== []) || (!empty($events_settings['is_show']) && $events_query->have_posts())) :
+    if (($section_visible($partners_settings) && $partners !== []) || ($section_visible($events_settings) && $events_query->have_posts())) :
         $partners_link = $link_data($partners_settings['link'] ?? []);
         $events_link   = $link_data($events_settings['link'] ?? []);
         ?>
         <section class="nh-container home-partners-events">
             <div class="nh-two-col">
-                <?php if (!empty($partners_settings['is_show']) && $partners !== []) : ?>
+                <?php if ($section_visible($partners_settings) && $partners !== []) : ?>
                     <div>
                         <div class="nh-col-head">
                             <?php if (!empty($partners_settings['title'])) : ?><h2><?php echo esc_html((string) $partners_settings['title']); ?></h2><?php endif; ?>
@@ -424,7 +425,7 @@ if (!empty($category_strip_settings['is_show']) && $category_items !== []) :
                     </div>
                 <?php endif; ?>
 
-                <?php if (!empty($events_settings['is_show']) && $events_query->have_posts()) : ?>
+                <?php if ($section_visible($events_settings) && $events_query->have_posts()) : ?>
                     <div>
                         <div class="nh-col-head">
                             <?php if (!empty($events_settings['title'])) : ?><h2><?php echo esc_html((string) $events_settings['title']); ?></h2><?php endif; ?>
