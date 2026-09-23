@@ -16,6 +16,9 @@ $related_mode = (($related_settings['mode'] ?? 'auto') === 'manual') ? 'manual' 
 $related_selected_posts = is_array($related_settings['posts'] ?? null)
     ? array_values(array_filter(array_map('absint', $related_settings['posts'])))
     : [];
+// NOTE: looked up by ACF field KEY (not name) — get_field('featured_settings', $post_id)
+// reliably returns null for this nested group even after the field group is registered;
+// verified empirically. Keep the key lookup; do not "clean up" to the name form.
 $featured_settings = function_exists('get_field') ? get_field('field_post_featured_settings', $post_id) : [];
 $featured_mode = (($featured_settings['mode'] ?? 'auto') === 'manual') ? 'manual' : 'auto';
 $featured_selected_post = absint($featured_settings['post'] ?? 0);
@@ -42,7 +45,7 @@ $toc_entries = is_array($toc_data['toc'] ?? null) ? $toc_data['toc'] : [];
                 <nav class="article__crumbs" aria-label="<?php esc_attr_e('Breadcrumb', 'underscores'); ?>">
                     <a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Trang chủ', 'underscores'); ?></a>
                     <?php if ($primary_term instanceof WP_Term && $primary_term_link !== '') : ?>
-                        <a href="<?php echo esc_url($primary_term_link); ?>" aria-current="page"><?php echo esc_html($primary_term->name); ?></a>
+                        <a href="<?php echo esc_url($primary_term_link); ?>"><?php echo esc_html($primary_term->name); ?></a>
                     <?php endif; ?>
                 </nav>
                 <span class="nh-dateline">
@@ -66,9 +69,9 @@ $toc_entries = is_array($toc_data['toc'] ?? null) ? $toc_data['toc'] : [];
                     <div class="article__toc">
                         <p class="article__toc-head">
                             <strong><?php esc_html_e('Nội dung của bài viết', 'underscores'); ?></strong>
-                            <button type="button" data-nh-toc-toggle><?php esc_html_e('[Ẩn]', 'underscores'); ?></button>
+                            <button type="button" data-nh-toc-toggle aria-expanded="true" aria-controls="article-toc-list"><?php esc_html_e('[Ẩn]', 'underscores'); ?></button>
                         </p>
-                        <ol data-nh-toc>
+                        <ol id="article-toc-list" data-nh-toc>
                             <?php foreach ($toc_entries as $toc_entry) : ?>
                                 <?php
                                 $toc_id = trim((string) ($toc_entry['id'] ?? ''));

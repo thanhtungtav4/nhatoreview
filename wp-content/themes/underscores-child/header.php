@@ -92,7 +92,7 @@ if (is_home() || is_singular('post') || is_category() || is_tag() || is_search()
             </span>
         </a>
 
-        <nav class="nh-header__nav" data-nh-nav aria-label="<?php esc_attr_e('Điều hướng chính', 'underscores'); ?>">
+        <nav id="nh-nav" class="nh-header__nav" data-nh-nav aria-label="<?php esc_attr_e('Điều hướng chính', 'underscores'); ?>">
             <ul class="nh-header__list">
                 <li class="nh-header__item">
                     <button class="nh-header__menu" type="button" aria-label="<?php esc_attr_e('Mở danh mục', 'underscores'); ?>">

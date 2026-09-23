@@ -27,7 +27,6 @@
 .nh-lead-grid{display:grid;grid-template-columns:minmax(0,887fr) minmax(0,389fr);gap:var(--space-6);align-items:start}
 .nh-detail-grid{display:grid;grid-template-columns:minmax(0,880fr) minmax(0,388fr);gap:40px;align-items:start}
 .nh-split-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
-.nh-values-grid{display:grid;grid-template-columns:minmax(22rem,.63fr) minmax(0,1fr);gap:2rem;align-items:start}
 .nh-grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-6)}
 .nh-grid-4[hidden]{display:none}
 .nh-grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-6)}
@@ -39,7 +38,7 @@
 .nh-aside{display:flex;flex-direction:column;gap:var(--space-7);position:sticky;top:calc(var(--header-height) + var(--space-7))}
 .nh-title-row{align-items:center;display:grid;gap:1.5rem;grid-template-columns:auto minmax(4rem,1fr) auto}
 @media (max-width:1050px){
-  .nh-lead-grid,.nh-detail-grid,.nh-split-grid,.nh-values-grid{grid-template-columns:minmax(0,1fr)}
+  .nh-lead-grid,.nh-detail-grid,.nh-split-grid{grid-template-columns:minmax(0,1fr)}
   .nh-split-grid{gap:2.5rem}
   .nh-grid-4,.nh-grid-3,.nh-project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .nh-aside{position:static}
@@ -83,7 +82,7 @@
 .nh-video-card--lead .nh-video-card__title{font-family:var(--font-ui);line-height:var(--lh-26)}
 
 /* ── "Xem thêm" — Figma: 123×40, radius 6, gold, Inter 400 14/24 ─────── */
-.nh-more-btn{align-items:center;background:var(--nh-gold);border:0;border-radius:6px;color:var(--nh-white);display:inline-flex;font-family:var(--font-ui);font-size:var(--fs-14);font-weight:var(--weight-regular);gap:4px;justify-content:center;line-height:var(--lh-24);min-height:40px;padding:8px 16px}
+.nh-more-btn{align-items:center;background:var(--nh-gold);border:0;border-radius:6px;color:var(--nh-ink);display:inline-flex;font-family:var(--font-ui);font-size:var(--fs-14);font-weight:var(--weight-regular);gap:4px;justify-content:center;line-height:var(--lh-24);min-height:40px;padding:8px 16px}
 .nh-more-btn .nh-icon-mask{width:20px;height:20px}
 .nh-more-btn:hover{background:var(--nh-gold-light);color:var(--nh-ink)}
 
@@ -390,7 +389,7 @@ body.nh-video-locked{overflow:hidden}
 .nh-meta{align-items:center;color:var(--nh-gray-5);display:flex;font-size:.69rem;gap:.65rem;margin-top:1.25rem;white-space:nowrap}
 .nh-meta svg{fill:none;height:1.05rem;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.2;width:1.05rem}
 /* Dateline — Ibarra Real Nova 14 / clock glyph, from Frame 2144771605. */
-.nh-dateline{align-items:center;color:var(--nh-gray-6);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-14);font-weight:var(--weight-regular);gap:7px;letter-spacing:0;line-height:var(--lh-body)}
+.nh-dateline{align-items:center;color:var(--nh-gray-7);display:inline-flex;font-family:var(--font-body);font-size:var(--fs-14);font-weight:var(--weight-regular);gap:7px;letter-spacing:0;line-height:var(--lh-body)}
 .nh-dateline strong{font-weight:var(--weight-medium)}
 .nh-dateline svg,.nh-dateline img{color:var(--nh-gray-5);height:20px;width:20px}
 

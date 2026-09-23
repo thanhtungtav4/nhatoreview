@@ -44,6 +44,7 @@ if (!function_exists('underscores_child_article_content_with_toc')) {
 
                 $base_id = $id;
                 $suffix  = 2;
+                $had_collision = isset($used[$id]);
 
                 while (isset($used[$id])) {
                     $id = $base_id . '-' . $suffix;
@@ -54,8 +55,10 @@ if (!function_exists('underscores_child_article_content_with_toc')) {
 
                 if (! preg_match('/\bid\s*=/i', $attrs)) {
                     $attrs .= ' id="' . esc_attr($id) . '"';
-                } else {
-                    $id = sanitize_title($id_match[1] ?? $id);
+                } elseif ($had_collision) {
+                    // The explicit id= on this heading collided with an earlier one — rewrite
+                    // the attribute in place so the anchor (and this ToC entry) stay unique.
+                    $attrs = preg_replace('/\bid\s*=\s*(["\'])[^"\']*\1/i', 'id="' . esc_attr($id) . '"', $attrs, 1) ?? $attrs;
                 }
 
                 $toc[] = [
@@ -195,5 +198,21 @@ if (!function_exists('underscores_child_icon_mask')) {
         $classes = trim('nh-icon-mask ' . $class);
 
         return '<span class="' . esc_attr($classes) . '" style="--nh-icon-mask:url(' . esc_url($url) . ')" aria-hidden="true"></span>';
+    }
+}
+
+if (!function_exists('underscores_child_acf_image_url')) {
+    /**
+     * Resolve an ACF image field value (attachment array, ID, or raw URL string) to a full-size URL.
+     * Shared by page templates that read banner/panel/gallery images from ACF groups.
+     */
+    function underscores_child_acf_image_url($image): string
+    {
+        $id = is_array($image) ? absint($image['ID'] ?? $image['id'] ?? 0) : absint($image);
+        if ($id > 0) {
+            return (string) wp_get_attachment_image_url($id, 'full');
+        }
+
+        return is_string($image) ? $image : '';
     }
 }

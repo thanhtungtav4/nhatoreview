@@ -11,9 +11,7 @@ $_page_sections = [
     'team' => is_array($page_fields['team_settings'] ?? null) ? $page_fields['team_settings'] : [],
     'videos' => is_array($page_fields['videos_settings'] ?? null) ? $page_fields['videos_settings'] : [],
 ];
-$section_enabled = static function (array $section): bool {
-    return !array_key_exists('is_show', $section) || (bool) $section['is_show'];
-};
+$section_enabled = 'underscores_child_section_is_visible';
 $banner_settings = $_page_sections['banner'];
 $intro_settings = $_page_sections['intro'];
 $timeline_settings = $_page_sections['timeline'];
@@ -23,11 +21,7 @@ $videos_settings = $_page_sections['videos'];
 
 // Expected ACF sections: banner_settings, intro_settings, timeline_settings,
 // values_settings, team_settings, videos_settings.
-$image_url = static function ($image): string {
-    $id = is_array($image) ? absint($image['ID'] ?? $image['id'] ?? 0) : absint($image);
-    if ($id > 0) { return (string) wp_get_attachment_image_url($id, 'full'); }
-    return is_string($image) ? $image : '';
-};
+$image_url = 'underscores_child_acf_image_url';
 $hero_image = $image_url($banner_settings['image'] ?? get_post_thumbnail_id());
 $hero_lead = (string) ($banner_settings['lead'] ?? '');
 if ($section_enabled($banner_settings) && ($hero_image !== '' || $hero_lead !== '' || get_the_title() !== '')) : ?><section class="nh-hero nh-hero--section"><?php if ($hero_image !== '') : ?><div class="nh-hero__media"><img src="<?php echo esc_url($hero_image); ?>" alt="" fetchpriority="high"></div><?php endif; ?><div class="nh-hero__overlay"></div><div class="nh-hero__inner nh-container"><?php if (get_the_title() !== '') : ?><h1 class="nh-hero__title"><?php the_title(); ?></h1><?php endif; ?><?php if ($hero_lead !== '') : ?><p class="nh-hero__lead"><?php echo esc_html($hero_lead); ?></p><?php endif; ?></div></section><?php endif;

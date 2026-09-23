@@ -33,7 +33,7 @@ if ($youtube_url === '' || $youtube_id === '' || ! preg_match('/^[A-Za-z0-9_-]+$
     return;
 }
 
-$image = wp_get_attachment_image($thumbnail_id, 'medium_large', false, ['alt' => $title, 'loading' => 'lazy']);
+$image = wp_get_attachment_image($thumbnail_id, 'medium_large', false, ['alt' => $variant === 'about' ? $title : '', 'loading' => 'lazy']);
 
 if ($image === '') {
     return;

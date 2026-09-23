@@ -365,7 +365,7 @@ if ($section_visible($category_strip_settings) && $category_items !== []) :
         <section class="nh-contact-band"<?php if ($contact_image !== '') : ?> style="--nh-contact-band-image:url('<?php echo esc_url($contact_image); ?>')"<?php endif; ?>>
             <div class="nh-contact-band__inner">
                 <div class="nh-contact-band__form">
-                    <?php if (!empty($contact_band_settings['title'])) : ?><h2 class="nh-contact-band__lead"><?php echo esc_html((string) $contact_band_settings['title']); ?></h2><?php endif; ?>
+                    <?php if (!empty($contact_band_settings['title'])) : $contact_band_title_html = str_replace('&amp;', '<span class="nh-contact-band__amp">&amp;</span>', esc_html((string) $contact_band_settings['title'])); ?><h2 class="nh-contact-band__lead"><?php echo $contact_band_title_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built from esc_html() output above, only a trusted span wraps the escaped text. ?></h2><?php endif; ?>
                     <?php if ($contact_form !== '') : ?><div class="nh-contact-form"><?php echo $contact_form; ?></div><?php endif; ?>
                 </div>
                 <div class="nh-contact-band__aside">

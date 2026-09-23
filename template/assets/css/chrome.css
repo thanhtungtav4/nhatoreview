@@ -35,7 +35,7 @@ body:not(:has(.nh-hero)) .nh-header:not(.is-scrolled)::before{background:var(--n
 .nh-header__list{align-items:center;display:flex;gap:clamp(1.4rem,2.6vw,56px)}
 /* Menu glyph — Figma: ci:menu-alt-05, an 18.667×13.333 white mark inside a 32×32 box.
    The export outlines its 1.333px stroke, so the rendered box carries that overflow. */
-.nh-header__menu .nh-icon-mask{width:21.333px !important;height:16px}
+.nh-header__menu .nh-icon-mask{width:21.333px;height:16px}
 .nh-header__menu{align-items:center;background:none;border:0;color:var(--nh-white);display:inline-flex;flex:0 0 auto;height:32px;justify-content:center;width:32px}
 .nh-header__menu:hover{color:var(--nh-gold-light)}
 .nh-header__link{color:var(--nh-white);display:inline-block;font-size:var(--fs-16);font-weight:var(--weight-medium);line-height:var(--lh-tight);padding:.6rem 0;position:relative;text-transform:capitalize}

@@ -24,6 +24,11 @@ if ($limit > 0) {
         $icon  = absint($social['icon'] ?? 0);
         $label = trim((string) ($social['platform'] ?? ''));
 
+        if ($label === '' && $url !== '') {
+            $host  = parse_url($url, PHP_URL_HOST);
+            $label = is_string($host) ? preg_replace('/^www\./', '', $host) : '';
+        }
+
         if ($url === '' || $icon < 1) {
             continue;
         }

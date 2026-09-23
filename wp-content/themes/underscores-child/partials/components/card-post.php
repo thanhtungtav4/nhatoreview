@@ -17,7 +17,7 @@ $thumbnail_id = absint($args['thumbnail_id'] ?? get_post_thumbnail_id($post_id))
 $text         = trim((string) ($args['text'] ?? get_the_excerpt($post_id)));
 $date         = trim((string) ($args['date'] ?? get_the_date('', $post_id)));
 $views        = trim((string) ($args['views'] ?? ''));
-$image        = $thumbnail_id > 0 ? wp_get_attachment_image($thumbnail_id, 'medium_large', false, ['alt' => $title, 'loading' => 'lazy']) : '';
+$image        = $thumbnail_id > 0 ? wp_get_attachment_image($thumbnail_id, 'medium_large', false, ['alt' => '', 'loading' => 'lazy']) : '';
 
 if ($title === '' || $permalink === '' || $thumbnail_id < 1 || $text === '' || $date === '' || $image === '') {
     return;

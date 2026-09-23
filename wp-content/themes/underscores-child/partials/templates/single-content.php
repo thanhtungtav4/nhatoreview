@@ -199,11 +199,12 @@ get_header();
                 <?php endif; ?>
 
                 <?php if ($gallery_ids !== []) : ?>
+                    <?php _prime_post_caches($gallery_ids, false, false); ?>
                     <section class="single-content__gallery" aria-label="<?php esc_attr_e('Thư viện hình ảnh', 'underscores'); ?>">
                         <?php foreach ($gallery_ids as $gallery_id) : ?>
                             <?php
                             $caption = trim((string) wp_get_attachment_caption($gallery_id));
-                            $image   = wp_get_attachment_image($gallery_id, 'large', false, ['alt' => $title, 'loading' => 'lazy']);
+                            $image   = wp_get_attachment_image($gallery_id, 'large', false, ['loading' => 'lazy']);
                             if ($image === '') {
                                 continue;
                             }

@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 }
 
 if (!function_exists('underscores_get_option')) {
-    function underscores_get_option(string $field_name, $default = null)
+    function underscores_get_option(string $field_name, mixed $default = null): mixed
     {
         if (!function_exists('get_field')) {
             return $default;
