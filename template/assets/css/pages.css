@@ -168,7 +168,7 @@
 .nh-enquire .nh-cta__arrow{box-shadow:inset 0 0 0 var(--border-icon) var(--nh-ink)}
 
 /* Contact close band — Figma: centred copy on contact-bg-01. */
-.nh-close-band{align-items:center;background:url("../images/contact-bg-01.png") center / cover no-repeat;box-sizing:border-box;display:flex;height:421px;justify-content:center}
+.nh-close-band{align-items:center;background:url("../../images/contact-bg-01.png") center / cover no-repeat;box-sizing:border-box;display:flex;height:421px;justify-content:center}
 .nh-close-band__inner{align-items:center;display:flex;flex-direction:column;gap:var(--space-7);text-align:center}
 .nh-close-band__title{color:var(--nh-ink);font-family:var(--font-legacy-serif);font-size:var(--fs-40);font-weight:var(--weight-regular);line-height:46px}
 .nh-close-band__lead{color:var(--nh-ink);font-family:var(--font-body);font-size:var(--fs-16);line-height:var(--lh-26);max-width:640px}
