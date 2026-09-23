@@ -73,12 +73,13 @@ get_header();
 
 $banner_image_id = $image_id($banner_settings['image'] ?? get_post_thumbnail_id());
 $banner_title    = trim((string) ($banner_settings['title'] ?? get_the_title()));
+$banner_title_alt = trim(wp_strip_all_tags(str_replace(['<br>', '<br/>', '<br />'], ' ', $banner_title)));
 $banner_lead     = trim((string) ($banner_settings['lead'] ?? $banner_settings['text'] ?? ''));
 $banner_link     = $link_data($banner_settings['link'] ?? []);
 if ($section_visible($banner_settings) && ($banner_image_id > 0 || $banner_title !== '' || $banner_lead !== '')) :
     ?>
     <section class="nh-hero">
-        <?php if ($banner_image_id > 0) : ?><div class="nh-hero__media"><?php echo wp_get_attachment_image($banner_image_id, 'full', false, ['alt' => $banner_title, 'loading' => 'eager', 'fetchpriority' => 'high']); ?></div><?php endif; ?>
+        <?php if ($banner_image_id > 0) : ?><div class="nh-hero__media"><?php echo wp_get_attachment_image($banner_image_id, 'full', false, ['alt' => $banner_title_alt, 'loading' => 'eager', 'fetchpriority' => 'high']); ?></div><?php endif; ?>
         <div class="nh-hero__overlay"></div>
         <div class="nh-hero__inner nh-container">
             <?php if ($banner_title !== '') : ?><h1 class="nh-hero__title"><?php echo wp_kses_post($banner_title); ?></h1><?php endif; ?>
